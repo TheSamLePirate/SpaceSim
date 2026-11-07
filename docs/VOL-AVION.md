@@ -22,7 +22,7 @@ Dans les deux modes :
 ## Atmosphère et altitude
 
 - **Effets de l'air** : complets sous 20 km, ils disparaissent entre 20 et 40 km. Au-dessus, c'est le vol FSO normal.
-- **Vitesse maximale** : celle de la table près du sol, jusqu'à 4 200 m/s entre 32 et 85 km (montée en orbite jouable), puis retour à la vitesse de combat en orbite.
+- **Vitesse maximale** : celle de la table sous 1 km, puis montée jusqu'à 4 200 m/s à 16 km (montée en orbite jouable), et retour à la vitesse de combat entre 80 et 91 km (orbite à 93 km).
 
 ## Implémentation
 

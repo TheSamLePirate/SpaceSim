@@ -61,7 +61,7 @@ local function airFactor(h) return 1-sstep(20000,40000,h) end
 -- maximum speed envelope: table speed low down, very fast in the upper atmosphere (playable climb to orbit),
 -- back to combat speed in orbit
 local function speedEnvelope(h,vt)
-    return vt+(4200-vt)*sstep(6000,32000,h)*(1-sstep(85000,98000,h))
+    return vt+(4200-vt)*sstep(1000,16000,h)*(1-sstep(80000,91000,h))
 end
 
 -- ------------------------------------------------------------------ input shaping (gamepad + keyboard)

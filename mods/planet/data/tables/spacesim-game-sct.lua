@@ -35,6 +35,7 @@ local FLOOR=25        -- hard floor (m)
 local function scriptedByCinematic(sh)
     local c=CINE and CINE.active and CINE.c
     if not c or not c.xw then return false end
+    if c.handover then return ok(c.cargo) and c.cargo:getSignature()==sh:getSignature() end
     -- compare signatures: two Lua handles to the same ship are different userdata
     local sig=sh:getSignature()
     for _,x in ipairs(c.xw) do if ok(x) and x:getSignature()==sig then return true end end
@@ -71,6 +72,7 @@ local function avoid(sh,dt)
     local danger=clamp((MARGIN-cmin)/MARGIN,0,1)
     if danger<=0 and h0>FLOOR then return end
     AV.events=AV.events+1
+    AV.per=AV.per or {};AV.per[sh.Name]=(AV.per[sh.Name] or 0)+1
     local o=sh.Orientation
     local f,u=o:getFvec(),o:getUvec()
     local climb=dot(f,up)
@@ -92,6 +94,22 @@ local function avoid(sh,dt)
     phys.Velocity=vel
 end
 
+-- the AI gets the same speed envelope as the players (spacesim-flight-sct.lua): able to follow the climb
+local BASEV={}
+local function sstep(e0,e1,x) local t=clamp((x-e0)/(e1-e0),0,1);return t*t*(3-2*t) end
+local function envelope(sh)
+    local sig=sh:getSignature()
+    local ph=sh.Physics
+    local b=BASEV[sig]
+    if not b then b={v=ph.VelocityMax.z,ab=ph.AfterburnerVelocityMax.z,last=-1};BASEV[sig]=b end
+    local h=length(sh.Position-C)-80000
+    local k=sstep(1000,16000,h)*(1-sstep(80000,91000,h))
+    if math.abs(k-b.last)<0.01 then return end
+    b.last=k
+    local v=b.v+(4200-b.v)*k
+    local m=ph.VelocityMax;ph.VelocityMax=V(m.x,m.y,v)
+    local a=ph.AfterburnerVelocityMax;ph.AfterburnerVelocityMax=V(a.x,a.y,math.max(b.ab,v*b.ab/math.max(1,b.v)))
+end
 engine.addHook('On Simulation',function()
     if not (SPACESIM and SPACESIM.state and SPACESIM.state.active and SPACESIM.surface) then return end
     if not isServer() then return end
@@ -100,10 +118,12 @@ engine.addHook('On Simulation',function()
     if dt<=0 then return end
     if now>=AV.nextList then refreshList(now) end
     for _,sh in ipairs(AV.list) do
-        if ok(sh) and not sh:isDying() then avoid(sh,dt) end
+        if ok(sh) and not sh:isDying() then avoid(sh,dt);envelope(sh) end
     end
     if now-AV.lastLog>10 and AV.events>0 then
-        AV.lastLog=now;log(string.format('AI_AVOID ships=%d corrections=%d',#AV.list,AV.events));AV.events=0
+        local top={};for n,k in pairs(AV.per or {}) do top[#top+1]={n,k} end;table.sort(top,function(a,b) return a[2]>b[2] end)
+        local t={};for i=1,math.min(3,#top) do t[#t+1]=top[i][1]..'='..top[i][2] end
+        AV.lastLog=now;log(string.format('AI_AVOID ships=%d corrections=%d top: %s',#AV.list,AV.events,table.concat(t,' ')));AV.events=0;AV.per={}
     end
 end)
 
@@ -236,24 +256,3 @@ engine.addHook('On Simulation',function()
     end
 end)
 
--- fireball test (data/spacesim-fbtest.flag): Lua explosions in front of the player at t=2..6 s
-local FB=nil
-engine.addHook('On Gameplay Start',function() FB=nil end)
-engine.addHook('On Simulation',function()
-    if not (SPACESIM and SPACESIM.state and SPACESIM.state.active) then return end
-    if FB==nil then FB=cf.fileExists('spacesim-fbtest.flag','data',true) and {n=0} or false end
-    if not FB then return end
-    local now=mn.getMissionTime()
-    local p=hv.Player;local sh=p and p:isValid() and mn.Ships[tostring(p)]
-    if ok(sh) and now>2 and now<6 and now-(FB.t or 0)>0.5 then
-        FB.t=now;FB.n=FB.n+1
-        local fb=tb.FireballClasses['Exp_Det_Shp_01_Gld']
-        log('FBTEST before #'..FB.n);SPACESIM.flush()
-        if FB.n==3 then FB.cam=gr.createCamera('fbtest',sh.Position-sh.Orientation:getFvec()*50,sh.Orientation);gr.setCamera(FB.cam);log('FBTEST script camera on') end
-        local far=FB.n>=5
-        mn.createExplosion(sh.Position+sh.Orientation:getFvec()*(far and 80000 or 400),far and 9000 or 40,fb,true)
-        log('FBTEST far='..tostring(far))
-        log('FBTEST after #'..FB.n);SPACESIM.flush()
-    end
-    if now>7 and not FB.done then FB.done=true;log('FBTEST ok');SPACESIM.stop('mission_end') end
-end)

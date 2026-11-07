@@ -116,7 +116,46 @@ Coûts mesurés : ombres ≈ 17 ms par image, entités FotG au sol ≈ 9 ms, vé
 | 0 – dépôt git, plan | fait |
 | 1 – fondations solo | **fait** : 1.1 carte d'altitude ✅, 1.2-1.4 vol avion, manette, alarme ✅ (réglage fin à faire avec tes retours), 1.5 nettoyage ✅, 1.6 IA et relief ✅ (banc aitest : 0/4 → 4/4), 1.7 réapparition ✅ (FotG Respawner forcé, au-dessus de l'Aurore, protection 3 s) |
 | 2 – performances | **fait** : Vulkan par défaut (canyon 14,5 → 26,5–30,8 FPS avec ombres), végétation en detail boxes, diagnostic complet dans AURORE-03.md |
-| 3 – mission jouable | en cours |
-| 4 – coop en réseau | à faire |
+| 3 – mission jouable | **fait** (solo) : voir « Phase 3 – état » |
+| 4 – coop en réseau | en cours |
 | 5 – contenu | à faire |
 | 6 – qualité | à faire |
+
+## Phase 3 – état (07/11)
+
+Missions générées par `create_planet_mission.py` :
+
+| Mission | Rôle | Lancement |
+|---|---|---|
+| `_SPT_Aurore_Evasion.fs2` | cinématique complète, sans briefing | `run_planet.sh evasion` |
+| `_SPT_Aurore_Evasion_Jeu.fs2` | **mission jouable**, avec briefing | `run_planet.sh jeu` |
+| `_SPT_Aurore_Evasion_JeuTest.fs2` | copie de test, sans briefing | `MODE=jeutest` ; avec `jeubot`, le joueur est piloté par le script |
+
+**Déroulement**
+1. Intro de 10 s (Espace, Entrée ou Échap pour la passer), puis coupe vers le cockpit et prise de commandes : joueur aligné sur le canyon, gaz à 75 %.
+2. **Canyon, environ 130 s**.
+   - Le cargo accélère de 40 à 160 m/s.
+   - Les ailiers IA attaquent la cible vivante la plus proche devant le cargo, une cible par ailier.
+   - Patrouilles TIE : 3 chasseurs à T+6 s, puis 2 chasseurs et 1 intercepteur à mi-canyon.
+   - Affichage : `BATTERIES x / 10` et `AURORE coque %`.
+3. **Montée, environ 75 s** : le cargo est plafonné à 80 % de l'enveloppe de vitesse des joueurs et les ailiers le gardent.
+4. **Orbite** : destroyers et TIE, puis l'Étoile Noire.
+5. **Destruction** : saut autorisé (« SAUT HYPERSPATIAL : MAINTENANT ! »), plus de réapparition. Le joueur qui ne saute pas 26 s après l'impact est emporté par l'onde de choc.
+6. **Débriefing en 4 cas** : succès complet, cargo sauvé mais batteries restantes, cargo perdu, saut manqué.
+
+**Équilibrage**
+- **Cargo** : il prend 15 à 55 % des dégâts selon la difficulté FotG, et au plus 8 % de coque par seconde. Il peut être détruit, ce qui fait échouer la mission (fin 9 s plus tard).
+- **Bot et ailiers IA** : les 10 batteries sont détruites en 2 parties sur 3, et le cargo finit entre 74 et 99 %.
+
+**Mesures (Vulkan, profil qualité, mission complète avec le bot)**
+
+| Phase | FPS |
+|---|---|
+| Canyon | 22 |
+| Montée | 73 |
+| Orbite | 104 |
+| Destruction | 83 |
+
+**Sous Vulkan, plus aucun `mn.createExplosion` dans nos scripts** : il plantait le jeu (deux crashs analysés). À la place, `SPACESIM.boom` produit des particules animées avec la même texture, plus le son d'explosion.
+
+**Reste pour la phase 4** : les destroyers, les TIE et les patrouilles sont encore créés en Lua (`createShip`). Ils passeront en arrivées de mission, ce qui est obligatoire en réseau.

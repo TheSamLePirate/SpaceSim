@@ -18,6 +18,8 @@ MISSION="_SPT_Planet_Libre"
 [[ "$MODE" == "auto" ]] && MISSION="_SPT_Planet_Auto"
 [[ "$MODE" == "evasion" ]] && MISSION="_SPT_Aurore_Evasion"
 [[ "$MODE" == "libretest" ]] && MISSION="_SPT_Planet_Libre_Test"
+[[ "$MODE" == "jeu" ]] && MISSION="_SPT_Aurore_Evasion_Jeu"
+[[ "$MODE" == "jeutest" ]] && MISSION="_SPT_Aurore_Evasion_JeuTest"
 [[ -e "$LIBRARY_DIR/SpaceSimPlanet" ]] || ln -s "$PROJECT_DIR/mods/planet" "$LIBRARY_DIR/SpaceSimPlanet"
 # FSO on macOS searches mods next to its .app, not in the working directory.
 ENGINE_DIR="$PROJECT_DIR/tools/FSO-26.2.0"

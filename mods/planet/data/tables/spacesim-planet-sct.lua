@@ -19,6 +19,15 @@ local function flush()
 end
 -- Periodic writes are throttled (every 10 s): writing every second caused a visible hitch.
 local stopSignal   -- defined below (test harness), used by the collision hook
+-- explosion effect without mn.createExplosion: under Vulkan, fireball_create's LOD computation called from Lua
+-- (g3_get_bitmap_dims) crashes (seen from a collision hook and from On Simulation). Animated particle with the
+-- same fireball texture + FotG explosion sound. The engine's own fireballs (ship deaths) are unaffected.
+local BOOM={}
+local function boom(pos,radius,silent)
+    if not BOOM.tex then BOOM.tex=gr.loadTexture('Exp_Det_Shp_01_Gld',true) end
+    if BOOM.tex and BOOM.tex:isValid() then gr.createParticle(pos,ba.createVector(0,0,0),1.8,radius,PARTICLE_BITMAP,-1,false,BOOM.tex) end
+    if not silent then pcall(function() ad.playGameSound(49) end) end
+end
 local function save() if mn.getMissionTime()-(s.lastSave or -99)>10 then flush() end end
 -- Time of day: the shader reads the mission sun light, so moving the sun moves the sky.
 local SUN_AZ=0.8
@@ -248,11 +257,7 @@ engine.addHook('On Prop Collision',function() end,{},function()
         if sp>35 then
             record(string.format('CRASH %s speed=%.0f',sh.Name,sp))
             if valid(s.player) and sh:getSignature()==s.player:getSignature() then stopSignal('player_crash') end
-            local fb=tb.FireballClasses['Exp_Det_Shp_01_Gld']
-            if fb then
-                mn.createExplosion(hv.Hitpos or sh.Position,70,fb,false)
-                mn.createExplosion(sh.Position+unit(sh.Position-C)*12,40,fb,false)
-            end
+            boom(hv.Hitpos or sh.Position,70);boom(sh.Position+unit(sh.Position-C)*12,40,true)
             sh.Physics.Velocity=V(0,0,0)
             sh.Target=nil
             -- FSO places the player's death camera 100 m from the wreck, on the side opposite the killer:
@@ -698,4 +703,4 @@ end)
 
 -- Shared helpers for other scripts of the mod (cinematic director).
 SPACESIM={state=s,surface=surface,setSun=setSun,record=record,flush=flush,capture=capture,
-          stream=STREAM,valid=valid,stop=function(r) stopSignal(r) end}
+          stream=STREAM,valid=valid,stop=function(r) stopSignal(r) end,boom=boom}

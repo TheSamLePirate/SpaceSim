@@ -190,6 +190,29 @@ $Formula: ( is-destroyed-delay 0 {batteries} )
     n=text[text.index('#Objects'):text.index('#Wings')].count('$Name:')
     text=re.sub(r'#Objects\s*;! \d+ total','#Objects ;! %d total'%n,text)
     path=DATA/'missions/_SPT_Aurore_Evasion.fs2';path.write_text(text)
+    # playable mission (briefing, the player takes over after the intro) + test copy without briefing
+    play=text.replace('[Rebel] Aurore - Evasion (cinematique)','[Rebel] Aurore - Evasion')
+    a=play.index('#Debriefing_info');b=play.index('#Players',a)
+    def stage(formula,txt,rec):
+        return f'$Formula: {formula}\n$Multi text\n XSTR("{txt}", -1)\n$end_multi_text\n$Voice: none.wav\n$Recommendation text:\n XSTR("{rec}", -1)\n$end_multi_text\n'
+    deb=['#Debriefing_info','$Num stages: 4',
+         stage('( and ( is-goal-true-delay "Proteger l\'Aurore" 0 ) ( is-goal-true-delay "Batteries" 0 ) )',
+               "Mission accomplie. L'Aurore a saute en hyperespace avec nos techniciens, quelques secondes avant que l'onde de choc n'atteigne l'orbite. Les dix batteries du canyon sont detruites : sans vous, le cargo n'aurait jamais quitte la vallee.",
+               "Excellent travail, escadron Rouge. L'Empire vient de montrer de quoi l'Etoile Noire est capable : chaque minute que vous avez gagnee compte."),
+         stage('( and ( is-goal-true-delay "Proteger l\'Aurore" 0 ) ( not ( is-goal-true-delay "Batteries" 0 ) ) )',
+               "L'Aurore a reussi a sauter, mais plusieurs batteries turbolaser sont restees intactes et le cargo a pris de lourds degats dans le canyon.",
+               "Volez devant le cargo et detruisez les batteries avant qu'il n'arrive a portee. Les torpilles a protons font mouche a moins de 1 500 m."),
+         stage('( is-destroyed-delay 0 "Aurore" )',
+               "L'Aurore a ete detruite. Nos techniciens et le materiel de la base sont perdus.",
+               "Les batteries et les TIE se concentrent sur le cargo : degagez la route devant lui et ne le laissez jamais sans escorte."),
+         stage('( and ( not ( is-destroyed-delay 0 "Aurore" ) ) ( not ( is-goal-true-delay "Proteger l\'Aurore" 0 ) ) )',
+               "L'escadron Rouge n'a pas pu sauter a temps. L'onde de choc de la planete a tout emporte.",
+               "Quand l'ordre de saut est donne, sautez immediatement : l'onde de choc atteint l'orbite en une vingtaine de secondes."),
+         '']
+    play=play[:a]+'\n'.join(deb)+'\n'+play[b:]
+    (DATA/'missions/_SPT_Aurore_Evasion_JeuTest.fs2').write_text(play)
+    play=play.replace('+Flags: 1024\n','+Flags: 0\n',1)
+    (DATA/'missions/_SPT_Aurore_Evasion_Jeu.fs2').write_text(play)
     print('Mission',path,'cargo at',[round(c) for c in ships[0]['pos']])
 
 def main():

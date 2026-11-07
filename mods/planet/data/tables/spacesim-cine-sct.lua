@@ -98,6 +98,10 @@ function CINE.init()
     local T0=mn.getMissionTime()
     local c={t0=T0,phase='camp',s=0,stats={},targets={},shots=0,nextShot=T0+2,boom=0,xs={{},{},{},{}},frags={}}
     CINE.c=c;CINE.active=true
+    -- gameplay mode (mission _SPT_Aurore_Evasion_Jeu*): 10 s intro, then the player flies; jeubot flag = scripted player
+    local fname=mn.getMissionFilename():lower()
+    c.play=fname:find('_jeu')~=nil
+    c.bot=c.play and cf.fileExists('spacesim-jeubot.flag','data',true)
     c.cargo=mn.Ships['Aurore']
     c.xw={mn.Ships['Red 1'],mn.Ships['Rouge 2'],mn.Ships['Rouge 3'],mn.Ships['Rouge 4']}
     c.cargoStart=c.cargo.Position;c.cargoStartOri=c.cargo.Orientation
@@ -122,7 +126,10 @@ function CINE.init()
     for pass=1,3 do for i=3,#P-1 do P[i]=vlerp(P[i],(P[i-1]+P[i+1])*0.5,0.5) end end
     c.nCanyon=#P
     local last=P[#P];local d=unit(P[#P]-P[#P-1]);local up=unit(last-C)
-    for _,q in ipairs({last+d*1500+up*350,last+d*4500+up*2600,last+d*9000+up*9000,V(4000,30000,6000),V(9000,62000,2000),V(14000,86000,-2000),V(17000,92500,1500)}) do P[#P+1]=q end
+    local climbPts={last+d*1500+up*350,last+d*4500+up*2600,last+d*9000+up*9000,V(4000,30000,6000),V(9000,62000,2000),V(14000,86000,-2000),V(17000,92500,1500)}
+    -- gameplay: leave the valley steeply (the cinematic keeps its long, low exit)
+    if c.play then climbPts[1]=last+d*1400+up*700;climbPts[2]=last+d*3800+up*3800 end
+    for _,q in ipairs(climbPts) do P[#P+1]=q end
     c.nClimb=#P
     for _,q in ipairs({V(18800,93200,5200),V(19800,93600,9800),V(20200,93700,15500),V(20100,93500,22000),V(19500,93200,30000)}) do P[#P+1]=q end
     c.path=buildPath(P)
@@ -146,6 +153,14 @@ function CINE.init()
 end
 
 local function cargoSpeed(c,s)
+    if c.play then
+        -- gameplay: slower in the canyon (X-wings ahead of it), the climb is capped by the players' envelope
+        local v=40+120*math.pow(clamp(s/c.Lc,0,1),1.1)
+        v=v+(4200-160)*sstep(c.Lc,c.Lc+(c.La-c.Lc)*0.18,s)
+        v=v-(4200-110)*sstep(c.La-12000,c.La-300,s)
+        local h=c.cargoAlt or 0
+        return math.min(v,0.8*(200+4000*sstep(1000,16000,h)))
+    end
     local v=40+260*math.pow(clamp(s/c.Lc,0,1),1.25)
     v=v+(4200-300)*sstep(c.Lc,c.Lc+(c.La-c.Lc)*0.18,s)
     v=v-(4200-110)*sstep(c.La-(c.La-c.Lc)*0.28,c.La,s)
@@ -481,9 +496,8 @@ local function camera(c,T,dt)
         c.secondary=c.secondary or {0.7,1.4,2.2,3.1}
         if c.crashPos and c.secondary[1] and T-c.deathT>c.secondary[1] then
             table.remove(c.secondary,1)
-            local fb=tb.FireballClasses['Exp_Det_Shp_01_Gld']
             local rad=unit(c.crashPos-C);local o=V(math.random()-0.5,0,math.random()-0.5)*24
-            if fb then mn.createExplosion(c.crashPos+o+rad*(4+math.random()*8),18+math.random()*14,fb,false) end
+            SPACESIM.boom(c.crashPos+o+rad*(4+math.random()*8),18+math.random()*14,true)
         end
         c.cam:setPosition(c.deathCam)
         c.cam:setOrientation(ba.createOrientationFromVectors(unit(c.deathPos-c.deathCam),unit(c.deathCam-C)))
@@ -528,7 +542,12 @@ function CINE.update()
     local cargo=c.cargo
     -- cargo
     if not c.cargoJumped and ok(cargo) then
-        guard(cargo,0.42)
+        if not c.play then guard(cargo,0.42)
+        elseif not cargo:isDying() then
+            local hp=CINE.cargoArmor(c,cargo.HitpointsLeft,dt)
+            cargo.HitpointsLeft=hp;c.lastHull=hp
+        end
+        c.cargoAlt=length(cargo.Position-C)-80000
         if T<5 then
             setShip(cargo,c.cargoStart,c.cargoStartOri:getFvec(),unit(c.cargoStart-C),V(0,0,0))
         elseif T<10 then
@@ -547,6 +566,8 @@ function CINE.update()
     if T<10 then c.phase='camp' elseif s<c.Lc then c.phase='canyon' elseif s<c.La then c.phase='montee'
     elseif not c.tFire then c.phase='orbite' elseif not c.tImpact then c.phase='superlaser' else c.phase='destruction' end
     if prev~=c.phase then log('PHASE '..c.phase..string.format(' T=%.1f',T)) end
+    if c.play then CINE.gameplay(c,T,dt) end
+    if c.phase=='montee' and T-(c.climbLogT or 0)>4 then c.climbLogT=T;log(string.format('CLIMB T=%.0f s=%.1f/%.1f km alt=%.1f km v=%.0f m/s',T,c.s/1000,c.La/1000,(c.cargoAlt or 0)/1000,c.cargoV or 0)) end
     -- ground targets: shields down, low hull (one good hit destroys) - re-applied after streaming
     if c.phase=='camp' or c.phase=='canyon' then
         for _,tg in ipairs(c.targets) do
@@ -585,8 +606,8 @@ function CINE.update()
         local tj=T-c.tImpact
         if tj>14 and not c.cargoJumped and ok(cargo) then c.cargoJumped=true;cargo:clearOrders();cargo:warpOut();log('JUMP cargo') end
         for k=2,4 do local x=c.xw[k];if tj>15+k*0.5 and ok(x) and not x:isDying() and not c['j'..k] then c['j'..k]=true;x:warpOut() end end
-        if tj>17 and not c.finalCockpit then setCockpit(c,true);c.finalCockpit=true end
-        if tj>18.5 and not c.playerJump then
+        if tj>17 and not c.finalCockpit and not (c.play and c.handover) then setCockpit(c,true);c.finalCockpit=true end
+        if tj>18.5 and not c.playerJump and (not c.play or c.bot) then
             c.playerJump=true;SPACESIM.state.cineJump=true
             local pl=c.xw[1];if ok(pl) then pl:setFlag(false,'no-departure-warp');pl:setFlag(false,'never-warp') end
             ba.postGameEvent(ba.GameEvents['GS_EVENT_PLAYER_WARPOUT_START']);log('JUMP player')
@@ -602,6 +623,7 @@ function CINE.update()
     for k=1,4 do
         local x=c.xw[k];local xs=c.xs[k]
         local scripted=(k==1 and not c.playerJump) or ((c.phase=='camp' or c.phase=='canyon' or c.phase=='montee') and not c.ties)
+        if c.play and c.handover then scripted=(k==1 and c.bot and not c.playerJump) end
         if ok(x) and x:isDying() then xs.dead=true end
         if ok(x) and scripted and not xs.dead then
             guard(x,0.55)
@@ -741,21 +763,27 @@ function CINE.update()
             setShip(x,xs.pos,nose,xs.up,nose*length(xs.vel))
         elseif ok(x) then xs.pos=x.Position;xs.vel=x.Physics.Velocity end
     end
-    if not c.finalCockpit then setCockpit(c,playerCockpitWanted) end
-    camera(c,T,dt)
+    if not (c.play and c.handover) then
+        if not c.finalCockpit then setCockpit(c,playerCockpitWanted) end
+        camera(c,T,dt)
+    end
     local st=c.stats[c.phase] or {dts={}};c.stats[c.phase]=st;st.dts[#st.dts+1]=ba.getRealFrametime()
     if c.captureOn==nil then c.captureOn=cf.fileExists('spacesim-capture.flag','data',true) end
     if c.captureOn and now>=c.nextShot and not c.pendingShot then
         c.shots=c.shots+1;c.nextShot=now+1.0;c.pendingShot=string.format('cine_%03d_%s',c.shots,c.phase)
     end
-    if (c.canyonOnly and c.phase=='montee' and not c.endShot) or (c.playerJump and not c.endShot and T-(c.tImpact+18.5)>4.5) then
+    local jumpedT=c.play and c.playerJumpT or (c.tImpact and c.tImpact+18.5)
+    if (c.canyonOnly and c.phase=='montee' and not c.endShot) or (c.playerJump and not c.endShot and jumpedT and T-jumpedT>4.5) then
         c.endShot=true
         for name,stt in pairs(c.stats) do
             table.sort(stt.dts);local n=#stt.dts;local sum=0 for _,v in ipairs(stt.dts) do sum=sum+v end
             log(string.format('FPS phase=%s frames=%d fps_mean=%.1f fps_1pct_low=%.1f',name,n,n/sum,1/stt.dts[math.max(1,math.floor(n*0.99))]))
         end
-        local done=0;for _,tg in ipairs(c.targets) do if tg.done then done=done+1 end end
+        local done=0;for _,tg in ipairs(c.targets) do if tg.done or isDead(tg.name) then done=done+1 end end
         log(string.format('TARGETS destroyed=%d/%d',done,#c.targets))
+        local alive={};for _,tg in ipairs(c.targets) do if not (tg.done or isDead(tg.name)) then alive[#alive+1]=tg.name end end
+        log('TARGETS alive: '..table.concat(alive,', '))
+        log(string.format('CARGO hull=%.0f%%',ok(c.cargo) and 100*c.cargo.HitpointsLeft/c.cargo.HitpointsMax or -1))
         SPACESIM.flush();c.pendingShot='cine_end'
     end
 end
@@ -844,7 +872,7 @@ end)
 -- debris), and the cinematic camera holds on the wreck.
 SPACESIM_PLAYER_CRASH=function(sh,hitpos)
     local c=CINE.c
-    if not (CINE.active and c) then return false end
+    if not (CINE.active and c) or (c.play and c.handover) then return false end
     local xs=c.xs[1]
     local pos,ori,cls,team=sh.Position,sh.Orientation,sh.Class,sh.Team
     sh:setFlag(false,'collides');sh:setFlag(true,'cloaked','invulnerable','hidden-from-sensors')
@@ -862,12 +890,155 @@ end
 -- the Aurore cannot die while the cinematic flies it: a missile salvo can deal more than the remaining hull
 -- within one frame (before the per-frame guard reacts). 'On Ship Death' is overridable at the very start of
 -- ship_hit_kill (shiphit.cpp): cancel the death, back to 30 % hull, invulnerable. Gameplay: not active.
+-- gameplay armour of the Aurore: 30 % of the damage, at most 8 % of the hull per second (no one-salvo kill;
+-- sustained fire still destroys it = mission failure)
+function CINE.cargoArmor(c,hp,dt)
+    local last=c.lastHull
+    if not last or hp>=last then return hp end
+    -- share of the damage taken, by difficulty (1 very easy .. 5 insane)
+    local share=({0.15,0.22,0.30,0.40,0.55})[clamp(ba.getGameDifficulty() or 3,1,5)]
+    local loss=(last-hp)*share
+    local cap=c.cargo.HitpointsMax*0.08*math.max(dt,0.02)
+    c.armorBank=(c.armorBank or 0)
+    loss=math.min(loss,cap+c.armorBank);c.armorBank=0
+    return last-loss
+end
 engine.addHook('On Ship Death',function() end,{},function()
     local c=CINE.c
-    if not (CINE.active and c and not c.handover and ok(c.cargo) and ok(hv.Ship)) then return false end
+    if not (CINE.active and c and ok(c.cargo) and ok(hv.Ship)) then return false end
     if hv.Ship:getSignature()~=c.cargo:getSignature() then return false end
     local sh=c.cargo
+    if c.play and c.handover then
+        -- the death is real only if the armoured hull is exhausted
+        local hp=CINE.cargoArmor(c,sh.HitpointsLeft,ba.getMissionFrametime())
+        if hp>1 then sh.HitpointsLeft=hp;c.lastHull=hp;return true end
+        return false
+    end
     sh.HitpointsLeft=sh.HitpointsMax*0.30;sh:setFlag(true,'invulnerable')
     log('CARGO_SAVED (death cancelled during the cinematic)')
     return true
+end)
+
+-- ===================== gameplay mode (missions _SPT_Aurore_Evasion_Jeu*) =====================
+-- 10 s intro (skippable: Espace / Entree / Echap), then the player flies. The wingmen are FSO AI with target
+-- orders, TIE patrols in the canyon, the cargo can be lost (failure), the player jumps himself at the end.
+local function spawnPatrol(c,name,n,s0,interceptors)
+    local base=sample(c.path,math.min(c.s+s0,c.Lc-200))
+    local up=unit(base-C)
+    local back=unit(sample(c.path,c.s)-base)
+    for k=1,n do
+        local cls=(k<=n-(interceptors or 0)) and 'TIE/ln Fighter' or 'TIE/In Interceptor'
+        local pos=base+up*(320+k*30)+unit(cross(up,back))*((k-(n+1)/2)*90)
+        local t=mn.createShip(string.format('%s %d',name,k),tb.ShipClasses[cls],ba.createOrientationFromVectors(back,up),pos,mn.Teams['Hostile'],false)
+        if ok(t) then t:giveOrder(k==1 and ORDER_ATTACK or ORDER_ATTACK_ANY,c.cargo) end
+    end
+    log(string.format('PATROL %s x%d at s+%d',name,n,s0))
+end
+
+function CINE.gameplay(c,T,dt)
+    local cargo=c.cargo
+    local pl=c.xw[1]
+    if c.skip and not c.handover and T<10 then c.t0=c.t0-(10-T);c.skip=false;log('INTRO skipped') end
+    -- handover
+    if not c.handover and T>=10 then
+        c.handover=true;c.handoverT=T
+        if not c.bot then
+            gr.setCamera();hu.HUDDrawn=true;c.cockpit=false
+            if ok(pl) then
+                -- aligned with the cargo's path (the canyon axis), 75 % throttle
+                local up=unit(pl.Position-C)
+                local f=unit(sample(c.path,c.s+400)-sample(c.path,c.s));f=unit(f-up*dot(f,up))
+                pl.Orientation=ba.createOrientationFromVectors(f,up);pl.Physics.Velocity=f*130
+                pl:setFlag(false,'no-dynamic')
+                mn.runSEXP(string.format('( set-player-throttle-speed "%s" 75 )',pl.Name))
+            end
+        end
+        for k=2,4 do local x=c.xw[k];if ok(x) then x:setFlag(false,'no-dynamic');x:clearOrders();x:giveOrder(ORDER_GUARD,cargo) end end
+        c.subs[#c.subs+1]={T+0.5,6,'ECHO BASE','Escadron Rouge, a vous ! Ouvrez la route a l\'Aurore : detruisez les batteries du canyon.'}
+        log('HANDOVER player='..(c.bot and 'bot' or 'pilot'))
+    end
+    if not c.handover then return end
+    -- wingmen (FSO AI): nearest live target ahead of the cargo, one wingman per target; guard during the climb
+    if (c.phase=='canyon' or c.phase=='camp') and T-(c.aiT or 0)>1 then
+        c.aiT=T
+        local taken={}
+        for k=2,4 do local t=c.xs[k].aiTarget;if t then taken[t]=true end end
+        for k=2,4 do
+            local x=c.xw[k];local xs=c.xs[k]
+            if ok(x) and not x:isDying() and (not xs.aiTarget or isDead(xs.aiTarget)) then
+                if xs.aiTarget then taken[xs.aiTarget]=nil;xs.aiTarget=nil end
+                local best,bd=nil,1e9
+                for _,tg in ipairs(c.targets) do
+                    if not taken[tg.name] and not isDead(tg.name) and tg.s>c.s-400 and tg.s<c.s+4500 then
+                        local sh=mn.Ships[tg.name]
+                        if ok(sh) then local d=length(sh.Position-x.Position);if d<bd then best,bd=tg,d end end
+                    end
+                end
+                if best then
+                    xs.aiTarget=best.name;taken[best.name]=true
+                    x:clearOrders();x:giveOrder(ORDER_ATTACK,mn.Ships[best.name])
+                    log(string.format('AI %s -> %s (%.0f m)',x.Name,best.name,bd))
+                elseif not xs.guarding then xs.guarding=true;x:clearOrders();x:giveOrder(ORDER_GUARD,cargo) end
+                if best then xs.guarding=nil end
+            end
+        end
+    end
+    if c.phase=='montee' and not c.climbOrders then
+        c.climbOrders=true
+        for k=2,4 do local x=c.xw[k];if ok(x) then x:clearOrders();x:giveOrder(ORDER_GUARD,cargo) end end
+    end
+    -- TIE patrols in the canyon from the start
+    if not c.patrol1 and T>c.handoverT+6 then c.patrol1=true;spawnPatrol(c,'Patrouille Noire',3,3200,0) end
+    if not c.patrol2 and c.s>c.Lc*0.5 then c.patrol2=true;spawnPatrol(c,'Patrouille Grise',3,2600,1) end
+    -- the Aurore lost: failure
+    if not c.failed and not c.cargoJumped and (not ok(cargo) or cargo:isDying()) then
+        c.failed=T;log('FAILED cargo lost')
+        c.subs[#c.subs+1]={T+1,7,'ECHO BASE','Nous avons perdu l\'Aurore... Mission echouee.'}
+    end
+    if c.failed and T-c.failed>9 and not c.ended then c.ended=true;mn.runSEXP('( end-mission )') end
+    -- final jump: the pilot jumps himself; too late = caught by the shockwave
+    if c.tImpact and not c.jumpAllowed then
+        c.jumpAllowed=T
+        if ok(pl) then pl:setFlag(false,'never-warp');pl:setFlag(false,'no-departure-warp') end
+        if not ba.MultiplayerMode then mn.runSEXP('( set-player-warp-status ( true ) )') end
+        if Respawner and Respawner.SetMission_Override then Respawner:SetMission_Override(-1) end
+        log('JUMP allowed')
+    end
+    -- test (data/spacesim-jeujump.flag): the pilot presses the jump key 3 s after the order
+    if c.jumpAllowed and not c.playerJump and not c.testJump and T>c.jumpAllowed+3 and cf.fileExists('spacesim-jeujump.flag','data',true) then
+        c.testJump=true;log('TEST jump key');ba.postGameEvent(ba.GameEvents['GS_EVENT_PLAYER_WARPOUT_START'])
+    end
+    if c.jumpAllowed and not c.playerJump and ok(pl) and (pl:isDepartingWarp() or (HyperspaceEnter and HyperspaceEnter.is_player_jumping_out)) then
+        c.playerJump=true;c.playerJumpT=T;SPACESIM.state.cineJump=true;log('JUMP player (pilot)')
+    end
+    if c.tImpact and not c.playerJump and not c.bot and T-c.tImpact>26 and not c.shockKilled and ok(pl) then
+        c.shockKilled=true;log('PLAYER caught by the shockwave');pl:kill(pl)
+    end
+end
+
+-- gameplay HUD: team objective and cargo hull, jump prompt
+engine.addHook('On HUD Draw',function()
+    local c=CINE.c
+    if not (CINE.active and c and c.play and c.handover) or c.bot then return end
+    local w,h=gr.getScreenWidth(),gr.getScreenHeight()
+    local n,dead=0,0
+    for _,tg in ipairs(c.targets) do if tg.name:find('^Batterie') then n=n+1;if isDead(tg.name) then dead=dead+1 end end end
+    local cargo=c.cargo
+    local hull=ok(cargo) and math.floor(100*cargo.HitpointsLeft/cargo.HitpointsMax) or 0
+    gr.setColor(dead==n and 120 or 255,dead==n and 230 or 205,dead==n and 120 or 90,230)
+    gr.drawString(string.format('BATTERIES  %d / %d',dead,n),w*0.035,h*0.30)
+    local hc=hull>50 and {150,220,255} or (hull>25 and {255,200,80} or {255,80,60})
+    gr.setColor(hc[1],hc[2],hc[3],230)
+    gr.drawString(string.format('AURORE  coque %d %%',hull),w*0.035,h*0.30+22)
+    if c.jumpAllowed and not c.playerJump and math.floor(mn.getMissionTime()*3)%2==0 then
+        local t='SAUT HYPERSPATIAL : MAINTENANT !'
+        gr.setColor(120,200,255,255);gr.drawString(t,(w-gr.getStringWidth(t))/2,h*0.22)
+    end
+end)
+engine.addHook('On Key Pressed',function() end,{},function()
+    local c=CINE.c
+    if not (CINE.active and c and c.play and not c.handover) then return false end
+    local k=hv.RawKey
+    if k=='Spacebar' or k=='Enter' or k=='Esc' then c.skip=true;return true end
+    return false
 end)
