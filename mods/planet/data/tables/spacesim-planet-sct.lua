@@ -164,7 +164,7 @@ engine.addHook('On Gameplay Start',function()
     -- Diagnostic switches for visual captures (absent in normal play).
     if cf.fileExists('spacesim-noair.flag','data',true) and valid(mn.Props['Air 0']) then mn.Props['Air 0'].Position=V(0,9e6,0) end
     mn.SkyboxAlpha=1
-    s.player.Target=s.capital;cruise()
+    if valid(s.capital) then s.player.Target=s.capital end;cruise()
     s.presetIndex=2;setSun(PRESETS[2][2])
     s.showcase=cf.fileExists('spacesim-showcase.flag','data',true)
     SURFACE_IMPL=surface
@@ -230,14 +230,15 @@ engine.addHook('On Prop Collision',function() end,{},function()
     local terrain=false
     for _,p in ipairs(s.terrain) do if p:getSignature()==hv.Prop:getSignature() then terrain=true;break end end
     if not terrain then return false end
-    if hv.Ship:getSignature()==s.probe:getSignature() and not s.probeContact then
+    local isProbe=valid(s.probe) and hv.Ship:getSignature()==s.probe:getSignature()
+    if isProbe and not s.probeContact then
         s.probeContact=true;s.probeTime=mn.getMissionTime()
         record(string.format('NATIVE_COLLISION incoming_vy=%.3f hit_y=%.3f',hv.Ship.Physics.Velocity.y,hv.Hitpos.y));save()
     elseif hv.Ship:getSignature()==s.player:getSignature() then s.contacts=s.contacts+1 end
     -- hitting the ground at speed destroys a fighter (player included)
     local sh=hv.Ship
     local tn=sh.Class and sh.Class.Type and sh.Class.Type.Name or ''
-    if (tn=='fighter' or tn=='bomber') and not sh:isDying() and sh:getSignature()~=s.probe:getSignature() then
+    if (tn=='fighter' or tn=='bomber') and not sh:isDying() and not isProbe then
         local v=sh.Physics.Velocity;local sp=math.sqrt(v.x*v.x+v.y*v.y+v.z*v.z)
         if sp>35 then
             record(string.format('CRASH %s speed=%.0f',sh.Name,sp))
@@ -276,7 +277,8 @@ engine.addHook('On Simulation',function()
     s.previous=V(p.x,p.y,p.z);s.previousVelocity=s.player.Physics.Velocity
     local bin=alt<3000 and 'surface' or (alt<25000 and 'atmosphere' or 'orbit')
     s.bins[bin]=s.bins[bin] or {frames=0,time=0};s.bins[bin].frames=s.bins[bin].frames+1;s.bins[bin].time=s.bins[bin].time+dt
-    if not s.probeContact then s.probe.Physics.Velocity=unit(C-s.probe.Position)*25
+    if not valid(s.probe) then
+    elseif not s.probeContact then s.probe.Physics.Velocity=unit(C-s.probe.Position)*25
     elseif not s.probeResponse and t>s.probeTime+.2 then
         s.probeResponse=true;local q=surface(s.probe.Position)
         s.probeClearance=q and distance(s.probe.Position,C)-distance(q,C) or -9999
@@ -431,6 +433,7 @@ local function catmull(p0,p1,p2,p3,u)
     return B1*((t2-t)/(t2-t1))+B2*((t-t1)/(t2-t1))
 end
 function RAID.start(t)
+    if not valid(s.capital) then s.raidState=nil;return end
     local r={t0=t,phase='canyon',stats={},nextShot=t+2.0,shotIndex=0,lastFire=0,torps=0,s=0,
              short=cf.fileExists('spacesim-raidshort.flag','data',true)}
     s.raidState=r;s.auto=false

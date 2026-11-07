@@ -10,7 +10,7 @@ This is a FRED2_OPEN created mission for Fate of the Galaxy.
 $End Notes:
 
 $Mission Desc:
- XSTR("Aurore : planete physique de 160 km de diametre. Vallee detaillee, relief, ocean, atmosphere et montee continue vers Vigilance a 100 km. FSO 26.2, une seule mission.", -1)
+ XSTR("Aurore - Evasion. Le cargo rebelle Aurore fuit par le canyon sous le feu imperial, monte en orbite et doit sauter en hyperespace avant l'arrivee de l'Etoile Noire. Escadron Rouge : escorte.", -1)
 $end_multi_text
 +Game Type Flags: 1
 +Flags: 1024
@@ -48,16 +48,13 @@ $start_briefing
 $num_stages: 1
 $start_stage
 $multi_text
- XSTR("AURORE / DE LA SURFACE A L'ORBITE
+ XSTR("AURORE - EVASION
 
-Une vraie petite planete de 160 km de diametre. La vallee, les montagnes et le globe visible depuis l'espace sont le meme terrain physique. Tout est charge avant le depart.
+Trois destroyers stellaires viennent de sortir de l'hyperespace. Le cargo Aurore decolle du camp a l'entree du canyon avec nos derniers techniciens.
 
-F8 : demonstration automatique / reprendre les commandes.
-F9 : vitesse de croisiere 250 / 1500 / 5000 m/s. Les commandes normales de gaz restent actives.
+Escadron Rouge : ouvrez la route. Detruisez les dix batteries turbolaser qui gardent le canyon, protegez l'Aurore jusqu'en orbite, puis sautez en hyperespace avec elle.
 
-Au sol, restez a faible vitesse. En altitude, montez puis retournez-vous pour voir la courbure et la planete entiere. Vigilance vous attend a 100 km.
-
-Prototype de rendu FSO : relief, textures 8K, normales, atmosphere progressive, nuages et liseres atmospheriques.", -1)
+Attention au relief : en atmosphere, votre X-wing vole comme un avion.", -1)
 $end_multi_text
 $voice: none.wav
 $camera_pos: 2000, 5000, -6000
@@ -89,7 +86,7 @@ $Starting Shipname: Red 1
 $Ship Choices: ( "T-65c X-wing#Red" 1 )
 +Weaponry Pool: ( "T&B KX-9" 1 "Krupx MG7-A#Pnk" 6 )
 
-#Objects ;! 3 total
+#Objects ;! 49 total
 
 $Name: Red 1
 $Class: T-65c X-wing#Red
@@ -106,53 +103,7 @@ $Arrival Cue: ( true )
 $Departure Location: Hyperspace
 $Departure Cue: ( false )
 $Determination: 10
-+Flags: ( "cargo-known" "invulnerable" "no-dynamic" "no-arrival-warp" "no-departure-warp" "player-start" )
-+Flags2: ( )
-+Respawn priority: 0
-+Group: 0
-+Use Table Score:
-+Score: 0
-
-$Name: Vigilance
-$Class: Imperial Star Destroyer
-$Team: Friendly
-$Location: 18500, 92000, 5000
-$Orientation:
- 1, 0, 0,
- 0, 1, 0,
- 0, 0, 1
-$AI Goals: ( goals ( ai-play-dead 89 ) )
-$Cargo 1: XSTR("Prototype", -1)
-+Subsystem: Pilot
-$Arrival Location: Hyperspace
-$Arrival Cue: ( true )
-$Departure Location: Hyperspace
-$Departure Cue: ( false )
-$Determination: 10
-+Flags: ( "cargo-known" "invulnerable" "no-dynamic" "no-arrival-warp" "no-departure-warp" )
-+Flags2: ( )
-+Respawn priority: 0
-+Group: 0
-+Use Table Score:
-+Score: 0
-
-$Name: Sonde collision
-$Class: T-65c X-wing#Blue
-$Team: Friendly
-$Location: 1000, 1659.26777, -1000
-$Orientation:
- 1, 0, 0,
- 0, 1, 0,
- 0, 0, 1
-$AI Goals: ( goals ( ai-play-dead 89 ) )
-$Cargo 1: XSTR("Prototype", -1)
-+Subsystem: Pilot
-$Arrival Location: Hyperspace
-$Arrival Cue: ( true )
-$Departure Location: Hyperspace
-$Departure Cue: ( false )
-$Determination: 10
-+Flags: ( "cargo-known" "invulnerable" "no-dynamic" "no-arrival-warp" "no-departure-warp" )
++Flags: ( "cargo-known" "no-arrival-warp" "no-departure-warp" "player-start" )
 +Flags2: ( )
 +Respawn priority: 0
 +Group: 0
@@ -677,7 +628,7 @@ $Arrival Cue: ( true )
 $Departure Location: Hyperspace
 $Departure Cue: ( false )
 $Determination: 10
-+Flags: ( "cargo-known" "no-arrival-warp" "no-departure-warp" )
++Flags: ( "cargo-known" "hidden-from-sensors" "no-arrival-warp" "no-departure-warp" )
 +Flags2: ( )
 +Respawn priority: 0
 +Group: 0
@@ -698,7 +649,7 @@ $Arrival Cue: ( true )
 $Departure Location: Hyperspace
 $Departure Cue: ( false )
 $Determination: 10
-+Flags: ( "cargo-known" "no-arrival-warp" "no-departure-warp" )
++Flags: ( "cargo-known" "hidden-from-sensors" "no-arrival-warp" "no-departure-warp" )
 +Flags2: ( )
 +Respawn priority: 0
 +Group: 0
@@ -719,7 +670,7 @@ $Arrival Cue: ( true )
 $Departure Location: Hyperspace
 $Departure Cue: ( false )
 $Determination: 10
-+Flags: ( "cargo-known" "no-arrival-warp" "no-departure-warp" )
++Flags: ( "cargo-known" "hidden-from-sensors" "no-arrival-warp" "no-departure-warp" )
 +Flags2: ( )
 +Respawn priority: 0
 +Group: 0
@@ -740,7 +691,7 @@ $Arrival Cue: ( true )
 $Departure Location: Hyperspace
 $Departure Cue: ( false )
 $Determination: 10
-+Flags: ( "cargo-known" "no-arrival-warp" "no-departure-warp" )
++Flags: ( "cargo-known" "hidden-from-sensors" "no-arrival-warp" "no-departure-warp" )
 +Flags2: ( )
 +Respawn priority: 0
 +Group: 0
@@ -761,7 +712,7 @@ $Arrival Cue: ( true )
 $Departure Location: Hyperspace
 $Departure Cue: ( false )
 $Determination: 10
-+Flags: ( "cargo-known" "no-arrival-warp" "no-departure-warp" )
++Flags: ( "cargo-known" "hidden-from-sensors" "no-arrival-warp" "no-departure-warp" )
 +Flags2: ( )
 +Respawn priority: 0
 +Group: 0
@@ -782,7 +733,7 @@ $Arrival Cue: ( true )
 $Departure Location: Hyperspace
 $Departure Cue: ( false )
 $Determination: 10
-+Flags: ( "cargo-known" "no-arrival-warp" "no-departure-warp" )
++Flags: ( "cargo-known" "hidden-from-sensors" "no-arrival-warp" "no-departure-warp" )
 +Flags2: ( )
 +Respawn priority: 0
 +Group: 0
@@ -803,7 +754,7 @@ $Arrival Cue: ( true )
 $Departure Location: Hyperspace
 $Departure Cue: ( false )
 $Determination: 10
-+Flags: ( "cargo-known" "no-arrival-warp" "no-departure-warp" )
++Flags: ( "cargo-known" "hidden-from-sensors" "no-arrival-warp" "no-departure-warp" )
 +Flags2: ( )
 +Respawn priority: 0
 +Group: 0
@@ -824,7 +775,7 @@ $Arrival Cue: ( true )
 $Departure Location: Hyperspace
 $Departure Cue: ( false )
 $Determination: 10
-+Flags: ( "cargo-known" "no-arrival-warp" "no-departure-warp" )
++Flags: ( "cargo-known" "hidden-from-sensors" "no-arrival-warp" "no-departure-warp" )
 +Flags2: ( )
 +Respawn priority: 0
 +Group: 0
@@ -845,7 +796,7 @@ $Arrival Cue: ( true )
 $Departure Location: Hyperspace
 $Departure Cue: ( false )
 $Determination: 10
-+Flags: ( "cargo-known" "no-arrival-warp" "no-departure-warp" )
++Flags: ( "cargo-known" "hidden-from-sensors" "no-arrival-warp" "no-departure-warp" )
 +Flags2: ( )
 +Respawn priority: 0
 +Group: 0
@@ -866,7 +817,7 @@ $Arrival Cue: ( true )
 $Departure Location: Hyperspace
 $Departure Cue: ( false )
 $Determination: 10
-+Flags: ( "cargo-known" "no-arrival-warp" "no-departure-warp" )
++Flags: ( "cargo-known" "hidden-from-sensors" "no-arrival-warp" "no-departure-warp" )
 +Flags2: ( )
 +Respawn priority: 0
 +Group: 0
@@ -887,7 +838,7 @@ $Arrival Cue: ( true )
 $Departure Location: Hyperspace
 $Departure Cue: ( false )
 $Determination: 10
-+Flags: ( "cargo-known" "no-arrival-warp" "no-departure-warp" )
++Flags: ( "cargo-known" "hidden-from-sensors" "no-arrival-warp" "no-departure-warp" )
 +Flags2: ( )
 +Respawn priority: 0
 +Group: 0
@@ -908,7 +859,7 @@ $Arrival Cue: ( true )
 $Departure Location: Hyperspace
 $Departure Cue: ( false )
 $Determination: 10
-+Flags: ( "cargo-known" "no-arrival-warp" "no-departure-warp" )
++Flags: ( "cargo-known" "hidden-from-sensors" "no-arrival-warp" "no-departure-warp" )
 +Flags2: ( )
 +Respawn priority: 0
 +Group: 0
@@ -929,7 +880,7 @@ $Arrival Cue: ( true )
 $Departure Location: Hyperspace
 $Departure Cue: ( false )
 $Determination: 10
-+Flags: ( "cargo-known" "no-arrival-warp" "no-departure-warp" )
++Flags: ( "cargo-known" "hidden-from-sensors" "no-arrival-warp" "no-departure-warp" )
 +Flags2: ( )
 +Respawn priority: 0
 +Group: 0
@@ -950,7 +901,7 @@ $Arrival Cue: ( true )
 $Departure Location: Hyperspace
 $Departure Cue: ( false )
 $Determination: 10
-+Flags: ( "cargo-known" "no-arrival-warp" "no-departure-warp" )
++Flags: ( "cargo-known" "hidden-from-sensors" "no-arrival-warp" "no-departure-warp" )
 +Flags2: ( )
 +Respawn priority: 0
 +Group: 0
@@ -971,7 +922,7 @@ $Arrival Cue: ( true )
 $Departure Location: Hyperspace
 $Departure Cue: ( false )
 $Determination: 10
-+Flags: ( "cargo-known" "no-arrival-warp" "no-departure-warp" )
++Flags: ( "cargo-known" "hidden-from-sensors" "no-arrival-warp" "no-departure-warp" )
 +Flags2: ( )
 +Respawn priority: 0
 +Group: 0
@@ -992,7 +943,7 @@ $Arrival Cue: ( true )
 $Departure Location: Hyperspace
 $Departure Cue: ( false )
 $Determination: 10
-+Flags: ( "cargo-known" "no-arrival-warp" "no-departure-warp" )
++Flags: ( "cargo-known" "hidden-from-sensors" "no-arrival-warp" "no-departure-warp" )
 +Flags2: ( )
 +Respawn priority: 0
 +Group: 0
@@ -1013,7 +964,7 @@ $Arrival Cue: ( true )
 $Departure Location: Hyperspace
 $Departure Cue: ( false )
 $Determination: 10
-+Flags: ( "cargo-known" "no-arrival-warp" "no-departure-warp" )
++Flags: ( "cargo-known" "hidden-from-sensors" "no-arrival-warp" "no-departure-warp" )
 +Flags2: ( )
 +Respawn priority: 0
 +Group: 0
@@ -1034,7 +985,7 @@ $Arrival Cue: ( true )
 $Departure Location: Hyperspace
 $Departure Cue: ( false )
 $Determination: 10
-+Flags: ( "cargo-known" "no-arrival-warp" "no-departure-warp" )
++Flags: ( "cargo-known" "hidden-from-sensors" "no-arrival-warp" "no-departure-warp" )
 +Flags2: ( )
 +Respawn priority: 0
 +Group: 0
@@ -1055,7 +1006,7 @@ $Arrival Cue: ( true )
 $Departure Location: Hyperspace
 $Departure Cue: ( false )
 $Determination: 10
-+Flags: ( "cargo-known" "no-arrival-warp" "no-departure-warp" )
++Flags: ( "cargo-known" "hidden-from-sensors" "no-arrival-warp" "no-departure-warp" )
 +Flags2: ( )
 +Respawn priority: 0
 +Group: 0
@@ -1076,7 +1027,7 @@ $Arrival Cue: ( true )
 $Departure Location: Hyperspace
 $Departure Cue: ( false )
 $Determination: 10
-+Flags: ( "cargo-known" "no-arrival-warp" "no-departure-warp" )
++Flags: ( "cargo-known" "hidden-from-sensors" "no-arrival-warp" "no-departure-warp" )
 +Flags2: ( )
 +Respawn priority: 0
 +Group: 0
@@ -2989,31 +2940,31 @@ $Formula: ( when ( true ) ( set-player-warp-status ( false ) ) )
 +Repeat Count: 1
 +Interval: 1
 
-$Formula: ( when ( has-time-elapsed 2 ) ( send-message "#Command" "High" "Bienvenue" ) )
-+Name: Consigne terrain
+$Formula: ( when ( true ) ( add-remove-escort "Aurore" 100 ) )
++Name: Escorte Aurore
 +Repeat Count: 1
 +Interval: 1
 
 #Goals
 $Type: Primary
-+Name: Rejoindre Vigilance
-$MessageNew: XSTR("Monter en orbite vers Vigilance (100 km). F8 : vol automatique ; F9 : vitesse de croisiere.", -1)
++Name: Proteger l'Aurore
+$MessageNew: XSTR("Escorter l'Aurore jusqu'au saut en hyperespace", -1)
 $end_multi_text
-$Formula: ( and ( > ( get-object-y "Red 1" ) 95000 ) ( < ( distance "Red 1" "Vigilance" ) 3600 ) )
+$Formula: ( has-departed-delay 0 "Aurore" )
++Score: 0
+
+$Type: Primary
++Name: Batteries
+$MessageNew: XSTR("Detruire les 10 batteries turbolaser du canyon", -1)
+$end_multi_text
+$Formula: ( is-destroyed-delay 0 "Batterie 1" "Batterie 2" "Batterie 3" "Batterie 4" "Batterie 5" "Batterie 6" "Batterie 7" "Batterie 8" "Batterie 9" "Batterie 10" )
 +Score: 0
 
 #Waypoints
 $Name: JumpOutPoint
 $List: ( ( 0, 320, -2600 ) )
-$Name: Approche Vigilance
-$List: ( ( 0, 5500, -1800 ) )
 
 #Messages
-$Command Persona: Rebel Commander 1
-$Name: Bienvenue
-$Team: -1
-$MessageNew: XSTR("Red 1, bienvenue sur Aurore. F8 lance le trajet sol-orbite. F9 change la vitesse de croisiere. Le terrain reste physique pendant tout le voyage.", -1)
-$end_multi_text
 
 #Reinforcements		;! 0 total
 

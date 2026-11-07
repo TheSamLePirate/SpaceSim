@@ -123,6 +123,69 @@ def build_evasion():
         props.append(f"$Name: {name}\n$Class: {cls}\n$Location: 0, -80000, 9000000\n$Orientation:\n {IDENTITY}\n+Flags: ( )\n")
     a=text.index('#Props')+len('#Props\n')
     text=text[:a]+'\n'.join(props)+'\n'+text[a:]
+    # ---- clean-up of the free-flight leftovers (Evasion is a real mission, not a terrain proof)
+    def drop_object(t,name):
+        a=t.index(f'$Name: {name}\n');b=t.index('$Name:',a+5)
+        return t[:a]+t[b:]
+    for name in ['Vigilance','Sonde collision']:
+        text=drop_object(text,name)
+    a=text.index('$Name: Red 1\n');b=text.index('$Name:',a+5)
+    text=text[:a]+text[a:b].replace(' "invulnerable"','').replace(' "no-dynamic"','')+text[b:]
+    # guide beacons: visible decor, but neither on the radar nor in the target list
+    text=re.sub(r'(\$Name: Balise [^\n]+\n(?:(?!\$Name:).)*?\+Flags: \( "cargo-known")',r'\1 "hidden-from-sensors"',text,flags=re.S)
+    a=text.index('#Events');b=text.index('#Waypoints',a)
+    batteries=' '.join(f'"Batterie {k}"' for k in range(1,11))
+    text=text[:a]+f'''#Events
+
+$Formula: ( when ( true ) ( do-nothing ) )
++Name: PlanetProof
++Repeat Count: 1
++Interval: 1
+
+$Formula: ( when ( true ) ( do-nothing ) )
++Name: EnableDynamicMusic
++Repeat Count: 1
++Interval: 1
+
+$Formula: ( when ( true ) ( set-player-warp-status ( false ) ) )
++Name: Bloquer hyperspace
++Repeat Count: 1
++Interval: 1
+
+$Formula: ( when ( true ) ( add-remove-escort "Aurore" 100 ) )
++Name: Escorte Aurore
++Repeat Count: 1
++Interval: 1
+
+#Goals
+$Type: Primary
++Name: Proteger l'Aurore
+$MessageNew: XSTR("Escorter l'Aurore jusqu'au saut en hyperespace", -1)
+$end_multi_text
+$Formula: ( has-departed-delay 0 "Aurore" )
++Score: 0
+
+$Type: Primary
++Name: Batteries
+$MessageNew: XSTR("Detruire les 10 batteries turbolaser du canyon", -1)
+$end_multi_text
+$Formula: ( is-destroyed-delay 0 {batteries} )
++Score: 0
+
+'''+text[b:]
+    text=re.sub(r'\$Name: Approche Vigilance\n\$List: [^\n]+\n','',text)
+    a=text.index('#Messages');b=text.index('#Reinforcements',a)
+    text=text[:a]+'#Messages\n\n'+text[b:]
+    a=text.index('$multi_text',text.index('#Briefing'));b=text.index('$end_multi_text',a)
+    text=text[:a]+'''$multi_text
+ XSTR("AURORE - EVASION\n\nTrois destroyers stellaires viennent de sortir de l'hyperespace. Le cargo Aurore decolle du camp a l'entree du canyon avec nos derniers techniciens.\n\nEscadron Rouge : ouvrez la route. Detruisez les dix batteries turbolaser qui gardent le canyon, protegez l'Aurore jusqu'en orbite, puis sautez en hyperespace avec elle.\n\nAttention au relief : en atmosphere, votre X-wing vole comme un avion.", -1)
+'''+text[b:]
+    a=text.index('$Mission Desc:');b=text.index('$end_multi_text',a)
+    text=text[:a]+'''$Mission Desc:
+ XSTR("Aurore - Evasion. Le cargo rebelle Aurore fuit par le canyon sous le feu imperial, monte en orbite et doit sauter en hyperespace avant l'arrivee de l'Etoile Noire. Escadron Rouge : escorte.", -1)
+'''+text[b:]
+    n=text[text.index('#Objects'):text.index('#Wings')].count('$Name:')
+    text=re.sub(r'#Objects\s*;! \d+ total','#Objects ;! %d total'%n,text)
     path=DATA/'missions/_SPT_Aurore_Evasion.fs2';path.write_text(text)
     print('Mission',path,'cargo at',[round(c) for c in ships[0]['pos']])
 
