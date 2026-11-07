@@ -1,0 +1,38 @@
+#Lua SEXPs
+
+$Operator: get-s-foils-status
+$Category: Status
+$Subcategory: LUA-Condition
+$Minimum Arguments: 1
+$Maximum Arguments: 1
+$Return Type: Number
+$Description: This sexp returns the status of s-foils for a given ship. Returns -1 if the ship does not have s-foils, 0 if the s-foils are moving, 1 if the s-foils are closed, and 2 if the s-foils are open. Note, does not work in multiplayer.
+$Parameter: 
+	+Description: Ship(s) to get s-foil status of.
+	+Type: Ship	
+
+$Operator: open-s-foils
+$Category: Change
+$Subcategory: LUA-Action
+$Minimum Arguments: 1
+;$Maximum Arguments: 1
+$Return Type: Nothing
+$Description: This sexp checks to see if the specified ship has working s-foils, then opens them. Note, does not work in multiplayer. 
+$Repeat
+$Parameter: 
+	+Description: Ship(s) to check/open.
+	+Type: Ship
+	
+$Operator: close-s-foils
+$Category: Change
+$Subcategory: LUA-Action
+$Minimum Arguments: 1
+;$Maximum Arguments: 1
+$Return Type: Nothing
+$Description: This sexp checks to see if the specified ship has working s-foils, then closes them. Note, does not work in multiplayer.
+$Repeat
+$Parameter: 
+	+Description: Ship(s) to check/close.
+	+Type: Ship	
+
+#End

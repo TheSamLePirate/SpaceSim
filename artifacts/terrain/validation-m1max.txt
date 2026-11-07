@@ -1,0 +1,77 @@
+TERRAIN_PROOF t=0.000 START mission=_spt_terrain_auto auto=true
+TERRAIN_PROOF t=0.000 TERRAIN present=true
+TERRAIN_PROOF t=0.000 RAY_HIT x=0.000 y=148.378 z=-2400.000
+TERRAIN_PROOF t=0.000 RAY_HIT x=0.000 y=67.124 z=0.000
+TERRAIN_PROOF t=0.000 RAY_HIT x=1000.000 y=838.064 z=-1000.000
+TERRAIN_PROOF t=0.000 RAY_HIT x=1800.000 y=1363.974 z=900.000
+TERRAIN_PROOF t=0.000 RAY_HIT x=-2500.000 y=1094.001 z=1500.000
+TERRAIN_PROOF t=0.064 FLIGHT x=0.000 y=320.000 z=-2400.000 agl=171.622 target_m=6569.049 phase=vallee frames=1
+TERRAIN_PROOF t=1.772 FLIGHT x=0.000 y=320.000 z=-2355.000 agl=170.818 target_m=6546.558 phase=vallee frames=2
+TERRAIN_PROOF t=2.774 FLIGHT x=0.000 y=320.000 z=-2174.689 agl=176.540 target_m=6458.801 phase=vallee frames=45
+TERRAIN_PROOF t=3.786 FLIGHT x=0.000 y=320.000 z=-1992.441 agl=185.324 target_m=6374.058 phase=vallee frames=83
+TERRAIN_PROOF t=4.792 FLIGHT x=0.000 y=320.000 z=-1811.347 agl=186.983 target_m=6293.950 phase=vallee frames=116
+TERRAIN_PROOF t=5.454 NATIVE_COLLISION probe=1 hit=x=1001.110 y=838.717 z=-999.995 incoming_vy=-25.000
+TERRAIN_PROOF t=5.613 NATIVE_RESPONSE probe_y=840.206 clearance=3.490 vy=-4.280
+TERRAIN_PROOF t=5.806 FLIGHT x=0.000 y=320.000 z=-1628.908 agl=188.364 target_m=6217.538 phase=vallee frames=148
+TERRAIN_PROOF t=6.820 FLIGHT x=0.000 y=551.669 z=-1570.075 agl=423.515 target_m=5982.105 phase=ascension frames=185
+TERRAIN_PROOF t=7.845 FLIGHT x=0.000 y=848.860 z=-1544.455 agl=712.373 target_m=5701.720 phase=ascension frames=224
+TERRAIN_PROOF t=8.875 FLIGHT x=0.000 y=1147.448 z=-1518.715 agl=1012.212 target_m=5421.941 phase=ascension frames=261
+TERRAIN_PROOF t=9.909 FLIGHT x=0.000 y=1447.236 z=-1492.871 agl=1306.439 target_m=5143.295 phase=ascension frames=294
+TERRAIN_PROOF t=10.918 FLIGHT x=0.000 y=1739.936 z=-1467.638 agl=1589.129 target_m=4873.793 phase=ascension frames=331
+TERRAIN_PROOF t=11.928 FLIGHT x=0.000 y=2032.839 z=-1442.388 agl=1913.893 target_m=4607.076 phase=ascension frames=364
+TERRAIN_PROOF t=12.947 FLIGHT x=0.000 y=2328.211 z=-1416.925 agl=2192.921 target_m=4341.679 phase=ascension frames=399
+TERRAIN_PROOF t=13.975 FLIGHT x=0.000 y=2626.424 z=-1391.217 agl=2482.263 target_m=4078.074 phase=ascension frames=434
+TERRAIN_PROOF t=15.003 FLIGHT x=0.000 y=2924.544 z=-1365.517 agl=2773.505 target_m=3819.817 phase=ascension frames=471
+TERRAIN_PROOF t=16.004 FLIGHT x=0.000 y=3214.853 z=-1340.490 agl=3104.542 target_m=3574.470 phase=ascension frames=508
+TERRAIN_PROOF t=17.023 FLIGHT x=0.000 y=3510.428 z=-1315.010 agl=3382.688 target_m=3332.302 phase=ascension frames=543
+TERRAIN_PROOF t=18.039 FLIGHT x=0.000 y=3805.137 z=-1289.604 agl=3679.873 target_m=3100.289 phase=ascension frames=583
+TERRAIN_PROOF t=19.072 FLIGHT x=0.000 y=4104.690 z=-1263.780 agl=3965.161 target_m=2876.481 phase=ascension frames=624
+TERRAIN_PROOF t=20.101 FLIGHT x=0.000 y=4402.956 z=-1238.068 agl=4292.009 target_m=2668.686 phase=ascension frames=659
+TERRAIN_PROOF t=21.118 FLIGHT x=0.000 y=4697.930 z=-1212.639 agl=4578.249 target_m=2481.658 phase=ascension frames=700
+TERRAIN_PROOF t=22.121 FLIGHT x=0.000 y=4983.164 z=-1188.050 agl=4865.208 target_m=2322.478 phase=ascension frames=737
+TERRAIN_PROOF t=23.150 FLIGHT x=0.000 y=5281.589 z=-1162.323 agl=5140.831 target_m=2183.871 phase=ascension frames=772
+TERRAIN_PROOF t=23.150 ALTITUDE_GOAL reached=true same_mission=true
+TERRAIN_PROOF t=24.167 FLIGHT x=0.000 y=5576.517 z=-1136.898 agl=5480.411 target_m=2080.455 phase=ascension frames=808
+TERRAIN_PROOF t=25.185 FLIGHT x=0.000 y=5605.603 z=-1134.391 agl=5509.640 target_m=2072.268 phase=vaisseau frames=846
+TERRAIN_PROOF t=25.185 PROBE_FINAL clearance=9.786 x=979.054 y=832.824 z=-1000.048
+TERRAIN_PROOF t=25.185 RESULT status=PASS ray_hits=5 native_contacts=1 probe_clearance=3.490 reached=true max_step_m=45.000 mission=_SPT_Terrain_Auto
+TERRAIN_PROOF t=25.185 AUTO_DONE controls_released=true
+TERRAIN_PROOF t=26.202 FLIGHT x=0.000 y=5605.603 z=-1134.391 agl=5509.640 target_m=2072.268 phase=vaisseau frames=884
+TERRAIN_PROOF t=27.216 FLIGHT x=0.000 y=5605.603 z=-1134.391 agl=5509.640 target_m=2072.268 phase=vaisseau frames=917
+TERRAIN_PROOF t=28.234 FLIGHT x=0.000 y=5605.603 z=-1134.391 agl=5509.640 target_m=2072.268 phase=vaisseau frames=948
+TERRAIN_PROOF t=29.249 FLIGHT x=0.000 y=5605.603 z=-1134.391 agl=5509.640 target_m=2072.268 phase=vaisseau frames=990
+TERRAIN_PROOF t=30.257 FLIGHT x=0.000 y=5605.603 z=-1134.391 agl=5509.640 target_m=2072.268 phase=vaisseau frames=1025
+TERRAIN_PROOF t=31.258 FLIGHT x=0.001 y=5605.592 z=-1134.385 agl=5509.638 target_m=2072.265 phase=vaisseau frames=1062
+TERRAIN_PROOF t=32.286 FLIGHT x=2.451 y=5583.145 z=-1123.125 agl=5489.269 target_m=2065.625 phase=vaisseau frames=1100
+TERRAIN_PROOF t=33.314 FLIGHT x=9.793 y=5515.985 z=-1090.330 agl=5426.861 target_m=2048.360 phase=vaisseau frames=1132
+TERRAIN_PROOF t=34.319 FLIGHT x=21.744 y=5406.672 z=-1037.137 agl=5319.988 target_m=2026.083 phase=vaisseau frames=1169
+TERRAIN_PROOF t=35.350 FLIGHT x=36.990 y=5267.236 z=-969.305 agl=5164.444 target_m=2008.137 phase=vaisseau frames=1207
+TERRAIN_PROOF t=36.364 FLIGHT x=53.655 y=5114.811 z=-895.156 agl=5011.640 target_m=2002.254 phase=vaisseau frames=1242
+TERRAIN_PROOF t=37.372 FLIGHT x=71.149 y=4954.814 z=-817.322 agl=4853.816 target_m=2011.634 phase=vaisseau frames=1278
+TERRAIN_PROOF t=38.391 FLIGHT x=89.190 y=4789.812 z=-737.053 agl=4701.990 target_m=2037.757 phase=vaisseau frames=1318
+TERRAIN_PROOF t=39.394 FLIGHT x=103.764 y=4656.516 z=-672.210 agl=4572.350 target_m=2070.642 phase=vaisseau frames=1357
+TERRAIN_PROOF t=40.409 FLIGHT x=118.692 y=4519.978 z=-605.789 agl=4443.049 target_m=2114.699 phase=vaisseau frames=1400
+TERRAIN_PROOF t=41.424 FLIGHT x=135.252 y=4368.527 z=-532.113 agl=4278.297 target_m=2175.074 phase=vaisseau frames=1439
+TERRAIN_PROOF t=42.427 FLIGHT x=152.604 y=4209.947 z=-454.937 agl=4118.504 target_m=2250.207 phase=vaisseau frames=1473
+TERRAIN_PROOF t=43.446 FLIGHT x=179.523 y=4053.109 z=-359.968 agl=3951.167 target_m=2325.969 phase=vaisseau frames=1505
+TERRAIN_PROOF t=44.466 FLIGHT x=178.582 y=3893.904 z=-260.656 agl=3799.863 target_m=2411.359 phase=vaisseau frames=1542
+TERRAIN_PROOF t=45.475 FLIGHT x=119.569 y=3735.086 z=-179.116 agl=3660.650 target_m=2511.697 phase=vaisseau frames=1577
+TERRAIN_PROOF t=46.479 FLIGHT x=93.147 y=3571.536 z=-89.768 agl=3507.222 target_m=2624.072 phase=vaisseau frames=1614
+TERRAIN_PROOF t=47.511 FLIGHT x=43.281 y=3405.126 z=-3.495 agl=3332.498 target_m=2748.008 phase=vaisseau frames=1649
+TERRAIN_PROOF t=48.524 FLIGHT x=-24.812 y=3231.263 z=19.676 agl=3159.823 target_m=2905.424 phase=vaisseau frames=1685
+TERRAIN_PROOF t=49.545 FLIGHT x=-59.704 y=3056.080 z=-46.664 agl=2991.191 target_m=3092.960 phase=vaisseau frames=1723
+TERRAIN_PROOF t=50.568 FLIGHT x=-68.048 y=2893.994 z=-152.750 agl=2844.760 target_m=3280.272 phase=vaisseau frames=1761
+TERRAIN_PROOF t=51.590 FLIGHT x=-71.556 y=2735.372 z=-264.657 agl=2702.699 target_m=3466.893 phase=vaisseau frames=1796
+TERRAIN_PROOF t=52.606 FLIGHT x=-74.656 y=2577.954 z=-376.362 agl=2533.172 target_m=3653.091 phase=vaisseau frames=1834
+TERRAIN_PROOF t=53.607 FLIGHT x=-77.687 y=2422.829 z=-486.482 agl=2382.978 target_m=3837.255 phase=vaisseau frames=1869
+TERRAIN_PROOF t=54.637 FLIGHT x=-80.801 y=2263.319 z=-599.716 agl=2225.261 target_m=4027.215 phase=vaisseau frames=1904
+TERRAIN_PROOF t=55.654 FLIGHT x=-83.875 y=2105.860 z=-711.495 agl=2068.124 target_m=4215.243 phase=vaisseau frames=1941
+TERRAIN_PROOF t=56.659 FLIGHT x=-87.056 y=1951.620 z=-824.187 agl=1908.172 target_m=4401.112 phase=vaisseau frames=1978
+TERRAIN_PROOF t=57.669 FLIGHT x=-91.013 y=1805.377 z=-948.078 agl=1756.885 target_m=4584.598 phase=vaisseau frames=2013
+TERRAIN_PROOF t=58.686 FLIGHT x=-95.212 y=1660.821 z=-1076.205 agl=1613.339 target_m=4768.954 phase=vaisseau frames=2051
+TERRAIN_PROOF t=59.699 FLIGHT x=-99.530 y=1517.721 z=-1204.937 agl=1469.898 target_m=4952.927 phase=vaisseau frames=2088
+TERRAIN_PROOF t=60.704 FLIGHT x=-104.726 y=1380.366 z=-1337.398 agl=1326.706 target_m=5133.998 phase=vaisseau frames=2122
+TERRAIN_PROOF t=61.723 FLIGHT x=-111.425 y=1246.437 z=-1477.140 agl=1165.978 target_m=5315.973 phase=vaisseau frames=2159
+TERRAIN_PROOF t=62.732 FLIGHT x=-120.798 y=1123.744 z=-1623.989 agl=1036.075 target_m=5492.084 phase=vaisseau frames=2193
+TERRAIN_PROOF t=63.757 FLIGHT x=-131.453 y=1003.527 z=-1776.700 agl=918.949 target_m=5669.810 phase=vaisseau frames=2234
+TERRAIN_PROOF t=64.757 FLIGHT x=-144.569 y=897.858 z=-1933.557 agl=807.921 target_m=5837.961 phase=vaisseau frames=2266

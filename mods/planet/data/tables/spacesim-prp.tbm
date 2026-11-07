@@ -1,0 +1,1398 @@
+#PROP CATEGORIES
+$Name: SpaceSim World
++Color: ( 100 180 220 )
+#PROPS
+$Name: SpaceSim Tile 000
+$POF file: ss_t000.pof
+$Closeup_pos: 0, 0, -200000
+$Detail distance: ( 0 28000 88000 )
+$Category: SpaceSim World
+$Flags: ( )
+
+$Name: SpaceSim Tile 001
+$POF file: ss_t001.pof
+$Closeup_pos: 0, 0, -200000
+$Detail distance: ( 0 28000 88000 )
+$Category: SpaceSim World
+$Flags: ( )
+
+$Name: SpaceSim Tile 002
+$POF file: ss_t002.pof
+$Closeup_pos: 0, 0, -200000
+$Detail distance: ( 0 28000 88000 )
+$Category: SpaceSim World
+$Flags: ( )
+
+$Name: SpaceSim Tile 003
+$POF file: ss_t003.pof
+$Closeup_pos: 0, 0, -200000
+$Detail distance: ( 0 14000 44000 )
+$Category: SpaceSim World
+$Flags: ( )
+
+$Name: SpaceSim Tile 004
+$POF file: ss_t004.pof
+$Closeup_pos: 0, 0, -200000
+$Detail distance: ( 0 14000 44000 )
+$Category: SpaceSim World
+$Flags: ( )
+
+$Name: SpaceSim Tile 005
+$POF file: ss_t005.pof
+$Closeup_pos: 0, 0, -200000
+$Detail distance: ( 0 14000 44000 )
+$Category: SpaceSim World
+$Flags: ( )
+
+$Name: SpaceSim Tile 006
+$POF file: ss_t006.pof
+$Closeup_pos: 0, 0, -200000
+$Detail distance: ( 0 7000 22000 )
+$Category: SpaceSim World
+$Flags: ( )
+
+$Name: SpaceSim Tile 007
+$POF file: ss_t007.pof
+$Closeup_pos: 0, 0, -200000
+$Detail distance: ( 0 7000 22000 )
+$Category: SpaceSim World
+$Flags: ( )
+
+$Name: SpaceSim Tile 008
+$POF file: ss_t008.pof
+$Closeup_pos: 0, 0, -200000
+$Detail distance: ( 0 7000 22000 )
+$Category: SpaceSim World
+$Flags: ( )
+
+$Name: SpaceSim Tile 009
+$POF file: ss_t009.pof
+$Closeup_pos: 0, 0, -200000
+$Detail distance: ( 0 3500 11000 )
+$Category: SpaceSim World
+$Flags: ( )
+
+$Name: SpaceSim Tile 010
+$POF file: ss_t010.pof
+$Closeup_pos: 0, 0, -200000
+$Detail distance: ( 0 3500 11000 )
+$Category: SpaceSim World
+$Flags: ( )
+
+$Name: SpaceSim Tile 011
+$POF file: ss_t011.pof
+$Closeup_pos: 0, 0, -200000
+$Detail distance: ( 0 1750 5500 )
+$Category: SpaceSim World
+$Flags: ( )
+
+$Name: SpaceSim Tile 012
+$POF file: ss_t012.pof
+$Closeup_pos: 0, 0, -200000
+$Detail distance: ( 0 1750 5500 )
+$Category: SpaceSim World
+$Flags: ( )
+
+$Name: SpaceSim Tile 013
+$POF file: ss_t013.pof
+$Closeup_pos: 0, 0, -200000
+$Detail distance: ( 0 1750 5500 )
+$Category: SpaceSim World
+$Flags: ( )
+
+$Name: SpaceSim Tile 014
+$POF file: ss_t014.pof
+$Closeup_pos: 0, 0, -200000
+$Detail distance: ( 0 875 2750 )
+$Category: SpaceSim World
+$Flags: ( )
+
+$Name: SpaceSim Tile 015
+$POF file: ss_t015.pof
+$Closeup_pos: 0, 0, -200000
+$Detail distance: ( 0 437 1375 )
+$Category: SpaceSim World
+$Flags: ( )
+
+$Name: SpaceSim Tile 016
+$POF file: ss_t016.pof
+$Closeup_pos: 0, 0, -200000
+$Detail distance: ( 0 437 1375 )
+$Category: SpaceSim World
+$Flags: ( )
+
+$Name: SpaceSim Tile 017
+$POF file: ss_t017.pof
+$Closeup_pos: 0, 0, -200000
+$Detail distance: ( 0 437 1375 )
+$Category: SpaceSim World
+$Flags: ( )
+
+$Name: SpaceSim Tile 018
+$POF file: ss_t018.pof
+$Closeup_pos: 0, 0, -200000
+$Detail distance: ( 0 437 1375 )
+$Category: SpaceSim World
+$Flags: ( )
+
+$Name: SpaceSim Tile 019
+$POF file: ss_t019.pof
+$Closeup_pos: 0, 0, -200000
+$Detail distance: ( 0 437 1375 )
+$Category: SpaceSim World
+$Flags: ( )
+
+$Name: SpaceSim Tile 020
+$POF file: ss_t020.pof
+$Closeup_pos: 0, 0, -200000
+$Detail distance: ( 0 437 1375 )
+$Category: SpaceSim World
+$Flags: ( )
+
+$Name: SpaceSim Tile 021
+$POF file: ss_t021.pof
+$Closeup_pos: 0, 0, -200000
+$Detail distance: ( 0 437 1375 )
+$Category: SpaceSim World
+$Flags: ( )
+
+$Name: SpaceSim Tile 022
+$POF file: ss_t022.pof
+$Closeup_pos: 0, 0, -200000
+$Detail distance: ( 0 437 1375 )
+$Category: SpaceSim World
+$Flags: ( )
+
+$Name: SpaceSim Tile 023
+$POF file: ss_t023.pof
+$Closeup_pos: 0, 0, -200000
+$Detail distance: ( 0 437 1375 )
+$Category: SpaceSim World
+$Flags: ( )
+
+$Name: SpaceSim Tile 024
+$POF file: ss_t024.pof
+$Closeup_pos: 0, 0, -200000
+$Detail distance: ( 0 437 1375 )
+$Category: SpaceSim World
+$Flags: ( )
+
+$Name: SpaceSim Tile 025
+$POF file: ss_t025.pof
+$Closeup_pos: 0, 0, -200000
+$Detail distance: ( 0 437 1375 )
+$Category: SpaceSim World
+$Flags: ( )
+
+$Name: SpaceSim Tile 026
+$POF file: ss_t026.pof
+$Closeup_pos: 0, 0, -200000
+$Detail distance: ( 0 437 1375 )
+$Category: SpaceSim World
+$Flags: ( )
+
+$Name: SpaceSim Tile 027
+$POF file: ss_t027.pof
+$Closeup_pos: 0, 0, -200000
+$Detail distance: ( 0 1750 5500 )
+$Category: SpaceSim World
+$Flags: ( )
+
+$Name: SpaceSim Tile 028
+$POF file: ss_t028.pof
+$Closeup_pos: 0, 0, -200000
+$Detail distance: ( 0 1750 5500 )
+$Category: SpaceSim World
+$Flags: ( )
+
+$Name: SpaceSim Tile 029
+$POF file: ss_t029.pof
+$Closeup_pos: 0, 0, -200000
+$Detail distance: ( 0 437 1375 )
+$Category: SpaceSim World
+$Flags: ( )
+
+$Name: SpaceSim Tile 030
+$POF file: ss_t030.pof
+$Closeup_pos: 0, 0, -200000
+$Detail distance: ( 0 437 1375 )
+$Category: SpaceSim World
+$Flags: ( )
+
+$Name: SpaceSim Tile 031
+$POF file: ss_t031.pof
+$Closeup_pos: 0, 0, -200000
+$Detail distance: ( 0 437 1375 )
+$Category: SpaceSim World
+$Flags: ( )
+
+$Name: SpaceSim Tile 032
+$POF file: ss_t032.pof
+$Closeup_pos: 0, 0, -200000
+$Detail distance: ( 0 437 1375 )
+$Category: SpaceSim World
+$Flags: ( )
+
+$Name: SpaceSim Tile 033
+$POF file: ss_t033.pof
+$Closeup_pos: 0, 0, -200000
+$Detail distance: ( 0 875 2750 )
+$Category: SpaceSim World
+$Flags: ( )
+
+$Name: SpaceSim Tile 034
+$POF file: ss_t034.pof
+$Closeup_pos: 0, 0, -200000
+$Detail distance: ( 0 437 1375 )
+$Category: SpaceSim World
+$Flags: ( )
+
+$Name: SpaceSim Tile 035
+$POF file: ss_t035.pof
+$Closeup_pos: 0, 0, -200000
+$Detail distance: ( 0 437 1375 )
+$Category: SpaceSim World
+$Flags: ( )
+
+$Name: SpaceSim Tile 036
+$POF file: ss_t036.pof
+$Closeup_pos: 0, 0, -200000
+$Detail distance: ( 0 437 1375 )
+$Category: SpaceSim World
+$Flags: ( )
+
+$Name: SpaceSim Tile 037
+$POF file: ss_t037.pof
+$Closeup_pos: 0, 0, -200000
+$Detail distance: ( 0 437 1375 )
+$Category: SpaceSim World
+$Flags: ( )
+
+$Name: SpaceSim Tile 038
+$POF file: ss_t038.pof
+$Closeup_pos: 0, 0, -200000
+$Detail distance: ( 0 437 1375 )
+$Category: SpaceSim World
+$Flags: ( )
+
+$Name: SpaceSim Tile 039
+$POF file: ss_t039.pof
+$Closeup_pos: 0, 0, -200000
+$Detail distance: ( 0 437 1375 )
+$Category: SpaceSim World
+$Flags: ( )
+
+$Name: SpaceSim Tile 040
+$POF file: ss_t040.pof
+$Closeup_pos: 0, 0, -200000
+$Detail distance: ( 0 437 1375 )
+$Category: SpaceSim World
+$Flags: ( )
+
+$Name: SpaceSim Tile 041
+$POF file: ss_t041.pof
+$Closeup_pos: 0, 0, -200000
+$Detail distance: ( 0 437 1375 )
+$Category: SpaceSim World
+$Flags: ( )
+
+$Name: SpaceSim Tile 042
+$POF file: ss_t042.pof
+$Closeup_pos: 0, 0, -200000
+$Detail distance: ( 0 1750 5500 )
+$Category: SpaceSim World
+$Flags: ( )
+
+$Name: SpaceSim Tile 043
+$POF file: ss_t043.pof
+$Closeup_pos: 0, 0, -200000
+$Detail distance: ( 0 28000 88000 )
+$Category: SpaceSim World
+$Flags: ( )
+
+$Name: SpaceSim Tile 044
+$POF file: ss_t044.pof
+$Closeup_pos: 0, 0, -200000
+$Detail distance: ( 0 28000 88000 )
+$Category: SpaceSim World
+$Flags: ( )
+
+$Name: SpaceSim Tile 045
+$POF file: ss_t045.pof
+$Closeup_pos: 0, 0, -200000
+$Detail distance: ( 0 14000 44000 )
+$Category: SpaceSim World
+$Flags: ( )
+
+$Name: SpaceSim Tile 046
+$POF file: ss_t046.pof
+$Closeup_pos: 0, 0, -200000
+$Detail distance: ( 0 14000 44000 )
+$Category: SpaceSim World
+$Flags: ( )
+
+$Name: SpaceSim Tile 047
+$POF file: ss_t047.pof
+$Closeup_pos: 0, 0, -200000
+$Detail distance: ( 0 14000 44000 )
+$Category: SpaceSim World
+$Flags: ( )
+
+$Name: SpaceSim Tile 048
+$POF file: ss_t048.pof
+$Closeup_pos: 0, 0, -200000
+$Detail distance: ( 0 14000 44000 )
+$Category: SpaceSim World
+$Flags: ( )
+
+$Name: SpaceSim Tile 049
+$POF file: ss_t049.pof
+$Closeup_pos: 0, 0, -200000
+$Detail distance: ( 0 28000 88000 )
+$Category: SpaceSim World
+$Flags: ( )
+
+$Name: SpaceSim Tile 050
+$POF file: ss_t050.pof
+$Closeup_pos: 0, 0, -200000
+$Detail distance: ( 0 28000 88000 )
+$Category: SpaceSim World
+$Flags: ( )
+
+$Name: SpaceSim Tile 051
+$POF file: ss_t051.pof
+$Closeup_pos: 0, 0, -200000
+$Detail distance: ( 0 14000 44000 )
+$Category: SpaceSim World
+$Flags: ( )
+
+$Name: SpaceSim Tile 052
+$POF file: ss_t052.pof
+$Closeup_pos: 0, 0, -200000
+$Detail distance: ( 0 7000 22000 )
+$Category: SpaceSim World
+$Flags: ( )
+
+$Name: SpaceSim Tile 053
+$POF file: ss_t053.pof
+$Closeup_pos: 0, 0, -200000
+$Detail distance: ( 0 1750 5500 )
+$Category: SpaceSim World
+$Flags: ( )
+
+$Name: SpaceSim Tile 054
+$POF file: ss_t054.pof
+$Closeup_pos: 0, 0, -200000
+$Detail distance: ( 0 437 1375 )
+$Category: SpaceSim World
+$Flags: ( )
+
+$Name: SpaceSim Tile 055
+$POF file: ss_t055.pof
+$Closeup_pos: 0, 0, -200000
+$Detail distance: ( 0 437 1375 )
+$Category: SpaceSim World
+$Flags: ( )
+
+$Name: SpaceSim Tile 056
+$POF file: ss_t056.pof
+$Closeup_pos: 0, 0, -200000
+$Detail distance: ( 0 437 1375 )
+$Category: SpaceSim World
+$Flags: ( )
+
+$Name: SpaceSim Tile 057
+$POF file: ss_t057.pof
+$Closeup_pos: 0, 0, -200000
+$Detail distance: ( 0 437 1375 )
+$Category: SpaceSim World
+$Flags: ( )
+
+$Name: SpaceSim Tile 058
+$POF file: ss_t058.pof
+$Closeup_pos: 0, 0, -200000
+$Detail distance: ( 0 437 1375 )
+$Category: SpaceSim World
+$Flags: ( )
+
+$Name: SpaceSim Tile 059
+$POF file: ss_t059.pof
+$Closeup_pos: 0, 0, -200000
+$Detail distance: ( 0 437 1375 )
+$Category: SpaceSim World
+$Flags: ( )
+
+$Name: SpaceSim Tile 060
+$POF file: ss_t060.pof
+$Closeup_pos: 0, 0, -200000
+$Detail distance: ( 0 437 1375 )
+$Category: SpaceSim World
+$Flags: ( )
+
+$Name: SpaceSim Tile 061
+$POF file: ss_t061.pof
+$Closeup_pos: 0, 0, -200000
+$Detail distance: ( 0 437 1375 )
+$Category: SpaceSim World
+$Flags: ( )
+
+$Name: SpaceSim Tile 062
+$POF file: ss_t062.pof
+$Closeup_pos: 0, 0, -200000
+$Detail distance: ( 0 875 2750 )
+$Category: SpaceSim World
+$Flags: ( )
+
+$Name: SpaceSim Tile 063
+$POF file: ss_t063.pof
+$Closeup_pos: 0, 0, -200000
+$Detail distance: ( 0 437 1375 )
+$Category: SpaceSim World
+$Flags: ( )
+
+$Name: SpaceSim Tile 064
+$POF file: ss_t064.pof
+$Closeup_pos: 0, 0, -200000
+$Detail distance: ( 0 437 1375 )
+$Category: SpaceSim World
+$Flags: ( )
+
+$Name: SpaceSim Tile 065
+$POF file: ss_t065.pof
+$Closeup_pos: 0, 0, -200000
+$Detail distance: ( 0 437 1375 )
+$Category: SpaceSim World
+$Flags: ( )
+
+$Name: SpaceSim Tile 066
+$POF file: ss_t066.pof
+$Closeup_pos: 0, 0, -200000
+$Detail distance: ( 0 437 1375 )
+$Category: SpaceSim World
+$Flags: ( )
+
+$Name: SpaceSim Tile 067
+$POF file: ss_t067.pof
+$Closeup_pos: 0, 0, -200000
+$Detail distance: ( 0 1750 5500 )
+$Category: SpaceSim World
+$Flags: ( )
+
+$Name: SpaceSim Tile 068
+$POF file: ss_t068.pof
+$Closeup_pos: 0, 0, -200000
+$Detail distance: ( 0 1750 5500 )
+$Category: SpaceSim World
+$Flags: ( )
+
+$Name: SpaceSim Tile 069
+$POF file: ss_t069.pof
+$Closeup_pos: 0, 0, -200000
+$Detail distance: ( 0 437 1375 )
+$Category: SpaceSim World
+$Flags: ( )
+
+$Name: SpaceSim Tile 070
+$POF file: ss_t070.pof
+$Closeup_pos: 0, 0, -200000
+$Detail distance: ( 0 437 1375 )
+$Category: SpaceSim World
+$Flags: ( )
+
+$Name: SpaceSim Tile 071
+$POF file: ss_t071.pof
+$Closeup_pos: 0, 0, -200000
+$Detail distance: ( 0 437 1375 )
+$Category: SpaceSim World
+$Flags: ( )
+
+$Name: SpaceSim Tile 072
+$POF file: ss_t072.pof
+$Closeup_pos: 0, 0, -200000
+$Detail distance: ( 0 437 1375 )
+$Category: SpaceSim World
+$Flags: ( )
+
+$Name: SpaceSim Tile 073
+$POF file: ss_t073.pof
+$Closeup_pos: 0, 0, -200000
+$Detail distance: ( 0 437 1375 )
+$Category: SpaceSim World
+$Flags: ( )
+
+$Name: SpaceSim Tile 074
+$POF file: ss_t074.pof
+$Closeup_pos: 0, 0, -200000
+$Detail distance: ( 0 437 1375 )
+$Category: SpaceSim World
+$Flags: ( )
+
+$Name: SpaceSim Tile 075
+$POF file: ss_t075.pof
+$Closeup_pos: 0, 0, -200000
+$Detail distance: ( 0 437 1375 )
+$Category: SpaceSim World
+$Flags: ( )
+
+$Name: SpaceSim Tile 076
+$POF file: ss_t076.pof
+$Closeup_pos: 0, 0, -200000
+$Detail distance: ( 0 437 1375 )
+$Category: SpaceSim World
+$Flags: ( )
+
+$Name: SpaceSim Tile 077
+$POF file: ss_t077.pof
+$Closeup_pos: 0, 0, -200000
+$Detail distance: ( 0 437 1375 )
+$Category: SpaceSim World
+$Flags: ( )
+
+$Name: SpaceSim Tile 078
+$POF file: ss_t078.pof
+$Closeup_pos: 0, 0, -200000
+$Detail distance: ( 0 437 1375 )
+$Category: SpaceSim World
+$Flags: ( )
+
+$Name: SpaceSim Tile 079
+$POF file: ss_t079.pof
+$Closeup_pos: 0, 0, -200000
+$Detail distance: ( 0 437 1375 )
+$Category: SpaceSim World
+$Flags: ( )
+
+$Name: SpaceSim Tile 080
+$POF file: ss_t080.pof
+$Closeup_pos: 0, 0, -200000
+$Detail distance: ( 0 437 1375 )
+$Category: SpaceSim World
+$Flags: ( )
+
+$Name: SpaceSim Tile 081
+$POF file: ss_t081.pof
+$Closeup_pos: 0, 0, -200000
+$Detail distance: ( 0 875 2750 )
+$Category: SpaceSim World
+$Flags: ( )
+
+$Name: SpaceSim Tile 082
+$POF file: ss_t082.pof
+$Closeup_pos: 0, 0, -200000
+$Detail distance: ( 0 1750 5500 )
+$Category: SpaceSim World
+$Flags: ( )
+
+$Name: SpaceSim Tile 083
+$POF file: ss_t083.pof
+$Closeup_pos: 0, 0, -200000
+$Detail distance: ( 0 1750 5500 )
+$Category: SpaceSim World
+$Flags: ( )
+
+$Name: SpaceSim Tile 084
+$POF file: ss_t084.pof
+$Closeup_pos: 0, 0, -200000
+$Detail distance: ( 0 1750 5500 )
+$Category: SpaceSim World
+$Flags: ( )
+
+$Name: SpaceSim Tile 085
+$POF file: ss_t085.pof
+$Closeup_pos: 0, 0, -200000
+$Detail distance: ( 0 3500 11000 )
+$Category: SpaceSim World
+$Flags: ( )
+
+$Name: SpaceSim Tile 086
+$POF file: ss_t086.pof
+$Closeup_pos: 0, 0, -200000
+$Detail distance: ( 0 3500 11000 )
+$Category: SpaceSim World
+$Flags: ( )
+
+$Name: SpaceSim Tile 087
+$POF file: ss_t087.pof
+$Closeup_pos: 0, 0, -200000
+$Detail distance: ( 0 7000 22000 )
+$Category: SpaceSim World
+$Flags: ( )
+
+$Name: SpaceSim Tile 088
+$POF file: ss_t088.pof
+$Closeup_pos: 0, 0, -200000
+$Detail distance: ( 0 7000 22000 )
+$Category: SpaceSim World
+$Flags: ( )
+
+$Name: SpaceSim Tile 089
+$POF file: ss_t089.pof
+$Closeup_pos: 0, 0, -200000
+$Detail distance: ( 0 14000 44000 )
+$Category: SpaceSim World
+$Flags: ( )
+
+$Name: SpaceSim Tile 090
+$POF file: ss_t090.pof
+$Closeup_pos: 0, 0, -200000
+$Detail distance: ( 0 14000 44000 )
+$Category: SpaceSim World
+$Flags: ( )
+
+$Name: SpaceSim Tile 091
+$POF file: ss_t091.pof
+$Closeup_pos: 0, 0, -200000
+$Detail distance: ( 0 28000 88000 )
+$Category: SpaceSim World
+$Flags: ( )
+
+$Name: SpaceSim Tile 092
+$POF file: ss_t092.pof
+$Closeup_pos: 0, 0, -200000
+$Detail distance: ( 0 28000 88000 )
+$Category: SpaceSim World
+$Flags: ( )
+
+$Name: SpaceSim Tile 093
+$POF file: ss_t093.pof
+$Closeup_pos: 0, 0, -200000
+$Detail distance: ( 0 14000 44000 )
+$Category: SpaceSim World
+$Flags: ( )
+
+$Name: SpaceSim Tile 094
+$POF file: ss_t094.pof
+$Closeup_pos: 0, 0, -200000
+$Detail distance: ( 0 14000 44000 )
+$Category: SpaceSim World
+$Flags: ( )
+
+$Name: SpaceSim Tile 095
+$POF file: ss_t095.pof
+$Closeup_pos: 0, 0, -200000
+$Detail distance: ( 0 14000 44000 )
+$Category: SpaceSim World
+$Flags: ( )
+
+$Name: SpaceSim Tile 096
+$POF file: ss_t096.pof
+$Closeup_pos: 0, 0, -200000
+$Detail distance: ( 0 14000 44000 )
+$Category: SpaceSim World
+$Flags: ( )
+
+$Name: SpaceSim Tile 097
+$POF file: ss_t097.pof
+$Closeup_pos: 0, 0, -200000
+$Detail distance: ( 0 28000 88000 )
+$Category: SpaceSim World
+$Flags: ( )
+
+$Name: SpaceSim Tile 098
+$POF file: ss_t098.pof
+$Closeup_pos: 0, 0, -200000
+$Detail distance: ( 0 28000 88000 )
+$Category: SpaceSim World
+$Flags: ( )
+
+$Name: SpaceSim Tile 099
+$POF file: ss_t099.pof
+$Closeup_pos: 0, 0, -200000
+$Detail distance: ( 0 28000 88000 )
+$Category: SpaceSim World
+$Flags: ( )
+
+$Name: SpaceSim Tile 100
+$POF file: ss_t100.pof
+$Closeup_pos: 0, 0, -200000
+$Detail distance: ( 0 112000 352000 )
+$Category: SpaceSim World
+$Flags: ( )
+
+$Name: SpaceSim Tile 101
+$POF file: ss_t101.pof
+$Closeup_pos: 0, 0, -200000
+$Detail distance: ( 0 112000 352000 )
+$Category: SpaceSim World
+$Flags: ( )
+
+$Name: SpaceSim Tile 102
+$POF file: ss_t102.pof
+$Closeup_pos: 0, 0, -200000
+$Detail distance: ( 0 112000 352000 )
+$Category: SpaceSim World
+$Flags: ( )
+
+$Name: SpaceSim Tile 103
+$POF file: ss_t103.pof
+$Closeup_pos: 0, 0, -200000
+$Detail distance: ( 0 112000 352000 )
+$Category: SpaceSim World
+$Flags: ( )
+
+$Name: SpaceSim Tile 104
+$POF file: ss_t104.pof
+$Closeup_pos: 0, 0, -200000
+$Detail distance: ( 0 56000 176000 )
+$Category: SpaceSim World
+$Flags: ( )
+
+$Name: SpaceSim Tile 105
+$POF file: ss_t105.pof
+$Closeup_pos: 0, 0, -200000
+$Detail distance: ( 0 56000 176000 )
+$Category: SpaceSim World
+$Flags: ( )
+
+$Name: SpaceSim Tile 106
+$POF file: ss_t106.pof
+$Closeup_pos: 0, 0, -200000
+$Detail distance: ( 0 56000 176000 )
+$Category: SpaceSim World
+$Flags: ( )
+
+$Name: SpaceSim Tile 107
+$POF file: ss_t107.pof
+$Closeup_pos: 0, 0, -200000
+$Detail distance: ( 0 56000 176000 )
+$Category: SpaceSim World
+$Flags: ( )
+
+$Name: SpaceSim Bunker
+$POF file: ss_g_bunker.pof
+$Closeup_pos: 0, 0, -300
+$Detail distance: ( 0 9000 )
+$Category: SpaceSim World
+$Flags: ( )
+
+$Name: SpaceSim Hangar
+$POF file: ss_g_hangar.pof
+$Closeup_pos: 0, 0, -300
+$Detail distance: ( 0 9000 )
+$Category: SpaceSim World
+$Flags: ( )
+
+$Name: SpaceSim Barracks
+$POF file: ss_g_barracks.pof
+$Closeup_pos: 0, 0, -300
+$Detail distance: ( 0 9000 )
+$Category: SpaceSim World
+$Flags: ( )
+
+$Name: SpaceSim Tower
+$POF file: ss_g_tower.pof
+$Closeup_pos: 0, 0, -300
+$Detail distance: ( 0 9000 )
+$Category: SpaceSim World
+$Flags: ( )
+
+$Name: SpaceSim Pad
+$POF file: ss_g_pad.pof
+$Closeup_pos: 0, 0, -300
+$Detail distance: ( 0 9000 )
+$Category: SpaceSim World
+$Flags: ( )
+
+$Name: SpaceSim Tanks
+$POF file: ss_g_tanks.pof
+$Closeup_pos: 0, 0, -300
+$Detail distance: ( 0 9000 )
+$Category: SpaceSim World
+$Flags: ( )
+
+$Name: SpaceSim Pylon
+$POF file: ss_g_pylon.pof
+$Closeup_pos: 0, 0, -300
+$Detail distance: ( 0 9000 )
+$Category: SpaceSim World
+$Flags: ( )
+
+$Name: SpaceSim Wall
+$POF file: ss_g_wall.pof
+$Closeup_pos: 0, 0, -300
+$Detail distance: ( 0 9000 )
+$Category: SpaceSim World
+$Flags: ( )
+
+$Name: SpaceSim Veg 1914
+$POF file: ss_v_1914.pof
+$Closeup_pos: 0, 0, -300
+$Detail distance: ( 0 1100 4500 13000 )
+$Category: SpaceSim World
+$Flags: ( "no_collide" )
+
+$Name: SpaceSim Veg 2014
+$POF file: ss_v_2014.pof
+$Closeup_pos: 0, 0, -300
+$Detail distance: ( 0 1100 4500 13000 )
+$Category: SpaceSim World
+$Flags: ( "no_collide" )
+
+$Name: SpaceSim Veg 2114
+$POF file: ss_v_2114.pof
+$Closeup_pos: 0, 0, -300
+$Detail distance: ( 0 1100 4500 13000 )
+$Category: SpaceSim World
+$Flags: ( "no_collide" )
+
+$Name: SpaceSim Veg 2214
+$POF file: ss_v_2214.pof
+$Closeup_pos: 0, 0, -300
+$Detail distance: ( 0 1100 4500 13000 )
+$Category: SpaceSim World
+$Flags: ( "no_collide" )
+
+$Name: SpaceSim Veg 1814
+$POF file: ss_v_1814.pof
+$Closeup_pos: 0, 0, -300
+$Detail distance: ( 0 1100 4500 13000 )
+$Category: SpaceSim World
+$Flags: ( "no_collide" )
+
+$Name: SpaceSim Veg 1915
+$POF file: ss_v_1915.pof
+$Closeup_pos: 0, 0, -300
+$Detail distance: ( 0 1100 4500 13000 )
+$Category: SpaceSim World
+$Flags: ( "no_collide" )
+
+$Name: SpaceSim Veg 2015
+$POF file: ss_v_2015.pof
+$Closeup_pos: 0, 0, -300
+$Detail distance: ( 0 1100 4500 13000 )
+$Category: SpaceSim World
+$Flags: ( "no_collide" )
+
+$Name: SpaceSim Veg 1815
+$POF file: ss_v_1815.pof
+$Closeup_pos: 0, 0, -300
+$Detail distance: ( 0 1100 4500 13000 )
+$Category: SpaceSim World
+$Flags: ( "no_collide" )
+
+$Name: SpaceSim Veg 1816
+$POF file: ss_v_1816.pof
+$Closeup_pos: 0, 0, -300
+$Detail distance: ( 0 1100 4500 13000 )
+$Category: SpaceSim World
+$Flags: ( "no_collide" )
+
+$Name: SpaceSim Veg 1916
+$POF file: ss_v_1916.pof
+$Closeup_pos: 0, 0, -300
+$Detail distance: ( 0 1100 4500 13000 )
+$Category: SpaceSim World
+$Flags: ( "no_collide" )
+
+$Name: SpaceSim Veg 2016
+$POF file: ss_v_2016.pof
+$Closeup_pos: 0, 0, -300
+$Detail distance: ( 0 1100 4500 13000 )
+$Category: SpaceSim World
+$Flags: ( "no_collide" )
+
+$Name: SpaceSim Veg 1817
+$POF file: ss_v_1817.pof
+$Closeup_pos: 0, 0, -300
+$Detail distance: ( 0 1100 4500 13000 )
+$Category: SpaceSim World
+$Flags: ( "no_collide" )
+
+$Name: SpaceSim Veg 1917
+$POF file: ss_v_1917.pof
+$Closeup_pos: 0, 0, -300
+$Detail distance: ( 0 1100 4500 13000 )
+$Category: SpaceSim World
+$Flags: ( "no_collide" )
+
+$Name: SpaceSim Veg 2017
+$POF file: ss_v_2017.pof
+$Closeup_pos: 0, 0, -300
+$Detail distance: ( 0 1100 4500 13000 )
+$Category: SpaceSim World
+$Flags: ( "no_collide" )
+
+$Name: SpaceSim Veg 1617
+$POF file: ss_v_1617.pof
+$Closeup_pos: 0, 0, -300
+$Detail distance: ( 0 1100 4500 13000 )
+$Category: SpaceSim World
+$Flags: ( "no_collide" )
+
+$Name: SpaceSim Veg 1918
+$POF file: ss_v_1918.pof
+$Closeup_pos: 0, 0, -300
+$Detail distance: ( 0 1100 4500 13000 )
+$Category: SpaceSim World
+$Flags: ( "no_collide" )
+
+$Name: SpaceSim Veg 2018
+$POF file: ss_v_2018.pof
+$Closeup_pos: 0, 0, -300
+$Detail distance: ( 0 1100 4500 13000 )
+$Category: SpaceSim World
+$Flags: ( "no_collide" )
+
+$Name: SpaceSim Veg 1818
+$POF file: ss_v_1818.pof
+$Closeup_pos: 0, 0, -300
+$Detail distance: ( 0 1100 4500 13000 )
+$Category: SpaceSim World
+$Flags: ( "no_collide" )
+
+$Name: SpaceSim Veg 1819
+$POF file: ss_v_1819.pof
+$Closeup_pos: 0, 0, -300
+$Detail distance: ( 0 1100 4500 13000 )
+$Category: SpaceSim World
+$Flags: ( "no_collide" )
+
+$Name: SpaceSim Veg 1919
+$POF file: ss_v_1919.pof
+$Closeup_pos: 0, 0, -300
+$Detail distance: ( 0 1100 4500 13000 )
+$Category: SpaceSim World
+$Flags: ( "no_collide" )
+
+$Name: SpaceSim Veg 2019
+$POF file: ss_v_2019.pof
+$Closeup_pos: 0, 0, -300
+$Detail distance: ( 0 1100 4500 13000 )
+$Category: SpaceSim World
+$Flags: ( "no_collide" )
+
+$Name: SpaceSim Veg 2119
+$POF file: ss_v_2119.pof
+$Closeup_pos: 0, 0, -300
+$Detail distance: ( 0 1100 4500 13000 )
+$Category: SpaceSim World
+$Flags: ( "no_collide" )
+
+$Name: SpaceSim Veg 1719
+$POF file: ss_v_1719.pof
+$Closeup_pos: 0, 0, -300
+$Detail distance: ( 0 1100 4500 13000 )
+$Category: SpaceSim World
+$Flags: ( "no_collide" )
+
+$Name: SpaceSim Veg 1920
+$POF file: ss_v_1920.pof
+$Closeup_pos: 0, 0, -300
+$Detail distance: ( 0 1100 4500 13000 )
+$Category: SpaceSim World
+$Flags: ( "no_collide" )
+
+$Name: SpaceSim Veg 2020
+$POF file: ss_v_2020.pof
+$Closeup_pos: 0, 0, -300
+$Detail distance: ( 0 1100 4500 13000 )
+$Category: SpaceSim World
+$Flags: ( "no_collide" )
+
+$Name: SpaceSim Veg 2120
+$POF file: ss_v_2120.pof
+$Closeup_pos: 0, 0, -300
+$Detail distance: ( 0 1100 4500 13000 )
+$Category: SpaceSim World
+$Flags: ( "no_collide" )
+
+$Name: SpaceSim Veg 1921
+$POF file: ss_v_1921.pof
+$Closeup_pos: 0, 0, -300
+$Detail distance: ( 0 1100 4500 13000 )
+$Category: SpaceSim World
+$Flags: ( "no_collide" )
+
+$Name: SpaceSim Veg 2021
+$POF file: ss_v_2021.pof
+$Closeup_pos: 0, 0, -300
+$Detail distance: ( 0 1100 4500 13000 )
+$Category: SpaceSim World
+$Flags: ( "no_collide" )
+
+$Name: SpaceSim Veg 2121
+$POF file: ss_v_2121.pof
+$Closeup_pos: 0, 0, -300
+$Detail distance: ( 0 1100 4500 13000 )
+$Category: SpaceSim World
+$Flags: ( "no_collide" )
+
+$Name: SpaceSim Veg 2221
+$POF file: ss_v_2221.pof
+$Closeup_pos: 0, 0, -300
+$Detail distance: ( 0 1100 4500 13000 )
+$Category: SpaceSim World
+$Flags: ( "no_collide" )
+
+$Name: SpaceSim Veg 1821
+$POF file: ss_v_1821.pof
+$Closeup_pos: 0, 0, -300
+$Detail distance: ( 0 1100 4500 13000 )
+$Category: SpaceSim World
+$Flags: ( "no_collide" )
+
+$Name: SpaceSim Veg 1922
+$POF file: ss_v_1922.pof
+$Closeup_pos: 0, 0, -300
+$Detail distance: ( 0 1100 4500 13000 )
+$Category: SpaceSim World
+$Flags: ( "no_collide" )
+
+$Name: SpaceSim Veg 2022
+$POF file: ss_v_2022.pof
+$Closeup_pos: 0, 0, -300
+$Detail distance: ( 0 1100 4500 13000 )
+$Category: SpaceSim World
+$Flags: ( "no_collide" )
+
+$Name: SpaceSim Veg 2122
+$POF file: ss_v_2122.pof
+$Closeup_pos: 0, 0, -300
+$Detail distance: ( 0 1100 4500 13000 )
+$Category: SpaceSim World
+$Flags: ( "no_collide" )
+
+$Name: SpaceSim Veg 2222
+$POF file: ss_v_2222.pof
+$Closeup_pos: 0, 0, -300
+$Detail distance: ( 0 1100 4500 13000 )
+$Category: SpaceSim World
+$Flags: ( "no_collide" )
+
+$Name: SpaceSim Veg 1923
+$POF file: ss_v_1923.pof
+$Closeup_pos: 0, 0, -300
+$Detail distance: ( 0 1100 4500 13000 )
+$Category: SpaceSim World
+$Flags: ( "no_collide" )
+
+$Name: SpaceSim Veg 2023
+$POF file: ss_v_2023.pof
+$Closeup_pos: 0, 0, -300
+$Detail distance: ( 0 1100 4500 13000 )
+$Category: SpaceSim World
+$Flags: ( "no_collide" )
+
+$Name: SpaceSim Veg 2123
+$POF file: ss_v_2123.pof
+$Closeup_pos: 0, 0, -300
+$Detail distance: ( 0 1100 4500 13000 )
+$Category: SpaceSim World
+$Flags: ( "no_collide" )
+
+$Name: SpaceSim Veg 1823
+$POF file: ss_v_1823.pof
+$Closeup_pos: 0, 0, -300
+$Detail distance: ( 0 1100 4500 13000 )
+$Category: SpaceSim World
+$Flags: ( "no_collide" )
+
+$Name: SpaceSim Veg 2223
+$POF file: ss_v_2223.pof
+$Closeup_pos: 0, 0, -300
+$Detail distance: ( 0 1100 4500 13000 )
+$Category: SpaceSim World
+$Flags: ( "no_collide" )
+
+$Name: SpaceSim Veg 1924
+$POF file: ss_v_1924.pof
+$Closeup_pos: 0, 0, -300
+$Detail distance: ( 0 1100 4500 13000 )
+$Category: SpaceSim World
+$Flags: ( "no_collide" )
+
+$Name: SpaceSim Veg 2024
+$POF file: ss_v_2024.pof
+$Closeup_pos: 0, 0, -300
+$Detail distance: ( 0 1100 4500 13000 )
+$Category: SpaceSim World
+$Flags: ( "no_collide" )
+
+$Name: SpaceSim Veg 2124
+$POF file: ss_v_2124.pof
+$Closeup_pos: 0, 0, -300
+$Detail distance: ( 0 1100 4500 13000 )
+$Category: SpaceSim World
+$Flags: ( "no_collide" )
+
+$Name: SpaceSim Veg 1824
+$POF file: ss_v_1824.pof
+$Closeup_pos: 0, 0, -300
+$Detail distance: ( 0 1100 4500 13000 )
+$Category: SpaceSim World
+$Flags: ( "no_collide" )
+
+$Name: SpaceSim Veg 1925
+$POF file: ss_v_1925.pof
+$Closeup_pos: 0, 0, -300
+$Detail distance: ( 0 1100 4500 13000 )
+$Category: SpaceSim World
+$Flags: ( "no_collide" )
+
+$Name: SpaceSim Veg 2025
+$POF file: ss_v_2025.pof
+$Closeup_pos: 0, 0, -300
+$Detail distance: ( 0 1100 4500 13000 )
+$Category: SpaceSim World
+$Flags: ( "no_collide" )
+
+$Name: SpaceSim Veg 1825
+$POF file: ss_v_1825.pof
+$Closeup_pos: 0, 0, -300
+$Detail distance: ( 0 1100 4500 13000 )
+$Category: SpaceSim World
+$Flags: ( "no_collide" )
+
+$Name: SpaceSim Veg 2125
+$POF file: ss_v_2125.pof
+$Closeup_pos: 0, 0, -300
+$Detail distance: ( 0 1100 4500 13000 )
+$Category: SpaceSim World
+$Flags: ( "no_collide" )
+
+$Name: SpaceSim Veg 1725
+$POF file: ss_v_1725.pof
+$Closeup_pos: 0, 0, -300
+$Detail distance: ( 0 1100 4500 13000 )
+$Category: SpaceSim World
+$Flags: ( "no_collide" )
+
+$Name: SpaceSim Veg 1714
+$POF file: ss_v_1714.pof
+$Closeup_pos: 0, 0, -300
+$Detail distance: ( 0 1100 4500 13000 )
+$Category: SpaceSim World
+$Flags: ( "no_collide" )
+
+$Name: SpaceSim Veg 1715
+$POF file: ss_v_1715.pof
+$Closeup_pos: 0, 0, -300
+$Detail distance: ( 0 1100 4500 13000 )
+$Category: SpaceSim World
+$Flags: ( "no_collide" )
+
+$Name: SpaceSim Veg 2115
+$POF file: ss_v_2115.pof
+$Closeup_pos: 0, 0, -300
+$Detail distance: ( 0 1100 4500 13000 )
+$Category: SpaceSim World
+$Flags: ( "no_collide" )
+
+$Name: SpaceSim Veg 2116
+$POF file: ss_v_2116.pof
+$Closeup_pos: 0, 0, -300
+$Detail distance: ( 0 1100 4500 13000 )
+$Category: SpaceSim World
+$Flags: ( "no_collide" )
+
+$Name: SpaceSim Veg 1717
+$POF file: ss_v_1717.pof
+$Closeup_pos: 0, 0, -300
+$Detail distance: ( 0 1100 4500 13000 )
+$Category: SpaceSim World
+$Flags: ( "no_collide" )
+
+$Name: SpaceSim Veg 2217
+$POF file: ss_v_2217.pof
+$Closeup_pos: 0, 0, -300
+$Detail distance: ( 0 1100 4500 13000 )
+$Category: SpaceSim World
+$Flags: ( "no_collide" )
+
+$Name: SpaceSim Veg 2118
+$POF file: ss_v_2118.pof
+$Closeup_pos: 0, 0, -300
+$Detail distance: ( 0 1100 4500 13000 )
+$Category: SpaceSim World
+$Flags: ( "no_collide" )
+
+$Name: SpaceSim Veg 1718
+$POF file: ss_v_1718.pof
+$Closeup_pos: 0, 0, -300
+$Detail distance: ( 0 1100 4500 13000 )
+$Category: SpaceSim World
+$Flags: ( "no_collide" )
+
+$Name: SpaceSim Veg 1620
+$POF file: ss_v_1620.pof
+$Closeup_pos: 0, 0, -300
+$Detail distance: ( 0 1100 4500 13000 )
+$Category: SpaceSim World
+$Flags: ( "no_collide" )
+
+$Name: SpaceSim Veg 1720
+$POF file: ss_v_1720.pof
+$Closeup_pos: 0, 0, -300
+$Detail distance: ( 0 1100 4500 13000 )
+$Category: SpaceSim World
+$Flags: ( "no_collide" )
+
+$Name: SpaceSim Veg 1820
+$POF file: ss_v_1820.pof
+$Closeup_pos: 0, 0, -300
+$Detail distance: ( 0 1100 4500 13000 )
+$Category: SpaceSim World
+$Flags: ( "no_collide" )
+
+$Name: SpaceSim Veg 1721
+$POF file: ss_v_1721.pof
+$Closeup_pos: 0, 0, -300
+$Detail distance: ( 0 1100 4500 13000 )
+$Category: SpaceSim World
+$Flags: ( "no_collide" )
+
+$Name: SpaceSim Veg 2321
+$POF file: ss_v_2321.pof
+$Closeup_pos: 0, 0, -300
+$Detail distance: ( 0 1100 4500 13000 )
+$Category: SpaceSim World
+$Flags: ( "no_collide" )
+
+$Name: SpaceSim Veg 1822
+$POF file: ss_v_1822.pof
+$Closeup_pos: 0, 0, -300
+$Detail distance: ( 0 1100 4500 13000 )
+$Category: SpaceSim World
+$Flags: ( "no_collide" )
+
+$Name: SpaceSim Veg 2224
+$POF file: ss_v_2224.pof
+$Closeup_pos: 0, 0, -300
+$Detail distance: ( 0 1100 4500 13000 )
+$Category: SpaceSim World
+$Flags: ( "no_collide" )
+
+$Name: SpaceSim Veg 2324
+$POF file: ss_v_2324.pof
+$Closeup_pos: 0, 0, -300
+$Detail distance: ( 0 1100 4500 13000 )
+$Category: SpaceSim World
+$Flags: ( "no_collide" )
+
+$Name: SpaceSim Veg 1724
+$POF file: ss_v_1724.pof
+$Closeup_pos: 0, 0, -300
+$Detail distance: ( 0 1100 4500 13000 )
+$Category: SpaceSim World
+$Flags: ( "no_collide" )
+
+$Name: SpaceSim Veg 2325
+$POF file: ss_v_2325.pof
+$Closeup_pos: 0, 0, -300
+$Detail distance: ( 0 1100 4500 13000 )
+$Category: SpaceSim World
+$Flags: ( "no_collide" )
+
+$Name: SpaceSim Veg 1625
+$POF file: ss_v_1625.pof
+$Closeup_pos: 0, 0, -300
+$Detail distance: ( 0 1100 4500 13000 )
+$Category: SpaceSim World
+$Flags: ( "no_collide" )
+
+$Name: SpaceSim Death Star
+$POF file: ss_deathstar.pof
+$Closeup_pos: 0, 0, -60000
+$Detail distance: ( 0 260000 )
+$Category: SpaceSim World
+$Flags: ( "no_collide" )
+
+$Name: SpaceSim Frag 00
+$POF file: ss_frag00.pof
+$Closeup_pos: 0, 0, -30000
+$Detail distance: ( 0 )
+$Category: SpaceSim World
+$Flags: ( "no_collide" )
+
+$Name: SpaceSim Frag 01
+$POF file: ss_frag01.pof
+$Closeup_pos: 0, 0, -30000
+$Detail distance: ( 0 )
+$Category: SpaceSim World
+$Flags: ( "no_collide" )
+
+$Name: SpaceSim Frag 02
+$POF file: ss_frag02.pof
+$Closeup_pos: 0, 0, -30000
+$Detail distance: ( 0 )
+$Category: SpaceSim World
+$Flags: ( "no_collide" )
+
+$Name: SpaceSim Frag 03
+$POF file: ss_frag03.pof
+$Closeup_pos: 0, 0, -30000
+$Detail distance: ( 0 )
+$Category: SpaceSim World
+$Flags: ( "no_collide" )
+
+$Name: SpaceSim Frag 10
+$POF file: ss_frag10.pof
+$Closeup_pos: 0, 0, -30000
+$Detail distance: ( 0 )
+$Category: SpaceSim World
+$Flags: ( "no_collide" )
+
+$Name: SpaceSim Frag 11
+$POF file: ss_frag11.pof
+$Closeup_pos: 0, 0, -30000
+$Detail distance: ( 0 )
+$Category: SpaceSim World
+$Flags: ( "no_collide" )
+
+$Name: SpaceSim Frag 12
+$POF file: ss_frag12.pof
+$Closeup_pos: 0, 0, -30000
+$Detail distance: ( 0 )
+$Category: SpaceSim World
+$Flags: ( "no_collide" )
+
+$Name: SpaceSim Frag 13
+$POF file: ss_frag13.pof
+$Closeup_pos: 0, 0, -30000
+$Detail distance: ( 0 )
+$Category: SpaceSim World
+$Flags: ( "no_collide" )
+
+$Name: SpaceSim Frag 20
+$POF file: ss_frag20.pof
+$Closeup_pos: 0, 0, -30000
+$Detail distance: ( 0 )
+$Category: SpaceSim World
+$Flags: ( "no_collide" )
+
+$Name: SpaceSim Frag 21
+$POF file: ss_frag21.pof
+$Closeup_pos: 0, 0, -30000
+$Detail distance: ( 0 )
+$Category: SpaceSim World
+$Flags: ( "no_collide" )
+
+$Name: SpaceSim Frag 22
+$POF file: ss_frag22.pof
+$Closeup_pos: 0, 0, -30000
+$Detail distance: ( 0 )
+$Category: SpaceSim World
+$Flags: ( "no_collide" )
+
+$Name: SpaceSim Frag 23
+$POF file: ss_frag23.pof
+$Closeup_pos: 0, 0, -30000
+$Detail distance: ( 0 )
+$Category: SpaceSim World
+$Flags: ( "no_collide" )
+
+$Name: SpaceSim Core
+$POF file: ss_core.pof
+$Closeup_pos: 0, 0, -300000
+$Detail distance: ( 0 )
+$Category: SpaceSim World
+$Flags: ( "no_collide" "no lighting" )
+
+$Name: SpaceSim Air 0
+$POF file: ss_atmo_0.pof
+$Closeup_pos: 0, 0, -200000
+$Detail distance: ( 0 )
+$Category: SpaceSim World
+$Flags: ( "no_collide" )
+
+#End

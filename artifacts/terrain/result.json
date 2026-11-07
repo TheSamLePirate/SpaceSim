@@ -1,0 +1,16 @@
+{
+  "platform": "Mac M1 Max",
+  "engine": "FSO 26.2.0 official ARM64",
+  "terrain_size_m": [
+    8000,
+    8000
+  ],
+  "capital_height_m": 6000,
+  "status": "PASS",
+  "native_collision": true,
+  "continuous_single_mission": true,
+  "player_position_teleported": false,
+  "mac_mini_tested": false,
+  "final_probe_clearance_m": 9.786,
+  "evidence": "validation-m1max.txt"
+}

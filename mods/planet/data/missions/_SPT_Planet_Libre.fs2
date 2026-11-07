@@ -1,0 +1,2893 @@
+#Mission Info
+
+$Version: 23.1
+$Name:  XSTR("[Rebel] Aurore - Surface vers orbite", -1)
+$Author: Olivier Veinand / SpaceSim
+$Created: 02/20/21 at 14:04:33
+$Modified: 12/30/25 at 12:10:21
+$Notes:
+This is a FRED2_OPEN created mission for Fate of the Galaxy.
+$End Notes:
+
+$Mission Desc:
+ XSTR("Aurore : planete physique de 160 km de diametre. Vallee detaillee, relief, ocean, atmosphere et montee continue vers Vigilance a 100 km. FSO 26.2, une seule mission.", -1)
+$end_multi_text
++Game Type Flags: 1
++Flags: 0
++Fog 1000m Visibility: 0.96
++Fog Near Distance: 800
++Fog Skybox Clip Distance: 0
++Fog Clip Distance: 180000
+
+
++Disallow Support: 1
++Hull Repair Ceiling: 60.000000
++Subsystem Repair Ceiling: 90.000000
+
++Viewer pos: 2200, 6000, -6500
++Viewer orient:
+	0.999386, 0.000001, -0.035035,
+	0.010849, 0.950842, 0.309487,
+	0.033313, -0.309677, 0.950258
+
+$Starting wing names: ( "Red" "Blue" "Green" )
+$Squadron wing names: ( "Red" "Blue" "Green" "Grey" "Gold" )
+$Team-versus-team wing names: ( "Red" "Alpha" )
+
+$Skybox Model: skybox_starfield.pof
++Skybox Flags: 1573120
+
+$AI Profile: FOTG_AI
+
+$Sound Environment: Default
+
+#Command Briefing
+
+#Briefing
+$start_briefing
+$num_stages: 1
+$start_stage
+$multi_text
+ XSTR("AURORE / DE LA SURFACE A L'ORBITE
+
+Une vraie petite planete de 160 km de diametre. La vallee, les montagnes et le globe visible depuis l'espace sont le meme terrain physique. Tout est charge avant le depart.
+
+F8 : demonstration automatique / reprendre les commandes.
+F9 : vitesse de croisiere 250 / 1500 / 5000 m/s. Les commandes normales de gaz restent actives.
+
+Au sol, restez a faible vitesse. En altitude, montez puis retournez-vous pour voir la courbure et la planete entiere. Vigilance vous attend a 100 km.
+
+Prototype de rendu FSO : relief, textures 8K, normales, atmosphere progressive, nuages et liseres atmospheriques.", -1)
+$end_multi_text
+$voice: none.wav
+$camera_pos: 2000, 5000, -6000
+$camera_orient:
+ 1, 0, 0,
+ 0, 0.707107, 0.707107,
+ 0, -0.707107, 0.707107
+$camera_time: 500
+$num_lines: 0
+$num_icons: 0
+$Flags: 0
+$Formula: ( true )
+$end_stage
+$end_briefing
+
+#Debriefing_info
+$Num stages: 1
+$Formula: ( true )
+$Multi text
+ XSTR("Fin du test de terrain SpaceSim. Le rapport technique est enregistre dans spacesim-terrain-telemetry.txt.", -1)
+$end_multi_text
+$Voice: none.wav
+$Recommendation text:
+ XSTR("Le mode libre reste ouvert pour comparer les montagnes, le fond de vallee et la montee vers le destroyer.", -1)
+$end_multi_text
+
+#Players
+$Starting Shipname: Red 1
+$Ship Choices: ( "T-65c X-wing#Red" 1 )
++Weaponry Pool: ( "T&B KX-9" 1 "Krupx MG7-A#Pnk" 6 )
+
+#Objects ;! 3 total
+
+$Name: Red 1
+$Class: T-65c X-wing#Red
+$Team: Friendly
+$Location: 0, 1006.86016, -5000
+$Orientation:
+ 1, 0, 0,
+ 0, 1, 0,
+ 0, 0, 1
+$Cargo 1: XSTR("Prototype", -1)
++Subsystem: Pilot
+$Arrival Location: Hyperspace
+$Arrival Cue: ( true )
+$Departure Location: Hyperspace
+$Departure Cue: ( false )
+$Determination: 10
++Flags: ( "cargo-known" "invulnerable" "no-dynamic" "no-arrival-warp" "no-departure-warp" "player-start" )
++Flags2: ( )
++Respawn priority: 0
++Group: 0
++Use Table Score:
++Score: 0
+
+$Name: Vigilance
+$Class: Imperial Star Destroyer
+$Team: Friendly
+$Location: 18500, 92000, 5000
+$Orientation:
+ 1, 0, 0,
+ 0, 1, 0,
+ 0, 0, 1
+$AI Goals: ( goals ( ai-play-dead 89 ) )
+$Cargo 1: XSTR("Prototype", -1)
++Subsystem: Pilot
+$Arrival Location: Hyperspace
+$Arrival Cue: ( true )
+$Departure Location: Hyperspace
+$Departure Cue: ( false )
+$Determination: 10
++Flags: ( "cargo-known" "invulnerable" "no-dynamic" "no-arrival-warp" "no-departure-warp" )
++Flags2: ( )
++Respawn priority: 0
++Group: 0
++Use Table Score:
++Score: 0
+
+$Name: Sonde collision
+$Class: T-65c X-wing#Blue
+$Team: Friendly
+$Location: 1000, 1659.26777, -1000
+$Orientation:
+ 1, 0, 0,
+ 0, 1, 0,
+ 0, 0, 1
+$AI Goals: ( goals ( ai-play-dead 89 ) )
+$Cargo 1: XSTR("Prototype", -1)
++Subsystem: Pilot
+$Arrival Location: Hyperspace
+$Arrival Cue: ( true )
+$Departure Location: Hyperspace
+$Departure Cue: ( false )
+$Determination: 10
++Flags: ( "cargo-known" "invulnerable" "no-dynamic" "no-arrival-warp" "no-departure-warp" )
++Flags2: ( )
++Respawn priority: 0
++Group: 0
++Use Table Score:
++Score: 0
+
+$Name: Hangar imperial 0
+$Class: Hangar imperial
+$Team: Hostile
+$Location: -528.986, 167.042, -1159.988
+$Orientation:
+ 0.999978, 0.006598, 0.000000,
+ -0.006598, 0.999874, -0.014468,
+ -0.000095, 0.014467, 0.999895
+$Cargo 1: XSTR("Garnison", -1)
+$Arrival Location: Hyperspace
+$Arrival Cue: ( true )
+$Departure Location: Hyperspace
+$Departure Cue: ( false )
+$Determination: 10
++Flags: ( "cargo-known" "no-arrival-warp" "no-departure-warp" )
++Flags2: ( )
++Respawn priority: 0
++Group: 0
++Use Table Score:
++Score: 0
+
+$Name: Hangar imperial 1
+$Class: Hangar imperial
+$Team: Hostile
+$Location: -388.988, 167.795, -1159.988
+$Orientation:
+ 0.999988, 0.004852, 0.000000,
+ -0.004852, 0.999884, -0.014468,
+ -0.000070, 0.014468, 0.999895
+$Cargo 1: XSTR("Garnison", -1)
+$Arrival Location: Hyperspace
+$Arrival Cue: ( true )
+$Departure Location: Hyperspace
+$Departure Cue: ( false )
+$Determination: 10
++Flags: ( "cargo-known" "no-arrival-warp" "no-departure-warp" )
++Flags2: ( )
++Respawn priority: 0
++Group: 0
++Use Table Score:
++Score: 0
+
+$Name: Caserne imperiale 2
+$Class: Caserne imperiale
+$Team: Hostile
+$Location: -553.986, 177.192, -1269.987
+$Orientation:
+ 0.000796, -0.015832, -0.999874,
+ -0.006908, 0.999851, -0.015837,
+ 0.999976, 0.006920, 0.000687
+$Cargo 1: XSTR("Garnison", -1)
+$Arrival Location: Hyperspace
+$Arrival Cue: ( true )
+$Departure Location: Hyperspace
+$Departure Cue: ( false )
+$Determination: 10
++Flags: ( "cargo-known" "no-arrival-warp" "no-departure-warp" )
++Flags2: ( )
++Respawn priority: 0
++Group: 0
++Use Table Score:
++Score: 0
+
+$Name: Caserne imperiale 3
+$Class: Caserne imperiale
+$Team: Hostile
+$Location: -363.988, 198.518, -1269.987
+$Orientation:
+ 0.000796, -0.015830, -0.999874,
+ -0.004538, 0.999864, -0.015833,
+ 0.999989, 0.004550, 0.000724
+$Cargo 1: XSTR("Garnison", -1)
+$Arrival Location: Hyperspace
+$Arrival Cue: ( true )
+$Departure Location: Hyperspace
+$Departure Cue: ( false )
+$Determination: 10
++Flags: ( "cargo-known" "no-arrival-warp" "no-departure-warp" )
++Flags2: ( )
++Respawn priority: 0
++Group: 0
++Use Table Score:
++Score: 0
+
+$Name: Bunker imperial 4
+$Class: Bunker imperial
+$Team: Hostile
+$Location: -458.987, 167.294, -1329.987
+$Orientation:
+ 0.999984, 0.005725, 0.000000,
+ -0.005724, 0.999846, -0.016588,
+ -0.000095, 0.016587, 0.999862
+$Cargo 1: XSTR("Garnison", -1)
+$Arrival Location: Hyperspace
+$Arrival Cue: ( true )
+$Departure Location: Hyperspace
+$Departure Cue: ( false )
+$Determination: 10
++Flags: ( "cargo-known" "no-arrival-warp" "no-departure-warp" )
++Flags2: ( )
++Respawn priority: 0
++Group: 0
++Use Table Score:
++Score: 0
+
+$Name: Tour de communication 5
+$Class: Tour de communication
+$Team: Hostile
+$Location: -308.989, 218.260, -1209.988
+$Orientation:
+ 0.955336, -0.000778, -0.295520,
+ -0.003851, 0.999879, -0.015082,
+ 0.295496, 0.015546, 0.955217
+$Cargo 1: XSTR("Garnison", -1)
+$Arrival Location: Hyperspace
+$Arrival Cue: ( true )
+$Departure Location: Hyperspace
+$Departure Cue: ( false )
+$Determination: 10
++Flags: ( "cargo-known" "no-arrival-warp" "no-departure-warp" )
++Flags2: ( )
++Respawn priority: 0
++Group: 0
++Use Table Score:
++Score: 0
+
+$Name: Reservoirs imperiaux 6
+$Class: Reservoirs imperiaux
+$Team: Hostile
+$Location: -608.986, 192.402, -1209.988
+$Orientation:
+ 0.999971, 0.007594, 0.000000,
+ -0.007593, 0.999857, -0.015086,
+ -0.000115, 0.015086, 0.999886
+$Cargo 1: XSTR("Garnison", -1)
+$Arrival Location: Hyperspace
+$Arrival Cue: ( true )
+$Departure Location: Hyperspace
+$Departure Cue: ( false )
+$Determination: 10
++Flags: ( "cargo-known" "no-arrival-warp" "no-departure-warp" )
++Flags2: ( )
++Respawn priority: 0
++Group: 0
++Use Table Score:
++Score: 0
+
+$Name: Bunker imperial 12
+$Class: Bunker imperial
+$Team: Hostile
+$Location: -228.989, 242.015, -1079.989
+$Orientation:
+ 0.921058, -0.002613, -0.389417,
+ -0.002853, 0.999905, -0.013458,
+ 0.389415, 0.013507, 0.920963
+$Cargo 1: XSTR("Garnison", -1)
+$Arrival Location: Hyperspace
+$Arrival Cue: ( true )
+$Departure Location: Hyperspace
+$Departure Cue: ( false )
+$Determination: 10
++Flags: ( "cargo-known" "no-arrival-warp" "no-departure-warp" )
++Flags2: ( )
++Respawn priority: 0
++Group: 0
++Use Table Score:
++Score: 0
+
+$Name: Caserne imperiale 13
+$Class: Caserne imperiale
+$Team: Hostile
+$Location: -688.985, 227.572, -1089.989
+$Orientation:
+ 0.362341, -0.009551, -0.931997,
+ -0.008587, 0.999871, -0.013584,
+ 0.932006, 0.012925, 0.362212
+$Cargo 1: XSTR("Garnison", -1)
+$Arrival Location: Hyperspace
+$Arrival Cue: ( true )
+$Departure Location: Hyperspace
+$Departure Cue: ( false )
+$Determination: 10
++Flags: ( "cargo-known" "no-arrival-warp" "no-departure-warp" )
++Flags2: ( )
++Respawn priority: 0
++Group: 0
++Use Table Score:
++Score: 0
+
+$Name: Lambda Ombre
+$Class: Lambda T-4a Shuttle
+$Team: Hostile
+$Location: -459.086, 177.059, -1050.216
+$Orientation:
+ -0.856831, -0.011658, -0.515466,
+ -0.005725, 0.999898, -0.013097,
+ 0.515566, -0.008271, -0.856810
+$Cargo 1: XSTR("Garnison", -1)
+$Arrival Location: Hyperspace
+$Arrival Cue: ( true )
+$Departure Location: Hyperspace
+$Departure Cue: ( false )
+$Determination: 10
++Flags: ( "cargo-known" "no-arrival-warp" "no-departure-warp" )
++Flags2: ( )
++Respawn priority: 0
++Group: 0
++Use Table Score:
++Score: 0
+
+$Name: Cargo 1
+$Class: BFF-1 Container
+$Team: Hostile
+$Location: -609.059, 213.681, -1040.115
+$Orientation:
+ 0.921059, 0.001944, -0.389418,
+ -0.007592, 0.999887, -0.012965,
+ 0.389348, 0.014898, 0.920970
+$Cargo 1: XSTR("Garnison", -1)
+$Arrival Location: Hyperspace
+$Arrival Cue: ( true )
+$Departure Location: Hyperspace
+$Departure Cue: ( false )
+$Determination: 10
++Flags: ( "cargo-known" "no-arrival-warp" "no-departure-warp" )
++Flags2: ( )
++Respawn priority: 0
++Group: 0
++Use Table Score:
++Score: 0
+
+$Name: AT-AT 1
+$Class: AT-AT#Static
+$Team: Hostile
+$Location: -499.104, 204.649, -940.211
+$Orientation:
+ 0.980060, 0.003770, -0.198668,
+ -0.006222, 0.999912, -0.011722,
+ 0.198606, 0.012724, 0.979997
+$Cargo 1: XSTR("Garnison", -1)
+$Arrival Location: Hyperspace
+$Arrival Cue: ( true )
+$Departure Location: Hyperspace
+$Departure Cue: ( false )
+$Determination: 10
++Flags: ( "cargo-known" "no-arrival-warp" "no-departure-warp" )
++Flags2: ( )
++Respawn priority: 0
++Group: 0
++Use Table Score:
++Score: 0
+
+$Name: AT-AT 2
+$Class: AT-AT#Static
+$Team: Hostile
+$Location: -404.082, 195.629, -870.195
+$Orientation:
+ 0.877542, 0.009624, 0.479403,
+ -0.005038, 0.999928, -0.010850,
+ -0.479473, 0.007106, 0.877528
+$Cargo 1: XSTR("Garnison", -1)
+$Arrival Location: Hyperspace
+$Arrival Cue: ( true )
+$Departure Location: Hyperspace
+$Departure Cue: ( false )
+$Determination: 10
++Flags: ( "cargo-known" "no-arrival-warp" "no-departure-warp" )
++Flags2: ( )
++Respawn priority: 0
++Group: 0
++Use Table Score:
++Score: 0
+
+$Name: AT-AT 3
+$Class: AT-AT#Static
+$Team: Hostile
+$Location: -479.099, 168.377, -1530.344
+$Orientation:
+ -0.989956, -0.008610, -0.141115,
+ -0.005975, 0.999800, -0.019085,
+ 0.141251, -0.018050, -0.989809
+$Cargo 1: XSTR("Garnison", -1)
+$Arrival Location: Hyperspace
+$Arrival Cue: ( true )
+$Departure Location: Hyperspace
+$Departure Cue: ( false )
+$Determination: 10
++Flags: ( "cargo-known" "no-arrival-warp" "no-departure-warp" )
++Flags2: ( )
++Respawn priority: 0
++Group: 0
++Use Table Score:
++Score: 0
+
+$Name: Batterie 1
+$Class: Defense Satellite#Imp
+$Team: Hostile
+$Location: -1176.929, 825.698, -3602.649
+$Orientation:
+ 0.999894, 0.014560, 0.000000,
+ -0.014545, 0.998902, -0.044524,
+ -0.000648, 0.044519, 0.999008
+$Cargo 1: XSTR("Garnison", -1)
+$Arrival Location: Hyperspace
+$Arrival Cue: ( true )
+$Departure Location: Hyperspace
+$Departure Cue: ( false )
+$Determination: 10
++Flags: ( "cargo-known" "no-arrival-warp" "no-departure-warp" )
++Flags2: ( )
++Respawn priority: 0
++Group: 0
++Use Table Score:
++Score: 0
+
+$Name: Batterie 2
+$Class: Defense Satellite#Imp
+$Team: Hostile
+$Location: 264.131, 865.694, -3602.648
+$Orientation:
+ 0.999995, -0.003266, -0.000000,
+ 0.003263, 0.999004, -0.044507,
+ 0.000145, 0.044506, 0.999009
+$Cargo 1: XSTR("Garnison", -1)
+$Arrival Location: Hyperspace
+$Arrival Cue: ( true )
+$Departure Location: Hyperspace
+$Departure Cue: ( false )
+$Determination: 10
++Flags: ( "cargo-known" "no-arrival-warp" "no-departure-warp" )
++Flags2: ( )
++Respawn priority: 0
++Group: 0
++Use Table Score:
++Score: 0
+
+$Name: Batterie 3
+$Class: Defense Satellite#Imp
+$Team: Hostile
+$Location: -1336.880, 870.487, -2201.618
+$Orientation:
+ 0.999863, 0.016529, 0.000000,
+ -0.016523, 0.999493, -0.027210,
+ -0.000450, 0.027206, 0.999630
+$Cargo 1: XSTR("Garnison", -1)
+$Arrival Location: Hyperspace
+$Arrival Cue: ( true )
+$Departure Location: Hyperspace
+$Departure Cue: ( false )
+$Determination: 10
++Flags: ( "cargo-known" "no-arrival-warp" "no-departure-warp" )
++Flags2: ( )
++Respawn priority: 0
++Group: 0
++Use Table Score:
++Score: 0
+
+$Name: Batterie 4
+$Class: Defense Satellite#Imp
+$Team: Hostile
+$Location: 344.356, 1013.824, -2201.616
+$Orientation:
+ 0.999991, -0.004251, 0.000000,
+ 0.004249, 0.999622, -0.027166,
+ 0.000115, 0.027165, 0.999631
+$Cargo 1: XSTR("Garnison", -1)
+$Arrival Location: Hyperspace
+$Arrival Cue: ( true )
+$Departure Location: Hyperspace
+$Departure Cue: ( false )
+$Determination: 10
++Flags: ( "cargo-known" "no-arrival-warp" "no-departure-warp" )
++Flags2: ( )
++Respawn priority: 0
++Group: 0
++Use Table Score:
++Score: 0
+
+$Name: Batterie 5
+$Class: Defense Satellite#Imp
+$Team: Hostile
+$Location: -1154.828, 855.964, -700.515
+$Orientation:
+ 0.999898, 0.014281, -0.000000,
+ -0.014281, 0.999861, -0.008663,
+ -0.000124, 0.008662, 0.999962
+$Cargo 1: XSTR("Garnison", -1)
+$Arrival Location: Hyperspace
+$Arrival Cue: ( true )
+$Departure Location: Hyperspace
+$Departure Cue: ( false )
+$Determination: 10
++Flags: ( "cargo-known" "no-arrival-warp" "no-departure-warp" )
++Flags2: ( )
++Respawn priority: 0
++Group: 0
++Use Table Score:
++Score: 0
+
+$Name: Batterie 6
+$Class: Defense Satellite#Imp
+$Team: Hostile
+$Location: 526.409, 957.466, -700.515
+$Orientation:
+ 0.999979, -0.006502, -0.000000,
+ 0.006502, 0.999941, -0.008652,
+ 0.000056, 0.008652, 0.999963
+$Cargo 1: XSTR("Garnison", -1)
+$Arrival Location: Hyperspace
+$Arrival Cue: ( true )
+$Departure Location: Hyperspace
+$Departure Cue: ( false )
+$Determination: 10
++Flags: ( "cargo-known" "no-arrival-warp" "no-departure-warp" )
++Flags2: ( )
++Respawn priority: 0
++Group: 0
++Use Table Score:
++Score: 0
+
+$Name: Batterie 7
+$Class: Defense Satellite#Imp
+$Team: Hostile
+$Location: -337.751, 966.852, 900.662
+$Orientation:
+ 0.999991, 0.004171, 0.000000,
+ -0.004171, 0.999929, 0.011123,
+ 0.000046, -0.011123, 0.999938
+$Cargo 1: XSTR("Garnison", -1)
+$Arrival Location: Hyperspace
+$Arrival Cue: ( true )
+$Departure Location: Hyperspace
+$Departure Cue: ( false )
+$Determination: 10
++Flags: ( "cargo-known" "no-arrival-warp" "no-departure-warp" )
++Flags2: ( )
++Respawn priority: 0
++Group: 0
++Use Table Score:
++Score: 0
+
+$Name: Batterie 8
+$Class: Defense Satellite#Imp
+$Team: Hostile
+$Location: 1103.309, 871.772, 900.663
+$Orientation:
+ 0.999907, -0.013641, 0.000000,
+ 0.013641, 0.999845, 0.011135,
+ -0.000152, -0.011134, 0.999938
+$Cargo 1: XSTR("Garnison", -1)
+$Arrival Location: Hyperspace
+$Arrival Cue: ( true )
+$Departure Location: Hyperspace
+$Departure Cue: ( false )
+$Determination: 10
++Flags: ( "cargo-known" "no-arrival-warp" "no-departure-warp" )
++Flags2: ( )
++Respawn priority: 0
++Group: 0
++Use Table Score:
++Score: 0
+
+$Name: Batterie 9
+$Class: Defense Satellite#Imp
+$Team: Hostile
+$Location: -380.107, 1019.682, 2601.909
+$Orientation:
+ 0.999989, 0.004691, -0.000000,
+ -0.004689, 0.999474, 0.032098,
+ 0.000151, -0.032097, 0.999485
+$Cargo 1: XSTR("Garnison", -1)
+$Arrival Location: Hyperspace
+$Arrival Cue: ( true )
+$Departure Location: Hyperspace
+$Departure Cue: ( false )
+$Determination: 10
++Flags: ( "cargo-known" "no-arrival-warp" "no-departure-warp" )
++Flags2: ( )
++Respawn priority: 0
++Group: 0
++Use Table Score:
++Score: 0
+
+$Name: Batterie 10
+$Class: Defense Satellite#Imp
+$Team: Hostile
+$Location: 1301.122, 1017.438, 2601.900
+$Orientation:
+ 0.999871, -0.016058, 0.000000,
+ 0.016049, 0.999356, 0.032095,
+ -0.000515, -0.032090, 0.999485
+$Cargo 1: XSTR("Garnison", -1)
+$Arrival Location: Hyperspace
+$Arrival Cue: ( true )
+$Departure Location: Hyperspace
+$Departure Cue: ( false )
+$Determination: 10
++Flags: ( "cargo-known" "no-arrival-warp" "no-departure-warp" )
++Flags2: ( )
++Respawn priority: 0
++Group: 0
++Use Table Score:
++Score: 0
+
+$Name: Balise 0G
+$Class: Nav Buoy#real
+$Team: Friendly
+$Location: -977.569, 309.152, -4600.132
+$Orientation:
+ 0.999926, 0.012172, 0.000000,
+ -0.012152, 0.998290, -0.057182,
+ -0.000696, 0.057178, 0.998364
+$Cargo 1: XSTR("Garnison", -1)
+$Arrival Location: Hyperspace
+$Arrival Cue: ( true )
+$Departure Location: Hyperspace
+$Departure Cue: ( false )
+$Determination: 10
++Flags: ( "cargo-known" "no-arrival-warp" "no-departure-warp" )
++Flags2: ( )
++Respawn priority: 0
++Group: 0
++Use Table Score:
++Score: 0
+
+$Name: Balise 0D
+$Class: Nav Buoy#real
+$Team: Friendly
+$Location: -317.550, 319.518, -4600.132
+$Orientation:
+ 0.999992, 0.003954, 0.000000,
+ -0.003947, 0.998356, -0.057179,
+ -0.000226, 0.057178, 0.998364
+$Cargo 1: XSTR("Garnison", -1)
+$Arrival Location: Hyperspace
+$Arrival Cue: ( true )
+$Departure Location: Hyperspace
+$Departure Cue: ( false )
+$Determination: 10
++Flags: ( "cargo-known" "no-arrival-warp" "no-departure-warp" )
++Flags2: ( )
++Respawn priority: 0
++Group: 0
++Use Table Score:
++Score: 0
+
+$Name: Balise 1G
+$Class: Nav Buoy#real
+$Team: Friendly
+$Location: -798.304, 350.676, -3700.106
+$Orientation:
+ 0.999951, 0.009935, 0.000000,
+ -0.009924, 0.998892, -0.045998,
+ -0.000457, 0.045996, 0.998942
+$Cargo 1: XSTR("Garnison", -1)
+$Arrival Location: Hyperspace
+$Arrival Cue: ( true )
+$Departure Location: Hyperspace
+$Departure Cue: ( false )
+$Determination: 10
++Flags: ( "cargo-known" "no-arrival-warp" "no-departure-warp" )
++Flags2: ( )
++Respawn priority: 0
++Group: 0
++Use Table Score:
++Score: 0
+
+$Name: Balise 1D
+$Class: Nav Buoy#real
+$Team: Friendly
+$Location: -138.285, 364.224, -3700.106
+$Orientation:
+ 0.999999, 0.001721, 0.000000,
+ -0.001719, 0.998940, -0.045993,
+ -0.000079, 0.045993, 0.998942
+$Cargo 1: XSTR("Garnison", -1)
+$Arrival Location: Hyperspace
+$Arrival Cue: ( true )
+$Departure Location: Hyperspace
+$Departure Cue: ( false )
+$Determination: 10
++Flags: ( "cargo-known" "no-arrival-warp" "no-departure-warp" )
++Flags2: ( )
++Respawn priority: 0
++Group: 0
++Use Table Score:
++Score: 0
+
+$Name: Balise 2G
+$Class: Nav Buoy#real
+$Team: Friendly
+$Location: -774.473, 308.901, -2800.080
+$Orientation:
+ 0.999954, 0.009643, -0.000000,
+ -0.009637, 0.999346, -0.034844,
+ -0.000336, 0.034842, 0.999393
+$Cargo 1: XSTR("Garnison", -1)
+$Arrival Location: Hyperspace
+$Arrival Cue: ( true )
+$Departure Location: Hyperspace
+$Departure Cue: ( false )
+$Determination: 10
++Flags: ( "cargo-known" "no-arrival-warp" "no-departure-warp" )
++Flags2: ( )
++Respawn priority: 0
++Group: 0
++Use Table Score:
++Score: 0
+
+$Name: Balise 2D
+$Class: Nav Buoy#real
+$Team: Friendly
+$Location: -114.454, 350.981, -2800.080
+$Orientation:
+ 0.999999, 0.001424, -0.000000,
+ -0.001424, 0.999392, -0.034827,
+ -0.000050, 0.034827, 0.999393
+$Cargo 1: XSTR("Garnison", -1)
+$Arrival Location: Hyperspace
+$Arrival Cue: ( true )
+$Departure Location: Hyperspace
+$Departure Cue: ( false )
+$Determination: 10
++Flags: ( "cargo-known" "no-arrival-warp" "no-departure-warp" )
++Flags2: ( )
++Respawn priority: 0
++Group: 0
++Use Table Score:
++Score: 0
+
+$Name: Balise 3G
+$Class: Nav Buoy#real
+$Team: Friendly
+$Location: -842.971, 262.611, -1900.054
+$Orientation:
+ 0.999945, 0.010502, 0.000000,
+ -0.010499, 0.999665, -0.023665,
+ -0.000249, 0.023664, 0.999720
+$Cargo 1: XSTR("Garnison", -1)
+$Arrival Location: Hyperspace
+$Arrival Cue: ( true )
+$Departure Location: Hyperspace
+$Departure Cue: ( false )
+$Determination: 10
++Flags: ( "cargo-known" "no-arrival-warp" "no-departure-warp" )
++Flags2: ( )
++Respawn priority: 0
++Group: 0
++Use Table Score:
++Score: 0
+
+$Name: Balise 3D
+$Class: Nav Buoy#real
+$Team: Friendly
+$Location: -182.952, 317.028, -1900.054
+$Orientation:
+ 0.999997, 0.002278, 0.000000,
+ -0.002277, 0.999718, -0.023650,
+ -0.000054, 0.023650, 0.999720
+$Cargo 1: XSTR("Garnison", -1)
+$Arrival Location: Hyperspace
+$Arrival Cue: ( true )
+$Departure Location: Hyperspace
+$Departure Cue: ( false )
+$Determination: 10
++Flags: ( "cargo-known" "no-arrival-warp" "no-departure-warp" )
++Flags2: ( )
++Respawn priority: 0
++Group: 0
++Use Table Score:
++Score: 0
+
+$Name: Balise 4G
+$Class: Nav Buoy#real
+$Team: Friendly
+$Location: -741.674, 293.914, -1000.029
+$Orientation:
+ 0.999957, 0.009237, 0.000000,
+ -0.009236, 0.999880, -0.012453,
+ -0.000115, 0.012453, 0.999922
+$Cargo 1: XSTR("Garnison", -1)
+$Arrival Location: Hyperspace
+$Arrival Cue: ( true )
+$Departure Location: Hyperspace
+$Departure Cue: ( false )
+$Determination: 10
++Flags: ( "cargo-known" "no-arrival-warp" "no-departure-warp" )
++Flags2: ( )
++Respawn priority: 0
++Group: 0
++Use Table Score:
++Score: 0
+
+$Name: Balise 4D
+$Class: Nav Buoy#real
+$Team: Friendly
+$Location: -81.655, 336.055, -1000.029
+$Orientation:
+ 0.999999, 0.001016, 0.000000,
+ -0.001016, 0.999922, -0.012447,
+ -0.000013, 0.012447, 0.999923
+$Cargo 1: XSTR("Garnison", -1)
+$Arrival Location: Hyperspace
+$Arrival Cue: ( true )
+$Departure Location: Hyperspace
+$Departure Cue: ( false )
+$Determination: 10
++Flags: ( "cargo-known" "no-arrival-warp" "no-departure-warp" )
++Flags2: ( )
++Respawn priority: 0
++Group: 0
++Use Table Score:
++Score: 0
+
+$Name: Balise 5G
+$Class: Nav Buoy#real
+$Team: Friendly
+$Location: -378.660, 365.742, -100.003
+$Orientation:
+ 0.999989, 0.004712, 0.000000,
+ -0.004712, 0.999988, -0.001244,
+ -0.000006, 0.001244, 0.999999
+$Cargo 1: XSTR("Garnison", -1)
+$Arrival Location: Hyperspace
+$Arrival Cue: ( true )
+$Departure Location: Hyperspace
+$Departure Cue: ( false )
+$Determination: 10
++Flags: ( "cargo-known" "no-arrival-warp" "no-departure-warp" )
++Flags2: ( )
++Respawn priority: 0
++Group: 0
++Use Table Score:
++Score: 0
+
+$Name: Balise 5D
+$Class: Nav Buoy#real
+$Team: Friendly
+$Location: 281.359, 350.010, -100.003
+$Orientation:
+ 0.999994, -0.003502, 0.000000,
+ 0.003502, 0.999993, -0.001245,
+ 0.000004, 0.001245, 0.999999
+$Cargo 1: XSTR("Garnison", -1)
+$Arrival Location: Hyperspace
+$Arrival Cue: ( true )
+$Departure Location: Hyperspace
+$Departure Cue: ( false )
+$Determination: 10
++Flags: ( "cargo-known" "no-arrival-warp" "no-departure-warp" )
++Flags2: ( )
++Respawn priority: 0
++Group: 0
++Use Table Score:
++Score: 0
+
+$Name: Balise 6G
+$Class: Nav Buoy#real
+$Team: Friendly
+$Location: 19.868, 368.299, 800.023
+$Orientation:
+ 1.000000, -0.000247, 0.000000,
+ 0.000247, 0.999950, 0.009954,
+ -0.000002, -0.009954, 0.999950
+$Cargo 1: XSTR("Garnison", -1)
+$Arrival Location: Hyperspace
+$Arrival Cue: ( true )
+$Departure Location: Hyperspace
+$Departure Cue: ( false )
+$Determination: 10
++Flags: ( "cargo-known" "no-arrival-warp" "no-departure-warp" )
++Flags2: ( )
++Respawn priority: 0
++Group: 0
++Use Table Score:
++Score: 0
+
+$Name: Balise 6D
+$Class: Nav Buoy#real
+$Team: Friendly
+$Location: 679.887, 434.587, 800.023
+$Orientation:
+ 0.999964, -0.008452, 0.000000,
+ 0.008452, 0.999915, 0.009945,
+ -0.000084, -0.009945, 0.999951
+$Cargo 1: XSTR("Garnison", -1)
+$Arrival Location: Hyperspace
+$Arrival Cue: ( true )
+$Departure Location: Hyperspace
+$Departure Cue: ( false )
+$Determination: 10
++Flags: ( "cargo-known" "no-arrival-warp" "no-departure-warp" )
++Flags2: ( )
++Respawn priority: 0
++Group: 0
++Use Table Score:
++Score: 0
+
+$Name: Balise 7G
+$Class: Nav Buoy#real
+$Team: Friendly
+$Location: 183.477, 464.380, 1700.049
+$Orientation:
+ 0.999997, -0.002280, 0.000000,
+ 0.002280, 0.999774, 0.021123,
+ -0.000048, -0.021123, 0.999777
+$Cargo 1: XSTR("Garnison", -1)
+$Arrival Location: Hyperspace
+$Arrival Cue: ( true )
+$Departure Location: Hyperspace
+$Departure Cue: ( false )
+$Determination: 10
++Flags: ( "cargo-known" "no-arrival-warp" "no-departure-warp" )
++Flags2: ( )
++Respawn priority: 0
++Group: 0
++Use Table Score:
++Score: 0
+
+$Name: Balise 7D
+$Class: Nav Buoy#real
+$Team: Friendly
+$Location: 843.496, 409.627, 1700.049
+$Orientation:
+ 0.999945, -0.010489, 0.000000,
+ 0.010487, 0.999722, 0.021136,
+ -0.000222, -0.021135, 0.999777
+$Cargo 1: XSTR("Garnison", -1)
+$Arrival Location: Hyperspace
+$Arrival Cue: ( true )
+$Departure Location: Hyperspace
+$Departure Cue: ( false )
+$Determination: 10
++Flags: ( "cargo-known" "no-arrival-warp" "no-departure-warp" )
++Flags2: ( )
++Respawn priority: 0
++Group: 0
++Use Table Score:
++Score: 0
+
+$Name: Balise 8G
+$Class: Nav Buoy#real
+$Team: Friendly
+$Location: 130.175, 358.257, 2600.074
+$Orientation:
+ 0.999999, -0.001620, -0.000000,
+ 0.001619, 0.999476, 0.032339,
+ -0.000052, -0.032339, 0.999477
+$Cargo 1: XSTR("Garnison", -1)
+$Arrival Location: Hyperspace
+$Arrival Cue: ( true )
+$Departure Location: Hyperspace
+$Departure Cue: ( false )
+$Determination: 10
++Flags: ( "cargo-known" "no-arrival-warp" "no-departure-warp" )
++Flags2: ( )
++Respawn priority: 0
++Group: 0
++Use Table Score:
++Score: 0
+
+$Name: Balise 8D
+$Class: Nav Buoy#real
+$Team: Friendly
+$Location: 790.194, 389.934, 2600.074
+$Orientation:
+ 0.999952, -0.009829, 0.000000,
+ 0.009824, 0.999429, 0.032325,
+ -0.000318, -0.032323, 0.999477
+$Cargo 1: XSTR("Garnison", -1)
+$Arrival Location: Hyperspace
+$Arrival Cue: ( true )
+$Departure Location: Hyperspace
+$Departure Cue: ( false )
+$Determination: 10
++Flags: ( "cargo-known" "no-arrival-warp" "no-departure-warp" )
++Flags2: ( )
++Respawn priority: 0
++Group: 0
++Use Table Score:
++Score: 0
+
+$Name: Balise 9G
+$Class: Nav Buoy#real
+$Team: Friendly
+$Location: 116.275, 207.730, 3500.100
+$Orientation:
+ 0.999999, -0.001450, 0.000000,
+ 0.001448, 0.999048, 0.043596,
+ -0.000063, -0.043596, 0.999049
+$Cargo 1: XSTR("Garnison", -1)
+$Arrival Location: Hyperspace
+$Arrival Cue: ( true )
+$Departure Location: Hyperspace
+$Departure Cue: ( false )
+$Determination: 10
++Flags: ( "cargo-known" "no-arrival-warp" "no-departure-warp" )
++Flags2: ( )
++Respawn priority: 0
++Group: 0
++Use Table Score:
++Score: 0
+
+$Name: Balise 9D
+$Class: Nav Buoy#real
+$Team: Friendly
+$Location: 776.294, 298.692, 3500.100
+$Orientation:
+ 0.999953, -0.009667, -0.000000,
+ 0.009658, 0.999005, 0.043545,
+ -0.000421, -0.043543, 0.999051
+$Cargo 1: XSTR("Garnison", -1)
+$Arrival Location: Hyperspace
+$Arrival Cue: ( true )
+$Departure Location: Hyperspace
+$Departure Cue: ( false )
+$Determination: 10
++Flags: ( "cargo-known" "no-arrival-warp" "no-departure-warp" )
++Flags2: ( )
++Respawn priority: 0
++Group: 0
++Use Table Score:
++Score: 0
+
+#Wings
+$Name: Red
+$Waves: 1
+$Wave Threshold: 0
+$Special Ship: 0
+$Arrival Location: Hyperspace
+$Arrival Cue: ( true )
+$Departure Location: Hyperspace
+$Departure Cue: ( false )
+$Ships: ( "Red 1" )
++Hotkey: 0
++Flags: ( )
+
+#Props
+$Name: Planet 000
+$Class: SpaceSim Tile 000
+$Location: -41723.295, -24368.940, -41723.295
+$Orientation:
+ 1, 0, 0,
+ 0, 1, 0,
+ 0, 0, 1
++Flags: ( )
+
+$Name: Planet 001
+$Class: SpaceSim Tile 001
+$Location: -47340.548, -16879.269, -15780.183
+$Orientation:
+ 1, 0, 0,
+ 0, 1, 0,
+ 0, 0, 1
++Flags: ( )
+
+$Name: Planet 002
+$Class: SpaceSim Tile 002
+$Location: -15689.291, -17242.837, -47067.872
+$Orientation:
+ 1, 0, 0,
+ 0, 1, 0,
+ 0, 0, 1
++Flags: ( )
+
+$Name: Planet 003
+$Class: SpaceSim Tile 003
+$Location: -26504.101, -9322.397, -26504.101
+$Orientation:
+ 1, 0, 0,
+ 0, 1, 0,
+ 0, 0, 1
++Flags: ( )
+
+$Name: Planet 004
+$Class: SpaceSim Tile 004
+$Location: -27900.990, -5597.361, -9300.330
+$Orientation:
+ 1, 0, 0,
+ 0, 1, 0,
+ 0, 0, 1
++Flags: ( )
+
+$Name: Planet 005
+$Class: SpaceSim Tile 005
+$Location: -9400.016, -4799.870, -28200.049
+$Orientation:
+ 1, 0, 0,
+ 0, 1, 0,
+ 0, 0, 1
++Flags: ( )
+
+$Name: Planet 006
+$Class: SpaceSim Tile 006
+$Location: -14831.376, -899.326, -14831.376
+$Orientation:
+ 1, 0, 0,
+ 0, 1, 0,
+ 0, 0, 1
++Flags: ( )
+
+$Name: Planet 007
+$Class: SpaceSim Tile 007
+$Location: -15134.691, 718.350, -5044.897
+$Orientation:
+ 1, 0, 0,
+ 0, 1, 0,
+ 0, 0, 1
++Flags: ( )
+
+$Name: Planet 008
+$Class: SpaceSim Tile 008
+$Location: -5029.752, 476.034, -15089.256
+$Orientation:
+ 1, 0, 0,
+ 0, 1, 0,
+ 0, 0, 1
++Flags: ( )
+
+$Name: Planet 009
+$Class: SpaceSim Tile 009
+$Location: -7714.875, 2291.999, -7714.875
+$Orientation:
+ 1, 0, 0,
+ 0, 1, 0,
+ 0, 0, 1
++Flags: ( )
+
+$Name: Planet 010
+$Class: SpaceSim Tile 010
+$Location: -7716.906, 2313.660, -2572.302
+$Orientation:
+ 1, 0, 0,
+ 0, 1, 0,
+ 0, 0, 1
++Flags: ( )
+
+$Name: Planet 011
+$Class: SpaceSim Tile 011
+$Location: -3841.518, 1952.387, -8963.542
+$Orientation:
+ 1, 0, 0,
+ 0, 1, 0,
+ 0, 0, 1
++Flags: ( )
+
+$Name: Planet 012
+$Class: SpaceSim Tile 012
+$Location: -3877.675, 2723.727, -6462.791
+$Orientation:
+ 1, 0, 0,
+ 0, 1, 0,
+ 0, 0, 1
++Flags: ( )
+
+$Name: Planet 013
+$Class: SpaceSim Tile 013
+$Location: -1266.210, 1037.451, -8863.471
+$Orientation:
+ 1, 0, 0,
+ 0, 1, 0,
+ 0, 0, 1
++Flags: ( )
+
+$Name: Planet 014
+$Class: SpaceSim Tile 014
+$Location: -1912.566, 1602.804, -7012.741
+$Orientation:
+ 1, 0, 0,
+ 0, 1, 0,
+ 0, 0, 1
++Flags: ( )
+
+$Name: Planet 015
+$Class: SpaceSim Tile 015
+$Location: -2224.419, 1350.183, -6037.709
+$Orientation:
+ 1, 0, 0,
+ 0, 1, 0,
+ 0, 0, 1
++Flags: ( )
+
+$Name: Planet 016
+$Class: SpaceSim Tile 016
+$Location: -2235.685, 1762.209, -5429.522
+$Orientation:
+ 1, 0, 0,
+ 0, 1, 0,
+ 0, 0, 1
++Flags: ( )
+
+$Name: Planet 017
+$Class: SpaceSim Tile 017
+$Location: -1573.855, 581.384, -5980.650
+$Orientation:
+ 1, 0, 0,
+ 0, 1, 0,
+ 0, 0, 1
++Flags: ( )
+
+$Name: Planet 018
+$Class: SpaceSim Tile 018
+$Location: -1577.887, 787.818, -5364.816
+$Orientation:
+ 1, 0, 0,
+ 0, 1, 0,
+ 0, 0, 1
++Flags: ( )
+
+$Name: Planet 019
+$Class: SpaceSim Tile 019
+$Location: -941.504, 341.637, -7218.194
+$Orientation:
+ 1, 0, 0,
+ 0, 1, 0,
+ 0, 0, 1
++Flags: ( )
+
+$Name: Planet 020
+$Class: SpaceSim Tile 020
+$Location: -939.529, 173.139, -6576.703
+$Orientation:
+ 1, 0, 0,
+ 0, 1, 0,
+ 0, 0, 1
++Flags: ( )
+
+$Name: Planet 021
+$Class: SpaceSim Tile 021
+$Location: -312.068, -110.571, -7177.566
+$Orientation:
+ 1, 0, 0,
+ 0, 1, 0,
+ 0, 0, 1
++Flags: ( )
+
+$Name: Planet 022
+$Class: SpaceSim Tile 022
+$Location: -312.438, -15.750, -6561.208
+$Orientation:
+ 1, 0, 0,
+ 0, 1, 0,
+ 0, 0, 1
++Flags: ( )
+
+$Name: Planet 023
+$Class: SpaceSim Tile 023
+$Location: -938.624, 95.894, -5944.617
+$Orientation:
+ 1, 0, 0,
+ 0, 1, 0,
+ 0, 0, 1
++Flags: ( )
+
+$Name: Planet 024
+$Class: SpaceSim Tile 024
+$Location: -939.243, 148.770, -5322.379
+$Orientation:
+ 1, 0, 0,
+ 0, 1, 0,
+ 0, 0, 1
++Flags: ( )
+
+$Name: Planet 025
+$Class: SpaceSim Tile 025
+$Location: -313.496, 254.986, -5956.425
+$Orientation:
+ 1, 0, 0,
+ 0, 1, 0,
+ 0, 0, 1
++Flags: ( )
+
+$Name: Planet 026
+$Class: SpaceSim Tile 026
+$Location: -313.853, 346.484, -5335.509
+$Orientation:
+ 1, 0, 0,
+ 0, 1, 0,
+ 0, 0, 1
++Flags: ( )
+
+$Name: Planet 027
+$Class: SpaceSim Tile 027
+$Location: -3885.593, 2892.644, -3885.593
+$Orientation:
+ 1, 0, 0,
+ 0, 1, 0,
+ 0, 0, 1
++Flags: ( )
+
+$Name: Planet 028
+$Class: SpaceSim Tile 028
+$Location: -3843.253, 1989.392, -1281.084
+$Orientation:
+ 1, 0, 0,
+ 0, 1, 0,
+ 0, 0, 1
++Flags: ( )
+
+$Name: Planet 029
+$Class: SpaceSim Tile 029
+$Location: -2232.017, 1628.047, -4782.893
+$Orientation:
+ 1, 0, 0,
+ 0, 1, 0,
+ 0, 0, 1
++Flags: ( )
+
+$Name: Planet 030
+$Class: SpaceSim Tile 030
+$Location: -2229.887, 1550.155, -4141.219
+$Orientation:
+ 1, 0, 0,
+ 0, 1, 0,
+ 0, 0, 1
++Flags: ( )
+
+$Name: Planet 031
+$Class: SpaceSim Tile 031
+$Location: -1580.740, 933.870, -4742.219
+$Orientation:
+ 1, 0, 0,
+ 0, 1, 0,
+ 0, 0, 1
++Flags: ( )
+
+$Name: Planet 032
+$Class: SpaceSim Tile 032
+$Location: -1584.832, 1143.419, -4120.564
+$Orientation:
+ 1, 0, 0,
+ 0, 1, 0,
+ 0, 0, 1
++Flags: ( )
+
+$Name: Planet 033
+$Class: SpaceSim Tile 033
+$Location: -1918.667, 1863.130, -3197.779
+$Orientation:
+ 1, 0, 0,
+ 0, 1, 0,
+ 0, 0, 1
++Flags: ( )
+
+$Name: Planet 034
+$Class: SpaceSim Tile 034
+$Location: -940.787, 280.515, -4703.936
+$Orientation:
+ 1, 0, 0,
+ 0, 1, 0,
+ 0, 0, 1
++Flags: ( )
+
+$Name: Planet 035
+$Class: SpaceSim Tile 035
+$Location: -942.960, 465.930, -4086.161
+$Orientation:
+ 1, 0, 0,
+ 0, 1, 0,
+ 0, 0, 1
++Flags: ( )
+
+$Name: Planet 036
+$Class: SpaceSim Tile 036
+$Location: -313.776, 326.706, -4706.643
+$Orientation:
+ 1, 0, 0,
+ 0, 1, 0,
+ 0, 0, 1
++Flags: ( )
+
+$Name: Planet 037
+$Class: SpaceSim Tile 037
+$Location: -313.557, 270.514, -4076.237
+$Orientation:
+ 1, 0, 0,
+ 0, 1, 0,
+ 0, 0, 1
++Flags: ( )
+
+$Name: Planet 038
+$Class: SpaceSim Tile 038
+$Location: -943.686, 527.845, -3460.181
+$Orientation:
+ 1, 0, 0,
+ 0, 1, 0,
+ 0, 0, 1
++Flags: ( )
+
+$Name: Planet 039
+$Class: SpaceSim Tile 039
+$Location: -942.838, 455.477, -2828.513
+$Orientation:
+ 1, 0, 0,
+ 0, 1, 0,
+ 0, 0, 1
++Flags: ( )
+
+$Name: Planet 040
+$Class: SpaceSim Tile 040
+$Location: -313.411, 233.315, -3447.525
+$Orientation:
+ 1, 0, 0,
+ 0, 1, 0,
+ 0, 0, 1
++Flags: ( )
+
+$Name: Planet 041
+$Class: SpaceSim Tile 041
+$Location: -313.307, 206.648, -2819.765
+$Orientation:
+ 1, 0, 0,
+ 0, 1, 0,
+ 0, 0, 1
++Flags: ( )
+
+$Name: Planet 042
+$Class: SpaceSim Tile 042
+$Location: -1263.785, 882.246, -1263.785
+$Orientation:
+ 1, 0, 0,
+ 0, 1, 0,
+ 0, 0, 1
++Flags: ( )
+
+$Name: Planet 043
+$Class: SpaceSim Tile 043
+$Location: -47067.872, -17242.837, 15689.291
+$Orientation:
+ 1, 0, 0,
+ 0, 1, 0,
+ 0, 0, 1
++Flags: ( )
+
+$Name: Planet 044
+$Class: SpaceSim Tile 044
+$Location: -42674.255, -23100.993, 42674.255
+$Orientation:
+ 1, 0, 0,
+ 0, 1, 0,
+ 0, 0, 1
++Flags: ( )
+
+$Name: Planet 045
+$Class: SpaceSim Tile 045
+$Location: -27900.331, -5599.118, 9300.110
+$Orientation:
+ 1, 0, 0,
+ 0, 1, 0,
+ 0, 0, 1
++Flags: ( )
+
+$Name: Planet 046
+$Class: SpaceSim Tile 046
+$Location: -26619.571, -9014.478, 26619.571
+$Orientation:
+ 1, 0, 0,
+ 0, 1, 0,
+ 0, 0, 1
++Flags: ( )
+
+$Name: Planet 047
+$Class: SpaceSim Tile 047
+$Location: -10209.243, 1673.940, 10209.243
+$Orientation:
+ 1, 0, 0,
+ 0, 1, 0,
+ 0, 0, 1
++Flags: ( )
+
+$Name: Planet 048
+$Class: SpaceSim Tile 048
+$Location: -9325.951, -5392.392, 27977.853
+$Orientation:
+ 1, 0, 0,
+ 0, 1, 0,
+ 0, 0, 1
++Flags: ( )
+
+$Name: Planet 049
+$Class: SpaceSim Tile 049
+$Location: -16138.400, -15446.400, 48415.200
+$Orientation:
+ 1, 0, 0,
+ 0, 1, 0,
+ 0, 0, 1
++Flags: ( )
+
+$Name: Planet 050
+$Class: SpaceSim Tile 050
+$Location: 16172.799, -15308.804, -48518.397
+$Orientation:
+ 1, 0, 0,
+ 0, 1, 0,
+ 0, 0, 1
++Flags: ( )
+
+$Name: Planet 051
+$Class: SpaceSim Tile 051
+$Location: 9372.323, -5021.412, -28116.970
+$Orientation:
+ 1, 0, 0,
+ 0, 1, 0,
+ 0, 0, 1
++Flags: ( )
+
+$Name: Planet 052
+$Class: SpaceSim Tile 052
+$Location: 5060.455, 967.282, -15181.365
+$Orientation:
+ 1, 0, 0,
+ 0, 1, 0,
+ 0, 0, 1
++Flags: ( )
+
+$Name: Planet 053
+$Class: SpaceSim Tile 053
+$Location: 1262.281, 785.988, -8835.967
+$Orientation:
+ 1, 0, 0,
+ 0, 1, 0,
+ 0, 0, 1
++Flags: ( )
+
+$Name: Planet 054
+$Class: SpaceSim Tile 054
+$Location: 313.311, 207.549, -7206.147
+$Orientation:
+ 1, 0, 0,
+ 0, 1, 0,
+ 0, 0, 1
++Flags: ( )
+
+$Name: Planet 055
+$Class: SpaceSim Tile 055
+$Location: 314.245, 446.643, -6599.139
+$Orientation:
+ 1, 0, 0,
+ 0, 1, 0,
+ 0, 0, 1
++Flags: ( )
+
+$Name: Planet 056
+$Class: SpaceSim Tile 056
+$Location: 951.099, 1160.457, -7291.760
+$Orientation:
+ 1, 0, 0,
+ 0, 1, 0,
+ 0, 0, 1
++Flags: ( )
+
+$Name: Planet 057
+$Class: SpaceSim Tile 057
+$Location: 955.269, 1516.317, -6686.885
+$Orientation:
+ 1, 0, 0,
+ 0, 1, 0,
+ 0, 0, 1
++Flags: ( )
+
+$Name: Planet 058
+$Class: SpaceSim Tile 058
+$Location: 316.224, 953.278, -6008.251
+$Orientation:
+ 1, 0, 0,
+ 0, 1, 0,
+ 0, 0, 1
++Flags: ( )
+
+$Name: Planet 059
+$Class: SpaceSim Tile 059
+$Location: 316.500, 1024.012, -5380.501
+$Orientation:
+ 1, 0, 0,
+ 0, 1, 0,
+ 0, 0, 1
++Flags: ( )
+
+$Name: Planet 060
+$Class: SpaceSim Tile 060
+$Location: 952.149, 1250.073, -6030.279
+$Orientation:
+ 1, 0, 0,
+ 0, 1, 0,
+ 0, 0, 1
++Flags: ( )
+
+$Name: Planet 061
+$Class: SpaceSim Tile 061
+$Location: 958.059, 1754.381, -5429.002
+$Orientation:
+ 1, 0, 0,
+ 0, 1, 0,
+ 0, 0, 1
++Flags: ( )
+
+$Name: Planet 062
+$Class: SpaceSim Tile 062
+$Location: 1923.237, 2058.094, -7051.867
+$Orientation:
+ 1, 0, 0,
+ 0, 1, 0,
+ 0, 0, 1
++Flags: ( )
+
+$Name: Planet 063
+$Class: SpaceSim Tile 063
+$Location: 1594.988, 1663.366, -6060.953
+$Orientation:
+ 1, 0, 0,
+ 0, 1, 0,
+ 0, 0, 1
++Flags: ( )
+
+$Name: Planet 064
+$Class: SpaceSim Tile 064
+$Location: 1605.283, 2190.465, -5457.961
+$Orientation:
+ 1, 0, 0,
+ 0, 1, 0,
+ 0, 0, 1
++Flags: ( )
+
+$Name: Planet 065
+$Class: SpaceSim Tile 065
+$Location: 2261.610, 2710.303, -6138.655
+$Orientation:
+ 1, 0, 0,
+ 0, 1, 0,
+ 0, 0, 1
++Flags: ( )
+
+$Name: Planet 066
+$Class: SpaceSim Tile 066
+$Location: 2259.408, 2629.779, -5487.134
+$Orientation:
+ 1, 0, 0,
+ 0, 1, 0,
+ 0, 0, 1
++Flags: ( )
+
+$Name: Planet 067
+$Class: SpaceSim Tile 067
+$Location: 3858.573, 2316.219, -9003.336
+$Orientation:
+ 1, 0, 0,
+ 0, 1, 0,
+ 0, 0, 1
++Flags: ( )
+
+$Name: Planet 068
+$Class: SpaceSim Tile 068
+$Location: 3889.366, 2973.150, -6482.277
+$Orientation:
+ 1, 0, 0,
+ 0, 1, 0,
+ 0, 0, 1
++Flags: ( )
+
+$Name: Planet 069
+$Class: SpaceSim Tile 069
+$Location: 317.054, 1165.859, -4755.812
+$Orientation:
+ 1, 0, 0,
+ 0, 1, 0,
+ 0, 0, 1
++Flags: ( )
+
+$Name: Planet 070
+$Class: SpaceSim Tile 070
+$Location: 316.283, 968.403, -4111.677
+$Orientation:
+ 1, 0, 0,
+ 0, 1, 0,
+ 0, 0, 1
++Flags: ( )
+
+$Name: Planet 071
+$Class: SpaceSim Tile 071
+$Location: 958.853, 1822.092, -4794.263
+$Orientation:
+ 1, 0, 0,
+ 0, 1, 0,
+ 0, 0, 1
++Flags: ( )
+
+$Name: Planet 072
+$Class: SpaceSim Tile 072
+$Location: 960.380, 1952.463, -4161.649
+$Orientation:
+ 1, 0, 0,
+ 0, 1, 0,
+ 0, 0, 1
++Flags: ( )
+
+$Name: Planet 073
+$Class: SpaceSim Tile 073
+$Location: 315.960, 885.668, -3475.556
+$Orientation:
+ 1, 0, 0,
+ 0, 1, 0,
+ 0, 0, 1
++Flags: ( )
+
+$Name: Planet 074
+$Class: SpaceSim Tile 074
+$Location: 315.896, 869.478, -2843.068
+$Orientation:
+ 1, 0, 0,
+ 0, 1, 0,
+ 0, 0, 1
++Flags: ( )
+
+$Name: Planet 075
+$Class: SpaceSim Tile 075
+$Location: 958.082, 1756.326, -3512.967
+$Orientation:
+ 1, 0, 0,
+ 0, 1, 0,
+ 0, 0, 1
++Flags: ( )
+
+$Name: Planet 076
+$Class: SpaceSim Tile 076
+$Location: 955.088, 1500.859, -2865.265
+$Orientation:
+ 1, 0, 0,
+ 0, 1, 0,
+ 0, 0, 1
++Flags: ( )
+
+$Name: Planet 077
+$Class: SpaceSim Tile 077
+$Location: 1612.129, 2541.026, -4836.388
+$Orientation:
+ 1, 0, 0,
+ 0, 1, 0,
+ 0, 0, 1
++Flags: ( )
+
+$Name: Planet 078
+$Class: SpaceSim Tile 078
+$Location: 1611.090, 2487.815, -4188.834
+$Orientation:
+ 1, 0, 0,
+ 0, 1, 0,
+ 0, 0, 1
++Flags: ( )
+
+$Name: Planet 079
+$Class: SpaceSim Tile 079
+$Location: 2241.353, 1969.489, -4802.900
+$Orientation:
+ 1, 0, 0,
+ 0, 1, 0,
+ 0, 0, 1
++Flags: ( )
+
+$Name: Planet 080
+$Class: SpaceSim Tile 080
+$Location: 2254.052, 2433.898, -4186.096
+$Orientation:
+ 1, 0, 0,
+ 0, 1, 0,
+ 0, 0, 1
++Flags: ( )
+
+$Name: Planet 081
+$Class: SpaceSim Tile 081
+$Location: 1940.974, 2814.898, -3234.957
+$Orientation:
+ 1, 0, 0,
+ 0, 1, 0,
+ 0, 0, 1
++Flags: ( )
+
+$Name: Planet 082
+$Class: SpaceSim Tile 082
+$Location: 1276.409, 1690.188, -1276.409
+$Orientation:
+ 1, 0, 0,
+ 0, 1, 0,
+ 0, 0, 1
++Flags: ( )
+
+$Name: Planet 083
+$Class: SpaceSim Tile 083
+$Location: 3873.515, 2634.993, -3873.515
+$Orientation:
+ 1, 0, 0,
+ 0, 1, 0,
+ 0, 0, 1
++Flags: ( )
+
+$Name: Planet 084
+$Class: SpaceSim Tile 084
+$Location: 3900.153, 3203.274, -1300.051
+$Orientation:
+ 1, 0, 0,
+ 0, 1, 0,
+ 0, 0, 1
++Flags: ( )
+
+$Name: Planet 085
+$Class: SpaceSim Tile 085
+$Location: 7687.008, 1994.750, -7687.008
+$Orientation:
+ 1, 0, 0,
+ 0, 1, 0,
+ 0, 0, 1
++Flags: ( )
+
+$Name: Planet 086
+$Class: SpaceSim Tile 086
+$Location: 7784.136, 3030.787, -2594.712
+$Orientation:
+ 1, 0, 0,
+ 0, 1, 0,
+ 0, 0, 1
++Flags: ( )
+
+$Name: Planet 087
+$Class: SpaceSim Tile 087
+$Location: 14825.108, -932.757, -14825.108
+$Orientation:
+ 1, 0, 0,
+ 0, 1, 0,
+ 0, 0, 1
++Flags: ( )
+
+$Name: Planet 088
+$Class: SpaceSim Tile 088
+$Location: 15228.807, 1220.305, -5076.269
+$Orientation:
+ 1, 0, 0,
+ 0, 1, 0,
+ 0, 0, 1
++Flags: ( )
+
+$Name: Planet 089
+$Class: SpaceSim Tile 089
+$Location: 27340.604, -7091.723, -27340.604
+$Orientation:
+ 1, 0, 0,
+ 0, 1, 0,
+ 0, 0, 1
++Flags: ( )
+
+$Name: Planet 090
+$Class: SpaceSim Tile 090
+$Location: 28436.720, -4168.747, -9478.907
+$Orientation:
+ 1, 0, 0,
+ 0, 1, 0,
+ 0, 0, 1
++Flags: ( )
+
+$Name: Planet 091
+$Class: SpaceSim Tile 091
+$Location: 41918.205, -24109.060, -41918.205
+$Orientation:
+ 1, 0, 0,
+ 0, 1, 0,
+ 0, 0, 1
++Flags: ( )
+
+$Name: Planet 092
+$Class: SpaceSim Tile 092
+$Location: 47067.872, -17242.837, -15689.291
+$Orientation:
+ 1, 0, 0,
+ 0, 1, 0,
+ 0, 0, 1
++Flags: ( )
+
+$Name: Planet 093
+$Class: SpaceSim Tile 093
+$Location: 10200.565, 1604.519, 10200.565
+$Orientation:
+ 1, 0, 0,
+ 0, 1, 0,
+ 0, 0, 1
++Flags: ( )
+
+$Name: Planet 094
+$Class: SpaceSim Tile 094
+$Location: 9460.550, -4315.599, 28381.650
+$Orientation:
+ 1, 0, 0,
+ 0, 1, 0,
+ 0, 0, 1
++Flags: ( )
+
+$Name: Planet 095
+$Class: SpaceSim Tile 095
+$Location: 28093.836, -5083.105, 9364.612
+$Orientation:
+ 1, 0, 0,
+ 0, 1, 0,
+ 0, 0, 1
++Flags: ( )
+
+$Name: Planet 096
+$Class: SpaceSim Tile 096
+$Location: 26504.457, -9321.448, 26504.457
+$Orientation:
+ 1, 0, 0,
+ 0, 1, 0,
+ 0, 0, 1
++Flags: ( )
+
+$Name: Planet 097
+$Class: SpaceSim Tile 097
+$Location: 16021.305, -15914.779, 48063.915
+$Orientation:
+ 1, 0, 0,
+ 0, 1, 0,
+ 0, 0, 1
++Flags: ( )
+
+$Name: Planet 098
+$Class: SpaceSim Tile 098
+$Location: 47067.872, -17242.837, 15689.291
+$Orientation:
+ 1, 0, 0,
+ 0, 1, 0,
+ 0, 0, 1
++Flags: ( )
+
+$Name: Planet 099
+$Class: SpaceSim Tile 099
+$Location: 41159.660, -25120.453, 41159.660
+$Orientation:
+ 1, 0, 0,
+ 0, 1, 0,
+ 0, 0, 1
++Flags: ( )
+
+$Name: Planet 100
+$Class: SpaceSim Tile 100
+$Location: 0.000, -160671.239, 0.000
+$Orientation:
+ 1, 0, 0,
+ 0, 1, 0,
+ 0, 0, 1
++Flags: ( )
+
+$Name: Planet 101
+$Class: SpaceSim Tile 101
+$Location: 80000.000, -80000.000, 0.000
+$Orientation:
+ 1, 0, 0,
+ 0, 1, 0,
+ 0, 0, 1
++Flags: ( )
+
+$Name: Planet 102
+$Class: SpaceSim Tile 102
+$Location: -80000.000, -80000.000, 0.000
+$Orientation:
+ 1, 0, 0,
+ 0, 1, 0,
+ 0, 0, 1
++Flags: ( )
+
+$Name: Planet 103
+$Class: SpaceSim Tile 103
+$Location: 0.000, -80000.000, 80000.000
+$Orientation:
+ 1, 0, 0,
+ 0, 1, 0,
+ 0, 0, 1
++Flags: ( )
+
+$Name: Planet 104
+$Class: SpaceSim Tile 104
+$Location: 32888.419, -47111.581, -65776.838
+$Orientation:
+ 1, 0, 0,
+ 0, 1, 0,
+ 0, 0, 1
++Flags: ( )
+
+$Name: Planet 105
+$Class: SpaceSim Tile 105
+$Location: 32976.701, -112976.701, -65953.402
+$Orientation:
+ 1, 0, 0,
+ 0, 1, 0,
+ 0, 0, 1
++Flags: ( )
+
+$Name: Planet 106
+$Class: SpaceSim Tile 106
+$Location: -33592.230, -46407.770, -67184.460
+$Orientation:
+ 1, 0, 0,
+ 0, 1, 0,
+ 0, 0, 1
++Flags: ( )
+
+$Name: Planet 107
+$Class: SpaceSim Tile 107
+$Location: -33361.753, -113361.753, -66723.505
+$Orientation:
+ 1, 0, 0,
+ 0, 1, 0,
+ 0, 0, 1
++Flags: ( )
+
+$Name: Base pad 7
+$Class: SpaceSim Pad
+$Location: -458.987, 159.760, -1049.990
+$Orientation:
+ 0.999984, 0.005726, 0.000000,
+ -0.005725, 0.999898, -0.013097,
+ -0.000075, 0.013097, 0.999914
++Flags: ( )
+
+$Name: Base pad 8
+$Class: SpaceSim Pad
+$Location: -608.986, 203.982, -1039.990
+$Orientation:
+ 0.999971, 0.007593, 0.000000,
+ -0.007592, 0.999887, -0.012965,
+ -0.000098, 0.012965, 0.999916
++Flags: ( )
+
+$Name: Base wall 9
+$Class: SpaceSim Wall
+$Location: -458.987, 159.147, -1419.986
+$Orientation:
+ 0.999984, 0.005726, -0.000000,
+ -0.005725, 0.999827, -0.017712,
+ -0.000101, 0.017711, 0.999843
++Flags: ( )
+
+$Name: Base wall 10
+$Class: SpaceSim Wall
+$Location: -548.986, 164.494, -1419.986
+$Orientation:
+ 0.999977, 0.006848, -0.000000,
+ -0.006847, 0.999820, -0.017710,
+ -0.000121, 0.017710, 0.999843
++Flags: ( )
+
+$Name: Base wall 11
+$Class: SpaceSim Wall
+$Location: -368.988, 210.488, -1419.986
+$Orientation:
+ 0.999989, 0.004600, 0.000000,
+ -0.004599, 0.999833, -0.017700,
+ -0.000081, 0.017700, 0.999843
++Flags: ( )
+
+$Name: Pylone 0
+$Class: SpaceSim Pylon
+$Location: -1176.056, 765.764, -3599.977
+$Orientation:
+ 0.999894, 0.014560, 0.000000,
+ -0.014545, 0.998902, -0.044524,
+ -0.000648, 0.044519, 0.999008
++Flags: ( )
+
+$Name: Pylone 1
+$Class: SpaceSim Pylon
+$Location: 263.935, 805.754, -3599.978
+$Orientation:
+ 0.999995, -0.003266, -0.000000,
+ 0.003263, 0.999004, -0.044507,
+ 0.000145, 0.044506, 0.999009
++Flags: ( )
+
+$Name: Pylone 2
+$Class: SpaceSim Pylon
+$Location: -1335.888, 810.517, -2199.985
+$Orientation:
+ 0.999863, 0.016529, 0.000000,
+ -0.016523, 0.999493, -0.027210,
+ -0.000450, 0.027206, 0.999630
++Flags: ( )
+
+$Name: Pylone 3
+$Class: SpaceSim Pylon
+$Location: 344.101, 953.847, -2199.986
+$Orientation:
+ 0.999991, -0.004251, 0.000000,
+ 0.004249, 0.999622, -0.027166,
+ 0.000115, 0.027165, 0.999631
++Flags: ( )
+
+$Name: Pylone 4
+$Class: SpaceSim Pylon
+$Location: -1153.971, 795.972, -699.995
+$Orientation:
+ 0.999898, 0.014281, -0.000000,
+ -0.014281, 0.999861, -0.008663,
+ -0.000124, 0.008662, 0.999962
++Flags: ( )
+
+$Name: Pylone 5
+$Class: SpaceSim Pylon
+$Location: 526.018, 897.469, -699.996
+$Orientation:
+ 0.999979, -0.006502, -0.000000,
+ 0.006502, 0.999941, -0.008652,
+ 0.000056, 0.008652, 0.999963
++Flags: ( )
+
+$Name: Pylone 6
+$Class: SpaceSim Pylon
+$Location: -337.501, 906.856, 899.994
+$Orientation:
+ 0.999991, 0.004171, 0.000000,
+ -0.004171, 0.999929, 0.011123,
+ 0.000046, -0.011123, 0.999938
++Flags: ( )
+
+$Name: Pylone 7
+$Class: SpaceSim Pylon
+$Location: 1102.490, 811.781, 899.994
+$Orientation:
+ 0.999907, -0.013641, 0.000000,
+ 0.013641, 0.999845, 0.011135,
+ -0.000152, -0.011134, 0.999938
++Flags: ( )
+
+$Name: Pylone 8
+$Class: SpaceSim Pylon
+$Location: -379.826, 959.714, 2599.983
+$Orientation:
+ 0.999989, 0.004691, -0.000000,
+ -0.004689, 0.999474, 0.032098,
+ 0.000151, -0.032097, 0.999485
++Flags: ( )
+
+$Name: Pylone 9
+$Class: SpaceSim Pylon
+$Location: 1300.159, 957.477, 2599.974
+$Orientation:
+ 0.999871, -0.016058, 0.000000,
+ 0.016049, 0.999356, 0.032095,
+ -0.000515, -0.032090, 0.999485
++Flags: ( )
+
+$Name: Foret 1914
+$Class: SpaceSim Veg 1914
+$Location: -534.483, 170.419, -8129.960
+$Orientation:
+ 1.000000, 0.000000, 0.000000,
+ 0.000000, 1.000000, 0.000000,
+ 0.000000, 0.000000, 1.000000
++Flags: ( )
+
+$Name: Foret 2014
+$Class: SpaceSim Veg 2014
+$Location: 445.288, 43.451, -8356.144
+$Orientation:
+ 1.000000, 0.000000, 0.000000,
+ 0.000000, 1.000000, 0.000000,
+ 0.000000, 0.000000, 1.000000
++Flags: ( )
+
+$Name: Foret 2114
+$Class: SpaceSim Veg 2114
+$Location: 2091.955, 1550.241, -8329.933
+$Orientation:
+ 1.000000, 0.000000, 0.000000,
+ 0.000000, 1.000000, 0.000000,
+ 0.000000, 0.000000, 1.000000
++Flags: ( )
+
+$Name: Foret 2214
+$Class: SpaceSim Veg 2214
+$Location: 3518.827, 1582.777, -8267.475
+$Orientation:
+ 1.000000, 0.000000, 0.000000,
+ 0.000000, 1.000000, 0.000000,
+ 0.000000, 0.000000, 1.000000
++Flags: ( )
+
+$Name: Foret 1814
+$Class: SpaceSim Veg 1814
+$Location: -1802.485, 1575.332, -8182.718
+$Orientation:
+ 1.000000, 0.000000, 0.000000,
+ 0.000000, 1.000000, 0.000000,
+ 0.000000, 0.000000, 1.000000
++Flags: ( )
+
+$Name: Foret 1915
+$Class: SpaceSim Veg 1915
+$Location: -554.931, 72.521, -6718.556
+$Orientation:
+ 1.000000, 0.000000, 0.000000,
+ 0.000000, 1.000000, 0.000000,
+ 0.000000, 0.000000, 1.000000
++Flags: ( )
+
+$Name: Foret 2015
+$Class: SpaceSim Veg 2015
+$Location: 451.625, 624.808, -6727.188
+$Orientation:
+ 1.000000, 0.000000, 0.000000,
+ 0.000000, 1.000000, 0.000000,
+ 0.000000, 0.000000, 1.000000
++Flags: ( )
+
+$Name: Foret 1815
+$Class: SpaceSim Veg 1815
+$Location: -1945.872, 1342.021, -6554.365
+$Orientation:
+ 1.000000, 0.000000, 0.000000,
+ 0.000000, 1.000000, 0.000000,
+ 0.000000, 0.000000, 1.000000
++Flags: ( )
+
+$Name: Foret 1816
+$Class: SpaceSim Veg 1816
+$Location: -1983.949, 1255.009, -5257.577
+$Orientation:
+ 1.000000, 0.000000, 0.000000,
+ 0.000000, 1.000000, 0.000000,
+ 0.000000, 0.000000, 1.000000
++Flags: ( )
+
+$Name: Foret 1916
+$Class: SpaceSim Veg 1916
+$Location: -733.628, 227.870, -5311.555
+$Orientation:
+ 1.000000, 0.000000, 0.000000,
+ 0.000000, 1.000000, 0.000000,
+ 0.000000, 0.000000, 1.000000
++Flags: ( )
+
+$Name: Foret 2016
+$Class: SpaceSim Veg 2016
+$Location: 588.825, 1244.090, -5459.176
+$Orientation:
+ 1.000000, 0.000000, 0.000000,
+ 0.000000, 1.000000, 0.000000,
+ 0.000000, 0.000000, 1.000000
++Flags: ( )
+
+$Name: Foret 1817
+$Class: SpaceSim Veg 1817
+$Location: -1963.416, 1524.976, -3972.203
+$Orientation:
+ 1.000000, 0.000000, 0.000000,
+ 0.000000, 1.000000, 0.000000,
+ 0.000000, 0.000000, 1.000000
++Flags: ( )
+
+$Name: Foret 1917
+$Class: SpaceSim Veg 1917
+$Location: -606.556, 349.854, -3690.551
+$Orientation:
+ 1.000000, 0.000000, 0.000000,
+ 0.000000, 1.000000, 0.000000,
+ 0.000000, 0.000000, 1.000000
++Flags: ( )
+
+$Name: Foret 2017
+$Class: SpaceSim Veg 2017
+$Location: 555.970, 1193.846, -3616.086
+$Orientation:
+ 1.000000, 0.000000, 0.000000,
+ 0.000000, 1.000000, 0.000000,
+ 0.000000, 0.000000, 1.000000
++Flags: ( )
+
+$Name: Foret 1617
+$Class: SpaceSim Veg 1617
+$Location: -4759.994, 1953.522, -3722.538
+$Orientation:
+ 1.000000, 0.000000, 0.000000,
+ 0.000000, 1.000000, 0.000000,
+ 0.000000, 0.000000, 1.000000
++Flags: ( )
+
+$Name: Foret 1918
+$Class: SpaceSim Veg 1918
+$Location: -585.075, 312.009, -2289.326
+$Orientation:
+ 1.000000, 0.000000, 0.000000,
+ 0.000000, 1.000000, 0.000000,
+ 0.000000, 0.000000, 1.000000
++Flags: ( )
+
+$Name: Foret 2018
+$Class: SpaceSim Veg 2018
+$Location: 729.684, 1182.427, -2291.229
+$Orientation:
+ 1.000000, 0.000000, 0.000000,
+ 0.000000, 1.000000, 0.000000,
+ 0.000000, 0.000000, 1.000000
++Flags: ( )
+
+$Name: Foret 1818
+$Class: SpaceSim Veg 1818
+$Location: -1883.484, 1565.174, -2192.148
+$Orientation:
+ 1.000000, 0.000000, 0.000000,
+ 0.000000, 1.000000, 0.000000,
+ 0.000000, 0.000000, 1.000000
++Flags: ( )
+
+$Name: Foret 1819
+$Class: SpaceSim Veg 1819
+$Location: -1973.090, 1689.291, -957.841
+$Orientation:
+ 1.000000, 0.000000, 0.000000,
+ 0.000000, 1.000000, 0.000000,
+ 0.000000, 0.000000, 1.000000
++Flags: ( )
+
+$Name: Foret 1919
+$Class: SpaceSim Veg 1919
+$Location: -569.258, 452.299, -627.450
+$Orientation:
+ 1.000000, 0.000000, 0.000000,
+ 0.000000, 1.000000, 0.000000,
+ 0.000000, 0.000000, 1.000000
++Flags: ( )
+
+$Name: Foret 2019
+$Class: SpaceSim Veg 2019
+$Location: 639.818, 1034.542, -771.660
+$Orientation:
+ 1.000000, 0.000000, 0.000000,
+ 0.000000, 1.000000, 0.000000,
+ 0.000000, 0.000000, 1.000000
++Flags: ( )
+
+$Name: Foret 2119
+$Class: SpaceSim Veg 2119
+$Location: 2173.438, 1828.225, -755.156
+$Orientation:
+ 1.000000, 0.000000, 0.000000,
+ 0.000000, 1.000000, 0.000000,
+ 0.000000, 0.000000, 1.000000
++Flags: ( )
+
+$Name: Foret 1719
+$Class: SpaceSim Veg 1719
+$Location: -3521.485, 1865.304, -818.951
+$Orientation:
+ 1.000000, 0.000000, 0.000000,
+ 0.000000, 1.000000, 0.000000,
+ 0.000000, 0.000000, 1.000000
++Flags: ( )
+
+$Name: Foret 1920
+$Class: SpaceSim Veg 1920
+$Location: -454.161, 746.817, 510.808
+$Orientation:
+ 1.000000, 0.000000, 0.000000,
+ 0.000000, 1.000000, 0.000000,
+ 0.000000, 0.000000, 1.000000
++Flags: ( )
+
+$Name: Foret 2020
+$Class: SpaceSim Veg 2020
+$Location: 523.064, 450.689, 866.655
+$Orientation:
+ 1.000000, 0.000000, 0.000000,
+ 0.000000, 1.000000, 0.000000,
+ 0.000000, 0.000000, 1.000000
++Flags: ( )
+
+$Name: Foret 2120
+$Class: SpaceSim Veg 2120
+$Location: 1946.648, 1804.329, 724.743
+$Orientation:
+ 1.000000, 0.000000, 0.000000,
+ 0.000000, 1.000000, 0.000000,
+ 0.000000, 0.000000, 1.000000
++Flags: ( )
+
+$Name: Foret 1921
+$Class: SpaceSim Veg 1921
+$Location: -795.603, 1299.853, 2322.079
+$Orientation:
+ 1.000000, 0.000000, 0.000000,
+ 0.000000, 1.000000, 0.000000,
+ 0.000000, 0.000000, 1.000000
++Flags: ( )
+
+$Name: Foret 2021
+$Class: SpaceSim Veg 2021
+$Location: 587.114, 376.380, 2279.660
+$Orientation:
+ 1.000000, 0.000000, 0.000000,
+ 0.000000, 1.000000, 0.000000,
+ 0.000000, 0.000000, 1.000000
++Flags: ( )
+
+$Name: Foret 2121
+$Class: SpaceSim Veg 2121
+$Location: 1958.024, 1688.631, 2253.006
+$Orientation:
+ 1.000000, 0.000000, 0.000000,
+ 0.000000, 1.000000, 0.000000,
+ 0.000000, 0.000000, 1.000000
++Flags: ( )
+
+$Name: Foret 2221
+$Class: SpaceSim Veg 2221
+$Location: 3730.377, 1933.349, 2393.705
+$Orientation:
+ 1.000000, 0.000000, 0.000000,
+ 0.000000, 1.000000, 0.000000,
+ 0.000000, 0.000000, 1.000000
++Flags: ( )
+
+$Name: Foret 1821
+$Class: SpaceSim Veg 1821
+$Location: -1629.507, 2082.546, 2374.812
+$Orientation:
+ 1.000000, 0.000000, 0.000000,
+ 0.000000, 1.000000, 0.000000,
+ 0.000000, 0.000000, 1.000000
++Flags: ( )
+
+$Name: Foret 1922
+$Class: SpaceSim Veg 1922
+$Location: -759.174, 1188.554, 3655.015
+$Orientation:
+ 1.000000, 0.000000, 0.000000,
+ 0.000000, 1.000000, 0.000000,
+ 0.000000, 0.000000, 1.000000
++Flags: ( )
+
+$Name: Foret 2022
+$Class: SpaceSim Veg 2022
+$Location: 687.343, 265.744, 3751.413
+$Orientation:
+ 1.000000, 0.000000, 0.000000,
+ 0.000000, 1.000000, 0.000000,
+ 0.000000, 0.000000, 1.000000
++Flags: ( )
+
+$Name: Foret 2122
+$Class: SpaceSim Veg 2122
+$Location: 1958.207, 1368.018, 3957.420
+$Orientation:
+ 1.000000, 0.000000, 0.000000,
+ 0.000000, 1.000000, 0.000000,
+ 0.000000, 0.000000, 1.000000
++Flags: ( )
+
+$Name: Foret 2222
+$Class: SpaceSim Veg 2222
+$Location: 3504.506, 2000.146, 3464.940
+$Orientation:
+ 1.000000, 0.000000, 0.000000,
+ 0.000000, 1.000000, 0.000000,
+ 0.000000, 0.000000, 1.000000
++Flags: ( )
+
+$Name: Foret 1923
+$Class: SpaceSim Veg 1923
+$Location: -518.166, 1420.631, 5275.307
+$Orientation:
+ 1.000000, 0.000000, 0.000000,
+ 0.000000, 1.000000, 0.000000,
+ 0.000000, 0.000000, 1.000000
++Flags: ( )
+
+$Name: Foret 2023
+$Class: SpaceSim Veg 2023
+$Location: 827.785, 164.513, 5242.076
+$Orientation:
+ 1.000000, 0.000000, 0.000000,
+ 0.000000, 1.000000, 0.000000,
+ 0.000000, 0.000000, 1.000000
++Flags: ( )
+
+$Name: Foret 2123
+$Class: SpaceSim Veg 2123
+$Location: 1958.580, 1024.125, 5224.878
+$Orientation:
+ 1.000000, 0.000000, 0.000000,
+ 0.000000, 1.000000, 0.000000,
+ 0.000000, 0.000000, 1.000000
++Flags: ( )
+
+$Name: Foret 1823
+$Class: SpaceSim Veg 1823
+$Location: -2230.135, 2058.290, 5366.819
+$Orientation:
+ 1.000000, 0.000000, 0.000000,
+ 0.000000, 1.000000, 0.000000,
+ 0.000000, 0.000000, 1.000000
++Flags: ( )
+
+$Name: Foret 2223
+$Class: SpaceSim Veg 2223
+$Location: 3411.722, 1796.752, 5409.444
+$Orientation:
+ 1.000000, 0.000000, 0.000000,
+ 0.000000, 1.000000, 0.000000,
+ 0.000000, 0.000000, 1.000000
++Flags: ( )
+
+$Name: Foret 1924
+$Class: SpaceSim Veg 1924
+$Location: -590.741, 818.653, 6960.092
+$Orientation:
+ 1.000000, 0.000000, 0.000000,
+ 0.000000, 1.000000, 0.000000,
+ 0.000000, 0.000000, 1.000000
++Flags: ( )
+
+$Name: Foret 2024
+$Class: SpaceSim Veg 2024
+$Location: 527.478, 141.675, 6666.310
+$Orientation:
+ 1.000000, 0.000000, 0.000000,
+ 0.000000, 1.000000, 0.000000,
+ 0.000000, 0.000000, 1.000000
++Flags: ( )
+
+$Name: Foret 2124
+$Class: SpaceSim Veg 2124
+$Location: 1999.321, 1387.023, 6654.350
+$Orientation:
+ 1.000000, 0.000000, 0.000000,
+ 0.000000, 1.000000, 0.000000,
+ 0.000000, 0.000000, 1.000000
++Flags: ( )
+
+$Name: Foret 1824
+$Class: SpaceSim Veg 1824
+$Location: -1892.455, 1867.428, 6882.472
+$Orientation:
+ 1.000000, 0.000000, 0.000000,
+ 0.000000, 1.000000, 0.000000,
+ 0.000000, 0.000000, 1.000000
++Flags: ( )
+
+$Name: Foret 1925
+$Class: SpaceSim Veg 1925
+$Location: -494.615, 152.014, 8242.750
+$Orientation:
+ 1.000000, 0.000000, 0.000000,
+ 0.000000, 1.000000, 0.000000,
+ 0.000000, 0.000000, 1.000000
++Flags: ( )
+
+$Name: Foret 2025
+$Class: SpaceSim Veg 2025
+$Location: 477.832, 283.602, 8217.341
+$Orientation:
+ 1.000000, 0.000000, 0.000000,
+ 0.000000, 1.000000, 0.000000,
+ 0.000000, 0.000000, 1.000000
++Flags: ( )
+
+$Name: Foret 1825
+$Class: SpaceSim Veg 1825
+$Location: -1694.609, 1503.130, 8184.646
+$Orientation:
+ 1.000000, 0.000000, 0.000000,
+ 0.000000, 1.000000, 0.000000,
+ 0.000000, 0.000000, 1.000000
++Flags: ( )
+
+$Name: Foret 2125
+$Class: SpaceSim Veg 2125
+$Location: 1887.142, 1532.424, 8175.538
+$Orientation:
+ 1.000000, 0.000000, 0.000000,
+ 0.000000, 1.000000, 0.000000,
+ 0.000000, 0.000000, 1.000000
++Flags: ( )
+
+$Name: Foret 1725
+$Class: SpaceSim Veg 1725
+$Location: -3806.082, 1765.553, 8393.672
+$Orientation:
+ 1.000000, 0.000000, 0.000000,
+ 0.000000, 1.000000, 0.000000,
+ 0.000000, 0.000000, 1.000000
++Flags: ( )
+
+$Name: Foret 1714
+$Class: SpaceSim Veg 1714
+$Location: -3565.121, 1706.808, -8165.215
+$Orientation:
+ 1.000000, 0.000000, 0.000000,
+ 0.000000, 1.000000, 0.000000,
+ 0.000000, 0.000000, 1.000000
++Flags: ( )
+
+$Name: Foret 1715
+$Class: SpaceSim Veg 1715
+$Location: -3623.142, 2000.174, -7178.724
+$Orientation:
+ 1.000000, 0.000000, 0.000000,
+ 0.000000, 1.000000, 0.000000,
+ 0.000000, 0.000000, 1.000000
++Flags: ( )
+
+$Name: Foret 2115
+$Class: SpaceSim Veg 2115
+$Location: 1747.741, 1947.673, -6764.368
+$Orientation:
+ 1.000000, 0.000000, 0.000000,
+ 0.000000, 1.000000, 0.000000,
+ 0.000000, 0.000000, 1.000000
++Flags: ( )
+
+$Name: Foret 2116
+$Class: SpaceSim Veg 2116
+$Location: 1905.003, 2046.619, -5320.095
+$Orientation:
+ 1.000000, 0.000000, 0.000000,
+ 0.000000, 1.000000, 0.000000,
+ 0.000000, 0.000000, 1.000000
++Flags: ( )
+
+$Name: Foret 1717
+$Class: SpaceSim Veg 1717
+$Location: -4064.331, 2013.523, -3794.466
+$Orientation:
+ 1.000000, 0.000000, 0.000000,
+ 0.000000, 1.000000, 0.000000,
+ 0.000000, 0.000000, 1.000000
++Flags: ( )
+
+$Name: Foret 2217
+$Class: SpaceSim Veg 2217
+$Location: 3625.629, 2274.974, -3563.829
+$Orientation:
+ 1.000000, 0.000000, 0.000000,
+ 0.000000, 1.000000, 0.000000,
+ 0.000000, 0.000000, 1.000000
++Flags: ( )
+
+$Name: Foret 2118
+$Class: SpaceSim Veg 2118
+$Location: 2130.238, 2120.777, -2219.521
+$Orientation:
+ 1.000000, 0.000000, 0.000000,
+ 0.000000, 1.000000, 0.000000,
+ 0.000000, 0.000000, 1.000000
++Flags: ( )
+
+$Name: Foret 1718
+$Class: SpaceSim Veg 1718
+$Location: -3476.577, 2075.278, -1595.232
+$Orientation:
+ 1.000000, 0.000000, 0.000000,
+ 0.000000, 1.000000, 0.000000,
+ 0.000000, 0.000000, 1.000000
++Flags: ( )
+
+$Name: Foret 1620
+$Class: SpaceSim Veg 1620
+$Location: -4613.288, 2178.596, 152.808
+$Orientation:
+ 1.000000, 0.000000, 0.000000,
+ 0.000000, 1.000000, 0.000000,
+ 0.000000, 0.000000, 1.000000
++Flags: ( )
+
+$Name: Foret 1720
+$Class: SpaceSim Veg 1720
+$Location: -3580.330, 2340.393, 118.685
+$Orientation:
+ 1.000000, 0.000000, 0.000000,
+ 0.000000, 1.000000, 0.000000,
+ 0.000000, 0.000000, 1.000000
++Flags: ( )
+
+$Name: Foret 1820
+$Class: SpaceSim Veg 1820
+$Location: -2052.908, 2201.958, 268.590
+$Orientation:
+ 1.000000, 0.000000, 0.000000,
+ 0.000000, 1.000000, 0.000000,
+ 0.000000, 0.000000, 1.000000
++Flags: ( )
+
+$Name: Foret 1721
+$Class: SpaceSim Veg 1721
+$Location: -3491.760, 2287.495, 2177.216
+$Orientation:
+ 1.000000, 0.000000, 0.000000,
+ 0.000000, 1.000000, 0.000000,
+ 0.000000, 0.000000, 1.000000
++Flags: ( )
+
+$Name: Foret 2321
+$Class: SpaceSim Veg 2321
+$Location: 4706.061, 2095.958, 2166.251
+$Orientation:
+ 1.000000, 0.000000, 0.000000,
+ 0.000000, 1.000000, 0.000000,
+ 0.000000, 0.000000, 1.000000
++Flags: ( )
+
+$Name: Foret 1822
+$Class: SpaceSim Veg 1822
+$Location: -2198.651, 2068.640, 3441.750
+$Orientation:
+ 1.000000, 0.000000, 0.000000,
+ 0.000000, 1.000000, 0.000000,
+ 0.000000, 0.000000, 1.000000
++Flags: ( )
+
+$Name: Foret 2224
+$Class: SpaceSim Veg 2224
+$Location: 3579.648, 1831.460, 6756.577
+$Orientation:
+ 1.000000, 0.000000, 0.000000,
+ 0.000000, 1.000000, 0.000000,
+ 0.000000, 0.000000, 1.000000
++Flags: ( )
+
+$Name: Foret 2324
+$Class: SpaceSim Veg 2324
+$Location: 4718.841, 1699.513, 7139.990
+$Orientation:
+ 1.000000, 0.000000, 0.000000,
+ 0.000000, 1.000000, 0.000000,
+ 0.000000, 0.000000, 1.000000
++Flags: ( )
+
+$Name: Foret 1724
+$Class: SpaceSim Veg 1724
+$Location: -3520.715, 1979.325, 7146.549
+$Orientation:
+ 1.000000, 0.000000, 0.000000,
+ 0.000000, 1.000000, 0.000000,
+ 0.000000, 0.000000, 1.000000
++Flags: ( )
+
+$Name: Foret 2325
+$Class: SpaceSim Veg 2325
+$Location: 4620.741, 1678.346, 8082.481
+$Orientation:
+ 1.000000, 0.000000, 0.000000,
+ 0.000000, 1.000000, 0.000000,
+ 0.000000, 0.000000, 1.000000
++Flags: ( )
+
+$Name: Foret 1625
+$Class: SpaceSim Veg 1625
+$Location: -4733.719, 1681.795, 8322.053
+$Orientation:
+ 1.000000, 0.000000, 0.000000,
+ 0.000000, 1.000000, 0.000000,
+ 0.000000, 0.000000, 1.000000
++Flags: ( )
+
+$Name: Air 0
+$Class: SpaceSim Air 0
+$Location: 0, -80000, 0
+$Orientation:
+ 1, 0, 0,
+ 0, 1, 0,
+ 0, 0, 1
++Flags: ( )
+
+#Events
+
+$Formula: ( when ( true ) ( do-nothing ) )
++Name: PlanetProof
++Repeat Count: 1
++Interval: 1
+
+$Formula: ( when ( true ) ( do-nothing ) )
++Name: EnableDynamicMusic
++Repeat Count: 1
++Interval: 1
+
+$Formula: ( when ( true ) ( set-player-warp-status ( false ) ) )
++Name: Bloquer hyperspace
++Repeat Count: 1
++Interval: 1
+
+$Formula: ( when ( has-time-elapsed 2 ) ( send-message "#Command" "High" "Bienvenue" ) )
++Name: Consigne terrain
++Repeat Count: 1
++Interval: 1
+
+#Goals
+$Type: Primary
++Name: Rejoindre Vigilance
+$MessageNew: XSTR("Monter en orbite vers Vigilance (100 km). F8 : vol automatique ; F9 : vitesse de croisiere.", -1)
+$end_multi_text
+$Formula: ( and ( > ( get-object-y "Red 1" ) 95000 ) ( < ( distance "Red 1" "Vigilance" ) 3600 ) )
++Score: 0
+
+#Waypoints
+$Name: JumpOutPoint
+$List: ( ( 0, 320, -2600 ) )
+$Name: Approche Vigilance
+$List: ( ( 0, 5500, -1800 ) )
+
+#Messages
+$Command Persona: Rebel Commander 1
+$Name: Bienvenue
+$Team: -1
+$MessageNew: XSTR("Red 1, bienvenue sur Aurore. F8 lance le trajet sol-orbite. F9 change la vitesse de croisiere. Le terrain reste physique pendant tout le voyage.", -1)
+$end_multi_text
+
+#Reinforcements		;! 0 total
+
+
+#Background bitmaps
+$Num stars: 1600
+$Ambient light level: 1315860
++Neb2Color: ( 136 172 188 )
++Neb2 Poofs List: ( )
+$Bitmap List:
++Flags: ( "corrected angles" )
+$Sun: SunWhite
++Angles: -0.620000 0.000000 0.800000
++Scale: 0.35
+
+#Asteroid Fields
+
+#Music
+
+$Event Music: None
+$Briefing Music: None
+
+#End
+

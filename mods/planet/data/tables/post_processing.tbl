@@ -1,0 +1,158 @@
+#Effects
+
+$Name:			distort noise
+$Uniform:		noise_amount
+$Define:		FLAG_DISTORT_NOISE
+$AlwaysOn: 		false
+$Default:		0.0
+$Div:			20000
+$Add:			0
+
+$Name:			saturation
+$Uniform:		saturation
+$Define:		FLAG_SATURATION
+$AlwaysOn: 		false
+$Default:		1.0
+$Div:			50
+$Add:			0
+
+$Name:			brightness
+$Uniform:		brightness
+$Define:		FLAG_BRIGHTNESS
+$AlwaysOn: 		false
+$Default:		1.0
+$Div:			50
+$Add:			0
+
+$Name:			contrast
+$Uniform:		contrast
+$Define:		FLAG_CONTRAST
+$AlwaysOn: 		false
+$Default:		1.0
+$Div:			50
+$Add:			0
+
+$Name:			film grain
+$Uniform:		film_grain
+$Define:		FLAG_GRAIN
+$AlwaysOn: 		false ;test having off by default since it increases pixelation effect especially if game res is lower than monitor res
+$Default:		0.1
+$Div:			50 ;since div always happens even with sexp effect, that means to get back to default of 0.1 we want to set intensity to 5 (ie 5/50 = 0.1)
+$Add:			0
+
+$Name:			stripes
+$Uniform:		tv_stripes
+$Define:		FLAG_STRIPES
+$AlwaysOn:		false
+$Default:		0.0
+$Div:			50
+$Add:			0
+
+$Name:			cutoff
+$Uniform:		cutoff
+$Define:		FLAG_CUTOFF
+$AlwaysOn:		false
+$Default:		2.0
+$Div:			50
+$Add:			0.0
+
+$Name:			dithering
+$Uniform:		dither
+$Define:		FLAG_DITH
+$AlwaysOn:		false
+$Default:		0.0
+$Div:			50
+$Add:			0
+
+$Name:			tint
+$Uniform:		tint
+$Define:		FLAG_TINT
+$AlwaysOn: 		false
+$Default:		0.0
+$Div:			1
+$Add:			0
+$RGB:           0.3,0.2,0.0
+
+#Ship Effects
+
+$Name: 					Cloak
+$Shader Effect:			2
+$Disables Rendering:	YES
+$Invert timer:			YES
+
+$Name:					Decloak
+$Shader Effect:			2
+$Disables Rendering:	NO
+$Invert timer:			NO
+
+;; 3 is target box
+
+$Name:					IntroYellow
+$Shader Effect:			4
+$Disables Rendering:	NO
+$Invert timer:			NO
+
+$Name:					Custom Fade Out
+$Shader Effect:			5
+$Disables Rendering:	YES
+$Invert timer:			YES
+
+$Name:					Custom Fade In
+$Shader Effect:			5
+$Disables Rendering:	NO
+$Invert timer:			NO
+
+$Name:					Show Once T Over
+$Shader Effect:			6
+$Disables Rendering:	NO
+$Invert timer:			NO
+
+$Name:					Instant Hide
+$Shader Effect:			7
+$Disables Rendering:	YES
+$Invert timer:			YES
+
+$Name:					Instant Show
+$Shader Effect:			8
+$Disables Rendering:	NO
+$Invert timer:			NO
+
+$Name:					Shield Shimmer 1
+$Shader Effect:			9
+$Disables Rendering:	NO
+$Invert timer:			NO
+
+$Name:					Shield Shimmer -1
+$Shader Effect:			9
+$Disables Rendering:	NO
+$Invert timer:			YES
+
+$Name:					Shield Close
+$Shader Effect:			10
+$Disables Rendering:	NO
+$Invert timer:			NO
+
+$Name:					Shield Open
+$Shader Effect:			10
+$Disables Rendering:	NO
+$Invert timer:			YES
+
+$Name:                  Hyperspace Tunnel End Glow
+$Shader Effect:         11
+$Disables Rendering:    NO
+$Invert timer:          NO
+
+$Name:					Hyperspace Tunnel Fade Out
+$Shader Effect:			12
+$Disables Rendering:	YES
+$Invert timer:			YES
+
+#Light Shafts
+$AlwaysOn:			YES
+$Density:			0.62
+$Falloff:			0.985
+$Weight:			0.030
+$Intensity:			0.55
+$Sample Number:		72
+
+#End

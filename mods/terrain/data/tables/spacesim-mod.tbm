@@ -1,0 +1,5 @@
+#GAME SETTINGS
+$Window title: SpaceSim - Terrain
+$Mod title: SpaceSim Terrain
+$Fix scripted velocity: YES
+#END

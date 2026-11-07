@@ -1,0 +1,247 @@
+#Lua SEXPs
+
+$Operator: fotg-ship-attacked-init
+$Category: Change
+$Subcategory: X-Wing/TIE Fighter
+$Minimum Arguments: 1
+$Maximum Arguments: 1
+$Return Type: Nothing
+$Description: Sets up the attack check for the specified ship. Note, does not work in multiplayer.
+$Parameter:
+	+Description: The ship
+	+Type: shipname
+
+$Operator: fotg-wing-attacked-init
+$Category: Change
+$Subcategory: X-Wing/TIE Fighter
+$Minimum Arguments: 1
+$Maximum Arguments: 1
+$Return Type: Nothing
+$Description: Sets up the attack check for the specified wing. Note, does not work in multiplayer.
+$Parameter:
+	+Description: The wing
+	+Type: wing
+
+$Operator: fotg-is-ship-attacked
+$Category: Status
+$Subcategory: X-Wing/TIE Fighter
+$Minimum Arguments: 1
+$Maximum Arguments: 1
+$Return Type: Boolean
+$Description: Checks whether the ship has ever been attacked (shots fired at it) during the mission. Note, does not work in multiplayer.
+$Parameter:
+	+Description: The ship
+	+Type: ship
+
+$Operator: fotg-is-wing-attacked
+$Category: Status
+$Subcategory: X-Wing/TIE Fighter
+$Minimum Arguments: 1
+$Maximum Arguments: 1
+$Return Type: Boolean
+$Description: Checks whether the wing has ever been attacked (shots fired at any of its ships) during the mission. Note, does not work in multiplayer.
+$Parameter:
+	+Description: The wing
+	+Type: wing
+
+$Operator: fotg-set-ship-boarded
+$Category: Change
+$Subcategory: X-Wing/TIE Fighter
+$Minimum Arguments: 2
+$Maximum Arguments: 2
+$Return Type: Nothing
+$Description: Sets whether the ship has been boarded during the mission. Note, does not work in multiplayer.
+$Parameter:
+	+Description: True to set, false to unset
+	+Type: boolean
+$Parameter:
+	+Description: The ship
+	+Type: ship
+
+$Operator: fotg-is-ship-boarded
+$Category: Status
+$Subcategory: X-Wing/TIE Fighter
+$Minimum Arguments: 1
+$Maximum Arguments: 1
+$Return Type: Boolean
+$Description: Checks whether the ship has been boarded during the mission. Note, does not work in multiplayer.
+$Parameter:
+	+Description: The ship
+	+Type: ship
+
+$Operator: fotg-is-wing-boarded
+$Category: Status
+$Subcategory: X-Wing/TIE Fighter
+$Minimum Arguments: 1
+$Maximum Arguments: 1
+$Return Type: Boolean
+$Description: Checks whether any of the ships in the wing has been boarded during the mission. Note, does not work in multiplayer.
+$Parameter:
+	+Description: The wing
+	+Type: wing
+
+$Operator: fotg-set-ship-captured
+$Category: Change
+$Subcategory: X-Wing/TIE Fighter
+$Minimum Arguments: 3
+$Maximum Arguments: 3
+$Return Type: Nothing
+$Description: Sets whether the ship has been captured during the mission. Note, does not work in multiplayer.
+$Parameter:
+	+Description: True to set, false to unset
+	+Type: boolean
+$Parameter:
+	+Description: The ship
+	+Type: ship
+$Parameter:
+	+Description: The capturing ship
+	+Type: ship
+
+$Operator: fotg-is-ship-captured
+$Category: Status
+$Subcategory: X-Wing/TIE Fighter
+$Minimum Arguments: 1
+$Maximum Arguments: 1
+$Return Type: Boolean
+$Description: Checks whether the ship has been captured during the mission. Note, does not work in multiplayer.
+$Parameter:
+	+Description: The ship
+	+Type: ship
+
+$Operator: fotg-is-wing-captured
+$Category: Status
+$Subcategory: X-Wing/TIE Fighter
+$Minimum Arguments: 1
+$Maximum Arguments: 1
+$Return Type: Boolean
+$Description: Checks whether any of the ships in the wing has been captured during the mission. Note, does not work in multiplayer.
+$Parameter:
+	+Description: The wing
+	+Type: wing
+
+$Operator: fotg-percent-wing-captured
+$Category: Status
+$Subcategory: X-Wing/TIE Fighter
+$Minimum Arguments: 2
+$Maximum Arguments: 2
+$Return Type: Boolean
+$Description: Checks whether a percentage of the wing has been captured during the mission. Note, does not work in multiplayer.
+$Parameter:
+	+Description: Percentage
+	+Type: number
+$Parameter:
+	+Description: The wing
+	+Type: wing
+
+$Operator: fotg-is-ship-disabled
+$Category: Status
+$Subcategory: X-Wing/TIE Fighter
+$Minimum Arguments: 1
+$Maximum Arguments: 1
+$Return Type: Boolean
+$Description: Checks whether the ship has been disabled, in the X-Wing sense. Note, does not work in multiplayer.
+$Parameter:
+	+Description: The ship
+	+Type: ship
+
+$Operator: fotg-is-wing-disabled
+$Category: Status
+$Subcategory: X-Wing/TIE Fighter
+$Minimum Arguments: 1
+$Maximum Arguments: 1
+$Return Type: Boolean
+$Description: Checks whether any of the ships in the wing has been disabled, in the X-Wing sense. Note, does not work in multiplayer.
+$Parameter:
+	+Description: The wing
+	+Type: wing
+
+$Operator: fotg-set-ship-identified
+$Category: Change
+$Subcategory: X-Wing/TIE Fighter
+$Minimum Arguments: 2
+$Maximum Arguments: 2
+$Return Type: Nothing
+$Description: Sets whether the ship is identified. Note, does not work in multiplayer.
+$Parameter:
+	+Description: True to set, false to unset
+	+Type: boolean
+$Parameter:
+	+Description: The ship
+	+Type: ship
+
+$Operator: fotg-is-ship-identified
+$Category: Status
+$Subcategory: X-Wing/TIE Fighter
+$Minimum Arguments: 1
+$Maximum Arguments: 1
+$Return Type: Boolean
+$Description: Checks whether the ship has been identified. Note, does not work in multiplayer.
+$Parameter:
+	+Description: The ship
+	+Type: ship
+
+$Operator: fotg-is-wing-identified
+$Category: Status
+$Subcategory: X-Wing/TIE Fighter
+$Minimum Arguments: 1
+$Maximum Arguments: 1
+$Return Type: Boolean
+$Description: Checks whether any of the ships in the wing has been identified. Note, does not work in multiplayer.
+$Parameter:
+	+Description: The wing
+	+Type: wing
+
+$Operator: fotg-percent-ships-identified
+$Category: Status
+$Subcategory: X-Wing/TIE Fighter
+$Minimum Arguments: 2
+$Return Type: Boolean
+$Description: Checks whether a percentage of the specified ships have been identified during the mission. Note, does not work in multiplayer.
+$Parameter:
+	+Description: Percentage
+	+Type: number
+$Repeat
+$Parameter:
+	+Description: A ship
+	+Type: ship
+
+$Operator: fotg-percent-wing-identified
+$Category: Status
+$Subcategory: X-Wing/TIE Fighter
+$Minimum Arguments: 2
+$Maximum Arguments: 2
+$Return Type: Boolean
+$Description: Checks whether a percentage of the wing has been identified during the mission. Note, does not work in multiplayer.
+$Parameter:
+	+Description: Percentage
+	+Type: number
+$Parameter:
+	+Description: The wing
+	+Type: wing
+
+$Operator: fotg-is-ship-docked
+$Category: Status
+$Subcategory: X-Wing/TIE Fighter
+$Minimum Arguments: 1
+$Maximum Arguments: 1
+$Return Type: Boolean
+$Description: Checks whether the ship has docked during the mission. Note, does not work in multiplayer.
+$Parameter:
+	+Description: The ship
+	+Type: ship
+
+$Operator: fotg-percent-wing-docked
+$Category: Status
+$Subcategory: X-Wing/TIE Fighter
+$Minimum Arguments: 2
+$Maximum Arguments: 2
+$Return Type: Boolean
+$Description: Checks whether a percentage of the wing has docked during the mission. Note, does not work in multiplayer.
+$Parameter:
+	+Description: Percentage
+	+Type: number
+$Parameter:
+	+Description: The wing
+	+Type: wing
+
+#End

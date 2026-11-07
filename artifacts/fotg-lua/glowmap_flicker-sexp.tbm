@@ -1,0 +1,20 @@
+#Lua SEXPs
+
+$Operator: run-glowmap-flicker
+$Category: Change
+$Subcategory: LUA-Action
+$Minimum Arguments: 2
+$Maximum Arguments: 3
+$Return Type: Nothing
+$Description: Flickers the glowmap/thrusters of a large ship for a given duration. Does not work in multiplayer. 
+$Parameter: 
+	+Description: Ship to flicker the glowmap/thrusters.
+	+Type: Ship
+$Parameter: 
+	+Description: Duration of the flickering in seconds. Default is 5 seconds.
+	+Type: Number
+$Parameter: 
+	+Description: Final status of the glowmap/thrusters. True enables them when the effect is over. False disables them when the effect is over. Default is False.
+	+Type: Boolean
+
+#End

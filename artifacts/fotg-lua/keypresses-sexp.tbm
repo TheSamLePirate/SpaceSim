@@ -1,0 +1,26 @@
+#Lua SEXPs
+
+$Operator: absolute-key-pressed
+$Category: Status
+$Subcategory: LUA-Condition
+$Minimum Arguments: 1
+$Maximum Arguments: 1
+$Return Type: Boolean
+$Description: Checks to see if the specified key was pressed. Returns true if the key was pressed, false otherwise. This sexp differs from the normal 'key-pressed' sexp because it does not care about key binding changes, and simply checks if the specified key was pressed. Use in conjunction with 'absolute-key-reset'. Note, does not work in multiplayer.
+$Parameter: 
+	+Description: Name of key to check, as string. For example, '1' without the quotes.
+	+Type: String
+
+$Operator: absolute-key-reset
+$Category: Change
+$Subcategory: LUA-Action
+$Minimum Arguments: 1
+; No maximum arguments means that it accepts a variable number of arguments
+$Return Type: Nothing
+$Description: Resets the specified key. This sexp differs from the normal 'key-reset' sexp because it does not care about key binding changes, and simply resets the actual key specified. Use in conjunction with 'absolute-key-pressed'. Note, does not work in multiplayer.   
+$Repeat
+$Parameter: 
+	+Description: Name of key to reset, as string. For example, '1' without the quotes.
+	+Type: String
+
+#End

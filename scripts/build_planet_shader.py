@@ -1,0 +1,520 @@
+"""SpaceSim Aurore 03 render overlay for FSO 26.2 (engine binary untouched).
+
+The official 26.2 shader set is copied into the mod, then main-f.sdr receives:
+  * a physically based atmosphere (Rayleigh + Mie single scattering, planet shadow,
+    sun transmittance) evaluated per pixel in world space;
+  * aerial perspective on every opaque surface, written into the deferred G-buffer
+    (diffuse/spec attenuated, in-scattering added as emissive), so the sky, the
+    ground haze and the orbital halo are one continuous medium;
+  * a procedural cloud layer, composited in front of surfaces and in the sky,
+    with self-shadowing, silver lining and cloud shadows on the ground;
+  * an ocean with multi-scale waves, Fresnel sky reflection and sun glint;
+  * close-range stone micro-detail on the terrain.
+Quality presets are selected with --quality low|high|ultra.
+"""
+from pathlib import Path
+import math, re, shutil, sys
+from PIL import Image
+ROOT=Path(__file__).resolve().parent.parent
+SOURCE=ROOT/'tools/source-26.2.0'
+DATA=ROOT/'mods/planet/data'
+MISSION=DATA/'missions/_SPT_Planet_Libre.fs2'
+QUALITY={'low':dict(sky=10,ap=4,csteps=32,fsteps=16,lsteps=4,water=4),
+         'high':dict(sky=16,ap=6,csteps=64,fsteps=32,lsteps=5,water=6),
+         'ultra':dict(sky=24,ap=10,csteps=110,fsteps=56,lsteps=6,water=10)}
+
+def sun_direction():
+    """Same math as FSO stars_get_sun_pos() for corrected angles: fvec of (p,b,h)."""
+    m=re.search(r'\$Sun:.*?\+Angles: ([-\d.]+) ([-\d.]+) ([-\d.]+)',MISSION.read_text(),re.S)
+    p,b,h=map(float,m.groups())
+    return (math.sin(h)*math.cos(p),-math.sin(p),math.cos(h)*math.cos(p))
+
+FUNCTIONS='''
+// ===================== SpaceSim Aurore 03 : planet rendering =====================
+#define SS_RG 80000.0          // sea level radius (m)
+#define SS_RA 110000.0         // top of atmosphere (30 km: the limb fades out instead of ending)
+#define SS_MIST 2.6            // valley mist (Mie, relative to sea-level haze)
+#define SS_RCI 89500.0         // cirrus deck radius (9.5 km)
+#define SS_CB 2700.0           // cloud base altitude
+#define SS_CT 6200.0           // cloud top altitude
+#define SS_CLOUD_STEPS __CSTEPS__
+#define SS_FRONT_STEPS __FSTEPS__
+#define SS_LIGHT_STEPS __LSTEPS__
+#define SS_SKY_STEPS __SKY__
+#define SS_AP_STEPS __AP__
+#define SS_WATER_STEPS __WATER__
+const vec3 SS_CENTER=vec3(0.0,-80000.0,0.0);
+const vec3 SS_SUN_DEFAULT=vec3(__SUNDIR__);
+vec3 SS_SUN=SS_SUN_DEFAULT;                          // replaced per pixel by the mission sun light
+const vec3 SS_BR=vec3(1.45e-5,3.38e-5,8.28e-5);   // Earth Rayleigh x2.5 (scale height 2.2 km)
+const float SS_BM=2.2e-5;
+const float SS_HR=2200.0;
+const float SS_HM=800.0;
+const float SS_G=0.78;
+const vec3 SS_E=vec3(8.5);                          // sun irradiance in FSO scene units
+const vec3 SS_BO=vec3(1.6e-6,4.7e-6,0.21e-6);     // ozone-like absorption, follows Rayleigh density
+const float SS_SIGMA=0.030;                         // cloud extinction per metre at density 1
+const float SS_CLOUD_GAIN=1.5;                      // multiple-scattering energy for cloud interiors
+
+float ss_hash(vec3 p) {
+    p=fract(p*0.1031);p+=dot(p,p.yzx+33.33);
+    return fract((p.x+p.y)*p.z);
+}
+float ss_noise(vec3 p) {
+    vec3 i=floor(p),f=fract(p);f=f*f*(3.0-2.0*f);
+    return mix(mix(mix(ss_hash(i),ss_hash(i+vec3(1,0,0)),f.x),mix(ss_hash(i+vec3(0,1,0)),ss_hash(i+vec3(1,1,0)),f.x),f.y),mix(mix(ss_hash(i+vec3(0,0,1)),ss_hash(i+vec3(1,0,1)),f.x),mix(ss_hash(i+vec3(0,1,1)),ss_hash(i+vec3(1,1,1)),f.x),f.y),f.z);
+}
+vec2 ss_sphere(vec3 o,vec3 d,float r) {
+    float b=dot(o,d),c=dot(o,o)-r*r,h=b*b-c;
+    if(h<0.0) return vec2(1e20,-1e20);
+    h=sqrt(h);return vec2(-b-h,-b+h);
+}
+float ss_planet_shadow(vec3 p) {
+    float b=dot(p,SS_SUN);
+    if(b>=0.0) return 1.0;
+    float d=sqrt(max(dot(p,p)-b*b,0.0));
+    return smoothstep(SS_RG-4000.0,SS_RG+5500.0,d);       // soft penumbra: wide twilight band
+}
+// Schuler's analytic Chapman function: optical depth toward the sun without a loop.
+float ss_chapman(float X,float h,float c) {
+    float q=sqrt(X+h);
+    if(c>=0.0) return q/(q*c+1.0)*exp(-h);
+    float x0=sqrt(max(1.0-c*c,0.0))*(X+h),c0=sqrt(x0);
+    return min(2.0*c0*exp(min(X-x0,60.0))-q/(1.0-q*c)*exp(-h),1e5);
+}
+vec2 ss_sun_depth(vec3 p) {
+    float r=length(p),h=max(r-SS_RG,0.0),c=dot(p,SS_SUN)/r;
+    // Sunlight airmass uses an Earth-sized curvature: real sunset reddening on a 160 km world.
+    const float XR=6.371e6/SS_HR,XM=6.371e6/SS_HM;
+    return vec2(SS_HR*ss_chapman(XR,h/SS_HR,c),SS_HM*ss_chapman(XM,h/SS_HM,c));
+}
+vec3 ss_transmit(vec2 od) { return exp(-((SS_BR+SS_BO)*od.x+SS_BM*1.11*od.y)); }
+vec3 ss_sunlight(vec3 p) { return ss_transmit(ss_sun_depth(p))*ss_planet_shadow(p); }
+void ss_march(vec3 o,vec3 d,float a,float b,int n,bool denseEnd,inout vec2 od,inout vec3 sr,inout vec3 sm) {
+    if(b<=a||n<=0) return;
+    for(int j=0;j<n;j++) {
+        float u0=float(j)/float(n),u1=float(j+1)/float(n);
+        float w0=denseEnd?1.0-(1.0-u0)*(1.0-u0):u0*u0;
+        float w1=denseEnd?1.0-(1.0-u1)*(1.0-u1):u1*u1;
+        float s0=a+(b-a)*w0,s1=a+(b-a)*w1;
+        vec3 p=o+d*(0.5*(s0+s1));
+        float h=max(length(p)-SS_RG,0.0);
+        vec2 dens=exp(-vec2(h/SS_HR,h/SS_HM))*(s1-s0);
+        dens.x+=0.035*exp(-h/7000.0)*(s1-s0);                    // thin high layer: soft limb
+        dens.y+=SS_MIST*exp(-max(h-120.0,0.0)/240.0)*(s1-s0);     // valley mist
+        vec2 mid=od+dens*0.5;od+=dens;
+        float sh=ss_planet_shadow(p);
+        if(sh>0.0) {
+            vec3 att=ss_transmit(mid+ss_sun_depth(p))*sh;
+            sr+=dens.x*att;sm+=dens.y*att;
+        }
+    }
+}
+// Single scattering between tmin and tmax along a ray (origin relative to the planet).
+void ss_atmosphere(vec3 o,vec3 d,float tmin,float tmax,int n,out vec3 L,out vec3 T) {
+    L=vec3(0.0);T=vec3(1.0);
+    vec2 a=ss_sphere(o,d,SS_RA);
+    float t0=max(a.x,tmin),t1=min(a.y,tmax);
+    if(t1<=t0) return;
+    float tc=clamp(-dot(o,d),t0,t1);
+    int na=int(float(n)*(tc-t0)/(t1-t0)+0.5);
+    if(tc-t0>1.0) na=max(na,2);
+    if(t1-tc>1.0) na=min(na,n-2);
+    vec2 od=vec2(0.0);vec3 sr=vec3(0.0),sm=vec3(0.0);
+    ss_march(o,d,t0,tc,na,true,od,sr,sm);
+    ss_march(o,d,tc,t1,n-na,false,od,sr,sm);
+    float mu=dot(d,SS_SUN),g=SS_G;
+    float pr=0.0596831*(1.0+mu*mu);
+    float pm=0.1193662*(1.0-g*g)*(1.0+mu*mu)/((2.0+g*g)*pow(max(1.0+g*g-2.0*g*mu,1e-4),1.5));
+    vec3 single=sr*SS_BR*pr+sm*SS_BM*pm;
+    // Cheap multiple-scattering lift (isotropic), keeps twilight and horizons from going grey.
+    vec3 multi=(sr*SS_BR+sm*SS_BM)*0.012;
+    L=SS_E*(single+multi);
+    T=ss_transmit(od);
+}
+vec3 ss_sky_irradiance(vec3 up) {
+    float day=smoothstep(-0.12,0.35,dot(up,SS_SUN));
+    return SS_E*vec3(0.030,0.052,0.095)*day+vec3(0.0015,0.002,0.003);
+}
+// ---------------- volumetric clouds (Perlin-Worley volume in the -misc map) ----------------
+float ss_remap(float v,float a,float b,float c,float d) { return c+(v-a)/(b-a)*(d-c); }
+vec4 ss_tex3(vec3 p) {
+#prereplace IF_FLAG_COMPILED MODEL_SDR_FLAG_MISC
+    vec3 q=fract(p)*128.0;
+    float zf=q.z-0.5,z=floor(zf),fz=zf-z;
+    float z0=mod(z,128.0),z1=mod(z+1.0,128.0);
+    vec2 size=vec2(2080.0,1040.0),xy=q.xy+1.0;
+    vec2 o0=vec2(mod(z0,16.0),floor(z0/16.0))*130.0,o1=vec2(mod(z1,16.0),floor(z1/16.0))*130.0;
+    float layer=float(sMiscmapIndex);
+    return mix(textureLod(sMiscmap,vec3((o0+xy)/size,layer),0.0),textureLod(sMiscmap,vec3((o1+xy)/size,layer),0.0),fz);
+#prereplace ENDIF_FLAG_COMPILED MODEL_SDR_FLAG_MISC
+    return vec4(0.0);
+}
+// p relative to the planet centre. Cumulus fields under a planet-scale weather pattern.
+float ss_cloud_coarse(vec3 p,out float hn) {
+    float h=length(p)-SS_RG;hn=(h-SS_CB)/(SS_CT-SS_CB);
+    if(hn<=0.0||hn>=1.0) return 0.0;
+    vec4 w=ss_tex3(p/61000.0+vec3(0.37,0.11,0.73));
+    float coverage=clamp(ss_remap(w.a,0.42,0.80,0.0,0.88),0.0,0.88);
+    if(coverage<=0.01) return 0.0;
+    float top=mix(0.35,1.0,smoothstep(0.3,0.8,w.r));            // towering where the field is dense
+    float profile=smoothstep(0.0,0.07,hn)*(1.0-smoothstep(top*0.55,top,hn));
+    vec4 n=ss_tex3(p/9200.0);
+    float lowfbm=n.g*0.625+n.b*0.25+n.a*0.125;
+    float base=clamp(ss_remap(n.r,lowfbm-1.0,1.0,0.0,1.0),0.0,1.0)*profile;
+    return clamp(ss_remap(base,1.0-coverage,1.0,0.0,1.0),0.0,1.0)*coverage;
+}
+float ss_cloud_erode(vec3 p,float c,float hn,float fine) {
+    vec4 d=ss_tex3(p/1650.0+vec3(0.0,0.0,0.31));
+    float hf=d.g*0.625+d.b*0.25+d.r*0.125;
+    if(fine>0.0) { vec4 e=ss_tex3(p/290.0+vec3(0.53,0.0,0.0));hf=mix(hf,hf*0.75+(e.g*0.6+e.b*0.4)*0.25,fine); }
+    float erosion=mix(1.0-hf,hf,clamp(hn*4.0,0.0,1.0));          // wispy base, billowing tops
+    return clamp(ss_remap(c,erosion*0.42,1.0,0.0,1.0),0.0,1.0);
+}
+float ss_cloud_density(vec3 p,bool detail) {
+    float hn,c=ss_cloud_coarse(p,hn);
+    return (c>0.0&&detail)?ss_cloud_erode(p,c,hn,0.0):c;
+}
+float ss_hg(float mu,float g) { float g2=g*g;return 0.0795775*(1.0-g2)/pow(max(1.0+g2-2.0*g*mu,1e-4),1.5); }
+// Premultiplied cloud radiance (rgb) and transmittance (a) along [0,tmax]; tMean = optical centroid.
+vec4 ss_clouds(vec3 o,vec3 d,float tmax,float jitter,int steps,out float tMean) {
+    float r=length(o);
+    vec2 outer=ss_sphere(o,d,SS_RG+SS_CT),inner=ss_sphere(o,d,SS_RG+SS_CB);
+    float t0,t1;
+    if(r<SS_RG+SS_CB) { t0=inner.y;t1=outer.y; }
+    else { t0=r<SS_RG+SS_CT?0.0:outer.x;t1=(inner.x>0.0&&inner.x<1e19)?inner.x:outer.y; }
+    t0=max(t0,0.0);t1=min(min(t1,tmax),t0+70000.0);
+    tMean=t0;
+    if(t1<=t0||t0>1e19) return vec4(0.0,0.0,0.0,1.0);
+    // Adaptive sampling: ~80 m steps up close, up to ~700 m far away (orbit), never more than 'steps'.
+    // Step length grows with distance (80 m near, ~2.5 % of the range far): fine detail where it
+    // is visible, few samples for distant/horizon clouds. Loop bounded by 'steps'.
+    t1=min(t1,t0+38000.0);
+    int lsteps=t0>25000.0?3:SS_LIGHT_STEPS;
+    float t=t0,T=1.0,wsum=0.0,tsum=0.0;
+    float dt=clamp(t*0.02,80.0,500.0);t+=dt*jitter;
+    float mu=dot(d,SS_SUN);
+    vec3 L=vec3(0.0);
+    for(int i=0;i<steps;i++) {
+        if(t>t1) break;
+        dt=clamp(t*0.02,80.0,500.0);
+        vec3 p=o+d*t;
+        float hn,coarse=ss_cloud_coarse(p,hn);
+        if(coarse>0.0) {
+            float dens=ss_cloud_erode(p,coarse,hn,1.0-smoothstep(2500.0,9000.0,t));
+            if(dens>0.003) {
+                float od=0.0,ls=70.0;vec3 lp=p;
+                for(int j=0;j<lsteps;j++) { lp+=SS_SUN*ls*0.5;od+=ss_cloud_density(lp,j<2)*ls;lp+=SS_SUN*ls*0.5;ls*=1.85; }
+                vec3 sunC=ss_sunlight(p)*SS_E*SS_CLOUD_GAIN;
+                float ms=0.0,aa=1.0,bb=1.0,cc=1.0;
+                for(int k=0;k<4;k++) { ms+=aa*exp(-bb*SS_SIGMA*od)*mix(ss_hg(mu,-0.25*cc),ss_hg(mu,0.82*cc),0.72);aa*=0.55;bb*=0.42;cc*=0.6; }
+                float powder=1.0-0.55*exp(-SS_SIGMA*dens*600.0);
+                vec3 amb=ss_sky_irradiance(normalize(p))*mix(0.35,1.0,hn);
+                float sigma=SS_SIGMA*dens,Ts=exp(-sigma*dt);
+                L+=T*(sunC*ms*powder+amb)*(1.0-Ts);
+                tsum+=t*T*(1.0-Ts);wsum+=T*(1.0-Ts);
+                T*=Ts;
+                if(T<0.008) break;
+            }
+        }
+        t+=dt;
+    }
+    tMean=wsum>0.0?tsum/wsum:t0;
+    return vec4(L,T);
+}
+float ss_cloud_shadow(vec3 p) {
+    vec2 outer=ss_sphere(p,SS_SUN,SS_RG+SS_CT),inner=ss_sphere(p,SS_SUN,SS_RG+SS_CB);
+    float r=length(p);
+    float t0=r<SS_RG+SS_CB?inner.y:0.0,t1=outer.y;
+    if(t1<=t0) return 1.0;
+    t1=min(t1,t0+12000.0);
+    float dt=(t1-t0)/4.0,od=0.0;
+    for(int i=0;i<4;i++) od+=ss_cloud_density(p+SS_SUN*(t0+(float(i)+0.5)*dt),false)*dt;
+    return mix(0.12,1.0,exp(-SS_SIGMA*od*0.55));
+}
+// High cirrus: thin wisps at 9.5 km, streaked noise, lit by the (reddened) sun.
+vec4 ss_cirrus(vec3 q,vec3 d) {
+    vec4 w=ss_tex3(q/160000.0+vec3(0.21,0.67,0.13));
+    float cov=smoothstep(0.58,0.86,w.a)*smoothstep(0.35,0.65,ss_tex3(q/60000.0+vec3(0.7)).r);   // patchy fields
+    if(cov<=0.0) return vec4(0.0);
+    vec4 b=ss_tex3(vec3(q.x/11000.0,q.y/11000.0,q.z/5000.0)+vec3(0.5));
+    vec4 a=ss_tex3(vec3(q.x/30000.0,q.y/30000.0,q.z/14000.0)+(b.rgb-0.5)*0.22);   // warped, mildly streaked
+    float dens=smoothstep(0.52,0.88,a.g*0.6+b.b*0.4)*cov;
+    if(dens<=0.002) return vec4(0.0);
+    float mu=dot(d,SS_SUN);
+    vec3 sunC=ss_sunlight(q)*SS_E*(0.12+0.9*ss_hg(mu,0.65));
+    vec3 col=sunC*0.55+ss_sky_irradiance(normalize(q))*0.9;
+    float alpha=dens*0.30*smoothstep(0.03,0.30,abs(dot(d,normalize(q))));   // fades edge-on (no dark limb ring)
+    #ifdef SS_NANCHECK
+    if(any(isnan(ss_sunlight(q)))||any(isinf(ss_sunlight(q)))) return vec4(4.0,0.0,4.0,1.0);
+    if(isnan(ss_hg(mu,0.65))) return vec4(0.0,4.0,4.0,1.0);
+    if(any(isnan(col))||any(isinf(col))) return vec4(4.0,4.0,0.0,1.0);
+    if(isnan(alpha)) return vec4(4.0,0.0,0.0,1.0);
+    #endif
+    return vec4(col*alpha,alpha);
+}
+float ss_ign(vec2 c) { return fract(52.9829189*fract(dot(c,vec2(0.06711056,0.00583715)))); }
+// Everything between the eye and a point at distance dist: air, then cloud layer, then air.
+void ss_medium_core(vec3 o,vec3 d,float dist,bool clouds,int n,int csteps,out vec3 L,out vec3 T);
+void ss_medium(vec3 o,vec3 d,float dist,bool clouds,int n,int csteps,out vec3 L,out vec3 T) {
+    ss_medium_core(o,d,dist,clouds,n,csteps,L,T);
+#ifndef SS_NOCLOUDS
+#ifndef SS_NOCIRRUS
+    if(clouds) {
+        vec2 c=ss_sphere(o,d,SS_RCI);
+        float tci=length(o)<SS_RCI?c.y:c.x;
+        if(tci>0.0&&tci<dist&&tci<1e19) {
+            vec4 ci=ss_cirrus(o+d*tci,d);
+            if(ci.a>0.0&&!any(isnan(ci))) {
+                // approximate ordering: cirrus seen through the air in front of it
+                vec3 Tf=exp(-(SS_BR*1200.0+SS_BM*200.0)*min(tci,60000.0)/60000.0);
+                L=L*(1.0-ci.a*0.85)+ci.rgb*Tf;T*=1.0-ci.a;
+            }
+        }
+    }
+#endif
+#endif
+}
+void ss_medium_core(vec3 o,vec3 d,float dist,bool clouds,int n,int csteps,out vec3 L,out vec3 T) {
+#ifdef SS_NOCLOUDS
+    clouds=false;
+#endif
+    if(clouds) {
+        float tm;vec4 cl=ss_clouds(o,d,dist,ss_ign(gl_FragCoord.xy),csteps,tm);
+        if(cl.a<0.999) {
+            vec3 L1,T1,L2,T2;
+            ss_atmosphere(o,d,0.0,tm,max(n/2,3),L1,T1);
+            ss_atmosphere(o,d,tm,dist,max(n/2,3),L2,T2);
+            L=L1+T1*(cl.rgb+cl.a*L2);T=T1*cl.a*T2;
+            return;
+        }
+    }
+    ss_atmosphere(o,d,0.0,dist,int(clamp(dist/1500.0,4.0,float(n))),L,T);
+}
+vec3 ss_wave_normal(vec3 pw,vec3 up,float footprint) {
+    vec3 t1=normalize(cross(up,abs(up.y)<0.9?vec3(0.0,1.0,0.0):vec3(1.0,0.0,0.0))),t2=cross(up,t1);
+    vec2 g=vec2(0.0);float amp=0.10,wl=61.0;
+    for(int i=0;i<5;i++) {
+        float fade=clamp((wl/max(footprint,0.01)-2.0)/3.0,0.0,1.0);
+        if(fade>0.0) {
+            vec3 q=pw/wl+vec3(float(i)*13.7);float e=0.12;
+            float n0=ss_noise(q),nx=ss_noise(q+t1*e),nz=ss_noise(q+t2*e);
+            g+=vec2(nx-n0,nz-n0)/e*amp*fade;
+        }
+        wl*=0.42;amp*=0.85;
+    }
+    return normalize(up-t1*g.x-t2*g.y);
+}
+'''
+
+AIR_FLAGS='''        ssAir=all(equal(textureSize(sBasemap,0).xy,ivec2(1))) && abs(ssMarker.a-101.0/255.0)<0.001;
+        ssTerrain=distance(ssMarker.rgb,vec3(3.0,5.0,7.0)/255.0)<0.0001;
+        ssFoliage=distance(ssMarker.rgb,vec3(9.0,11.0,13.0)/255.0)<0.0001;
+'''
+
+TERRAIN_DETAIL='''        if(ssTerrain) {
+            // Procedural world-space materials: no texture stretching anywhere on the globe.
+            vec3 ssWorld=transpose(mat3(viewMatrix))*(vertIn.position.xyz-viewMatrix[3].xyz);
+            vec3 Pc=ssWorld-SS_CENTER;float h=length(Pc)-SS_RG;vec3 up=Pc/length(Pc);
+            vec3 wN=normalize(transpose(mat3(viewMatrix))*normal);
+            float footprint=max(length(dFdx(ssWorld)),length(dFdy(ssWorld)));
+            // Far away, LOD geometry differs per tile: let altitude and noise drive the materials.
+            float slope=mix(1.0-dot(wN,up),0.12+0.25*ss_tex3(Pc/2200.0).g,smoothstep(25.0,140.0,footprint));
+            vec4 n1=ss_tex3(Pc/3100.0),n2=ss_tex3(Pc/430.0),n3=ss_tex3(Pc/57.0);
+            vec4 n4=ss_tex3(Pc/7.3),n5=ss_tex3(Pc/1.1);
+            float f4=1.0-smoothstep(0.25,1.6,footprint),f5=1.0-smoothstep(0.04,0.25,footprint),f3=1.0-smoothstep(3.0,14.0,footprint);
+            vec3 forest=mix(vec3(0.10,0.17,0.07),vec3(0.17,0.24,0.10),n3.r);
+            vec3 meadow=mix(vec3(0.30,0.36,0.16),vec3(0.42,0.40,0.22),n2.b);
+            vec3 veg=mix(forest,meadow,smoothstep(0.35,0.75,n2.r*0.7+n1.g*0.3));
+            vec3 dirt=mix(vec3(0.38,0.31,0.23),vec3(0.47,0.40,0.30),n3.g);
+            vec3 rock=mix(vec3(0.36,0.34,0.31),vec3(0.52,0.47,0.41),n2.g);
+            rock*=0.92+0.16*(n3.b-0.5)*f3+0.10*(n2.r-0.5);   // broken strata, no banding
+            vec3 snow=vec3(0.90,0.93,0.97);
+            vec3 sand=vec3(0.72,0.66,0.50);
+            float rockW=smoothstep(0.16+0.10*(n2.a-0.5),0.30,slope+0.06*(n4.r-0.5)*f4);
+            float vegLine=1600.0+700.0*(n1.a-0.5);
+            float vegW=(1.0-smoothstep(vegLine-350.0,vegLine+250.0,h))*(1.0-rockW);
+            float snowLine=2250.0+800.0*(n1.r-0.5);
+            ssSnow=smoothstep(snowLine-120.0,snowLine+160.0,h+500.0*(n3.g-0.5))*(1.0-smoothstep(0.42,0.62,slope));
+            float sandW=1.0-smoothstep(3.0,24.0,h+14.0*(n3.r-0.5));
+            vec3 albedo=mix(dirt,veg,vegW);
+            albedo=mix(albedo,rock,rockW*(1.0-ssSnow));
+            albedo=mix(albedo,sand,sandW*(1.0-rockW));
+            albedo=mix(albedo,snow,ssSnow);
+            albedo*=mix(1.0,0.72+0.56*n4.r,f4)*mix(1.0,0.82+0.36*n5.g,f5);
+            // Forest floor: same mask as the tree placement (build_planet_vegetation.py).
+            float meadowF=smoothstep(0.35,0.75,n2.r*0.7+n1.g*0.3);
+            ssForest=vegW*pow(1.0-meadowF,0.8)*smoothstep(0.30,0.45,n3.b)*(1.0-sandW)*(1.0-ssSnow);
+            vec3 camW=-transpose(mat3(viewMatrix))*viewMatrix[3].xyz;
+            float camDist=length(ssWorld-camW);
+            vec3 litter=vec3(0.16,0.13,0.08)*(0.75+0.5*n4.g);
+            albedo=mix(albedo,litter,ssForest*0.75*f3);
+            // Beyond the last tree LOD the canopy is painted by the terrain itself.
+            float far=smoothstep(9000.0,15000.0,camDist);
+            vec3 canopy=mix(vec3(0.05,0.10,0.04),vec3(0.10,0.16,0.06),n3.r)*(0.7+0.6*n4.b);
+            albedo=mix(albedo,canopy,ssForest*far);
+            ssAO=1.0-0.55*ssForest*(1.0-far);
+            baseColor.rgb=albedo;
+            // Surface-gradient bump from the same noise volume (view space, seamless).
+            float bump=((n3.r-0.5)*2.5*f3+(n4.g-0.5)*0.9*f4+(n5.b-0.5)*0.12*f5)*mix(1.0,0.35,vegW);
+            vec3 dpdx=dFdx(vertIn.position.xyz),dpdy=dFdy(vertIn.position.xyz);
+            vec3 r1=cross(dpdy,normal),r2=cross(normal,dpdx);
+            float det=dot(dpdx,r1);
+            if(abs(det)>0.00001) normal=normalize(abs(det)*normal-sign(det)*(dFdx(bump)*r1+dFdy(bump)*r2));
+        }
+        if(ssFoliage) {
+            // Self-occlusion inside each branch layer (UV v: 1 at the bottom of a layer, 0 at the tip),
+            // normals bent towards the sky for soft canopy lighting, fine needle variation.
+            vec3 fw=transpose(mat3(viewMatrix))*(vertIn.position.xyz-viewMatrix[3].xyz);
+            vec3 upW=normalize(fw-SS_CENTER);
+            float v=clamp(diffuseTexCoord.y,0.0,1.0);
+            ssAO=mix(1.0,0.58,pow(v,1.4));
+            vec3 upV=normalize(mat3(viewMatrix)*upW);
+            normal=normalize(normal+upV*0.55);
+            float needle=ss_noise(fw/2.3);
+            baseColor.rgb*=0.78+0.44*needle;
+        }
+'''
+
+# Applied once every material term is final, right before the G-buffer / colour write.
+COMPOSITE='''
+    {
+        // ---- SpaceSim Aurore 03: one continuous atmosphere for every surface ----
+        mat3 ssInv=transpose(mat3(viewMatrix));
+        vec3 ssCam=-ssInv*viewMatrix[3].xyz;
+        vec3 ssP=ssInv*(vertIn.position.xyz-viewMatrix[3].xyz);
+        vec3 ssRay=ssP-ssCam;float ssDist=length(ssRay);ssRay/=max(ssDist,1e-3);
+        vec3 ssO=ssCam-SS_CENTER;
+        // Planet destruction progress, passed by the cinematic through the ambient light colour:
+        // set-ambient-light (20+230p, 20, 20). Neutral ambient -> 0.
+        float ssBoom=clamp((sqrt(ambientFactor.r/max(ambientFactor.g,1e-8))-1.0)/11.5,0.0,1.0);
+        float ssAirFade=1.0-smoothstep(0.25,0.75,ssBoom);
+        bool ssSunFound=false;
+        for(int i=0;i<n_lights&&i<MAX_LIGHTS;i++) {
+            if(lights[i].light_type==0) { SS_SUN=normalize(ssInv*lights[i].position.xyz);ssSunFound=true;break; }
+        }
+        float ssPix=max(length(dFdx(ssRay)),length(dFdy(ssRay)))+1e-5;
+        bool ssNoise=false;
+        #prereplace IF_FLAG MODEL_SDR_FLAG_MISC
+            ssNoise=true;
+        #prereplace ENDIF_FLAG //MODEL_SDR_FLAG_MISC
+        if(ssAir) {
+            // Sky shell: double sided, integrates each view ray exactly once.
+            if(!gl_FrontFacing) discard;                               // coincident inner/outer shells
+            if(length(ssO)>SS_RA-1.0 && dot(ssRay,ssP-SS_CENTER)>0.0) discard;
+            float ssG=ss_sphere(ssO,ssRay,SS_RG).x;
+            if(ssG>0.0&&ssG<1e19) discard;                             // ground: handled by the surface itself
+            vec3 L,T;
+            ss_medium(ssO,ssRay,1e20,ssNoise,SS_SKY_STEPS,SS_CLOUD_STEPS,L,T);
+            float mu=dot(ssRay,SS_SUN);
+            L+=SS_E*T*140.0*smoothstep(0.999962,0.999985,mu);       // sun disk (0.45 deg)
+            if(any(isnan(L))||any(isinf(L))||any(isnan(T))) { L=vec3(0.0);T=vec3(1.0); }
+            L*=ssAirFade;T=mix(vec3(1.0),T,ssAirFade);
+            float lum=dot(L,vec3(0.2126,0.7152,0.0722));
+            float a=clamp(1.0-dot(T,vec3(0.3333))*exp(-lum*5.0),0.0,1.0);
+            baseColor=vec4(L,a);              // premultiplied: dst*(1-a)+L
+            #ifdef SS_DEBUG
+            baseColor=vec4(ssSunFound?0.0:1.0,ssSunFound?1.0:0.0,clamp(dot(SS_SUN,normalize(ssO))*0.5+0.5,0.0,1.0),1.0);
+            #endif
+            emissiveColor=vec4(0.0,0.0,0.0,1.0);
+            specColor=vec4(0.0);
+        } else if(ssDist>12.0) {
+            vec3 ssUp=normalize(ssP-SS_CENTER);
+            vec3 L,T;ss_medium(ssO,ssRay,ssDist,ssNoise,SS_AP_STEPS,SS_FRONT_STEPS,L,T);
+            if(any(isnan(L))||any(isinf(L))||any(isnan(T))) { L=vec3(0.0);T=vec3(1.0); }
+            L*=ssAirFade;T=mix(vec3(1.0),T,ssAirFade);
+            vec3 sunT=ss_transmit(ss_sun_depth(ssP-SS_CENTER))*(ssNoise?ss_cloud_shadow(ssP-SS_CENTER):1.0);
+            sunT/=vec3(0.93,0.86,0.72);   // keep FSO sun white at midday, redden toward dusk
+            float alt=length(ssP-SS_CENTER)-SS_RG;
+            #prereplace IF_FLAG MODEL_SDR_FLAG_DEFERRED
+            #prereplace IF_FLAG MODEL_SDR_FLAG_LIGHT
+                vec3 albedo=baseColor.rgb;
+                vec3 wN=normalize(ssInv*normal);
+                vec3 surface=emissiveColor.rgb+albedo*ss_sky_irradiance(ssUp)*(0.55+0.45*dot(wN,ssUp))*ssAO;
+                if(ssFoliage) {
+                    // light through the needles: strong when looking towards a low sun
+                    float back=pow(clamp(dot(ssRay,SS_SUN),0.0,1.0),4.0);
+                    vec3 sunF=SS_E/3.14159*ss_sunlight(ssP-SS_CENTER);
+                    surface+=albedo*vec3(1.0,0.92,0.55)*sunF*(0.35*back+0.04)*(0.4+0.6*ssAO);
+                    // canopy scattering: extra sky light and a soft wrap fill (needles transmit light)
+                    surface+=albedo*ss_sky_irradiance(ssUp)*0.9*ssAO;
+                    surface+=albedo*sunF*0.10*clamp((dot(wN,SS_SUN)+0.6)/1.6,0.0,1.0);
+                    albedo*=0.7+0.3*ssAO;
+                }
+                if(ssTerrain) albedo*=mix(1.0,0.82,ssForest);
+                if(ssTerrain) specColor.rgb=vec3(0.035+0.05*ssSnow);
+                float water=ssTerrain?1.0-smoothstep(0.6,2.5,alt):0.0;
+                if(water>0.0) {
+                    float fp=ssDist*ssPix;
+                    vec3 n=ss_wave_normal(ssP,ssUp,fp);
+                    vec3 v=-ssRay;
+                    float F=0.02+0.98*pow(1.0-clamp(dot(n,v),0.0,1.0),5.0);
+                    vec3 r=reflect(ssRay,n);r=normalize(r+ssUp*max(0.0,-dot(r,ssUp)+0.02));
+                    vec3 Lr,Tr;ss_atmosphere(ssP-SS_CENTER+ssUp*2.0,r,0.0,1e20,SS_WATER_STEPS,Lr,Tr);
+                    vec3 sunW=ss_sunlight(ssP-SS_CENTER)*ss_cloud_shadow(ssP-SS_CENTER);
+                    float shin=mix(2400.0,90.0,smoothstep(0.3,220.0,fp));
+                    vec3 h=normalize(SS_SUN+v);
+                    float glint=min((shin+8.0)/25.13*pow(max(dot(n,h),0.0),shin),70.0)*max(dot(n,SS_SUN),0.0);
+                    float Fh=0.02+0.98*pow(1.0-max(dot(h,v),0.0),5.0);
+                    vec3 body=vec3(0.004,0.022,0.032)*(SS_E/3.14159*sunW*max(dot(ssUp,SS_SUN),0.0)+ss_sky_irradiance(ssUp))+albedo*0.06*ss_sky_irradiance(ssUp);
+                    vec3 waterL=mix(body,Lr,F)+SS_E*sunW*Fh*glint;
+                    surface=mix(surface,waterL,water);
+                    albedo*=1.0-water;specColor.rgb*=1.0-water;
+                }
+                if(ssTerrain&&ssBoom>0.0) {
+                    // molten fissures opening, then the whole crust glowing
+                    vec3 Pr=ssP-SS_CENTER;
+                    vec4 a1=ss_tex3(Pr/14000.0),a2=ss_tex3(Pr/3600.0);
+                    float v=1.0-abs(2.0*(a1.r*0.6+a2.g*0.4)-1.0);
+                    float crack=smoothstep(0.95-0.42*ssBoom,0.995,v);
+                    vec3 lava=vec3(6.0,1.6,0.30)*crack*smoothstep(0.02,0.30,ssBoom)
+                             +vec3(0.9,0.18,0.03)*smoothstep(0.45,1.0,ssBoom)*(0.6+0.4*a2.b);
+                    surface+=lava;
+                    albedo*=1.0-0.75*smoothstep(0.08,0.55,ssBoom);
+                }
+                baseColor.rgb=albedo*T*sunT;
+                specColor.rgb*=T*sunT;
+                emissiveColor.rgb=surface*T+L;
+            #prereplace ELSE_FLAG //MODEL_SDR_FLAG_LIGHT
+                emissiveColor.rgb=emissiveColor.rgb*T+L;
+            #prereplace ENDIF_FLAG //MODEL_SDR_FLAG_LIGHT
+            #prereplace ELSE_FLAG //MODEL_SDR_FLAG_DEFERRED
+                if(blend_alpha==2) baseColor.rgb*=T;
+                else baseColor.rgb=baseColor.rgb*T+L*(blend_alpha==1?baseColor.a:1.0);
+            #prereplace ENDIF_FLAG //MODEL_SDR_FLAG_DEFERRED
+        }
+    }
+'''
+
+def main():
+    q=QUALITY[sys.argv[sys.argv.index('--quality')+1] if '--quality' in sys.argv else 'high']
+    effects=DATA/'effects';effects.mkdir(exist_ok=True)
+    for original in (SOURCE/'code/def_files/data/effects').glob('*.sdr'):
+        shutil.copyfile(original,effects/original.name)
+    shader=(SOURCE/'code/def_files/data/effects/main-f.sdr').read_text()
+    sd=sun_direction()
+    funcs=('#define SS_DEBUG\n' if '--debug' in sys.argv else '')+('#define SS_NOCLOUDS\n' if '--noclouds' in sys.argv else '')+('#define SS_NOCIRRUS\n' if '--nocirrus' in sys.argv else '')+('#define SS_NANCHECK\n' if '--nancheck' in sys.argv else '')+FUNCTIONS.replace('__SUNDIR__',','.join(f'{c:.6f}' for c in sd))
+    for k,v in q.items(): funcs=funcs.replace(f'__{k.upper()}__',str(v))
+    def once(old,new):
+        nonlocal shader
+        assert shader.count(old)==1,old
+        shader=shader.replace(old,new)
+    once('void main()\n{',funcs+'\nvoid main()\n{')
+    once('\tvec4 baseColor = color;\n','\tvec4 baseColor = color;\n\tbool ssAir=false,ssTerrain=false,ssFoliage=false;\n\tfloat ssSnow=0.0,ssForest=0.0,ssAO=1.0;\n')
+    anchor='\t\tbaseColor = texture(sBasemap, vec3(diffuseTexCoord, float(sBasemapIndex)));'
+    once(anchor,anchor+'\n        vec4 ssMarker=texelFetch(sBasemap,ivec3(0,0,sBasemapIndex),0);\n'+AIR_FLAGS+TERRAIN_DETAIL)
+    once('\tfragOut0 = baseColor;\n',COMPOSITE+'\tfragOut0 = baseColor;\n')
+    (effects/'main-f.sdr').write_text(shader)
+    # Warm, slightly golden god rays (FSO's screen-space light shafts are plain white).
+    ls=(effects/'ls-f.sdr').read_text()
+    assert 'fragOut0 = sum * intensity;' in ls
+    (effects/'ls-f.sdr').write_text(ls.replace('fragOut0 = sum * intensity;','fragOut0 = sum * intensity * vec4(1.0, 0.90, 0.74, 1.0);'))
+    shutil.copyfile(SOURCE/'Copying.md',ROOT/'mods/planet/FSO-Copying.md')
+    shutil.copyfile(SOURCE/'Unlicense.md',ROOT/'mods/planet/Unlicense.md')
+    for p in (DATA/'maps').glob('ss_p_*.png'):
+        if any(s in p.stem for s in ('-normal','-shine')):continue
+        im=Image.open(p)
+        if im.getpixel((0,0))[:3]!=(3,5,7): im.putpixel((0,0),(3,5,7));im.save(p,compress_level=3)
+    Image.new('RGBA',(1,1),(85,160,230,101)).save(DATA/'maps/ss_air-trans.png')
+    print('Aurore 03 shader installed; sun',tuple(round(c,3) for c in sd),'quality',q)
+if __name__=='__main__':main()

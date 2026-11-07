@@ -1,0 +1,99 @@
+PLANET_PROOF t=0.000 START mission=_spt_planet_auto terrain_faces=6 radius_m=80000 auto=true
+PLANET_PROOF t=0.000 RAY_HIT x=0.000 y=729.281 z=-4863.209
+PLANET_PROOF t=0.000 RAY_HIT x=0.000 y=230.000 z=0.000
+PLANET_PROOF t=0.000 RAY_HIT x=981.829 y=1491.797 z=-981.829
+PLANET_PROOF t=0.000 RAY_HIT x=4983.243 y=2721.820 z=4983.243
+PLANET_PROOF t=0.000 RAY_HIT x=-6477.526 y=2713.031 z=3487.899
+PLANET_PROOF t=0.052 FLIGHT x=0.000 y=998.335 z=-5000.000 altitude=1152.513 agl=289.260 phase=surface fps=4.00 sky=0.9328 mission=_SPT_Planet_Auto
+PLANET_PROOF t=7.376 FLIGHT x=0.000 y=998.335 z=-4940.000 altitude=1148.839 agl=259.074 phase=surface fps=4.00 sky=0.9333 mission=_SPT_Planet_Auto
+PLANET_PROOF t=8.387 FLIGHT x=0.000 y=998.335 z=-4697.326 altitude=1134.427 agl=296.582 phase=surface fps=28.46 sky=0.9353 mission=_SPT_Planet_Auto
+PLANET_PROOF t=9.398 FLIGHT x=0.000 y=998.335 z=-4454.704 altitude=1120.742 agl=366.885 phase=surface fps=29.34 sky=0.9373 mission=_SPT_Planet_Auto
+PLANET_PROOF t=10.407 FLIGHT x=0.000 y=998.335 z=-4212.407 altitude=1107.797 agl=431.971 phase=surface fps=27.75 sky=0.9392 mission=_SPT_Planet_Auto
+PLANET_PROOF t=11.424 FLIGHT x=0.000 y=998.335 z=-3968.477 altitude=1095.495 agl=525.301 phase=surface fps=26.82 sky=0.9410 mission=_SPT_Planet_Auto
+PLANET_PROOF t=12.453 FLIGHT x=0.000 y=998.335 z=-3721.347 altitude=1083.777 agl=582.825 phase=surface fps=26.71 sky=0.9427 mission=_SPT_Planet_Auto
+PLANET_PROOF t=12.981 NATIVE_COLLISION incoming_vy=-24.996 hit_y=1517.648
+PLANET_PROOF t=13.193 NATIVE_RESPONSE clearance=4.274 vy=-16.122
+PLANET_PROOF t=13.483 FLIGHT x=0.000 y=998.335 z=-3474.301 altitude=1072.814 agl=513.251 phase=surface fps=26.34 sky=0.9443 mission=_SPT_Planet_Auto
+PLANET_PROOF t=14.501 FLIGHT x=0.000 y=998.335 z=-3229.833 altitude=1062.706 agl=562.352 phase=surface fps=26.23 sky=0.9457 mission=_SPT_Planet_Auto
+PLANET_PROOF t=15.531 FLIGHT x=0.000 y=998.335 z=-2982.761 altitude=1053.237 agl=512.115 phase=surface fps=26.23 sky=0.9471 mission=_SPT_Planet_Auto
+PLANET_PROOF t=16.549 FLIGHT x=0.000 y=998.335 z=-2738.400 altitude=1044.613 agl=-1.000 phase=surface fps=26.15 sky=0.9484 mission=_SPT_Planet_Auto
+PLANET_PROOF t=17.568 FLIGHT x=0.000 y=998.335 z=-2493.727 altitude=1036.715 agl=567.266 phase=surface fps=26.28 sky=0.9495 mission=_SPT_Planet_Auto
+PLANET_PROOF t=18.569 FLIGHT x=196.704 y=1219.214 z=-2298.589 altitude=1251.969 agl=505.591 phase=surface fps=26.34 sky=0.9186 mission=_SPT_Planet_Auto
+PLANET_PROOF t=19.593 FLIGHT x=555.019 y=1751.617 z=-2134.788 altitude=1781.369 agl=714.965 phase=surface fps=26.50 sky=0.8467 mission=_SPT_Planet_Auto
+PLANET_PROOF t=20.626 FLIGHT x=916.678 y=2459.003 z=-1969.458 altitude=2487.610 agl=1072.224 phase=surface fps=26.62 sky=0.7596 mission=_SPT_Planet_Auto
+PLANET_PROOF t=21.645 FLIGHT x=1273.322 y=3323.816 z=-1806.421 altitude=3353.118 agl=1258.750 phase=atmosphere fps=26.51 sky=0.6649 mission=_SPT_Planet_Auto
+PLANET_PROOF t=22.676 FLIGHT x=1634.163 y=4368.071 z=-1641.465 altitude=4399.859 agl=1924.663 phase=atmosphere fps=28.36 sky=0.5660 mission=_SPT_Planet_Auto
+PLANET_PROOF t=23.686 FLIGHT x=1987.816 y=5556.505 z=-1479.795 altitude=5592.390 agl=3500.896 phase=atmosphere fps=28.50 sky=0.4711 mission=_SPT_Planet_Auto
+PLANET_PROOF t=24.712 FLIGHT x=2346.751 y=6929.770 z=-1315.711 altitude=6971.397 agl=5012.046 phase=atmosphere fps=28.72 sky=0.3810 mission=_SPT_Planet_Auto
+PLANET_PROOF t=25.736 FLIGHT x=2705.178 y=8469.021 z=-1151.858 altitude=8517.868 agl=6647.026 phase=atmosphere fps=28.85 sky=0.3004 mission=_SPT_Planet_Auto
+PLANET_PROOF t=26.760 FLIGHT x=3063.604 y=10176.072 z=-988.006 altitude=10233.505 agl=7620.414 phase=atmosphere fps=28.93 sky=0.2307 mission=_SPT_Planet_Auto
+PLANET_PROOF t=27.792 FLIGHT x=3424.830 y=12066.192 z=-822.874 altitude=12133.549 agl=9093.257 phase=atmosphere fps=28.95 sky=0.1722 mission=_SPT_Planet_Auto
+PLANET_PROOF t=28.793 FLIGHT x=3775.151 y=14062.136 z=-662.727 altitude=14140.192 agl=10889.571 phase=atmosphere fps=29.09 sky=0.1265 mission=_SPT_Planet_Auto
+PLANET_PROOF t=29.794 FLIGHT x=4125.536 y=16214.988 z=-502.552 altitude=16304.703 agl=13148.241 phase=atmosphere fps=29.07 sky=0.0907 mission=_SPT_Planet_Auto
+PLANET_PROOF t=30.812 FLIGHT x=4481.699 y=18453.727 z=-339.734 altitude=18556.265 agl=14758.110 phase=atmosphere fps=29.01 sky=0.0641 mission=_SPT_Planet_Auto
+PLANET_PROOF t=31.832 FLIGHT x=4838.930 y=20699.182 z=-176.428 altitude=20815.530 agl=17255.731 phase=atmosphere fps=28.96 sky=0.0453 mission=_SPT_Planet_Auto
+PLANET_PROOF t=32.862 FLIGHT x=5199.418 y=22965.115 z=-11.634 altitude=23096.311 agl=19814.143 phase=atmosphere fps=28.89 sky=0.0319 mission=_SPT_Planet_Auto
+PLANET_PROOF t=33.864 FLIGHT x=5550.090 y=25169.342 z=148.674 altitude=25315.794 agl=22301.798 phase=orbit fps=27.42 sky=0.0227 mission=_SPT_Planet_Auto
+PLANET_PROOF t=34.878 FLIGHT x=5904.785 y=27398.850 z=310.820 altitude=27561.501 agl=23928.928 phase=orbit fps=28.43 sky=0.0160 mission=_SPT_Planet_Auto
+PLANET_PROOF t=35.899 FLIGHT x=6262.273 y=29645.916 z=474.243 altitude=29825.623 agl=26413.303 phase=orbit fps=27.96 sky=0.0113 mission=_SPT_Planet_Auto
+PLANET_PROOF t=36.928 FLIGHT x=6619.456 y=31891.066 z=637.527 altitude=32088.507 agl=28482.807 phase=orbit fps=26.25 sky=0.2089 mission=_SPT_Planet_Auto
+PLANET_PROOF t=37.952 FLIGHT x=6977.968 y=34144.578 z=801.418 altitude=34360.478 agl=30912.212 phase=orbit fps=26.51 sky=0.4360 mission=_SPT_Planet_Auto
+PLANET_PROOF t=38.959 FLIGHT x=7330.292 y=36359.184 z=962.480 altitude=36593.825 agl=33238.879 phase=orbit fps=26.95 sky=0.6594 mission=_SPT_Planet_Auto
+PLANET_PROOF t=39.960 FLIGHT x=7680.644 y=38561.406 z=1122.641 altitude=38815.233 agl=35770.489 phase=orbit fps=27.43 sky=0.8815 mission=_SPT_Planet_Auto
+PLANET_PROOF t=40.964 FLIGHT x=8031.963 y=40769.703 z=1283.244 altitude=41043.299 agl=37756.789 phase=orbit fps=27.22 sky=1.0000 mission=_SPT_Planet_Auto
+PLANET_PROOF t=41.971 FLIGHT x=8384.494 y=42985.625 z=1444.402 altitude=43279.560 agl=40620.774 phase=orbit fps=27.78 sky=1.0000 mission=_SPT_Planet_Auto
+PLANET_PROOF t=42.988 FLIGHT x=8740.491 y=45223.320 z=1607.143 altitude=45538.277 agl=43325.177 phase=orbit fps=28.29 sky=1.0000 mission=_SPT_Planet_Auto
+PLANET_PROOF t=43.990 FLIGHT x=9091.228 y=47427.953 z=1767.480 altitude=47764.070 agl=45026.111 phase=orbit fps=28.54 sky=1.0000 mission=_SPT_Planet_Auto
+PLANET_PROOF t=44.995 FLIGHT x=9442.963 y=49638.867 z=1928.274 altitude=49996.629 agl=47416.235 phase=orbit fps=28.84 sky=1.0000 mission=_SPT_Planet_Auto
+PLANET_PROOF t=46.027 FLIGHT x=9804.165 y=51909.305 z=2093.396 altitude=52289.723 agl=49837.518 phase=orbit fps=28.94 sky=1.0000 mission=_SPT_Planet_Auto
+PLANET_PROOF t=47.055 FLIGHT x=10163.867 y=54170.309 z=2257.832 altitude=54573.678 agl=52107.601 phase=orbit fps=29.11 sky=1.0000 mission=_SPT_Planet_Auto
+PLANET_PROOF t=48.078 FLIGHT x=10521.988 y=56421.367 z=2421.545 altitude=56847.973 agl=54278.386 phase=orbit fps=29.26 sky=1.0000 mission=_SPT_Planet_Auto
+PLANET_PROOF t=49.090 FLIGHT x=10876.145 y=58647.488 z=2583.445 altitude=59097.411 agl=55718.099 phase=orbit fps=29.48 sky=1.0000 mission=_SPT_Planet_Auto
+PLANET_PROOF t=50.104 FLIGHT x=11230.921 y=60877.496 z=2745.627 altitude=61351.130 agl=57860.011 phase=orbit fps=29.55 sky=1.0000 mission=_SPT_Planet_Auto
+PLANET_PROOF t=51.127 FLIGHT x=11588.937 y=63127.875 z=2909.292 altitude=63625.750 agl=60156.668 phase=orbit fps=29.65 sky=1.0000 mission=_SPT_Planet_Auto
+PLANET_PROOF t=52.128 FLIGHT x=11939.438 y=65331.027 z=3069.521 altitude=65852.942 agl=62423.368 phase=orbit fps=29.67 sky=1.0000 mission=_SPT_Planet_Auto
+PLANET_PROOF t=53.129 FLIGHT x=12289.675 y=67532.469 z=3229.629 altitude=68078.682 agl=64002.884 phase=orbit fps=29.74 sky=1.0000 mission=_SPT_Planet_Auto
+PLANET_PROOF t=54.134 FLIGHT x=12641.390 y=69743.242 z=3390.412 altitude=70314.140 agl=66523.776 phase=orbit fps=29.84 sky=1.0000 mission=_SPT_Planet_Auto
+PLANET_PROOF t=55.159 FLIGHT x=13000.322 y=71999.391 z=3554.494 altitude=72595.732 agl=68969.879 phase=orbit fps=29.95 sky=1.0000 mission=_SPT_Planet_Auto
+PLANET_PROOF t=56.169 FLIGHT x=13353.778 y=74221.102 z=3716.074 altitude=74842.754 agl=71405.590 phase=orbit fps=30.07 sky=1.0000 mission=_SPT_Planet_Auto
+PLANET_PROOF t=57.191 FLIGHT x=13711.346 y=76468.672 z=3879.533 altitude=77116.190 agl=73829.286 phase=orbit fps=30.08 sky=1.0000 mission=_SPT_Planet_Auto
+PLANET_PROOF t=58.203 FLIGHT x=14065.518 y=78694.906 z=4041.440 altitude=79368.269 agl=75518.621 phase=orbit fps=30.23 sky=1.0000 mission=_SPT_Planet_Auto
+PLANET_PROOF t=59.210 FLIGHT x=14418.214 y=80911.836 z=4202.673 altitude=81611.165 agl=78037.849 phase=orbit fps=30.29 sky=1.0000 mission=_SPT_Planet_Auto
+PLANET_PROOF t=60.236 FLIGHT x=14777.276 y=83168.844 z=4366.818 altitude=83894.809 agl=80568.131 phase=orbit fps=30.36 sky=1.0000 mission=_SPT_Planet_Auto
+PLANET_PROOF t=61.240 FLIGHT x=15128.553 y=85376.875 z=4527.402 altitude=86129.110 agl=83022.240 phase=orbit fps=30.38 sky=1.0000 mission=_SPT_Planet_Auto
+PLANET_PROOF t=62.268 FLIGHT x=15488.460 y=87639.156 z=4691.931 altitude=88418.506 agl=84716.465 phase=orbit fps=30.37 sky=1.0000 mission=_SPT_Planet_Auto
+PLANET_PROOF t=63.268 FLIGHT x=15838.576 y=89839.883 z=4851.984 altitude=90645.789 agl=87227.038 phase=orbit fps=30.43 sky=1.0000 mission=_SPT_Planet_Auto
+PLANET_PROOF t=64.277 FLIGHT x=16191.662 y=92059.273 z=5013.396 altitude=92892.164 agl=89661.730 phase=orbit fps=30.44 sky=1.0000 mission=_SPT_Planet_Auto
+PLANET_PROOF t=65.282 FLIGHT x=16543.182 y=94268.859 z=5174.091 altitude=95128.762 agl=91527.943 phase=orbit fps=30.45 sky=1.0000 mission=_SPT_Planet_Auto
+PLANET_PROOF t=66.293 FLIGHT x=16897.258 y=96494.461 z=5335.954 altitude=97381.756 agl=94030.712 phase=orbit fps=30.46 sky=1.0000 mission=_SPT_Planet_Auto
+PLANET_PROOF t=67.301 FLIGHT x=17250.049 y=98711.977 z=5497.229 altitude=99626.700 agl=96602.314 phase=orbit fps=30.56 sky=1.0000 mission=_SPT_Planet_Auto
+PLANET_PROOF t=68.327 FLIGHT x=17377.936 y=99515.828 z=5555.690 altitude=100440.547 agl=97716.188 phase=orbit fps=30.63 sky=1.0000 mission=_SPT_Planet_Auto
+PLANET_PROOF t=68.327 PERFORMANCE phase=atmosphere frames=358 seconds=12.452 fps_mean=28.75
+PLANET_PROOF t=68.327 PERFORMANCE phase=surface frames=383 seconds=14.354 fps_mean=26.68
+PLANET_PROOF t=68.327 PERFORMANCE phase=orbit frames=1061 seconds=34.637 fps_mean=30.63
+PLANET_PROOF t=68.327 RESULT status=PASS native_contact=true probe_clearance=4.274 altitude=100440.547 max_step=558.351 integration_error=60.000 p95_ms=43.106 mission=_SPT_Planet_Auto
+PLANET_PROOF t=68.327 AUTO_DONE controls_released=true
+PLANET_PROOF t=69.342 FLIGHT x=17377.936 y=99515.828 z=5555.690 altitude=100440.547 agl=97716.188 phase=orbit fps=30.69 sky=1.0000 mission=_SPT_Planet_Auto
+PLANET_PROOF t=70.357 FLIGHT x=17377.936 y=99515.828 z=5555.690 altitude=100440.547 agl=97716.188 phase=orbit fps=30.74 sky=1.0000 mission=_SPT_Planet_Auto
+PLANET_PROOF t=71.390 FLIGHT x=17377.936 y=99515.828 z=5555.690 altitude=100440.547 agl=97716.188 phase=orbit fps=30.77 sky=1.0000 mission=_SPT_Planet_Auto
+PLANET_PROOF t=72.398 FLIGHT x=17377.936 y=99515.828 z=5555.690 altitude=100440.547 agl=97716.188 phase=orbit fps=30.74 sky=1.0000 mission=_SPT_Planet_Auto
+PLANET_PROOF t=73.422 FLIGHT x=17377.936 y=99515.828 z=5555.690 altitude=100440.547 agl=97716.188 phase=orbit fps=30.73 sky=1.0000 mission=_SPT_Planet_Auto
+PLANET_PROOF t=74.455 FLIGHT x=17377.936 y=99515.828 z=5555.690 altitude=100440.547 agl=97716.188 phase=orbit fps=30.74 sky=1.0000 mission=_SPT_Planet_Auto
+PLANET_PROOF t=75.455 FLIGHT x=17377.936 y=99515.828 z=5555.690 altitude=100440.547 agl=97716.188 phase=orbit fps=30.74 sky=1.0000 mission=_SPT_Planet_Auto
+PLANET_PROOF t=76.463 FLIGHT x=17377.936 y=99515.828 z=5555.690 altitude=100440.547 agl=97716.188 phase=orbit fps=30.84 sky=1.0000 mission=_SPT_Planet_Auto
+PLANET_PROOF t=77.489 FLIGHT x=17377.936 y=99515.828 z=5555.690 altitude=100440.547 agl=97716.188 phase=orbit fps=30.89 sky=1.0000 mission=_SPT_Planet_Auto
+PLANET_PROOF t=78.497 FLIGHT x=17377.936 y=99515.828 z=5555.690 altitude=100440.547 agl=97716.188 phase=orbit fps=30.96 sky=1.0000 mission=_SPT_Planet_Auto
+PLANET_PROOF t=79.526 FLIGHT x=17377.936 y=99515.828 z=5555.690 altitude=100440.547 agl=97716.188 phase=orbit fps=30.91 sky=1.0000 mission=_SPT_Planet_Auto
+PLANET_PROOF t=80.529 FLIGHT x=17377.936 y=99515.828 z=5555.690 altitude=100440.547 agl=97716.188 phase=orbit fps=30.91 sky=1.0000 mission=_SPT_Planet_Auto
+PLANET_PROOF t=81.555 FLIGHT x=17377.936 y=99515.828 z=5555.690 altitude=100440.547 agl=97716.188 phase=orbit fps=30.90 sky=1.0000 mission=_SPT_Planet_Auto
+PLANET_PROOF t=82.591 FLIGHT x=17377.936 y=99515.828 z=5555.690 altitude=100440.547 agl=97716.188 phase=orbit fps=30.90 sky=1.0000 mission=_SPT_Planet_Auto
+PLANET_PROOF t=83.609 FLIGHT x=17377.936 y=99515.828 z=5555.690 altitude=100440.547 agl=97716.188 phase=orbit fps=30.91 sky=1.0000 mission=_SPT_Planet_Auto
+PLANET_PROOF t=84.628 FLIGHT x=17377.936 y=99515.828 z=5555.690 altitude=100440.547 agl=97716.188 phase=orbit fps=30.92 sky=1.0000 mission=_SPT_Planet_Auto
+PLANET_PROOF t=85.645 FLIGHT x=17377.936 y=99515.828 z=5555.690 altitude=100440.547 agl=97716.188 phase=orbit fps=30.95 sky=1.0000 mission=_SPT_Planet_Auto
+PLANET_PROOF t=86.655 FLIGHT x=17377.936 y=99515.828 z=5555.690 altitude=100440.547 agl=97716.188 phase=orbit fps=30.98 sky=1.0000 mission=_SPT_Planet_Auto
+PLANET_PROOF t=87.658 FLIGHT x=17377.936 y=99515.828 z=5555.690 altitude=100440.547 agl=97716.188 phase=orbit fps=31.00 sky=1.0000 mission=_SPT_Planet_Auto
+PLANET_PROOF t=88.663 FLIGHT x=17377.936 y=99515.828 z=5555.690 altitude=100440.547 agl=97716.188 phase=orbit fps=31.00 sky=1.0000 mission=_SPT_Planet_Auto
+PLANET_PROOF t=89.690 FLIGHT x=17377.936 y=99515.828 z=5555.690 altitude=100440.547 agl=97716.188 phase=orbit fps=31.02 sky=1.0000 mission=_SPT_Planet_Auto
+PLANET_PROOF t=90.722 FLIGHT x=17377.936 y=99515.828 z=5555.690 altitude=100440.547 agl=97716.188 phase=orbit fps=31.05 sky=1.0000 mission=_SPT_Planet_Auto
+PLANET_PROOF t=91.725 FLIGHT x=17377.936 y=99515.828 z=5555.690 altitude=100440.547 agl=97716.188 phase=orbit fps=31.07 sky=1.0000 mission=_SPT_Planet_Auto
+PLANET_PROOF t=92.755 FLIGHT x=17377.936 y=99515.828 z=5555.690 altitude=100440.547 agl=97716.188 phase=orbit fps=31.05 sky=1.0000 mission=_SPT_Planet_Auto

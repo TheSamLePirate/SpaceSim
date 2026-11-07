@@ -1,0 +1,34 @@
+#Lua SEXPs
+
+
+$Operator: dialogue-load-script
+$Category: Change
+$Subcategory: LUA-Dialogue
+$Minimum Arguments: 1
+$Return Type: Nothing
+$Description: This sexp loads the specified conversation and begins the script. Note, this sexp only works in singelplayer.
+$Parameter: 
+	+Description: Key name of the conversation table within the DialogueConversations LUA table. 
+	+Type: String
+
+$Operator: dialogue-set-sender-ship
+$Category: Change
+$Subcategory: LUA-Dialogue
+$Minimum Arguments: 0
+$Return Type: Nothing
+$Description: This sexp sets the sender of the dialogue. Note, this sexp only works in singelplayer.
+$Parameter: 
+	+Description: Ship that will send the dialogue messages. If blank Command will send the messages. 
+	+Type: Ship
+
+$Operator: dialogue-set-choice-title
+$Category: Change
+$Subcategory: LUA-Dialogue
+$Minimum Arguments: 1
+$Return Type: Nothing
+$Description: This sexp sets the title of the choice HUD gauge. Note, this sexp only works in singelplayer.
+$Parameter: 
+	+Description: New name of the title of the HUD gauge that displays choices. 
+	+Type: String
+
+#End

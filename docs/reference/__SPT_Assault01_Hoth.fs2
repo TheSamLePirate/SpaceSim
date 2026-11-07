@@ -1,0 +1,5838 @@
+#Mission Info
+
+$Version: 23.1
+$Name:  XSTR("[Assault] Space: Hoth", 2741)
+$Author: Kestrellius
+$Created: 01/06/26 at 14:42:12
+$Modified: 07/06/26 at 13:46:49
+$Notes:
+This is a FRED2_OPEN created mission.
+$End Notes:
+
+$Mission Desc:
+ XSTR("Put mission description here", 2742)
+$end_multi_text
++Game Type Flags: 1
++Flags: 16
+
++Disallow Support: 0
+
++Disallow Support Rearm: 0
+
++Allow Support Rearm Weapon Precedence: 0
++Hull Repair Ceiling: 0.000000
++Subsystem Repair Ceiling: 100.000000
++Support Rearm Pool From Loadout: 0
+
++Viewer pos: 80.061928, 223.297180, -425.527435
++Viewer orient:
+	-0.879281, 0.000002, 0.476304,
+	-0.114700, 0.970571, -0.211747,
+	-0.462287, -0.240817, -0.853404
+
+$Starting wing names: ( "Grey Aurek" "Grey Besh" "Grey Cresh" )
+$Squadron wing names: ( "Red Aurek" "Red Besh" "Red Cresh" "Grey Besh" "Grey Cresh" )
+$Team-versus-team wing names: ( "Grey Aurek" "Xi Aurek" )
+
+$Skybox Model: skybox_planet.pof
+$Skybox Model Animations:( "Hyperspace_Asteroids_East" "Hyperspace_Asteroids_South" "Hyperspace_Asteroids_West" )
++Skybox Orientation:
+	0.342020, 0.000000, 0.939693,
+	-0.000000, 1.000000, 0.000000,
+	-0.939693, -0.000000, 0.342020
++Skybox Flags: 1573120
+
+$AI Profile: FOTG_AI
+
+#Sexp_variables
+
+$Variables:
+(
+		0		"debrief-1"		""		"string"
+		1		"debrief-10"		""		"string"
+		2		"debrief-100"		""		"string"
+		3		"debrief-101"		""		"string"
+		4		"debrief-102"		""		"string"
+		5		"debrief-103"		""		"string"
+		6		"debrief-104"		""		"string"
+		7		"debrief-105"		""		"string"
+		8		"debrief-106"		""		"string"
+		9		"debrief-107"		""		"string"
+		10		"debrief-108"		""		"string"
+		11		"debrief-109"		""		"string"
+		12		"debrief-11"		""		"string"
+		13		"debrief-110"		""		"string"
+		14		"debrief-111"		""		"string"
+		15		"debrief-112"		""		"string"
+		16		"debrief-113"		""		"string"
+		17		"debrief-114"		""		"string"
+		18		"debrief-115"		""		"string"
+		19		"debrief-116"		""		"string"
+		20		"debrief-117"		""		"string"
+		21		"debrief-118"		""		"string"
+		22		"debrief-119"		""		"string"
+		23		"debrief-12"		""		"string"
+		24		"debrief-120"		""		"string"
+		25		"debrief-121"		""		"string"
+		26		"debrief-122"		""		"string"
+		27		"debrief-123"		""		"string"
+		28		"debrief-124"		""		"string"
+		29		"debrief-125"		""		"string"
+		30		"debrief-126"		""		"string"
+		31		"debrief-127"		""		"string"
+		32		"debrief-128"		""		"string"
+		33		"debrief-129"		""		"string"
+		34		"debrief-13"		""		"string"
+		35		"debrief-130"		""		"string"
+		36		"debrief-131"		""		"string"
+		37		"debrief-132"		""		"string"
+		38		"debrief-133"		""		"string"
+		39		"debrief-134"		""		"string"
+		40		"debrief-135"		""		"string"
+		41		"debrief-136"		""		"string"
+		42		"debrief-137"		""		"string"
+		43		"debrief-138"		""		"string"
+		44		"debrief-139"		""		"string"
+		45		"debrief-14"		""		"string"
+		46		"debrief-140"		""		"string"
+		47		"debrief-141"		""		"string"
+		48		"debrief-142"		""		"string"
+		49		"debrief-143"		""		"string"
+		50		"debrief-144"		""		"string"
+		51		"debrief-145"		""		"string"
+		52		"debrief-146"		""		"string"
+		53		"debrief-147"		""		"string"
+		54		"debrief-148"		""		"string"
+		55		"debrief-149"		""		"string"
+		56		"debrief-15"		""		"string"
+		57		"debrief-150"		""		"string"
+		58		"debrief-151"		""		"string"
+		59		"debrief-152"		""		"string"
+		60		"debrief-153"		""		"string"
+		61		"debrief-154"		""		"string"
+		62		"debrief-155"		""		"string"
+		63		"debrief-156"		""		"string"
+		64		"debrief-157"		""		"string"
+		65		"debrief-158"		""		"string"
+		66		"debrief-159"		""		"string"
+		67		"debrief-16"		""		"string"
+		68		"debrief-160"		""		"string"
+		69		"debrief-161"		""		"string"
+		70		"debrief-162"		""		"string"
+		71		"debrief-163"		""		"string"
+		72		"debrief-164"		""		"string"
+		73		"debrief-165"		""		"string"
+		74		"debrief-166"		""		"string"
+		75		"debrief-167"		""		"string"
+		76		"debrief-168"		""		"string"
+		77		"debrief-169"		""		"string"
+		78		"debrief-17"		""		"string"
+		79		"debrief-170"		""		"string"
+		80		"debrief-171"		""		"string"
+		81		"debrief-172"		""		"string"
+		82		"debrief-173"		""		"string"
+		83		"debrief-174"		""		"string"
+		84		"debrief-175"		""		"string"
+		85		"debrief-176"		""		"string"
+		86		"debrief-177"		""		"string"
+		87		"debrief-178"		""		"string"
+		88		"debrief-179"		""		"string"
+		89		"debrief-18"		""		"string"
+		90		"debrief-180"		""		"string"
+		91		"debrief-181"		""		"string"
+		92		"debrief-182"		""		"string"
+		93		"debrief-183"		""		"string"
+		94		"debrief-184"		""		"string"
+		95		"debrief-185"		""		"string"
+		96		"debrief-186"		""		"string"
+		97		"debrief-187"		""		"string"
+		98		"debrief-188"		""		"string"
+		99		"debrief-189"		""		"string"
+		100		"debrief-19"		""		"string"
+		101		"debrief-190"		""		"string"
+		102		"debrief-191"		""		"string"
+		103		"debrief-192"		""		"string"
+		104		"debrief-193"		""		"string"
+		105		"debrief-194"		""		"string"
+		106		"debrief-195"		""		"string"
+		107		"debrief-196"		""		"string"
+		108		"debrief-197"		""		"string"
+		109		"debrief-198"		""		"string"
+		110		"debrief-199"		""		"string"
+		111		"debrief-2"		""		"string"
+		112		"debrief-20"		""		"string"
+		113		"debrief-200"		""		"string"
+		114		"debrief-201"		""		"string"
+		115		"debrief-202"		""		"string"
+		116		"debrief-203"		""		"string"
+		117		"debrief-204"		""		"string"
+		118		"debrief-205"		""		"string"
+		119		"debrief-206"		""		"string"
+		120		"debrief-207"		""		"string"
+		121		"debrief-208"		""		"string"
+		122		"debrief-209"		""		"string"
+		123		"debrief-21"		""		"string"
+		124		"debrief-210"		""		"string"
+		125		"debrief-211"		""		"string"
+		126		"debrief-212"		""		"string"
+		127		"debrief-213"		""		"string"
+		128		"debrief-214"		""		"string"
+		129		"debrief-215"		""		"string"
+		130		"debrief-216"		""		"string"
+		131		"debrief-217"		""		"string"
+		132		"debrief-218"		""		"string"
+		133		"debrief-219"		""		"string"
+		134		"debrief-22"		""		"string"
+		135		"debrief-220"		""		"string"
+		136		"debrief-221"		""		"string"
+		137		"debrief-222"		""		"string"
+		138		"debrief-223"		""		"string"
+		139		"debrief-224"		""		"string"
+		140		"debrief-225"		""		"string"
+		141		"debrief-226"		""		"string"
+		142		"debrief-227"		""		"string"
+		143		"debrief-228"		""		"string"
+		144		"debrief-229"		""		"string"
+		145		"debrief-23"		""		"string"
+		146		"debrief-230"		""		"string"
+		147		"debrief-231"		""		"string"
+		148		"debrief-232"		""		"string"
+		149		"debrief-233"		""		"string"
+		150		"debrief-234"		""		"string"
+		151		"debrief-235"		""		"string"
+		152		"debrief-236"		""		"string"
+		153		"debrief-237"		""		"string"
+		154		"debrief-238"		""		"string"
+		155		"debrief-239"		""		"string"
+		156		"debrief-24"		""		"string"
+		157		"debrief-240"		""		"string"
+		158		"debrief-25"		""		"string"
+		159		"debrief-26"		""		"string"
+		160		"debrief-27"		""		"string"
+		161		"debrief-28"		""		"string"
+		162		"debrief-29"		""		"string"
+		163		"debrief-3"		""		"string"
+		164		"debrief-30"		""		"string"
+		165		"debrief-31"		""		"string"
+		166		"debrief-32"		""		"string"
+		167		"debrief-33"		""		"string"
+		168		"debrief-34"		""		"string"
+		169		"debrief-35"		""		"string"
+		170		"debrief-36"		""		"string"
+		171		"debrief-37"		""		"string"
+		172		"debrief-38"		""		"string"
+		173		"debrief-39"		""		"string"
+		174		"debrief-4"		""		"string"
+		175		"debrief-40"		""		"string"
+		176		"debrief-41"		""		"string"
+		177		"debrief-42"		""		"string"
+		178		"debrief-43"		""		"string"
+		179		"debrief-44"		""		"string"
+		180		"debrief-45"		""		"string"
+		181		"debrief-46"		""		"string"
+		182		"debrief-47"		""		"string"
+		183		"debrief-48"		""		"string"
+		184		"debrief-49"		""		"string"
+		185		"debrief-5"		""		"string"
+		186		"debrief-50"		""		"string"
+		187		"debrief-51"		""		"string"
+		188		"debrief-52"		""		"string"
+		189		"debrief-53"		""		"string"
+		190		"debrief-54"		""		"string"
+		191		"debrief-55"		""		"string"
+		192		"debrief-56"		""		"string"
+		193		"debrief-57"		""		"string"
+		194		"debrief-58"		""		"string"
+		195		"debrief-59"		""		"string"
+		196		"debrief-6"		""		"string"
+		197		"debrief-60"		""		"string"
+		198		"debrief-61"		""		"string"
+		199		"debrief-62"		""		"string"
+		200		"debrief-63"		""		"string"
+		201		"debrief-64"		""		"string"
+		202		"debrief-65"		""		"string"
+		203		"debrief-66"		""		"string"
+		204		"debrief-67"		""		"string"
+		205		"debrief-68"		""		"string"
+		206		"debrief-69"		""		"string"
+		207		"debrief-7"		""		"string"
+		208		"debrief-70"		""		"string"
+		209		"debrief-71"		""		"string"
+		210		"debrief-72"		""		"string"
+		211		"debrief-73"		""		"string"
+		212		"debrief-74"		""		"string"
+		213		"debrief-75"		""		"string"
+		214		"debrief-76"		""		"string"
+		215		"debrief-77"		""		"string"
+		216		"debrief-78"		""		"string"
+		217		"debrief-79"		""		"string"
+		218		"debrief-8"		""		"string"
+		219		"debrief-80"		""		"string"
+		220		"debrief-81"		""		"string"
+		221		"debrief-82"		""		"string"
+		222		"debrief-83"		""		"string"
+		223		"debrief-84"		""		"string"
+		224		"debrief-85"		""		"string"
+		225		"debrief-86"		""		"string"
+		226		"debrief-87"		""		"string"
+		227		"debrief-88"		""		"string"
+		228		"debrief-89"		""		"string"
+		229		"debrief-9"		""		"string"
+		230		"debrief-90"		""		"string"
+		231		"debrief-91"		""		"string"
+		232		"debrief-92"		""		"string"
+		233		"debrief-93"		""		"string"
+		234		"debrief-94"		""		"string"
+		235		"debrief-95"		""		"string"
+		236		"debrief-96"		""		"string"
+		237		"debrief-97"		""		"string"
+		238		"debrief-98"		""		"string"
+		239		"debrief-99"		""		"string"
+		240		"imperial-boarding-stop"		"0"		"number"
+		241		"no_msg_cache"		"No Msg Caching"		"string"
+		242		"rebel-boarding-stop"		"0"		"number"
+)
+
+#Command Briefing
+
+#Briefing
+$start_briefing
+$num_stages: 6
+$start_stage
+$multi_text
+ XSTR("Your fleet is under attack!  Win the battle by scoring points for your team.
+
+Pick which team you start as by selecting your ship.  Choose a Rebel ship, and you'll fly with the Rebels.  Choose an Imperial one to fly with the Empire.  At any time during the mission, you can press $1$ to switch teams.  You'll now be allied with the opposite team, and your fighter will be swapped out for its opposite-faction equivalent.", 2743)
+$end_multi_text
+$voice: none.wav
+$camera_pos: 1489.625366, 5203.120605, -5534.125000
+$camera_orient:
+	0.006743, 0.000002, 0.999977,
+	-0.956387, 0.292033, 0.006449,
+	-0.292026, -0.956408, 0.001971
+$camera_time: 500
+$num_lines: 0
+$num_icons: 16
+$Flags: 0
+$Formula: ( true ) 
+$start_icon
+$type: 6
+$team: Friendly
+$class: Liberty Type Star Cruiser
+$pos: -132.543457, 0.000000, -7723.875000
+$label:  XSTR("Rebel Capital Ship", 2744)
++id: 1
+$hlight: 0
+$mirror: 0
+$multi_text
+$end_multi_text
+$end_icon
+$start_icon
+$type: 6
+$team: Hostile
+$class: Imperial Star Destroyer
+$pos: -223.263794, 0.000000, -3310.021973
+$label:  XSTR("Imperial Capital Ship", 2745)
++id: 2
+$hlight: 0
+$mirror: 0
+$multi_text
+$end_multi_text
+$end_icon
+$start_icon
+$type: 18
+$team: Hostile
+$class: Raider Corvette
+$pos: 687.630127, 0.000977, -3360.653076
+$label:  XSTR("Imperial Corvette", 2746)
+$icon scale: 35
++id: 4
+$hlight: 0
+$mirror: 0
+$multi_text
+$end_multi_text
+$end_icon
+$start_icon
+$type: 18
+$team: Hostile
+$class: Raider Corvette
+$pos: -848.605835, 0.000977, -3250.353516
+$label:  XSTR("Imperial Corvette", 2746)
+$icon scale: 35
++id: 5
+$hlight: 0
+$mirror: 0
+$multi_text
+$end_multi_text
+$end_icon
+$start_icon
+$type: 18
+$team: Friendly
+$class: GR-75 Transport
+$pos: -850.153931, 0.000977, -7741.898438
+$label:  XSTR("Rebel Corvette", 2747)
+$icon scale: 35
++id: 6
+$hlight: 0
+$mirror: 0
+$multi_text
+$end_multi_text
+$end_icon
+$start_icon
+$type: 18
+$team: Friendly
+$class: GR-75 Transport
+$pos: 600.535583, 0.000977, -7604.215820
+$label:  XSTR("Rebel Corvette", 2747)
+$icon scale: 35
++id: 7
+$hlight: 0
+$mirror: 0
+$multi_text
+$end_multi_text
+$end_icon
+$start_icon
+$type: 1
+$team: Hostile
+$class: TIE/ln Fighter
+$pos: -157.767822, 0.000977, -4567.266113
+$label:  XSTR("Imperial Space Superiority", 2748)
+$icon scale: 40
++id: 8
+$hlight: 0
+$mirror: 0
+$use wing icon: 1
+$multi_text
+$end_multi_text
+$end_icon
+$start_icon
+$type: 1
+$team: Hostile
+$class: TIE/In Interceptor
+$pos: -904.217651, 0.000977, -4366.438965
+$label:  XSTR("Imperial Escort Interceptors", 2749)
+$icon scale: 40
++id: 9
+$hlight: 0
+$mirror: 0
+$use wing icon: 1
+$multi_text
+$end_multi_text
+$end_icon
+$start_icon
+$type: 1
+$team: Hostile
+$class: TIE/In Interceptor Mk.2
+$pos: -441.013306, 0.000977, -3843.260254
+$label:  XSTR("Imperial Defense Interceptors", 2750)
+$icon scale: 40
++id: 10
+$hlight: 0
+$mirror: 0
+$use wing icon: 1
+$multi_text
+$end_multi_text
+$end_icon
+$start_icon
+$type: 17
+$team: Hostile
+$class: TIE/sa Bomber
+$pos: 446.608765, 0.000977, -4483.005859
+$label:  XSTR("Imperial Bombers", 2751)
+$icon scale: 40
++id: 11
+$hlight: 0
+$mirror: 0
+$use wing icon: 1
+$multi_text
+$end_multi_text
+$end_icon
+$start_icon
+$type: 34
+$team: Hostile
+$class: DX-9 Stormtrooper Transport
+$pos: 185.606079, 0.000977, -3833.351807
+$label:  XSTR("Imperial Boarding Craft", 2752)
+$icon scale: 60
++id: 12
+$hlight: 0
+$mirror: 0
+$multi_text
+$end_multi_text
+$end_icon
+$start_icon
+$type: 34
+$team: Friendly
+$class: UT-60D U-wing#Red
+$pos: -481.388794, 0.000977, -7102.423828
+$label:  XSTR("Rebel Boarding Craft", 2753)
+$icon scale: 60
++id: 13
+$hlight: 0
+$mirror: 0
+$multi_text
+$end_multi_text
+$end_icon
+$start_icon
+$type: 17
+$team: Friendly
+$class: BTL-A4 Y-wing#Gold
+$pos: -656.738159, 0.000977, -6455.204590
+$label:  XSTR("Rebel Bombers", 1178)
+$icon scale: 40
++id: 14
+$hlight: 0
+$mirror: 0
+$use wing icon: 1
+$multi_text
+$end_multi_text
+$end_icon
+$start_icon
+$type: 1
+$team: Friendly
+$class: T-65c X-wing#Red
+$pos: -132.206421, 0.000977, -6273.536621
+$label:  XSTR("Rebel Space Superiority", 2754)
+$icon scale: 40
++id: 15
+$hlight: 0
+$mirror: 0
+$use wing icon: 1
+$multi_text
+$end_multi_text
+$end_icon
+$start_icon
+$type: 1
+$team: Friendly
+$class: RZ-1 A-wing#Blue
+$pos: 169.344238, 0.000977, -7094.346191
+$label:  XSTR("Rebel Defense Interceptors", 2755)
+$icon scale: 40
++id: 16
+$hlight: 0
+$mirror: 0
+$use wing icon: 1
+$multi_text
+$end_multi_text
+$end_icon
+$start_icon
+$type: 1
+$team: Friendly
+$class: RZ-1 A-wing#Green
+$pos: 434.677612, 0.000977, -6458.651367
+$label:  XSTR("Rebel Escort Interceptors", 2756)
+$icon scale: 40
++id: 17
+$hlight: 0
+$mirror: 0
+$use wing icon: 1
+$multi_text
+$end_multi_text
+$end_icon
+$end_stage
+$start_stage
+$multi_text
+ XSTR("Each team has a capital ship and two corvettes.  Each capital ship has five key subsystems which can be destroyed.", 2757)
+$end_multi_text
+$voice: none.wav
+$camera_pos: 238.714340, 1175.708984, -7670.228027
+$camera_orient:
+	0.006743, 0.000002, 0.999977,
+	-0.961142, 0.275979, 0.006481,
+	-0.275973, -0.961164, 0.001863
+$camera_time: 500
+$num_lines: 0
+$num_icons: 16
+$Flags: 0
+$Formula: ( true ) 
+$start_icon
+$type: 6
+$team: Friendly
+$class: Liberty Type Star Cruiser
+$pos: -90.011337, 0.000000, -7693.116211
+$label:  XSTR("Rebel Capital Ship", 2744)
++id: 1
+$hlight: 0
+$mirror: 0
+$multi_text
+$end_multi_text
+$end_icon
+$start_icon
+$type: 6
+$team: Hostile
+$class: Imperial Star Destroyer
+$pos: -223.263794, 0.000000, -3310.021973
+$label:  XSTR("Imperial Capital Ship", 2745)
++id: 2
+$hlight: 0
+$mirror: 0
+$multi_text
+$end_multi_text
+$end_icon
+$start_icon
+$type: 18
+$team: Hostile
+$class: Raider Corvette
+$pos: 687.630127, 0.000977, -3360.653076
+$label:  XSTR("Imperial Corvette", 2746)
+$icon scale: 35
++id: 4
+$hlight: 0
+$mirror: 0
+$multi_text
+$end_multi_text
+$end_icon
+$start_icon
+$type: 18
+$team: Hostile
+$class: Raider Corvette
+$pos: -848.605835, 0.000977, -3250.353516
+$label:  XSTR("Imperial Corvette", 2746)
+$icon scale: 35
++id: 5
+$hlight: 0
+$mirror: 0
+$multi_text
+$end_multi_text
+$end_icon
+$start_icon
+$type: 18
+$team: Friendly
+$class: GR-75 Transport
+$pos: -274.046875, 0.000977, -7692.949707
+$label:  XSTR("Rebel Corvette", 2747)
+$icon scale: 35
++id: 6
+$hlight: 0
+$mirror: 0
+$multi_text
+$end_multi_text
+$end_icon
+$start_icon
+$type: 18
+$team: Friendly
+$class: GR-75 Transport
+$pos: 72.542419, 0.000977, -7683.957031
+$label:  XSTR("Rebel Corvette", 2747)
+$icon scale: 35
++id: 7
+$hlight: 0
+$mirror: 0
+$multi_text
+$end_multi_text
+$end_icon
+$start_icon
+$type: 1
+$team: Hostile
+$class: TIE/ln Fighter
+$pos: -157.767822, 0.000977, -4567.266113
+$label:  XSTR("Imperial Space Superiority", 2748)
+$icon scale: 40
++id: 8
+$hlight: 0
+$mirror: 0
+$use wing icon: 1
+$multi_text
+$end_multi_text
+$end_icon
+$start_icon
+$type: 1
+$team: Hostile
+$class: TIE/In Interceptor
+$pos: -904.217651, 0.000977, -4366.438965
+$label:  XSTR("Imperial Escort Interceptors", 2749)
+$icon scale: 40
++id: 9
+$hlight: 0
+$mirror: 0
+$use wing icon: 1
+$multi_text
+$end_multi_text
+$end_icon
+$start_icon
+$type: 1
+$team: Hostile
+$class: TIE/In Interceptor Mk.2
+$pos: -441.013306, 0.000977, -3843.260254
+$label:  XSTR("Imperial Defense Interceptors", 2750)
+$icon scale: 40
++id: 10
+$hlight: 0
+$mirror: 0
+$use wing icon: 1
+$multi_text
+$end_multi_text
+$end_icon
+$start_icon
+$type: 17
+$team: Hostile
+$class: TIE/sa Bomber
+$pos: 446.608765, 0.000977, -4483.005859
+$label:  XSTR("Imperial Bombers", 2751)
+$icon scale: 40
++id: 11
+$hlight: 0
+$mirror: 0
+$use wing icon: 1
+$multi_text
+$end_multi_text
+$end_icon
+$start_icon
+$type: 34
+$team: Hostile
+$class: DX-9 Stormtrooper Transport
+$pos: 185.606079, 0.000977, -3833.351807
+$label:  XSTR("Imperial Boarding Craft", 2752)
+$icon scale: 60
++id: 12
+$hlight: 0
+$mirror: 0
+$multi_text
+$end_multi_text
+$end_icon
+$start_icon
+$type: 34
+$team: Friendly
+$class: UT-60D U-wing#Red
+$pos: -368.912109, 0.000977, -6516.067871
+$label:  XSTR("Rebel Boarding Craft", 2753)
+$icon scale: 60
++id: 13
+$hlight: 0
+$mirror: 0
+$multi_text
+$end_multi_text
+$end_icon
+$start_icon
+$type: 17
+$team: Friendly
+$class: BTL-A4 Y-wing#Gold
+$pos: -656.738159, 0.000977, -6455.204590
+$label:  XSTR("Rebel Bombers", 1178)
+$icon scale: 40
++id: 14
+$hlight: 0
+$mirror: 0
+$use wing icon: 1
+$multi_text
+$end_multi_text
+$end_icon
+$start_icon
+$type: 1
+$team: Friendly
+$class: T-65c X-wing#Red
+$pos: -132.206421, 0.000977, -6273.536621
+$label:  XSTR("Rebel Space Superiority", 2754)
+$icon scale: 40
++id: 15
+$hlight: 0
+$mirror: 0
+$use wing icon: 1
+$multi_text
+$end_multi_text
+$end_icon
+$start_icon
+$type: 1
+$team: Friendly
+$class: RZ-1 A-wing#Blue
+$pos: 155.972687, 0.000977, -6498.839844
+$label:  XSTR("Rebel Defense Interceptors", 2755)
+$icon scale: 40
++id: 16
+$hlight: 0
+$mirror: 0
+$use wing icon: 1
+$multi_text
+$end_multi_text
+$end_icon
+$start_icon
+$type: 1
+$team: Friendly
+$class: RZ-1 A-wing#Green
+$pos: 434.677612, 0.000977, -6458.651367
+$label:  XSTR("Rebel Escort Interceptors", 2756)
+$icon scale: 40
++id: 17
+$hlight: 0
+$mirror: 0
+$use wing icon: 1
+$multi_text
+$end_multi_text
+$end_icon
+$end_stage
+$start_stage
+$multi_text
+ XSTR("Both sides have a squadron of bombers assigned to attack the enemy's corvettes and hardpoints, escorted by a squadron of interceptors.  Another squadron of interceptors defends each team's capital ship and corvettes.  A space superiority squadron flies general duty.  You can give orders to your team's space superiority squadron--use them to defend critical assets or destroy important targets!", 2758)
+$end_multi_text
+$voice: none.wav
+$camera_pos: 336.971741, 1517.920410, -7670.896484
+$camera_orient:
+	0.006743, 0.000002, 0.999977,
+	-0.961142, 0.275979, 0.006481,
+	-0.275973, -0.961164, 0.001863
+$camera_time: 500
+$num_lines: 0
+$num_icons: 16
+$Flags: 0
+$Formula: ( true ) 
+$start_icon
+$type: 6
+$team: Friendly
+$class: Liberty Type Star Cruiser
+$pos: -84.032440, 0.000000, -7710.538086
+$label:  XSTR("Rebel Capital Ship", 2744)
++id: 1
+$hlight: 0
+$mirror: 0
+$multi_text
+$end_multi_text
+$end_icon
+$start_icon
+$type: 6
+$team: Hostile
+$class: Imperial Star Destroyer
+$pos: -223.263794, 0.000000, -3310.021973
+$label:  XSTR("Imperial Capital Ship", 2745)
++id: 2
+$hlight: 0
+$mirror: 0
+$multi_text
+$end_multi_text
+$end_icon
+$start_icon
+$type: 18
+$team: Hostile
+$class: Raider Corvette
+$pos: 687.630127, 0.000977, -3360.653076
+$label:  XSTR("Imperial Corvette", 2746)
+$icon scale: 35
++id: 4
+$hlight: 0
+$mirror: 0
+$multi_text
+$end_multi_text
+$end_icon
+$start_icon
+$type: 18
+$team: Hostile
+$class: Raider Corvette
+$pos: -848.605835, 0.000977, -3250.353516
+$label:  XSTR("Imperial Corvette", 2746)
+$icon scale: 35
++id: 5
+$hlight: 0
+$mirror: 0
+$multi_text
+$end_multi_text
+$end_icon
+$start_icon
+$type: 18
+$team: Friendly
+$class: GR-75 Transport
+$pos: -79.035461, 0.000977, -6466.705078
+$label:  XSTR("Rebel Corvette", 2747)
+$icon scale: 35
++id: 6
+$hlight: 0
+$mirror: 0
+$multi_text
+$end_multi_text
+$end_icon
+$start_icon
+$type: 18
+$team: Friendly
+$class: GR-75 Transport
+$pos: 213.644958, 0.000977, -6148.460938
+$label:  XSTR("Rebel Corvette", 2747)
+$icon scale: 35
++id: 7
+$hlight: 0
+$mirror: 0
+$multi_text
+$end_multi_text
+$end_icon
+$start_icon
+$type: 1
+$team: Hostile
+$class: TIE/ln Fighter
+$pos: -157.767822, 0.000977, -4567.266113
+$label:  XSTR("Imperial Space Superiority", 2748)
+$icon scale: 40
++id: 8
+$hlight: 0
+$mirror: 0
+$multi_text
+$end_multi_text
+$end_icon
+$start_icon
+$type: 1
+$team: Hostile
+$class: TIE/In Interceptor
+$pos: -904.217651, 0.000977, -4366.438965
+$label:  XSTR("Imperial Escort Interceptors", 2749)
+$icon scale: 40
++id: 9
+$hlight: 0
+$mirror: 0
+$multi_text
+$end_multi_text
+$end_icon
+$start_icon
+$type: 1
+$team: Hostile
+$class: TIE/In Interceptor Mk.2
+$pos: -441.013306, 0.000977, -3843.260254
+$label:  XSTR("Imperial Defense Interceptors", 2750)
+$icon scale: 40
++id: 10
+$hlight: 0
+$mirror: 0
+$multi_text
+$end_multi_text
+$end_icon
+$start_icon
+$type: 17
+$team: Hostile
+$class: TIE/sa Bomber
+$pos: 446.608765, 0.000977, -4483.005859
+$label:  XSTR("Imperial Bombers", 2751)
+$icon scale: 40
++id: 11
+$hlight: 0
+$mirror: 0
+$multi_text
+$end_multi_text
+$end_icon
+$start_icon
+$type: 34
+$team: Hostile
+$class: DX-9 Stormtrooper Transport
+$pos: 185.606079, 0.000977, -3833.351807
+$label:  XSTR("Imperial Boarding Craft", 2752)
+$icon scale: 60
++id: 12
+$hlight: 0
+$mirror: 0
+$multi_text
+$end_multi_text
+$end_icon
+$start_icon
+$type: 34
+$team: Friendly
+$class: UT-60D U-wing#Red
+$pos: -368.912109, 0.000977, -6516.067871
+$label:  XSTR("Rebel Boarding Craft", 2753)
+$icon scale: 60
++id: 13
+$hlight: 0
+$mirror: 0
+$multi_text
+$end_multi_text
+$end_icon
+$start_icon
+$type: 17
+$team: Friendly
+$class: BTL-A4 Y-wing#Gold
+$pos: -2.040344, 0.000977, -7427.983887
+$label:  XSTR("Rebel Bombers", 1178)
+$icon scale: 40
++id: 14
+$hlight: 0
+$mirror: 0
+$use wing icon: 1
+$multi_text
+$end_multi_text
+$end_icon
+$start_icon
+$type: 1
+$team: Friendly
+$class: T-65c X-wing#Red
+$pos: 43.914780, 0.000977, -7716.552246
+$label:  XSTR("Rebel Space Superiority", 2754)
+$icon scale: 40
++id: 15
+$hlight: 0
+$mirror: 0
+$use wing icon: 1
+$multi_text
+$end_multi_text
+$end_icon
+$start_icon
+$type: 1
+$team: Friendly
+$class: RZ-1 A-wing#Blue
+$pos: -231.182739, 0.002441, -7701.004883
+$label:  XSTR("Rebel Defense Interceptors", 2755)
+$icon scale: 40
++id: 16
+$hlight: 0
+$mirror: 0
+$use wing icon: 1
+$multi_text
+$end_multi_text
+$end_icon
+$start_icon
+$type: 1
+$team: Friendly
+$class: RZ-1 A-wing#Green
+$pos: -164.768005, 0.000977, -7436.146973
+$label:  XSTR("Rebel Escort Interceptors", 2756)
+$icon scale: 40
++id: 17
+$hlight: 0
+$mirror: 0
+$use wing icon: 1
+$multi_text
+$end_multi_text
+$end_icon
+$end_stage
+$start_stage
+$multi_text
+ XSTR("Each capital ship will also send boarding craft to board the enemy ship.  If a boarding craft lands, its boarding party can disable the ship's defensive turrets, take out its shields, or destroy some of the key subsystems from within.  You can control what your team's next boarding party will attempt to accomplish: press $4$ to cycle through the options.", 2759)
+$end_multi_text
+$voice: none.wav
+$camera_pos: 727.134460, 2425.549316, -3994.103271
+$camera_orient:
+	-0.012647, 0.000002, 0.999920,
+	-0.938775, 0.344326, -0.011874,
+	-0.344298, -0.938850, -0.004353
+$camera_time: 500
+$num_lines: 0
+$num_icons: 16
+$Flags: 0
+$Formula: ( true ) 
+$start_icon
+$type: 6
+$team: Friendly
+$class: Liberty Type Star Cruiser
+$pos: -196.650146, 0.000000, -4712.335938
+$label:  XSTR("Rebel Capital Ship", 2744)
++id: 1
+$hlight: 0
+$mirror: 0
+$multi_text
+$end_multi_text
+$end_icon
+$start_icon
+$type: 6
+$team: Hostile
+$class: Imperial Star Destroyer
+$pos: -223.263794, 0.000000, -3310.021973
+$label:  XSTR("Imperial Capital Ship", 2745)
++id: 2
+$hlight: 0
+$mirror: 0
+$multi_text
+$end_multi_text
+$end_icon
+$start_icon
+$type: 18
+$team: Hostile
+$class: Raider Corvette
+$pos: -415.609009, 0.000977, -7100.261719
+$label:  XSTR("Imperial Corvette", 2746)
+$icon scale: 35
++id: 4
+$hlight: 0
+$mirror: 0
+$multi_text
+$end_multi_text
+$end_icon
+$start_icon
+$type: 18
+$team: Hostile
+$class: Raider Corvette
+$pos: -1145.679565, 0.000977, -6179.354492
+$label:  XSTR("Imperial Corvette", 2746)
+$icon scale: 35
++id: 5
+$hlight: 0
+$mirror: 0
+$multi_text
+$end_multi_text
+$end_icon
+$start_icon
+$type: 18
+$team: Friendly
+$class: GR-75 Transport
+$pos: -79.035461, 0.000977, -6466.705078
+$label:  XSTR("Rebel Corvette", 2747)
+$icon scale: 35
++id: 6
+$hlight: 0
+$mirror: 0
+$multi_text
+$end_multi_text
+$end_icon
+$start_icon
+$type: 18
+$team: Friendly
+$class: GR-75 Transport
+$pos: 213.644958, 0.000977, -6148.460938
+$label:  XSTR("Rebel Corvette", 2747)
+$icon scale: 35
++id: 7
+$hlight: 0
+$mirror: 0
+$multi_text
+$end_multi_text
+$end_icon
+$start_icon
+$type: 1
+$team: Hostile
+$class: TIE/ln Fighter
+$pos: -1155.721558, 0.000977, -5226.991699
+$label:  XSTR("Imperial Space Superiority", 2748)
+$icon scale: 40
++id: 8
+$hlight: 0
+$mirror: 0
+$multi_text
+$end_multi_text
+$end_icon
+$start_icon
+$type: 1
+$team: Hostile
+$class: TIE/In Interceptor
+$pos: -1145.423706, 0.000977, -5653.440918
+$label:  XSTR("Imperial Escort Interceptors", 2749)
+$icon scale: 40
++id: 9
+$hlight: 0
+$mirror: 0
+$multi_text
+$end_multi_text
+$end_icon
+$start_icon
+$type: 1
+$team: Hostile
+$class: TIE/In Interceptor Mk.2
+$pos: -954.066284, 0.000977, -6985.248047
+$label:  XSTR("Imperial Defense Interceptors", 2750)
+$icon scale: 40
++id: 10
+$hlight: 0
+$mirror: 0
+$multi_text
+$end_multi_text
+$end_icon
+$start_icon
+$type: 17
+$team: Hostile
+$class: TIE/sa Bomber
+$pos: -838.788208, 0.000977, -6292.783203
+$label:  XSTR("Imperial Bombers", 2751)
+$icon scale: 40
++id: 11
+$hlight: 0
+$mirror: 0
+$multi_text
+$end_multi_text
+$end_icon
+$start_icon
+$type: 34
+$team: Hostile
+$class: DX-9 Stormtrooper Transport
+$pos: 65.747742, 0.000977, -4478.287598
+$label:  XSTR("Imperial Boarding Craft", 2752)
+$icon scale: 60
++id: 12
+$hlight: 0
+$mirror: 0
+$multi_text
+$end_multi_text
+$end_icon
+$start_icon
+$type: 34
+$team: Friendly
+$class: UT-60D U-wing#Red
+$pos: 71.625305, 0.000000, -3510.873535
+$label:  XSTR("Rebel Boarding Craft", 2753)
+$icon scale: 60
++id: 13
+$hlight: 0
+$mirror: 0
+$multi_text
+$end_multi_text
+$end_icon
+$start_icon
+$type: 17
+$team: Friendly
+$class: BTL-A4 Y-wing#Gold
+$pos: -2.040344, 0.000977, -7427.983887
+$label:  XSTR("Rebel Bombers", 1178)
+$icon scale: 60
++id: 14
+$hlight: 0
+$mirror: 0
+$use wing icon: 1
+$multi_text
+$end_multi_text
+$end_icon
+$start_icon
+$type: 1
+$team: Friendly
+$class: T-65c X-wing#Red
+$pos: 43.914780, 0.000977, -7716.552246
+$label:  XSTR("Rebel Space Superiority", 2754)
+$icon scale: 40
++id: 15
+$hlight: 0
+$mirror: 0
+$use wing icon: 1
+$multi_text
+$end_multi_text
+$end_icon
+$start_icon
+$type: 1
+$team: Friendly
+$class: RZ-1 A-wing#Blue
+$pos: -231.182739, 0.002441, -7701.004883
+$label:  XSTR("Rebel Defense Interceptors", 2755)
+$icon scale: 40
++id: 16
+$hlight: 0
+$mirror: 0
+$use wing icon: 1
+$multi_text
+$end_multi_text
+$end_icon
+$start_icon
+$type: 1
+$team: Friendly
+$class: RZ-1 A-wing#Green
+$pos: -164.768005, 0.000977, -7436.146973
+$label:  XSTR("Rebel Escort Interceptors", 2756)
+$icon scale: 40
++id: 17
+$hlight: 0
+$mirror: 0
+$use wing icon: 1
+$multi_text
+$end_multi_text
+$end_icon
+$end_stage
+$start_stage
+$multi_text
+ XSTR("If your fighter is damaged or out of ordnance, you can enter your capital ship's main hangar to be repaired and rearmed.", 2760)
+$end_multi_text
+$voice: none.wav
+$camera_pos: 108.237267, 563.397705, -5606.005371
+$camera_orient:
+	0.015876, 0.000001, 0.999874,
+	-0.957273, 0.288785, 0.015199,
+	-0.288749, -0.957394, 0.004586
+$camera_time: 500
+$num_lines: 0
+$num_icons: 17
+$Flags: 0
+$Formula: ( true ) 
+$start_icon
+$type: 6
+$team: Friendly
+$class: Liberty Type Star Cruiser
+$pos: -58.406441, 0.000000, -5607.473145
+$label:  XSTR("Rebel Capital Ship", 2744)
++id: 1
+$hlight: 0
+$mirror: 0
+$multi_text
+$end_multi_text
+$end_icon
+$start_icon
+$type: 6
+$team: Hostile
+$class: Imperial Star Destroyer
+$pos: -223.263794, 0.000000, -3310.021973
+$label:  XSTR("Imperial Capital Ship", 2745)
++id: 2
+$hlight: 0
+$mirror: 0
+$multi_text
+$end_multi_text
+$end_icon
+$start_icon
+$type: 18
+$team: Hostile
+$class: Raider Corvette
+$pos: -415.609009, 0.000977, -7100.261719
+$label:  XSTR("Imperial Corvette", 2746)
+$icon scale: 35
++id: 4
+$hlight: 0
+$mirror: 0
+$multi_text
+$end_multi_text
+$end_icon
+$start_icon
+$type: 18
+$team: Hostile
+$class: Raider Corvette
+$pos: -1145.679565, 0.000977, -6179.354492
+$label:  XSTR("Imperial Corvette", 2746)
+$icon scale: 35
++id: 5
+$hlight: 0
+$mirror: 0
+$multi_text
+$end_multi_text
+$end_icon
+$start_icon
+$type: 18
+$team: Friendly
+$class: GR-75 Transport
+$pos: -79.035461, 0.000977, -6466.705078
+$label:  XSTR("Rebel Corvette", 2747)
+$icon scale: 35
++id: 6
+$hlight: 0
+$mirror: 0
+$multi_text
+$end_multi_text
+$end_icon
+$start_icon
+$type: 18
+$team: Friendly
+$class: GR-75 Transport
+$pos: 213.644958, 0.000977, -6148.460938
+$label:  XSTR("Rebel Corvette", 2747)
+$icon scale: 35
++id: 7
+$hlight: 0
+$mirror: 0
+$multi_text
+$end_multi_text
+$end_icon
+$start_icon
+$type: 1
+$team: Hostile
+$class: TIE/ln Fighter
+$pos: -1155.721558, 0.000977, -5226.991699
+$label:  XSTR("Imperial Space Superiority", 2748)
+$icon scale: 40
++id: 8
+$hlight: 0
+$mirror: 0
+$multi_text
+$end_multi_text
+$end_icon
+$start_icon
+$type: 1
+$team: Hostile
+$class: TIE/In Interceptor
+$pos: -1145.423706, 0.000977, -5653.440918
+$label:  XSTR("Imperial Escort Interceptors", 2749)
+$icon scale: 40
++id: 9
+$hlight: 0
+$mirror: 0
+$multi_text
+$end_multi_text
+$end_icon
+$start_icon
+$type: 1
+$team: Hostile
+$class: TIE/In Interceptor Mk.2
+$pos: -954.066284, 0.000977, -6985.248047
+$label:  XSTR("Imperial Defense Interceptors", 2750)
+$icon scale: 40
++id: 10
+$hlight: 0
+$mirror: 0
+$multi_text
+$end_multi_text
+$end_icon
+$start_icon
+$type: 17
+$team: Hostile
+$class: TIE/sa Bomber
+$pos: -838.788208, 0.000977, -6292.783203
+$label:  XSTR("Imperial Bombers", 2751)
+$icon scale: 40
++id: 11
+$hlight: 0
+$mirror: 0
+$multi_text
+$end_multi_text
+$end_icon
+$start_icon
+$type: 34
+$team: Hostile
+$class: DX-9 Stormtrooper Transport
+$pos: 65.747742, 0.000977, -4478.287598
+$label:  XSTR("Imperial Boarding Craft", 2752)
+$icon scale: 60
++id: 12
+$hlight: 0
+$mirror: 0
+$multi_text
+$end_multi_text
+$end_icon
+$start_icon
+$type: 34
+$team: Friendly
+$class: UT-60D U-wing#Red
+$pos: 71.625305, 0.000000, -3510.873535
+$label:  XSTR("Rebel Boarding Craft", 2753)
+$icon scale: 60
++id: 13
+$hlight: 0
+$mirror: 0
+$multi_text
+$end_multi_text
+$end_icon
+$start_icon
+$type: 17
+$team: Friendly
+$class: BTL-A4 Y-wing#Gold
+$pos: -2.040344, 0.000977, -7427.983887
+$label:  XSTR("Rebel Bombers", 1178)
+$icon scale: 40
++id: 14
+$hlight: 0
+$mirror: 0
+$multi_text
+$end_multi_text
+$end_icon
+$start_icon
+$type: 1
+$team: Friendly
+$class: T-65c X-wing#Red
+$pos: 43.914780, 0.000977, -7716.552246
+$label:  XSTR("Rebel Space Superiority", 2754)
+$icon scale: 40
++id: 15
+$hlight: 0
+$mirror: 0
+$multi_text
+$end_multi_text
+$end_icon
+$start_icon
+$type: 1
+$team: Friendly
+$class: RZ-1 A-wing#Blue
+$pos: -231.182739, 0.002441, -7701.004883
+$label:  XSTR("Rebel Defense Interceptors", 2755)
+$icon scale: 40
++id: 16
+$hlight: 0
+$mirror: 0
+$multi_text
+$end_multi_text
+$end_icon
+$start_icon
+$type: 1
+$team: Friendly
+$class: RZ-1 A-wing#Green
+$pos: -164.768005, 0.000977, -7436.146973
+$label:  XSTR("Rebel Escort Interceptors", 2756)
+$icon scale: 40
++id: 17
+$hlight: 0
+$mirror: 0
+$multi_text
+$end_multi_text
+$end_icon
+$start_icon
+$type: 0
+$team: Friendly
+$class: T-65c X-wing#Grey
+$pos: -21.894234, 0.000916, -5607.829590
+$label:  XSTR("Grey Leader", 2761)
+$icon scale: 60
++id: 18
+$hlight: 0
+$mirror: 0
+$multi_text
+$end_multi_text
+$end_icon
+$end_stage
+$start_stage
+$multi_text
+ XSTR("Score points by destroying enemy fighters and bombers, taking out corvettes, and disabling subsystems.  Whichever team reaches its point goal first will win the battle!", 2762)
+$end_multi_text
+$voice: none.wav
+$camera_pos: 991.160339, 3531.984375, -5530.759766
+$camera_orient:
+	0.006744, 0.000002, 0.999977,
+	-0.961364, 0.275203, 0.006483,
+	-0.275197, -0.961386, 0.001858
+$camera_time: 500
+$num_lines: 0
+$num_icons: 17
+$Flags: 0
+$Formula: ( true ) 
+$start_icon
+$type: 6
+$team: Friendly
+$class: Liberty Type Star Cruiser
+$pos: 185.549072, 0.000000, -5567.303223
+$label:  XSTR("Rebel Capital Ship", 2744)
++id: 1
+$hlight: 0
+$mirror: 0
+$multi_text
+$end_multi_text
+$end_icon
+$start_icon
+$type: 6
+$team: Hostile
+$class: Imperial Star Destroyer
+$pos: -260.369995, 0.000000, -5596.194824
+$label:  XSTR("Imperial Capital Ship", 2745)
++id: 2
+$hlight: 0
+$mirror: 0
+$multi_text
+$end_multi_text
+$end_icon
+$start_icon
+$type: 18
+$team: Hostile
+$class: Raider Corvette
+$pos: -1592.182251, 0.000977, -7304.561523
+$label:  XSTR("Imperial Corvette", 2746)
+$icon scale: 35
++id: 4
+$hlight: 0
+$mirror: 0
+$multi_text
+$end_multi_text
+$end_icon
+$start_icon
+$type: 18
+$team: Hostile
+$class: Raider Corvette
+$pos: -1586.421021, 0.000977, -6450.111816
+$label:  XSTR("Imperial Corvette", 2746)
+$icon scale: 35
++id: 5
+$hlight: 0
+$mirror: 0
+$multi_text
+$end_multi_text
+$end_icon
+$start_icon
+$type: 18
+$team: Friendly
+$class: GR-75 Transport
+$pos: 1551.178833, 0.000977, -5283.739258
+$label:  XSTR("Rebel Corvette", 2747)
+$icon scale: 35
++id: 6
+$hlight: 0
+$mirror: 0
+$multi_text
+$end_multi_text
+$end_icon
+$start_icon
+$type: 18
+$team: Friendly
+$class: GR-75 Transport
+$pos: 1475.348389, 0.000977, -5758.759766
+$label:  XSTR("Rebel Corvette", 2747)
+$icon scale: 35
++id: 7
+$hlight: 0
+$mirror: 0
+$multi_text
+$end_multi_text
+$end_icon
+$start_icon
+$type: 1
+$team: Hostile
+$class: TIE/ln Fighter
+$pos: -2151.417969, 0.001953, -7695.231445
+$label:  XSTR("Imperial Space Superiority", 2748)
+$icon scale: 40
++id: 8
+$hlight: 0
+$mirror: 0
+$multi_text
+$end_multi_text
+$end_icon
+$start_icon
+$type: 1
+$team: Hostile
+$class: TIE/In Interceptor
+$pos: -1580.197632, 0.000977, -5527.122559
+$label:  XSTR("Imperial Escort Interceptors", 2749)
+$icon scale: 40
++id: 9
+$hlight: 0
+$mirror: 0
+$multi_text
+$end_multi_text
+$end_icon
+$start_icon
+$type: 1
+$team: Hostile
+$class: TIE/In Interceptor Mk.2
+$pos: -2069.122070, 0.000488, -7731.052734
+$label:  XSTR("Imperial Defense Interceptors", 2750)
+$icon scale: 40
++id: 10
+$hlight: 0
+$mirror: 0
+$multi_text
+$end_multi_text
+$end_icon
+$start_icon
+$type: 17
+$team: Hostile
+$class: TIE/sa Bomber
+$pos: -1586.380005, 0.000977, -6444.019531
+$label:  XSTR("Imperial Bombers", 2751)
+$icon scale: 40
++id: 11
+$hlight: 0
+$mirror: 0
+$multi_text
+$end_multi_text
+$end_icon
+$start_icon
+$type: 34
+$team: Hostile
+$class: DX-9 Stormtrooper Transport
+$pos: 503.656128, 0.000977, -2439.036865
+$label:  XSTR("Imperial Boarding Craft", 2752)
+$icon scale: 60
++id: 12
+$hlight: 0
+$mirror: 0
+$multi_text
+$end_multi_text
+$end_icon
+$start_icon
+$type: 34
+$team: Friendly
+$class: UT-60D U-wing#Red
+$pos: 485.296692, 0.000000, -2569.886230
+$label:  XSTR("Rebel Boarding Craft", 2753)
+$icon scale: 60
++id: 13
+$hlight: 0
+$mirror: 0
+$multi_text
+$end_multi_text
+$end_icon
+$start_icon
+$type: 17
+$team: Friendly
+$class: BTL-A4 Y-wing#Gold
+$pos: 1260.406738, 0.000977, -7393.815918
+$label:  XSTR("Rebel Bombers", 1178)
+$icon scale: 40
++id: 14
+$hlight: 0
+$mirror: 0
+$multi_text
+$end_multi_text
+$end_icon
+$start_icon
+$type: 1
+$team: Friendly
+$class: T-65c X-wing#Red
+$pos: 1529.488892, 0.000977, -7772.861328
+$label:  XSTR("Rebel Space Superiority", 2754)
+$icon scale: 40
++id: 15
+$hlight: 0
+$mirror: 0
+$multi_text
+$end_multi_text
+$end_icon
+$start_icon
+$type: 1
+$team: Friendly
+$class: RZ-1 A-wing#Blue
+$pos: 1663.192993, 0.002441, -5092.238281
+$label:  XSTR("Rebel Defense Interceptors", 2755)
+$icon scale: 40
++id: 16
+$hlight: 0
+$mirror: 0
+$multi_text
+$end_multi_text
+$end_icon
+$start_icon
+$type: 1
+$team: Friendly
+$class: RZ-1 A-wing#Green
+$pos: 2061.522461, 0.000977, -7167.247559
+$label:  XSTR("Rebel Escort Interceptors", 2756)
+$icon scale: 40
++id: 17
+$hlight: 0
+$mirror: 0
+$multi_text
+$end_multi_text
+$end_icon
+$start_icon
+$type: 0
+$team: Friendly
+$class: T-65c X-wing#Grey
+$pos: 1100.387817, 0.000977, -4926.381348
+$label:  XSTR("Grey Leader", 2761)
+$icon scale: 60
++id: 18
+$hlight: 0
+$mirror: 0
+$multi_text
+$end_multi_text
+$end_icon
+$end_stage
+$end_briefing
+
+#Debriefing_info
+
+$Num stages: 1
+
+$Formula: ( true ) 
+$Multi text
+    XSTR("$debrief-1$debrief-2$debrief-3$debrief-4$debrief-5$debrief-6$debrief-7$debrief-8$debrief-9$debrief-10$debrief-11$debrief-12$debrief-13$debrief-14$debrief-15$debrief-16$debrief-17$debrief-18$debrief-19$debrief-20$debrief-21$debrief-22$debrief-23$debrief-24$debrief-25$debrief-26$debrief-27$debrief-28$debrief-29$debrief-30$debrief-31$debrief-32$debrief-33$debrief-34$debrief-35$debrief-36$debrief-37$debrief-38$debrief-39$debrief-40$debrief-41$debrief-42$debrief-43$debrief-44$debrief-45$debrief-46$debrief-47$debrief-48$debrief-49$debrief-50$debrief-51$debrief-52$debrief-53$debrief-54$debrief-55$debrief-56$debrief-57$debrief-58$debrief-59$debrief-60$debrief-61$debrief-62$debrief-63$debrief-64$debrief-65$debrief-66$debrief-67$debrief-68$debrief-69$debrief-70$debrief-71$debrief-72$debrief-73$debrief-74$debrief-75$debrief-76$debrief-77$debrief-78$debrief-79$debrief-80$debrief-81$debrief-82$debrief-83$debrief-84$debrief-85$debrief-86$debrief-87$debrief-88$debrief-89$debrief-90$debrief-91$debrief-92$debrief-93$debrief-94$debrief-95$debrief-96$debrief-97$debrief-98$debrief-99$debrief-100$debrief-101$debrief-102$debrief-103$debrief-104$debrief-105$debrief-106$debrief-107$debrief-108$debrief-109$debrief-110$debrief-111$debrief-112$debrief-113$debrief-114$debrief-115$debrief-116$debrief-117$debrief-118$debrief-119$debrief-120$debrief-121$debrief-122$debrief-123$debrief-124$debrief-125$debrief-126$debrief-127$debrief-128$debrief-129$debrief-130$debrief-131$debrief-132$debrief-133$debrief-134$debrief-135$debrief-136$debrief-137$debrief-138$debrief-139$debrief-140$debrief-141$debrief-142$debrief-143$debrief-144$debrief-145$debrief-146$debrief-147$debrief-148$debrief-149$debrief-150$debrief-151$debrief-152$debrief-153$debrief-154$debrief-155$debrief-156$debrief-157$debrief-158$debrief-159$debrief-160$debrief-161$debrief-162$debrief-163$debrief-164$debrief-165$debrief-166$debrief-167$debrief-168$debrief-169$debrief-170$debrief-171$debrief-172$debrief-173$debrief-174$debrief-175$debrief-176$debrief-177$debrief-178$debrief-179$debrief-180$debrief-181$debrief-182$debrief-183$debrief-184$debrief-185$debrief-186$debrief-187$debrief-188$debrief-189$debrief-190$debrief-191$debrief-192$debrief-193$debrief-194$debrief-195$debrief-196$debrief-197$debrief-198$debrief-199$debrief-200$debrief-201$debrief-202$debrief-203$debrief-204$debrief-205$debrief-206$debrief-207$debrief-208$debrief-209$debrief-210$debrief-211$debrief-212$debrief-213$debrief-214$debrief-215$debrief-216$debrief-217$debrief-218$debrief-219$debrief-220$debrief-221$debrief-222$debrief-223$debrief-224$debrief-225$debrief-226$debrief-227$debrief-228$debrief-229$debrief-230$debrief-231$debrief-232$debrief-233$debrief-234$debrief-235$debrief-236$debrief-237$debrief-238$debrief-239$debrief-240", 2763)
+$end_multi_text
+$Voice: none.wav
+$Recommendation text:
+    XSTR("", -1)
+$end_multi_text
+
+#Players		;! 1 total
+
+$Starting Shipname: Grey Aurek 1
+$Ship Choices: (
+	"T-65c X-wing#Grey"	5
+	"ASF-01 B-wing#Grey"	5
+	"RZ-1 A-wing#Grey"	5
+	"E-7 E-wing#Grey"	5
+	"TIE/ln Fighter"	5
+	"TIE Advanced X1"	5
+	"TIE/In Interceptor Mk.2"	5
+	"TIE/sa Bomber"	5
+	"V38 Assault Fighter"	5
+	"Z-95 Headhunter#Grey"	5
+	"BTL-A4 Y-wing#Grey"	5
+	"XG-1 Star Wing"	5
+)
+
++Weaponry Pool: (
+	"T&B KX-5#Red"	100
+	"T&B KX-5#Grn"	100
+	"T&B KX-9"	101
+	"T&B IX4#Red"	100
+	"T&B IX4#Grn"	100
+	"T&B KX-4#Red"	100
+	"T&B IX9"	100
+	"Gyrhil R-9X"	100
+	"Borstel RG-9"	100
+	"T&B KT6#Olv"	100
+	"T&B KT6#Yel"	100
+	"Gyrhil 72"	100
+	"SFS L-s1"	100
+	"SFS L-s7.2"	100
+	"SFS L-s9.3"	100
+	"ArMek SW-4"	100
+	"ArMek SW-7a"	100
+	"SFS L-s8.1"	100
+	"Borstel NK-3"	100
+	"T&B KX-4#Red"	100
+	"T&B KX-4#Grn"	100
+	"Arakyd ST2#Orn"	100
+	"Arakyd ST2#Blu"	100
+	"Krupx MG5#Orn"	100
+	"Krupx MG5#Blu"	100
+	"Dymek HM-6#Orn"	100
+	"Dymek HM-6#Blu"	100
+	"Dymek HM-6a#Orn"	100
+	"Dymek HM-6a#Blu"	100
+	"Krupx MG7-A#Pnk"	106
+	"Krupx MG7-A#Blu"	100
+	"Krupx VL-4a#Blu"	100
+	"Krupx VL-4a#Orn"	100
+	"Dymek HM-8#Pnk"	100
+	"Dymek HM-8#Blu"	100
+	"Frei-Tek MAG-2#Yel"	100
+	"Frei-Tek MAG-2#Tel"	100
+	"Frei-Tek IR-4#Pur"	100
+	"Frei-Tek IR-4#Red"	100
+	"Merr-Sonn NG2#Wht"	100
+	"Merr-Sonn NG2#Yel"	100
+	"S-K INTR#Red"	100
+	"S-K INTR#Blu"	100
+	"ArmaTek VL-61/79#Cyn"	100
+	"ArmaTek VL-61/79#Pnk"	100
+)
+
++Support Rearm Pool: (
+)
+
+#Objects		;! 130 total
+
+$Name: Grey Aurek 1		;! Object #0
+$Class: T-65c X-wing#Grey
+$Team: Friendly
+$Location: 1024.257690, 0.000977, -1886.128174
+$Orientation:
+	1.000000, 0.000000, -0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, -0.000000, 1.000000
+$Cargo 1:  XSTR("Nothing", 1169)
++Subsystem: Pilot
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( "cargo-known" "player-start" )
++Flags2: ( )
++Respawn priority: 0
++Use Table Score:
++Score: 10
+
+$Name: Star Destroyer		;! Object #1
+$Class: Imperial Star Destroyer
+$Team: Hostile
+$Location: -5.161865, 0.000000, 2064.718994
+$Orientation:
+	-1.000000, 0.000000, -0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, -0.000000, -1.000000
+$Cargo 1:  XSTR("Nothing", 1169)
++Subsystem: Pilot
++Subsystem: TurretAA001
++Subsystem: TurretAA002
++Subsystem: TurretAA003
++Subsystem: TurretAA004
++Subsystem: TurretAA005
++Subsystem: TurretAA006
++Subsystem: TurretAA007
++Subsystem: TurretAA008
++Subsystem: TurretAA009
++Subsystem: TurretAA010
++Subsystem: TurretAA011
++Subsystem: TurretAA012
++Subsystem: TurretAA013
++Subsystem: TurretAA014
++Subsystem: TurretAA015
++Subsystem: TurretAA016
++Subsystem: TurretAA017
++Subsystem: TurretAA018
++Subsystem: TurretDual001
++Subsystem: TurretIon001
++Subsystem: TurretIon002
++Subsystem: TurretIon003
++Subsystem: TurretIon004
++Subsystem: TurretIon005
++Subsystem: TurretIon006
++Subsystem: TurretLauncher001
++Subsystem: TurretMain001
++Subsystem: TurretMain002
++Subsystem: TurretMain003
++Subsystem: TurretMain004
++Subsystem: TurretMain005
++Subsystem: TurretMain006
++Subsystem: TurretMain007
++Subsystem: TurretMain008
++Subsystem: TurretQuad001
++Subsystem: TurretQuad002
++Subsystem: TurretQuad003
++Subsystem: TurretQuad004
++Subsystem: TurretQuad005
++Subsystem: TurretQuad006
++Subsystem: TurretQuad007
++Subsystem: TurretQuad008
++Subsystem: TurretQuad009
++Subsystem: TurretQuad010
++Subsystem: TurretQuad011
++Subsystem: TurretQuad012
++Subsystem: TurretQuad013
++Subsystem: TurretQuad014
++Subsystem: TurretQuad015
++Subsystem: TurretQuad016
++Subsystem: TurretQuad017
++Subsystem: TurretTri001
++Subsystem: TurretTri002
++Subsystem: TurretTri003
++Subsystem: TurretTri004
++Subsystem: TurretTri005
++Subsystem: TurretTri006
++Subsystem: TurretTri007
++Subsystem: TurretTri008
++Subsystem: TurretTri009
++Subsystem: TurretTri010
++Subsystem: TurretTri011
++Subsystem: TurretTri012
++Subsystem: TurretTri013
++Subsystem: TurretTri014
++Subsystem: TurretTri015
++Subsystem: TurretTri016
++Subsystem: TurretTri017
++Subsystem: TurretTri018
++Subsystem: TurretTri019
++Subsystem: TurretWing001
++Subsystem: TurretWing002
+$Arrival Location: Hyperspace
+$Arrival Cue: ( true ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( )
++Flags2: ( "lock-all-turrets" "no-ets" )
++Respawn priority: 0
++Orders Accepted List: ( )
++Use Table Score:
++Score: 4500
+
+$Name: Mon Calamari Cruiser		;! Object #2
+$Class: Liberty Type Star Cruiser
+$Team: Friendly
+$Location: 4.768188, 0.000977, -2028.377197
+$Orientation:
+	1.000000, 0.000000, -0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, -0.000000, 1.000000
+$Cargo 1:  XSTR("Nothing", 1169)
++Subsystem: Pilot
++Subsystem: TurretAA00
++Subsystem: TurretAA01
++Subsystem: TurretAA02
++Subsystem: TurretAA03
++Subsystem: TurretAA04
++Subsystem: TurretAA05
++Subsystem: TurretAA06
++Subsystem: TurretAA07
++Subsystem: TurretAA08
++Subsystem: TurretAA09
++Subsystem: TurretAA10
++Subsystem: TurretAA11
++Subsystem: TurretAA12
++Subsystem: TurretAA13
++Subsystem: TurretAA14
++Subsystem: TurretBB00
++Subsystem: TurretBB01
++Subsystem: TurretBB02
++Subsystem: TurretBB03
++Subsystem: TurretBB04
++Subsystem: TurretBB05
++Subsystem: TurretBB06
++Subsystem: TurretBB07
++Subsystem: TurretBB08
++Subsystem: TurretBB09
++Subsystem: TurretBB10
++Subsystem: TurretBB11
++Subsystem: TurretBB12
++Subsystem: TurretBB13
++Subsystem: TurretBB14
++Subsystem: TurretCC00
++Subsystem: TurretCC01
++Subsystem: TurretCC02
++Subsystem: TurretCC03
++Subsystem: TurretCC04
++Subsystem: TurretCC05
++Subsystem: TurretCC06
++Subsystem: TurretCC07
++Subsystem: TurretCC08
++Subsystem: TurretCC09
++Subsystem: TurretCC10
++Subsystem: TurretCC11
++Subsystem: TurretCC12
++Subsystem: TurretCC13
++Subsystem: TurretCC14
++Subsystem: TurretDD00
++Subsystem: TurretDD01
++Subsystem: TurretDD02
++Subsystem: TurretDD03
++Subsystem: TurretDD04
++Subsystem: TurretDD05
++Subsystem: TurretDD06
++Subsystem: TurretDD07
++Subsystem: TurretDD08
++Subsystem: TurretDD09
++Subsystem: TurretDD10
++Subsystem: TurretDD11
++Subsystem: TurretDD12
++Subsystem: TurretDD13
++Subsystem: TurretDD14
++Subsystem: TurretEE00
++Subsystem: TurretEE01
++Subsystem: TurretFF00
++Subsystem: TurretFF01
++Subsystem: TurretGG00
++Subsystem: TurretGG01
++Subsystem: TurretHH00
++Subsystem: TurretHH01
+$Arrival Location: Hyperspace
+$Arrival Cue: ( true ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( "cargo-known" )
++Flags2: ( "lock-all-turrets" "no-ets" )
++Respawn priority: 0
++Orders Accepted List: ( )
++Use Table Score:
++Score: 4500
+
+$Name: Rebel Transport 1		;! Object #3
+$Class: GR-75 Transport
+$Team: Friendly
+$Location: 520.186523, 36.007324, -1737.662109
+$Orientation:
+	1.000000, 0.000000, -0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, -0.000000, 1.000000
+$Cargo 1:  XSTR("Nothing", 1169)
++Subsystem: Pilot
++Subsystem: Turret_Front01_A
++Subsystem: Turret_Rear01_A
+$Arrival Location: Hyperspace
+$Arrival Cue: ( true ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( "cargo-known" "escort" "laser-protect-ship" )
++Flags2: ( "lock-all-turrets" "no-ets" )
++Respawn priority: 0
++Escort priority: 600
++Score: 100
+
+$Name: Rebel Transport 2		;! Object #4
+$Class: GR-75 Transport
+$Team: Friendly
+$Location: -604.742676, 44.205811, -1918.451660
+$Orientation:
+	1.000000, 0.000000, -0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, -0.000000, 1.000000
+$Cargo 1:  XSTR("Nothing", 1169)
++Subsystem: Pilot
++Subsystem: Turret_Front01_A
++Subsystem: Turret_Rear01_A
+$Arrival Location: Hyperspace
+$Arrival Cue: ( true ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( "cargo-known" "escort" "laser-protect-ship" )
++Flags2: ( "lock-all-turrets" "no-ets" )
++Respawn priority: 0
++Escort priority: 500
++Score: 100
+
+$Name: Raider Corvette 1		;! Object #5
+$Class: Raider Corvette
+$Team: Hostile
+$Location: -830.264526, -59.999695, 1476.819092
+$Orientation:
+	-1.000000, 0.000000, -0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, -0.000000, -1.000000
+$Cargo 1:  XSTR("Nothing", 1169)
++Subsystem: Pilot
++Subsystem: TurretMain01_A
++Subsystem: TurretMain02_A
++Subsystem: TurretSmall01_A
++Subsystem: TurretSmall02_A
++Subsystem: TurretSmall03_A
++Subsystem: TurretSmall04_A
++Subsystem: TurretSmall05_A
++Subsystem: TurretSmall06_A
++Subsystem: TurretSmall07_A
++Subsystem: TurretSmall08_A
++Subsystem: TurretSmall09_A
++Subsystem: TurretSmall10_A
++Subsystem: TurretSmall11_A
++Subsystem: TurretSmall12_A
+$Arrival Location: Hyperspace
+$Arrival Cue: ( true ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( "escort" "laser-protect-ship" )
++Flags2: ( "lock-all-turrets" "no-ets" )
++Respawn priority: 0
++Escort priority: 400
++Orders Accepted List: ( )
++Use Table Score:
++Score: 135
+
+$Name: Raider Corvette 2		;! Object #6
+$Class: Raider Corvette
+$Team: Hostile
+$Location: 974.175720, -17.722900, 1635.952637
+$Orientation:
+	-1.000000, 0.000000, -0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, -0.000000, -1.000000
+$Cargo 1:  XSTR("Nothing", 1169)
++Subsystem: Pilot
++Subsystem: TurretMain01_A
++Subsystem: TurretMain02_A
++Subsystem: TurretSmall01_A
++Subsystem: TurretSmall02_A
++Subsystem: TurretSmall03_A
++Subsystem: TurretSmall04_A
++Subsystem: TurretSmall05_A
++Subsystem: TurretSmall06_A
++Subsystem: TurretSmall07_A
++Subsystem: TurretSmall08_A
++Subsystem: TurretSmall09_A
++Subsystem: TurretSmall10_A
++Subsystem: TurretSmall11_A
++Subsystem: TurretSmall12_A
+$Arrival Location: Hyperspace
+$Arrival Cue: ( true ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( "escort" "laser-protect-ship" )
++Flags2: ( "lock-all-turrets" "no-ets" )
++Respawn priority: 0
++Escort priority: 300
++Orders Accepted List: ( )
++Use Table Score:
++Score: 135
+
+$Name: Xi Aurek 1		;! Object #7
+$Class: TIE/ln Fighter
+$Team: Hostile
+$Location: 585.526672, 0.000946, 1514.183228
+$Orientation:
+	-1.000000, 0.000000, -0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, -0.000000, -1.000000
+$Cargo 1:  XSTR("Nothing", 1169)
++Subsystem: Pilot
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( )
++Flags2: ( )
++Respawn priority: 0
++Use Table Score:
++Score: 8
+
+$Name: Xi Aurek 2		;! Object #8
+$Class: TIE/ln Fighter
+$Team: Hostile
+$Location: 631.073425, 0.000946, 1516.217651
+$Orientation:
+	-1.000000, 0.000000, -0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, -0.000000, -1.000000
+$Cargo 1:  XSTR("Nothing", 1169)
++Subsystem: Pilot
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( )
++Flags2: ( )
++Respawn priority: 0
++Use Table Score:
++Score: 8
+
+$Name: Xi Aurek 3		;! Object #9
+$Class: TIE/ln Fighter
+$Team: Hostile
+$Location: 626.515747, 0.000946, 1481.171265
+$Orientation:
+	-1.000000, 0.000000, -0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, -0.000000, -1.000000
+$Cargo 1:  XSTR("Nothing", 1169)
++Subsystem: Pilot
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( )
++Flags2: ( )
++Respawn priority: 0
++Use Table Score:
++Score: 8
+
+$Name: Xi Aurek 4		;! Object #10
+$Class: TIE/ln Fighter
+$Team: Hostile
+$Location: 677.902222, 0.000961, 1481.738892
+$Orientation:
+	-1.000000, 0.000000, -0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, -0.000000, -1.000000
+$Cargo 1:  XSTR("Nothing", 1169)
++Subsystem: Pilot
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( )
++Flags2: ( )
++Respawn priority: 0
++Use Table Score:
++Score: 8
+
+$Name: Xi Besh 1		;! Object #11
+$Class: TIE/ln Fighter
+$Team: Hostile
+$Location: 531.262878, 0.000946, 1416.927979
+$Orientation:
+	-1.000000, 0.000000, -0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, -0.000000, -1.000000
+$Cargo 1:  XSTR("Nothing", 1169)
++Subsystem: Pilot
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( )
++Flags2: ( )
++Respawn priority: 0
++Use Table Score:
++Score: 8
+
+$Name: Xi Besh 2		;! Object #12
+$Class: TIE/ln Fighter
+$Team: Hostile
+$Location: 492.013367, 0.000946, 1457.755615
+$Orientation:
+	-1.000000, 0.000000, -0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, -0.000000, -1.000000
+$Cargo 1:  XSTR("Nothing", 1169)
++Subsystem: Pilot
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( )
++Flags2: ( )
++Respawn priority: 0
++Use Table Score:
++Score: 8
+
+$Name: Xi Besh 3		;! Object #13
+$Class: TIE/ln Fighter
+$Team: Hostile
+$Location: 470.056030, 0.000946, 1416.794067
+$Orientation:
+	-1.000000, 0.000000, -0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, -0.000000, -1.000000
+$Cargo 1:  XSTR("Nothing", 1169)
++Subsystem: Pilot
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( )
++Flags2: ( )
++Respawn priority: 0
++Use Table Score:
++Score: 8
+
+$Name: Xi Besh 4		;! Object #14
+$Class: TIE/ln Fighter
+$Team: Hostile
+$Location: 434.842773, 0.000946, 1455.352661
+$Orientation:
+	-1.000000, 0.000000, -0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, -0.000000, -1.000000
+$Cargo 1:  XSTR("Nothing", 1169)
++Subsystem: Pilot
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( )
++Flags2: ( )
++Respawn priority: 0
++Use Table Score:
++Score: 8
+
+$Name: Xi Cresh 1		;! Object #15
+$Class: TIE/ln Fighter
+$Team: Hostile
+$Location: 584.157227, 0.000946, 1611.828613
+$Orientation:
+	-1.000000, 0.000000, -0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, -0.000000, -1.000000
+$Cargo 1:  XSTR("Nothing", 1169)
++Subsystem: Pilot
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( )
++Flags2: ( )
++Respawn priority: 0
++Use Table Score:
++Score: 8
+
+$Name: Xi Cresh 2		;! Object #16
+$Class: TIE/ln Fighter
+$Team: Hostile
+$Location: 527.270935, 0.000946, 1679.019165
+$Orientation:
+	-1.000000, 0.000000, -0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, -0.000000, -1.000000
+$Cargo 1:  XSTR("Nothing", 1169)
++Subsystem: Pilot
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( )
++Flags2: ( )
++Respawn priority: 0
++Use Table Score:
++Score: 8
+
+$Name: Xi Cresh 3		;! Object #17
+$Class: TIE/ln Fighter
+$Team: Hostile
+$Location: 527.146179, 0.000946, 1622.545532
+$Orientation:
+	-1.000000, 0.000000, -0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, -0.000000, -1.000000
+$Cargo 1:  XSTR("Nothing", 1169)
++Subsystem: Pilot
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( )
++Flags2: ( )
++Respawn priority: 0
++Use Table Score:
++Score: 8
+
+$Name: Xi Cresh 4		;! Object #18
+$Class: TIE/ln Fighter
+$Team: Hostile
+$Location: 462.525513, 0.000946, 1683.711060
+$Orientation:
+	-1.000000, 0.000000, -0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, -0.000000, -1.000000
+$Cargo 1:  XSTR("Nothing", 1169)
++Subsystem: Pilot
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( )
++Flags2: ( )
++Respawn priority: 0
++Use Table Score:
++Score: 8
+
+$Name: Gamma Aurek 1		;! Object #19
+$Class: TIE/In Interceptor
+$Team: Hostile
+$Location: 560.257935, 0.001831, 1260.672363
+$Orientation:
+	-1.000000, 0.000000, -0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, -0.000000, -1.000000
+$Cargo 1:  XSTR("Nothing", 1169)
++Subsystem: Pilot
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( )
++Flags2: ( )
++Respawn priority: 0
++Orders Accepted List: ( )
++Use Table Score:
++Score: 11
+
+$Name: Gamma Aurek 2		;! Object #20
+$Class: TIE/In Interceptor
+$Team: Hostile
+$Location: 520.892578, 0.001831, 1294.991821
+$Orientation:
+	-1.000000, 0.000000, -0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, -0.000000, -1.000000
+$Cargo 1:  XSTR("Nothing", 1169)
++Subsystem: Pilot
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( )
++Flags2: ( )
++Respawn priority: 0
++Orders Accepted List: ( )
++Use Table Score:
++Score: 11
+
+$Name: Gamma Aurek 3		;! Object #21
+$Class: TIE/In Interceptor
+$Team: Hostile
+$Location: 495.545288, 0.001831, 1262.177734
+$Orientation:
+	-1.000000, 0.000000, -0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, -0.000000, -1.000000
+$Cargo 1:  XSTR("Nothing", 1169)
++Subsystem: Pilot
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( )
++Flags2: ( )
++Respawn priority: 0
++Orders Accepted List: ( )
++Use Table Score:
++Score: 11
+
+$Name: Gamma Aurek 4		;! Object #22
+$Class: TIE/In Interceptor
+$Team: Hostile
+$Location: 460.538757, 0.001831, 1299.540283
+$Orientation:
+	-1.000000, 0.000000, -0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, -0.000000, -1.000000
+$Cargo 1:  XSTR("Nothing", 1169)
++Subsystem: Pilot
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( )
++Flags2: ( )
++Respawn priority: 0
++Orders Accepted List: ( )
++Use Table Score:
++Score: 11
+
+$Name: Gamma Besh 1		;! Object #23
+$Class: TIE/In Interceptor
+$Team: Hostile
+$Location: 568.293457, 0.001831, 1139.652588
+$Orientation:
+	-1.000000, 0.000000, -0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, -0.000000, -1.000000
+$Cargo 1:  XSTR("Nothing", 1169)
++Subsystem: Pilot
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( )
++Flags2: ( )
++Respawn priority: 0
++Orders Accepted List: ( )
++Use Table Score:
++Score: 11
+
+$Name: Gamma Besh 2		;! Object #24
+$Class: TIE/In Interceptor
+$Team: Hostile
+$Location: 550.467407, 0.001831, 1169.482422
+$Orientation:
+	-1.000000, 0.000000, -0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, -0.000000, -1.000000
+$Cargo 1:  XSTR("Nothing", 1169)
++Subsystem: Pilot
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( )
++Flags2: ( )
++Respawn priority: 0
++Orders Accepted List: ( )
++Use Table Score:
++Score: 11
+
+$Name: Gamma Besh 3		;! Object #25
+$Class: TIE/In Interceptor
+$Team: Hostile
+$Location: 511.624634, 0.001831, 1138.066406
+$Orientation:
+	-1.000000, 0.000000, -0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, -0.000000, -1.000000
+$Cargo 1:  XSTR("Nothing", 1169)
++Subsystem: Pilot
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( )
++Flags2: ( )
++Respawn priority: 0
++Orders Accepted List: ( )
++Use Table Score:
++Score: 11
+
+$Name: Gamma Besh 4		;! Object #26
+$Class: TIE/In Interceptor
+$Team: Hostile
+$Location: 486.912292, 0.001831, 1164.933838
+$Orientation:
+	-1.000000, 0.000000, -0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, -0.000000, -1.000000
+$Cargo 1:  XSTR("Nothing", 1169)
++Subsystem: Pilot
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( )
++Flags2: ( )
++Respawn priority: 0
++Orders Accepted List: ( )
++Use Table Score:
++Score: 11
+
+$Name: Gamma Cresh 1		;! Object #27
+$Class: TIE/In Interceptor
+$Team: Hostile
+$Location: 473.786987, 0.001831, 1074.241455
+$Orientation:
+	-1.000000, 0.000000, -0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, -0.000000, -1.000000
+$Cargo 1:  XSTR("Nothing", 1169)
++Subsystem: Pilot
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( )
++Flags2: ( )
++Respawn priority: 0
++Orders Accepted List: ( )
++Use Table Score:
++Score: 11
+
+$Name: Gamma Cresh 2		;! Object #28
+$Class: TIE/In Interceptor
+$Team: Hostile
+$Location: 440.790405, 0.001831, 1103.996094
+$Orientation:
+	-1.000000, 0.000000, -0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, -0.000000, -1.000000
+$Cargo 1:  XSTR("Nothing", 1169)
++Subsystem: Pilot
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( )
++Flags2: ( )
++Respawn priority: 0
++Orders Accepted List: ( )
++Use Table Score:
++Score: 11
+
+$Name: Gamma Cresh 3		;! Object #29
+$Class: TIE/In Interceptor
+$Team: Hostile
+$Location: 392.918030, 0.001831, 1068.520752
+$Orientation:
+	-1.000000, 0.000000, -0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, -0.000000, -1.000000
+$Cargo 1:  XSTR("Nothing", 1169)
++Subsystem: Pilot
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( )
++Flags2: ( )
++Respawn priority: 0
++Orders Accepted List: ( )
++Use Table Score:
++Score: 11
+
+$Name: Gamma Cresh 4		;! Object #30
+$Class: TIE/In Interceptor
+$Team: Hostile
+$Location: 352.659973, 0.001831, 1112.900635
+$Orientation:
+	-1.000000, 0.000000, -0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, -0.000000, -1.000000
+$Cargo 1:  XSTR("Nothing", 1169)
++Subsystem: Pilot
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( )
++Flags2: ( )
++Respawn priority: 0
++Orders Accepted List: ( )
++Use Table Score:
++Score: 11
+
+$Name: Delta Aurek 1		;! Object #31
+$Class: TIE/sa Bomber
+$Team: Hostile
+$Location: 418.323486, 0.001831, 973.723389
+$Orientation:
+	-1.000000, 0.000000, -0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, -0.000000, -1.000000
+$Cargo 1:  XSTR("Nothing", 1169)
++Initial Velocity: 33
++Subsystem: Pilot
++Secondary Banks: ( "Merr-Sonn NG2#Wht" "ArmaTek VL-61/79#Cyn" )
++Subsystem: BombTurret
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( )
++Flags2: ( )
++Respawn priority: 0
++Orders Accepted List: ( )
++Use Table Score:
++Score: 9
+
+$Name: Delta Aurek 2		;! Object #32
+$Class: TIE/sa Bomber
+$Team: Hostile
+$Location: 394.102966, 0.001831, 1008.299072
+$Orientation:
+	-1.000000, 0.000000, -0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, -0.000000, -1.000000
+$Cargo 1:  XSTR("Nothing", 1169)
++Initial Velocity: 33
++Subsystem: Pilot
++Secondary Banks: ( "Merr-Sonn NG2#Wht" "ArmaTek VL-61/79#Cyn" )
++Subsystem: BombTurret
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( )
++Flags2: ( )
++Respawn priority: 0
++Orders Accepted List: ( )
++Use Table Score:
++Score: 9
+
+$Name: Delta Aurek 3		;! Object #33
+$Class: TIE/sa Bomber
+$Team: Hostile
+$Location: 359.547363, 0.001831, 966.764038
+$Orientation:
+	-1.000000, 0.000000, -0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, -0.000000, -1.000000
+$Cargo 1:  XSTR("Nothing", 1169)
++Initial Velocity: 33
++Subsystem: Pilot
++Secondary Banks: ( "Merr-Sonn NG2#Wht" "ArmaTek VL-61/79#Cyn" )
++Subsystem: BombTurret
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( )
++Flags2: ( )
++Respawn priority: 0
++Orders Accepted List: ( )
++Use Table Score:
++Score: 9
+
+$Name: Delta Besh 1		;! Object #34
+$Class: TIE/sa Bomber
+$Team: Hostile
+$Location: 336.056213, 0.001831, 863.506836
+$Orientation:
+	-1.000000, 0.000000, -0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, -0.000000, -1.000000
+$Cargo 1:  XSTR("Nothing", 1169)
++Initial Velocity: 33
++Subsystem: Pilot
++Subsystem: BombTurret
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( )
++Flags2: ( )
++Respawn priority: 0
++Orders Accepted List: ( )
++Use Table Score:
++Score: 9
+
+$Name: Delta Besh 2		;! Object #35
+$Class: TIE/sa Bomber
+$Team: Hostile
+$Location: 318.232239, 0.001831, 896.881592
+$Orientation:
+	-1.000000, 0.000000, -0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, -0.000000, -1.000000
+$Cargo 1:  XSTR("Nothing", 1169)
++Initial Velocity: 33
++Subsystem: Pilot
++Subsystem: BombTurret
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( )
++Flags2: ( )
++Respawn priority: 0
++Orders Accepted List: ( )
++Use Table Score:
++Score: 9
+
+$Name: Delta Besh 3		;! Object #36
+$Class: TIE/sa Bomber
+$Team: Hostile
+$Location: 270.813721, 0.001831, 834.334717
+$Orientation:
+	-1.000000, 0.000000, -0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, -0.000000, -1.000000
+$Cargo 1:  XSTR("Nothing", 1169)
++Initial Velocity: 33
++Subsystem: Pilot
++Subsystem: BombTurret
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( )
++Flags2: ( )
++Respawn priority: 0
++Orders Accepted List: ( )
++Use Table Score:
++Score: 9
+
+$Name: Delta Cresh 1		;! Object #37
+$Class: TIE/sa Bomber
+$Team: Hostile
+$Location: 293.489441, 0.001831, 710.988281
+$Orientation:
+	-1.000000, 0.000000, -0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, -0.000000, -1.000000
+$Cargo 1:  XSTR("Nothing", 1169)
++Initial Velocity: 33
++Subsystem: Pilot
++Secondary Banks: ( "Krupx VL-4a#Blu" "ArmaTek VL-61/79#Cyn" )
++Subsystem: BombTurret
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( )
++Flags2: ( )
++Respawn priority: 0
++Orders Accepted List: ( )
++Use Table Score:
++Score: 9
+
+$Name: Delta Cresh 2		;! Object #38
+$Class: TIE/sa Bomber
+$Team: Hostile
+$Location: 249.321289, 0.001831, 742.939819
+$Orientation:
+	-1.000000, 0.000000, -0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, -0.000000, -1.000000
+$Cargo 1:  XSTR("Nothing", 1169)
++Initial Velocity: 33
++Subsystem: Pilot
++Secondary Banks: ( "Krupx VL-4a#Blu" "ArmaTek VL-61/79#Cyn" )
++Subsystem: BombTurret
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( )
++Flags2: ( )
++Respawn priority: 0
++Orders Accepted List: ( )
++Use Table Score:
++Score: 9
+
+$Name: Delta Cresh 3		;! Object #39
+$Class: TIE/sa Bomber
+$Team: Hostile
+$Location: 220.316895, 0.001831, 684.225098
+$Orientation:
+	-1.000000, 0.000000, -0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, -0.000000, -1.000000
+$Cargo 1:  XSTR("Nothing", 1169)
++Initial Velocity: 33
++Subsystem: Pilot
++Secondary Banks: ( "Krupx VL-4a#Blu" "ArmaTek VL-61/79#Cyn" )
++Subsystem: BombTurret
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( )
++Flags2: ( )
++Respawn priority: 0
++Orders Accepted List: ( )
++Use Table Score:
++Score: 9
+
+$Name: Beta Aurek 1		;! Object #40
+$Class: TIE/In Interceptor Mk.2
+$Team: Hostile
+$Location: 270.264465, -0.000122, 1366.225464
+$Orientation:
+	-1.000000, 0.000000, -0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, -0.000000, -1.000000
+$Cargo 1:  XSTR("Nothing", 1169)
++Subsystem: Pilot
++Primary Banks: ( "T&B KT6#Olv" "SFS L-s8.1" )
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( )
++Flags2: ( )
++Respawn priority: 0
++Orders Accepted List: ( )
++Use Table Score:
++Score: 11
+
+$Name: Beta Aurek 2		;! Object #41
+$Class: TIE/In Interceptor Mk.2
+$Team: Hostile
+$Location: 341.659607, 0.000000, 1382.275757
+$Orientation:
+	-1.000000, 0.000000, -0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, -0.000000, -1.000000
+$Cargo 1:  XSTR("Nothing", 1169)
++Subsystem: Pilot
++Primary Banks: ( "T&B KT6#Olv" "SFS L-s8.1" )
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( )
++Flags2: ( )
++Respawn priority: 0
++Orders Accepted List: ( )
++Use Table Score:
++Score: 11
+
+$Name: Beta Aurek 3		;! Object #42
+$Class: TIE/In Interceptor Mk.2
+$Team: Hostile
+$Location: 310.105347, 0.000000, 1337.941284
+$Orientation:
+	-1.000000, 0.000000, -0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, -0.000000, -1.000000
+$Cargo 1:  XSTR("Nothing", 1169)
++Subsystem: Pilot
++Primary Banks: ( "T&B KT6#Olv" "SFS L-s8.1" )
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( )
++Flags2: ( )
++Respawn priority: 0
++Orders Accepted List: ( )
++Use Table Score:
++Score: 11
+
+$Name: Beta Aurek 4		;! Object #43
+$Class: TIE/In Interceptor Mk.2
+$Team: Hostile
+$Location: 358.236816, 0.000000, 1348.320557
+$Orientation:
+	-1.000000, 0.000000, -0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, -0.000000, -1.000000
+$Cargo 1:  XSTR("Nothing", 1169)
++Subsystem: Pilot
++Primary Banks: ( "T&B KT6#Olv" "SFS L-s8.1" )
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( )
++Flags2: ( )
++Respawn priority: 0
++Orders Accepted List: ( )
++Use Table Score:
++Score: 11
+
+$Name: Beta Besh 1		;! Object #44
+$Class: TIE/In Interceptor Mk.2
+$Team: Hostile
+$Location: 196.178467, 0.000732, 1282.950439
+$Orientation:
+	-1.000000, 0.000000, -0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, -0.000000, -1.000000
+$Cargo 1:  XSTR("Nothing", 1169)
++Subsystem: Pilot
++Primary Banks: ( "T&B KT6#Olv" "SFS L-s8.1" )
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( "laser-protect-ship" )
++Flags2: ( "lock-all-turrets" )
++Respawn priority: 0
++Orders Accepted List: ( )
++Use Table Score:
++Score: 11
+
+$Name: Beta Besh 2		;! Object #45
+$Class: TIE/In Interceptor Mk.2
+$Team: Hostile
+$Location: 255.909424, 0.000732, 1296.904419
+$Orientation:
+	-1.000000, 0.000000, -0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, -0.000000, -1.000000
+$Cargo 1:  XSTR("Nothing", 1169)
++Subsystem: Pilot
++Primary Banks: ( "T&B KT6#Olv" "SFS L-s8.1" )
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( )
++Flags2: ( )
++Respawn priority: 0
++Orders Accepted List: ( )
++Use Table Score:
++Score: 11
+
+$Name: Beta Besh 3		;! Object #46
+$Class: TIE/In Interceptor Mk.2
+$Team: Hostile
+$Location: 214.685242, 0.000732, 1248.918213
+$Orientation:
+	-1.000000, 0.000000, -0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, -0.000000, -1.000000
+$Cargo 1:  XSTR("Nothing", 1169)
++Subsystem: Pilot
++Primary Banks: ( "T&B KT6#Olv" "SFS L-s8.1" )
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( )
++Flags2: ( )
++Respawn priority: 0
++Orders Accepted List: ( )
++Use Table Score:
++Score: 11
+
+$Name: Beta Besh 4		;! Object #47
+$Class: TIE/In Interceptor Mk.2
+$Team: Hostile
+$Location: 264.933960, 0.000732, 1268.080078
+$Orientation:
+	-1.000000, 0.000000, -0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, -0.000000, -1.000000
+$Cargo 1:  XSTR("Nothing", 1169)
++Subsystem: Pilot
++Primary Banks: ( "T&B KT6#Olv" "SFS L-s8.1" )
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( )
++Flags2: ( )
++Respawn priority: 0
++Orders Accepted List: ( )
++Use Table Score:
++Score: 11
+
+$Name: Beta Cresh 1		;! Object #48
+$Class: TIE/In Interceptor Mk.2
+$Team: Hostile
+$Location: 208.876038, 0.000732, 1174.122559
+$Orientation:
+	-1.000000, 0.000000, -0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, -0.000000, -1.000000
+$Cargo 1:  XSTR("Nothing", 1169)
++Subsystem: Pilot
++Primary Banks: ( "T&B KT6#Olv" "SFS L-s8.1" )
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( )
++Flags2: ( )
++Respawn priority: 0
++Orders Accepted List: ( )
++Use Table Score:
++Score: 11
+
+$Name: Beta Cresh 2		;! Object #49
+$Class: TIE/In Interceptor Mk.2
+$Team: Hostile
+$Location: 259.003357, 0.000793, 1193.544067
+$Orientation:
+	-1.000000, 0.000000, -0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, -0.000000, -1.000000
+$Cargo 1:  XSTR("Nothing", 1169)
++Subsystem: Pilot
++Primary Banks: ( "T&B KT6#Olv" "SFS L-s8.1" )
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( )
++Flags2: ( )
++Respawn priority: 0
++Orders Accepted List: ( )
++Use Table Score:
++Score: 11
+
+$Name: Beta Cresh 3		;! Object #50
+$Class: TIE/In Interceptor Mk.2
+$Team: Hostile
+$Location: 235.458984, 0.000732, 1142.905762
+$Orientation:
+	-1.000000, 0.000000, -0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, -0.000000, -1.000000
+$Cargo 1:  XSTR("Nothing", 1169)
++Subsystem: Pilot
++Primary Banks: ( "T&B KT6#Olv" "SFS L-s8.1" )
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( )
++Flags2: ( )
++Respawn priority: 0
++Orders Accepted List: ( )
++Use Table Score:
++Score: 11
+
+$Name: Beta Cresh 4		;! Object #51
+$Class: TIE/In Interceptor Mk.2
+$Team: Hostile
+$Location: 287.349365, 0.000732, 1156.635742
+$Orientation:
+	-1.000000, 0.000000, -0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, -0.000000, -1.000000
+$Cargo 1:  XSTR("Nothing", 1169)
++Subsystem: Pilot
++Primary Banks: ( "T&B KT6#Olv" "SFS L-s8.1" )
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( )
++Flags2: ( )
++Respawn priority: 0
++Orders Accepted List: ( )
++Use Table Score:
++Score: 11
+
+$Name: Green Aurek 1		;! Object #52
+$Class: RZ-1 A-wing#Green
+$Team: Friendly
+$Location: 520.358521, -0.000164, -1977.692261
+$Orientation:
+	1.000000, 0.000000, -0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, -0.000000, 1.000000
+$Cargo 1:  XSTR("Nothing", 1169)
++Subsystem: Pilot
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( "cargo-known" )
++Flags2: ( )
++Respawn priority: 0
++Orders Accepted List: ( )
++Use Table Score:
++Score: 12
+
+$Name: Green Aurek 2		;! Object #53
+$Class: RZ-1 A-wing#Green
+$Team: Friendly
+$Location: 530.860352, -0.000164, -2018.059082
+$Orientation:
+	1.000000, 0.000000, -0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, -0.000000, 1.000000
+$Cargo 1:  XSTR("Nothing", 1169)
++Subsystem: Pilot
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( "cargo-known" )
++Flags2: ( )
++Respawn priority: 0
++Orders Accepted List: ( )
++Use Table Score:
++Score: 12
+
+$Name: Green Besh 1		;! Object #54
+$Class: RZ-1 A-wing#Green
+$Team: Friendly
+$Location: 474.005493, -0.000164, -2090.414307
+$Orientation:
+	1.000000, 0.000000, -0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, -0.000000, 1.000000
+$Cargo 1:  XSTR("Nothing", 1169)
++Subsystem: Pilot
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( "cargo-known" )
++Flags2: ( )
++Respawn priority: 0
++Orders Accepted List: ( )
++Use Table Score:
++Score: 12
+
+$Name: Green Besh 2		;! Object #55
+$Class: RZ-1 A-wing#Green
+$Team: Friendly
+$Location: 439.660156, -0.000164, -2084.714600
+$Orientation:
+	1.000000, 0.000000, -0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, -0.000000, 1.000000
+$Cargo 1:  XSTR("Nothing", 1169)
++Subsystem: Pilot
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( "cargo-known" )
++Flags2: ( )
++Respawn priority: 0
++Orders Accepted List: ( )
++Use Table Score:
++Score: 12
+
+$Name: Green Besh 3		;! Object #56
+$Class: RZ-1 A-wing#Green
+$Team: Friendly
+$Location: 445.612549, -0.000164, -2119.944092
+$Orientation:
+	1.000000, 0.000000, -0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, -0.000000, 1.000000
+$Cargo 1:  XSTR("Nothing", 1169)
++Subsystem: Pilot
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( "cargo-known" )
++Flags2: ( )
++Respawn priority: 0
++Orders Accepted List: ( )
++Use Table Score:
++Score: 12
+
+$Name: Green Cresh 1		;! Object #57
+$Class: RZ-1 A-wing#Green
+$Team: Friendly
+$Location: 440.231323, -0.000164, -1956.038574
+$Orientation:
+	1.000000, 0.000000, -0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, -0.000000, 1.000000
+$Cargo 1:  XSTR("Nothing", 1169)
++Subsystem: Pilot
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( "cargo-known" )
++Flags2: ( )
++Respawn priority: 0
++Orders Accepted List: ( )
++Use Table Score:
++Score: 12
+
+$Name: Green Cresh 2		;! Object #58
+$Class: RZ-1 A-wing#Green
+$Team: Friendly
+$Location: 421.630371, -0.000103, -1978.095825
+$Orientation:
+	1.000000, 0.000000, -0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, -0.000000, 1.000000
+$Cargo 1:  XSTR("Nothing", 1169)
++Subsystem: Pilot
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( "cargo-known" )
++Flags2: ( )
++Respawn priority: 0
++Orders Accepted List: ( )
++Use Table Score:
++Score: 12
+
+$Name: Green Cresh 3		;! Object #59
+$Class: RZ-1 A-wing#Green
+$Team: Friendly
+$Location: 412.544922, -0.000164, -1953.332031
+$Orientation:
+	1.000000, 0.000000, -0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, -0.000000, 1.000000
+$Cargo 1:  XSTR("Nothing", 1169)
++Subsystem: Pilot
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( "cargo-known" )
++Flags2: ( )
++Respawn priority: 0
++Orders Accepted List: ( )
++Use Table Score:
++Score: 12
+
+$Name: Blue Aurek 1		;! Object #60
+$Class: RZ-1 A-wing#Blue
+$Team: Friendly
+$Location: 460.302490, -0.000164, -1757.754272
+$Orientation:
+	1.000000, 0.000000, -0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, -0.000000, 1.000000
+$Cargo 1:  XSTR("Nothing", 1169)
++Subsystem: Pilot
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( "cargo-known" )
++Flags2: ( )
++Respawn priority: 0
++Orders Accepted List: ( )
++Score: 10
+
+$Name: Blue Aurek 2		;! Object #61
+$Class: RZ-1 A-wing#Blue
+$Team: Friendly
+$Location: 428.937866, -0.000164, -1799.001953
+$Orientation:
+	1.000000, 0.000000, -0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, -0.000000, 1.000000
+$Cargo 1:  XSTR("Nothing", 1169)
++Subsystem: Pilot
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( "cargo-known" )
++Flags2: ( )
++Respawn priority: 0
++Orders Accepted List: ( )
++Score: 10
+
+$Name: Blue Aurek 3		;! Object #62
+$Class: RZ-1 A-wing#Blue
+$Team: Friendly
+$Location: 423.764160, -0.000164, -1749.509766
+$Orientation:
+	1.000000, 0.000000, -0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, -0.000000, 1.000000
+$Cargo 1:  XSTR("Nothing", 1169)
++Subsystem: Pilot
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( "cargo-known" )
++Flags2: ( )
++Respawn priority: 0
++Orders Accepted List: ( )
++Score: 10
+
+$Name: Blue Besh 1		;! Object #63
+$Class: RZ-1 A-wing#Blue
+$Team: Friendly
+$Location: 387.510742, -0.000164, -1903.217529
+$Orientation:
+	1.000000, 0.000000, -0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, -0.000000, 1.000000
+$Cargo 1:  XSTR("Nothing", 1169)
++Subsystem: Pilot
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( "cargo-known" )
++Flags2: ( )
++Respawn priority: 0
++Orders Accepted List: ( )
++Score: 10
+
+$Name: Blue Besh 2		;! Object #64
+$Class: RZ-1 A-wing#Blue
+$Team: Friendly
+$Location: 337.447144, -0.000164, -1887.511841
+$Orientation:
+	1.000000, 0.000000, -0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, -0.000000, 1.000000
+$Cargo 1:  XSTR("Nothing", 1169)
++Subsystem: Pilot
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( "cargo-known" )
++Flags2: ( )
++Respawn priority: 0
++Orders Accepted List: ( )
++Score: 10
+
+$Name: Blue Besh 3		;! Object #65
+$Class: RZ-1 A-wing#Blue
+$Team: Friendly
+$Location: 347.468994, -0.000164, -1953.365723
+$Orientation:
+	1.000000, 0.000000, -0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, -0.000000, 1.000000
+$Cargo 1:  XSTR("Nothing", 1169)
++Subsystem: Pilot
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( "cargo-known" )
++Flags2: ( )
++Respawn priority: 0
++Orders Accepted List: ( )
++Score: 10
+
+$Name: Blue Cresh 1		;! Object #66
+$Class: RZ-1 A-wing#Blue
+$Team: Friendly
+$Location: 364.655518, -0.000164, -1693.859375
+$Orientation:
+	1.000000, 0.000000, -0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, -0.000000, 1.000000
+$Cargo 1:  XSTR("Nothing", 1169)
++Subsystem: Pilot
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( "cargo-known" )
++Flags2: ( )
++Respawn priority: 0
++Orders Accepted List: ( )
++Score: 10
+
+$Name: Blue Cresh 2		;! Object #67
+$Class: RZ-1 A-wing#Blue
+$Team: Friendly
+$Location: 316.956177, -0.000103, -1768.708740
+$Orientation:
+	1.000000, 0.000000, -0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, -0.000000, 1.000000
+$Cargo 1:  XSTR("Nothing", 1169)
++Subsystem: Pilot
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( "cargo-known" )
++Flags2: ( )
++Respawn priority: 0
++Orders Accepted List: ( )
++Score: 10
+
+$Name: Blue Cresh 3		;! Object #68
+$Class: RZ-1 A-wing#Blue
+$Team: Friendly
+$Location: 309.424805, -0.000103, -1685.006958
+$Orientation:
+	1.000000, 0.000000, -0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, -0.000000, 1.000000
+$Cargo 1:  XSTR("Nothing", 1169)
++Subsystem: Pilot
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( "cargo-known" )
++Flags2: ( )
++Respawn priority: 0
++Orders Accepted List: ( )
++Score: 10
+
+$Name: Gold Aurek 1		;! Object #69
+$Class: BTL-A4 Y-wing#Gold
+$Team: Friendly
+$Location: 646.214722, 0.000123, -1422.838013
+$Orientation:
+	1.000000, 0.000000, -0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, -0.000000, 1.000000
+$Cargo 1:  XSTR("Nothing", 1169)
++Initial Velocity: 33
++Subsystem: Pilot
++Subsystem: BombTurret
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( )
++Flags2: ( )
++Respawn priority: 0
++Orders Accepted List: ( )
++Use Table Score:
++Score: 10
+
+$Name: Gold Aurek 2		;! Object #70
+$Class: BTL-A4 Y-wing#Gold
+$Team: Friendly
+$Location: 610.030884, 0.000123, -1475.271606
+$Orientation:
+	1.000000, 0.000000, -0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, -0.000000, 1.000000
+$Cargo 1:  XSTR("Nothing", 1169)
++Initial Velocity: 33
++Subsystem: Pilot
++Subsystem: BombTurret
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( )
++Flags2: ( )
++Respawn priority: 0
++Orders Accepted List: ( )
++Use Table Score:
++Score: 10
+
+$Name: Gold Aurek 3		;! Object #71
+$Class: BTL-A4 Y-wing#Gold
+$Team: Friendly
+$Location: 590.665771, 0.000123, -1403.376465
+$Orientation:
+	1.000000, 0.000000, -0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, -0.000000, 1.000000
+$Cargo 1:  XSTR("Nothing", 1169)
++Initial Velocity: 33
++Subsystem: Pilot
++Subsystem: BombTurret
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( )
++Flags2: ( )
++Respawn priority: 0
++Orders Accepted List: ( )
++Use Table Score:
++Score: 10
+
+$Name: Gold Besh 1		;! Object #72
+$Class: BTL-A4 Y-wing#Gold
+$Team: Friendly
+$Location: 627.138550, 0.000184, -1556.946533
+$Orientation:
+	1.000000, 0.000000, -0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, -0.000000, 1.000000
+$Cargo 1:  XSTR("Nothing", 1169)
++Initial Velocity: 33
++Subsystem: Pilot
++Secondary Banks: ( "Dymek HM-8#Pnk" "ArmaTek VL-61/79#Pnk" )
++Subsystem: BombTurret
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( )
++Flags2: ( )
++Respawn priority: 0
++Orders Accepted List: ( )
++Use Table Score:
++Score: 10
+
+$Name: Gold Besh 2		;! Object #73
+$Class: BTL-A4 Y-wing#Gold
+$Team: Friendly
+$Location: 601.313110, 0.000184, -1599.579712
+$Orientation:
+	1.000000, 0.000000, -0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, -0.000000, 1.000000
+$Cargo 1:  XSTR("Nothing", 1169)
++Initial Velocity: 33
++Subsystem: Pilot
++Secondary Banks: ( "Dymek HM-8#Pnk" "ArmaTek VL-61/79#Pnk" )
++Subsystem: BombTurret
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( )
++Flags2: ( )
++Respawn priority: 0
++Orders Accepted List: ( )
++Use Table Score:
++Score: 10
+
+$Name: Gold Besh 3		;! Object #74
+$Class: BTL-A4 Y-wing#Gold
+$Team: Friendly
+$Location: 581.762817, 0.000184, -1548.244629
+$Orientation:
+	1.000000, 0.000000, -0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, -0.000000, 1.000000
+$Cargo 1:  XSTR("Nothing", 1169)
++Initial Velocity: 33
++Subsystem: Pilot
++Secondary Banks: ( "Dymek HM-8#Pnk" "ArmaTek VL-61/79#Pnk" )
++Subsystem: BombTurret
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( )
++Flags2: ( )
++Respawn priority: 0
++Orders Accepted List: ( )
++Use Table Score:
++Score: 10
+
+$Name: Gold Cresh 1		;! Object #75
+$Class: BTL-A4 Y-wing#Gold
+$Team: Friendly
+$Location: 499.052490, 0.000123, -1360.145508
+$Orientation:
+	1.000000, 0.000000, -0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, -0.000000, 1.000000
+$Cargo 1:  XSTR("Nothing", 1169)
++Initial Velocity: 33
++Subsystem: Pilot
++Secondary Banks: ( "Dymek HM-8#Pnk" "ArmaTek VL-61/79#Pnk" )
++Subsystem: BombTurret
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( )
++Flags2: ( )
++Respawn priority: 0
++Orders Accepted List: ( )
++Use Table Score:
++Score: 10
+
+$Name: Gold Cresh 2		;! Object #76
+$Class: BTL-A4 Y-wing#Gold
+$Team: Friendly
+$Location: 473.204956, 0.000123, -1400.562500
+$Orientation:
+	1.000000, 0.000000, -0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, -0.000000, 1.000000
+$Cargo 1:  XSTR("Nothing", 1169)
++Initial Velocity: 33
++Subsystem: Pilot
++Secondary Banks: ( "Dymek HM-8#Pnk" "ArmaTek VL-61/79#Pnk" )
++Subsystem: BombTurret
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( )
++Flags2: ( )
++Respawn priority: 0
++Orders Accepted List: ( )
++Use Table Score:
++Score: 10
+
+$Name: Gold Cresh 3		;! Object #77
+$Class: BTL-A4 Y-wing#Gold
+$Team: Friendly
+$Location: 458.041748, 0.000123, -1338.528320
+$Orientation:
+	1.000000, 0.000000, -0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, -0.000000, 1.000000
+$Cargo 1:  XSTR("Nothing", 1169)
++Initial Velocity: 33
++Subsystem: Pilot
++Secondary Banks: ( "Dymek HM-8#Pnk" "ArmaTek VL-61/79#Pnk" )
++Subsystem: BombTurret
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( )
++Flags2: ( )
++Respawn priority: 0
++Orders Accepted List: ( )
++Use Table Score:
++Score: 10
+
+$Name: Green Aurek 3		;! Object #78
+$Class: RZ-1 A-wing#Green
+$Team: Friendly
+$Location: 557.809326, -0.000042, -1987.119507
+$Orientation:
+	1.000000, 0.000000, -0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, -0.000000, 1.000000
+$Cargo 1:  XSTR("Nothing", 1169)
++Subsystem: Pilot
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( "cargo-known" )
++Flags2: ( )
++Respawn priority: 0
++Orders Accepted List: ( )
++Use Table Score:
++Score: 12
+
+$Name: Red Aurek 1		;! Object #79
+$Class: T-65c X-wing#Red
+$Team: Friendly
+$Location: 408.041992, -42.466187, -2078.314453
+$Orientation:
+	1.000000, 0.000000, -0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, -0.000000, 1.000000
+$Cargo 1:  XSTR("Nothing", 1169)
++Subsystem: Pilot
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( "cargo-known" )
++Flags2: ( )
++Respawn priority: 0
++Use Table Score:
++Score: 10
+
+$Name: Red Aurek 2		;! Object #80
+$Class: T-65c X-wing#Red
+$Team: Friendly
+$Location: 378.994873, -42.953003, -2067.142090
+$Orientation:
+	1.000000, 0.000000, -0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, -0.000000, 1.000000
+$Cargo 1:  XSTR("Nothing", 1169)
++Subsystem: Pilot
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( "cargo-known" )
++Flags2: ( )
++Respawn priority: 0
++Use Table Score:
++Score: 10
+
+$Name: Red Besh 1		;! Object #81
+$Class: T-65c X-wing#Red
+$Team: Friendly
+$Location: 630.573853, -0.002666, -1878.615723
+$Orientation:
+	1.000000, 0.000000, -0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, -0.000000, 1.000000
+$Cargo 1:  XSTR("Nothing", 1169)
++Subsystem: Pilot
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( "cargo-known" )
++Flags2: ( )
++Respawn priority: 0
++Use Table Score:
++Score: 10
+
+$Name: Red Besh 2		;! Object #82
+$Class: T-65c X-wing#Red
+$Team: Friendly
+$Location: 603.385010, -0.002727, -1916.373047
+$Orientation:
+	1.000000, 0.000000, -0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, -0.000000, 1.000000
+$Cargo 1:  XSTR("Nothing", 1169)
++Subsystem: Pilot
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( "cargo-known" )
++Flags2: ( )
++Respawn priority: 0
++Use Table Score:
++Score: 10
+
+$Name: Red Besh 3		;! Object #83
+$Class: T-65c X-wing#Red
+$Team: Friendly
+$Location: 589.213257, -0.002727, -1871.773193
+$Orientation:
+	1.000000, 0.000000, -0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, -0.000000, 1.000000
+$Cargo 1:  XSTR("Nothing", 1169)
++Subsystem: Pilot
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( "cargo-known" )
++Flags2: ( )
++Respawn priority: 0
++Use Table Score:
++Score: 10
+
+$Name: Red Cresh 1		;! Object #84
+$Class: T-65c X-wing#Red
+$Team: Friendly
+$Location: 597.367798, -0.002666, -1715.330811
+$Orientation:
+	1.000000, 0.000000, -0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, -0.000000, 1.000000
+$Cargo 1:  XSTR("Nothing", 1169)
++Subsystem: Pilot
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( "cargo-known" )
++Flags2: ( )
++Respawn priority: 0
++Use Table Score:
++Score: 10
+
+$Name: Red Cresh 2		;! Object #85
+$Class: T-65c X-wing#Red
+$Team: Friendly
+$Location: 570.274292, -0.002727, -1757.627319
+$Orientation:
+	1.000000, 0.000000, -0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, -0.000000, 1.000000
+$Cargo 1:  XSTR("Nothing", 1169)
++Subsystem: Pilot
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( "cargo-known" )
++Flags2: ( )
++Respawn priority: 0
++Use Table Score:
++Score: 10
+
+$Name: Red Cresh 3		;! Object #86
+$Class: T-65c X-wing#Red
+$Team: Friendly
+$Location: 547.869019, -0.002727, -1698.556885
+$Orientation:
+	1.000000, 0.000000, -0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, -0.000000, 1.000000
+$Cargo 1:  XSTR("Nothing", 1169)
++Subsystem: Pilot
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( "cargo-known" )
++Flags2: ( )
++Respawn priority: 0
++Use Table Score:
++Score: 10
+
+$Name: Xi Cresh 5		;! Object #87
+$Class: TIE/ln Fighter
+$Team: Hostile
+$Location: 621.409668, -0.000306, 1654.766357
+$Orientation:
+	-1.000000, 0.000000, -0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, -0.000000, -1.000000
+$Cargo 1:  XSTR("Nothing", 1169)
++Subsystem: Pilot
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( )
++Flags2: ( )
++Respawn priority: 0
++Score: 11
+
+$Name: Xi Cresh 6		;! Object #88
+$Class: TIE/ln Fighter
+$Team: Hostile
+$Location: 625.842163, -0.000184, 1629.205933
+$Orientation:
+	-1.000000, 0.000000, -0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, -0.000000, -1.000000
+$Cargo 1:  XSTR("Nothing", 1169)
++Subsystem: Pilot
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( )
++Flags2: ( )
++Respawn priority: 0
++Score: 11
+
+$Name: Xi Aurek 5		;! Object #89
+$Class: TIE/ln Fighter
+$Team: Hostile
+$Location: 680.500061, -0.000245, 1516.491577
+$Orientation:
+	-1.000000, 0.000000, -0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, -0.000000, -1.000000
+$Cargo 1:  XSTR("Nothing", 1169)
++Subsystem: Pilot
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( )
++Flags2: ( )
++Respawn priority: 0
++Score: 11
+
+$Name: Xi Aurek 6		;! Object #90
+$Class: TIE/ln Fighter
+$Team: Hostile
+$Location: 709.393616, -0.000184, 1496.197144
+$Orientation:
+	-1.000000, 0.000000, -0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, -0.000000, -1.000000
+$Cargo 1:  XSTR("Nothing", 1169)
++Subsystem: Pilot
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( )
++Flags2: ( )
++Respawn priority: 0
++Score: 11
+
+$Name: Xi Besh 5		;! Object #91
+$Class: TIE/ln Fighter
+$Team: Hostile
+$Location: 563.960754, -0.000184, 1440.738159
+$Orientation:
+	-1.000000, 0.000000, -0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, -0.000000, -1.000000
+$Cargo 1:  XSTR("Nothing", 1169)
++Subsystem: Pilot
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( )
++Flags2: ( )
++Respawn priority: 0
++Score: 11
+
+$Name: Xi Besh 6		;! Object #92
+$Class: TIE/ln Fighter
+$Team: Hostile
+$Location: 566.332214, -0.000245, 1415.803345
+$Orientation:
+	-1.000000, 0.000000, -0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, -0.000000, -1.000000
+$Cargo 1:  XSTR("Nothing", 1169)
++Subsystem: Pilot
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( )
++Flags2: ( )
++Respawn priority: 0
++Score: 11
+
+$Name: Beta Aurek 5		;! Object #93
+$Class: TIE/In Interceptor Mk.2
+$Team: Hostile
+$Location: 347.635132, -0.000245, 1332.205811
+$Orientation:
+	-1.000000, 0.000000, -0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, -0.000000, -1.000000
+$Cargo 1:  XSTR("Nothing", 1169)
++Subsystem: Pilot
++Primary Banks: ( "T&B KT6#Olv" "SFS L-s8.1" )
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( )
++Flags2: ( )
++Respawn priority: 0
++Orders Accepted List: ( )
++Use Table Score:
++Score: 11
+
+$Name: Beta Aurek 6		;! Object #94
+$Class: TIE/In Interceptor Mk.2
+$Team: Hostile
+$Location: 388.436523, -0.000306, 1380.392944
+$Orientation:
+	-1.000000, 0.000000, -0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, -0.000000, -1.000000
+$Cargo 1:  XSTR("Nothing", 1169)
++Subsystem: Pilot
++Primary Banks: ( "T&B KT6#Olv" "SFS L-s8.1" )
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( )
++Flags2: ( )
++Respawn priority: 0
++Orders Accepted List: ( )
++Use Table Score:
++Score: 11
+
+$Name: Beta Besh 5		;! Object #95
+$Class: TIE/In Interceptor Mk.2
+$Team: Hostile
+$Location: 287.973633, -0.000245, 1283.972656
+$Orientation:
+	-1.000000, 0.000000, -0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, -0.000000, -1.000000
+$Cargo 1:  XSTR("Nothing", 1169)
++Subsystem: Pilot
++Primary Banks: ( "T&B KT6#Olv" "SFS L-s8.1" )
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( )
++Flags2: ( )
++Respawn priority: 0
++Orders Accepted List: ( )
++Use Table Score:
++Score: 11
+
+$Name: Beta Besh 6		;! Object #96
+$Class: TIE/In Interceptor Mk.2
+$Team: Hostile
+$Location: 262.476440, -0.000245, 1252.687500
+$Orientation:
+	-1.000000, 0.000000, -0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, -0.000000, -1.000000
+$Cargo 1:  XSTR("Nothing", 1169)
++Subsystem: Pilot
++Primary Banks: ( "T&B KT6#Olv" "SFS L-s8.1" )
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( )
++Flags2: ( )
++Respawn priority: 0
++Orders Accepted List: ( )
++Use Table Score:
++Score: 11
+
+$Name: Beta Cresh 5		;! Object #97
+$Class: TIE/In Interceptor Mk.2
+$Team: Hostile
+$Location: 287.070801, -0.000245, 1184.508545
+$Orientation:
+	-1.000000, 0.000000, -0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, -0.000000, -1.000000
+$Cargo 1:  XSTR("Nothing", 1169)
++Subsystem: Pilot
++Primary Banks: ( "T&B KT6#Olv" "SFS L-s8.1" )
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( )
++Flags2: ( )
++Respawn priority: 0
++Orders Accepted List: ( )
++Use Table Score:
++Score: 11
+
+$Name: Beta Cresh 6		;! Object #98
+$Class: TIE/In Interceptor Mk.2
+$Team: Hostile
+$Location: 274.957092, -0.000306, 1139.838379
+$Orientation:
+	-1.000000, 0.000000, -0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, -0.000000, -1.000000
+$Cargo 1:  XSTR("Nothing", 1169)
++Subsystem: Pilot
++Primary Banks: ( "T&B KT6#Olv" "SFS L-s8.1" )
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( )
++Flags2: ( )
++Respawn priority: 0
++Orders Accepted List: ( )
++Use Table Score:
++Score: 11
+
+$Name: Gamma Aurek 5		;! Object #99
+$Class: TIE/In Interceptor
+$Team: Hostile
+$Location: 574.433533, -0.000245, 1290.698975
+$Orientation:
+	-1.000000, 0.000000, -0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, -0.000000, -1.000000
+$Cargo 1:  XSTR("Nothing", 1169)
++Subsystem: Pilot
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( )
++Flags2: ( )
++Respawn priority: 0
++Orders Accepted List: ( )
++Score: 8
+
+$Name: Gamma Aurek 6		;! Object #100
+$Class: TIE/In Interceptor
+$Team: Hostile
+$Location: 569.813232, -0.000245, 1252.390381
+$Orientation:
+	-1.000000, 0.000000, -0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, -0.000000, -1.000000
+$Cargo 1:  XSTR("Nothing", 1169)
++Subsystem: Pilot
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( )
++Flags2: ( )
++Respawn priority: 0
++Orders Accepted List: ( )
++Score: 8
+
+$Name: Gamma Besh 5		;! Object #101
+$Class: TIE/In Interceptor
+$Team: Hostile
+$Location: 576.562561, -0.000306, 1167.738892
+$Orientation:
+	-1.000000, 0.000000, -0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, -0.000000, -1.000000
+$Cargo 1:  XSTR("Nothing", 1169)
++Subsystem: Pilot
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( )
++Flags2: ( )
++Respawn priority: 0
++Orders Accepted List: ( )
++Score: 8
+
+$Name: Gamma Besh 6		;! Object #102
+$Class: TIE/In Interceptor
+$Team: Hostile
+$Location: 556.413940, -0.000184, 1115.117065
+$Orientation:
+	-1.000000, 0.000000, -0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, -0.000000, -1.000000
+$Cargo 1:  XSTR("Nothing", 1169)
++Subsystem: Pilot
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( )
++Flags2: ( )
++Respawn priority: 0
++Orders Accepted List: ( )
++Score: 8
+
+$Name: Gamma Cresh 5		;! Object #103
+$Class: TIE/In Interceptor
+$Team: Hostile
+$Location: 471.589111, -0.000245, 1103.339966
+$Orientation:
+	-1.000000, 0.000000, -0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, -0.000000, -1.000000
+$Cargo 1:  XSTR("Nothing", 1169)
++Subsystem: Pilot
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( )
++Flags2: ( )
++Respawn priority: 0
++Orders Accepted List: ( )
++Score: 8
+
+$Name: Gamma Cresh 6		;! Object #104
+$Class: TIE/In Interceptor
+$Team: Hostile
+$Location: 445.068787, -0.000245, 1060.905273
+$Orientation:
+	-1.000000, 0.000000, -0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, -0.000000, -1.000000
+$Cargo 1:  XSTR("Nothing", 1169)
++Subsystem: Pilot
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( )
++Flags2: ( )
++Respawn priority: 0
++Orders Accepted List: ( )
++Score: 8
+
+$Name: Gold Cresh 4		;! Object #105
+$Class: BTL-A4 Y-wing#Gold
+$Team: Friendly
+$Location: 412.727539, -0.000061, -1356.169067
+$Orientation:
+	1.000000, 0.000000, -0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, -0.000000, 1.000000
+$Cargo 1:  XSTR("Nothing", 1169)
++Initial Velocity: 33
++Subsystem: Pilot
++Secondary Banks: ( "Dymek HM-8#Pnk" "ArmaTek VL-61/79#Pnk" )
++Subsystem: BombTurret
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( )
++Flags2: ( )
++Respawn priority: 0
++Orders Accepted List: ( )
++Use Table Score:
++Score: 10
+
+$Name: Gold Cresh 5		;! Object #106
+$Class: BTL-A4 Y-wing#Gold
+$Team: Friendly
+$Location: 435.282104, -0.000000, -1413.509033
+$Orientation:
+	1.000000, 0.000000, -0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, -0.000000, 1.000000
+$Cargo 1:  XSTR("Nothing", 1169)
++Initial Velocity: 33
++Subsystem: Pilot
++Secondary Banks: ( "Dymek HM-8#Pnk" "ArmaTek VL-61/79#Pnk" )
++Subsystem: BombTurret
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( )
++Flags2: ( )
++Respawn priority: 0
++Orders Accepted List: ( )
++Use Table Score:
++Score: 10
+
+$Name: Gold Cresh 6		;! Object #107
+$Class: BTL-A4 Y-wing#Gold
+$Team: Friendly
+$Location: 395.890137, -0.000000, -1396.789429
+$Orientation:
+	1.000000, 0.000000, -0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, -0.000000, 1.000000
+$Cargo 1:  XSTR("Nothing", 1169)
++Initial Velocity: 33
++Subsystem: Pilot
++Secondary Banks: ( "Dymek HM-8#Pnk" "ArmaTek VL-61/79#Pnk" )
++Subsystem: BombTurret
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( )
++Flags2: ( )
++Respawn priority: 0
++Orders Accepted List: ( )
++Use Table Score:
++Score: 10
+
+$Name: Gold Aurek 4		;! Object #108
+$Class: BTL-A4 Y-wing#Gold
+$Team: Friendly
+$Location: 546.330444, -0.000000, -1423.597412
+$Orientation:
+	1.000000, 0.000000, -0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, -0.000000, 1.000000
+$Cargo 1:  XSTR("Nothing", 1169)
++Initial Velocity: 33
++Subsystem: Pilot
++Subsystem: BombTurret
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( )
++Flags2: ( )
++Respawn priority: 0
++Orders Accepted List: ( )
++Use Table Score:
++Score: 10
+
+$Name: Gold Aurek 5		;! Object #109
+$Class: BTL-A4 Y-wing#Gold
+$Team: Friendly
+$Location: 571.264526, -0.000000, -1488.963379
+$Orientation:
+	1.000000, 0.000000, -0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, -0.000000, 1.000000
+$Cargo 1:  XSTR("Nothing", 1169)
++Initial Velocity: 33
++Subsystem: Pilot
++Subsystem: BombTurret
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( )
++Flags2: ( )
++Respawn priority: 0
++Orders Accepted List: ( )
++Use Table Score:
++Score: 10
+
+$Name: Gold Aurek 6		;! Object #110
+$Class: BTL-A4 Y-wing#Gold
+$Team: Friendly
+$Location: 520.394287, -0.000000, -1468.175293
+$Orientation:
+	1.000000, 0.000000, -0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, -0.000000, 1.000000
+$Cargo 1:  XSTR("Nothing", 1169)
++Initial Velocity: 33
++Subsystem: Pilot
++Subsystem: BombTurret
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( )
++Flags2: ( )
++Respawn priority: 0
++Orders Accepted List: ( )
++Use Table Score:
++Score: 10
+
+$Name: Gold Besh 4		;! Object #111
+$Class: BTL-A4 Y-wing#Gold
+$Team: Friendly
+$Location: 548.235718, 0.000031, -1561.041382
+$Orientation:
+	1.000000, 0.000000, -0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, -0.000000, 1.000000
+$Cargo 1:  XSTR("Nothing", 1169)
++Initial Velocity: 33
++Subsystem: Pilot
++Secondary Banks: ( "Dymek HM-8#Pnk" "ArmaTek VL-61/79#Pnk" )
++Subsystem: BombTurret
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( )
++Flags2: ( )
++Respawn priority: 0
++Orders Accepted List: ( )
++Use Table Score:
++Score: 10
+
+$Name: Gold Besh 5		;! Object #112
+$Class: BTL-A4 Y-wing#Gold
+$Team: Friendly
+$Location: 528.200684, 0.000031, -1595.662842
+$Orientation:
+	1.000000, 0.000000, -0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, -0.000000, 1.000000
+$Cargo 1:  XSTR("Nothing", 1169)
++Initial Velocity: 33
++Subsystem: Pilot
++Secondary Banks: ( "Dymek HM-8#Pnk" "ArmaTek VL-61/79#Pnk" )
++Subsystem: BombTurret
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( )
++Flags2: ( )
++Respawn priority: 0
++Orders Accepted List: ( )
++Use Table Score:
++Score: 10
+
+$Name: Gold Besh 6		;! Object #113
+$Class: BTL-A4 Y-wing#Gold
+$Team: Friendly
+$Location: 564.973022, -0.000000, -1609.818481
+$Orientation:
+	1.000000, 0.000000, -0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, -0.000000, 1.000000
+$Cargo 1:  XSTR("Nothing", 1169)
++Initial Velocity: 33
++Subsystem: Pilot
++Secondary Banks: ( "Dymek HM-8#Pnk" "ArmaTek VL-61/79#Pnk" )
++Subsystem: BombTurret
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( )
++Flags2: ( )
++Respawn priority: 0
++Orders Accepted List: ( )
++Use Table Score:
++Score: 10
+
+$Name: Delta Cresh 4		;! Object #114
+$Class: TIE/sa Bomber
+$Team: Hostile
+$Location: 188.286285, -0.000367, 698.240112
+$Orientation:
+	-1.000000, 0.000000, -0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, -0.000000, -1.000000
+$Cargo 1:  XSTR("Nothing", 1169)
++Initial Velocity: 33
++Subsystem: Pilot
++Secondary Banks: ( "Krupx VL-4a#Blu" "ArmaTek VL-61/79#Cyn" )
++Subsystem: BombTurret
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( )
++Flags2: ( )
++Respawn priority: 0
++Orders Accepted List: ( )
++Use Table Score:
++Score: 9
+
+$Name: Delta Cresh 5		;! Object #115
+$Class: TIE/sa Bomber
+$Team: Hostile
+$Location: 212.047729, -0.000367, 766.841431
+$Orientation:
+	-1.000000, 0.000000, -0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, -0.000000, -1.000000
+$Cargo 1:  XSTR("Nothing", 1169)
++Initial Velocity: 33
++Subsystem: Pilot
++Secondary Banks: ( "Krupx VL-4a#Blu" "ArmaTek VL-61/79#Cyn" )
++Subsystem: BombTurret
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( )
++Flags2: ( )
++Respawn priority: 0
++Orders Accepted List: ( )
++Use Table Score:
++Score: 9
+
+$Name: Delta Cresh 6		;! Object #116
+$Class: TIE/sa Bomber
+$Team: Hostile
+$Location: 168.963989, -0.000367, 749.415161
+$Orientation:
+	-1.000000, 0.000000, -0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, -0.000000, -1.000000
+$Cargo 1:  XSTR("Nothing", 1169)
++Initial Velocity: 33
++Subsystem: Pilot
++Secondary Banks: ( "Krupx VL-4a#Blu" "ArmaTek VL-61/79#Cyn" )
++Subsystem: BombTurret
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( )
++Flags2: ( )
++Respawn priority: 0
++Orders Accepted List: ( )
++Use Table Score:
++Score: 9
+
+$Name: Delta Besh 4		;! Object #117
+$Class: TIE/sa Bomber
+$Team: Hostile
+$Location: 243.802856, -0.000367, 842.437988
+$Orientation:
+	-1.000000, 0.000000, -0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, -0.000000, -1.000000
+$Cargo 1:  XSTR("Nothing", 1169)
++Initial Velocity: 33
++Subsystem: Pilot
++Subsystem: BombTurret
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( )
++Flags2: ( )
++Respawn priority: 0
++Orders Accepted List: ( )
++Use Table Score:
++Score: 9
+
+$Name: Delta Besh 5		;! Object #118
+$Class: TIE/sa Bomber
+$Team: Hostile
+$Location: 221.084351, -0.000367, 892.082397
+$Orientation:
+	-1.000000, 0.000000, -0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, -0.000000, -1.000000
+$Cargo 1:  XSTR("Nothing", 1169)
++Initial Velocity: 33
++Subsystem: Pilot
++Subsystem: BombTurret
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( )
++Flags2: ( )
++Respawn priority: 0
++Orders Accepted List: ( )
++Use Table Score:
++Score: 9
+
+$Name: Delta Besh 6		;! Object #119
+$Class: TIE/sa Bomber
+$Team: Hostile
+$Location: 284.757446, -0.000367, 909.360718
+$Orientation:
+	-1.000000, 0.000000, -0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, -0.000000, -1.000000
+$Cargo 1:  XSTR("Nothing", 1169)
++Initial Velocity: 33
++Subsystem: Pilot
++Subsystem: BombTurret
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( )
++Flags2: ( )
++Respawn priority: 0
++Orders Accepted List: ( )
++Use Table Score:
++Score: 9
+
+$Name: Delta Aurek 4		;! Object #120
+$Class: TIE/sa Bomber
+$Team: Hostile
+$Location: 332.574341, -0.000367, 975.733398
+$Orientation:
+	-1.000000, 0.000000, -0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, -0.000000, -1.000000
+$Cargo 1:  XSTR("Nothing", 1169)
++Initial Velocity: 33
++Subsystem: Pilot
++Secondary Banks: ( "Merr-Sonn NG2#Wht" "ArmaTek VL-61/79#Cyn" )
++Subsystem: BombTurret
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( )
++Flags2: ( )
++Respawn priority: 0
++Orders Accepted List: ( )
++Use Table Score:
++Score: 9
+
+$Name: Delta Aurek 5		;! Object #121
+$Class: TIE/sa Bomber
+$Team: Hostile
+$Location: 313.945923, -0.000367, 1010.707520
+$Orientation:
+	-1.000000, 0.000000, -0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, -0.000000, -1.000000
+$Cargo 1:  XSTR("Nothing", 1169)
++Initial Velocity: 33
++Subsystem: Pilot
++Secondary Banks: ( "Merr-Sonn NG2#Wht" "ArmaTek VL-61/79#Cyn" )
++Subsystem: BombTurret
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( )
++Flags2: ( )
++Respawn priority: 0
++Orders Accepted List: ( )
++Use Table Score:
++Score: 9
+
+$Name: Delta Aurek 6		;! Object #122
+$Class: TIE/sa Bomber
+$Team: Hostile
+$Location: 354.181030, -0.000367, 1020.387329
+$Orientation:
+	-1.000000, 0.000000, -0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, -0.000000, -1.000000
+$Cargo 1:  XSTR("Nothing", 1169)
++Initial Velocity: 33
++Subsystem: Pilot
++Secondary Banks: ( "Merr-Sonn NG2#Wht" "ArmaTek VL-61/79#Cyn" )
++Subsystem: BombTurret
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( )
++Flags2: ( )
++Respawn priority: 0
++Orders Accepted List: ( )
++Use Table Score:
++Score: 9
+
+$Name: Rebel Boarding Craft 1		;! Object #123
+$Class: UT-60D U-wing#Red
+$Team: Friendly
+$Location: 654.216797, -0.000042, -2130.201416
+$Orientation:
+	1.000000, 0.000000, -0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, -0.000000, 1.000000
+$Cargo 1:  XSTR("Nothing", 1169)
++Initial Velocity: 33
++Subsystem: Pilot
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( "cargo-known" )
++Flags2: ( )
++Respawn priority: 0
++Orders Accepted List: ( "attack ship" )
++Use Table Score:
++Score: 10
+
+$Name: Imperial Boarding Craft 1		;! Object #124
+$Class: DX-9 Stormtrooper Transport
+$Team: Hostile
+$Location: 638.537903, -0.000245, 1817.292114
+$Orientation:
+	-1.000000, 0.000000, -0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, -0.000000, -1.000000
+$Cargo 1:  XSTR("Nothing", 1169)
++Initial Velocity: 33
++Subsystem: Pilot
++Subsystem: blaster-turret-01
++Primary Banks: ( "Borstel NK-3" )
++Subsystem: blaster-turret-02
++Primary Banks: ( "Borstel NK-3" )
++Subsystem: blaster-turret-03
++Primary Banks: ( "Borstel NK-3" )
++Subsystem: blaster-turret-04
++Primary Banks: ( "Borstel NK-3" )
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( )
++Flags2: ( )
++Respawn priority: 0
++Orders Accepted List: ( )
++Use Table Score:
++Score: 18
+
+$Name: Red Aurek 3		;! Object #125
+$Class: T-65c X-wing#Red
+$Team: Friendly
+$Location: 393.428467, -0.000282, -2107.272217
+$Orientation:
+	1.000000, 0.000000, -0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, -0.000000, 1.000000
+$Cargo 1:  XSTR("Nothing", 1169)
++Subsystem: Pilot
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( "cargo-known" )
++Flags2: ( )
++Respawn priority: 0
++Score: 12
+
+$Name: ISD Spawn Interior		;! Object #126
+$Class: Nav Buoy
+$Team: Civilian
+$Location: -24.223816, -46.897007, 1799.957764
+$Orientation:
+	-1.000000, 0.000000, -0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, -0.000000, -1.000000
+$Cargo 1:  XSTR("Nothing", 1169)
++Subsystem: Pilot
+$Arrival Location: Hyperspace
+$Arrival Cue: ( true ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( "invulnerable" "hidden-from-sensors" "stealth" "friendly-stealth-invisible" )
++Flags2: ( "don't-change-position" "don't-change-orientation" "no-ets" "cloaked" "no_collide" )
++Respawn priority: 0
++Use Table Score:
++Score: 0
+
+$Name: MCC Spawn Interior		;! Object #127
+$Class: Nav Buoy
+$Team: Civilian
+$Location: 7.350708, -39.999023, -2049.242188
+$Orientation:
+	1.000000, 0.000000, -0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, -0.000000, 1.000000
+$Cargo 1:  XSTR("Nothing", 1169)
++Subsystem: Pilot
+$Arrival Location: Hyperspace
+$Arrival Cue: ( true ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( "invulnerable" "hidden-from-sensors" "stealth" "friendly-stealth-invisible" )
++Flags2: ( "don't-change-position" "don't-change-orientation" "no-ets" "cloaked" "no_collide" )
++Respawn priority: 0
++Use Table Score:
++Score: 0
+
+$Name: ISD Spawn Exterior		;! Object #128
+$Class: Nav Buoy
+$Team: Civilian
+$Location: 5.776367, -90.000748, 1635.931274
+$Orientation:
+	-1.000000, 0.000000, -0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, -0.000000, -1.000000
+$Cargo 1:  XSTR("Nothing", 1169)
++Subsystem: Pilot
+$Arrival Location: Hyperspace
+$Arrival Cue: ( true ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( "invulnerable" "hidden-from-sensors" "stealth" "friendly-stealth-invisible" )
++Flags2: ( "don't-change-position" "don't-change-orientation" "no-ets" "cloaked" "no_collide" )
++Respawn priority: 0
++Use Table Score:
++Score: 0
+
+$Name: MCC Spawn Exterior		;! Object #129
+$Class: Nav Buoy
+$Team: Civilian
+$Location: -6.241333, -79.999023, -1970.403076
+$Orientation:
+	1.000000, 0.000000, -0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, -0.000000, 1.000000
+$Cargo 1:  XSTR("Nothing", 1169)
++Subsystem: Pilot
+$Arrival Location: Hyperspace
+$Arrival Cue: ( true ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( "invulnerable" "hidden-from-sensors" "stealth" "friendly-stealth-invisible" )
++Flags2: ( "don't-change-position" "don't-change-orientation" "no-ets" "cloaked" "no_collide" )
++Respawn priority: 0
++Use Table Score:
++Score: 0
+
+#Wings		;! 27 total
+
+$Name: Xi Aurek
+$Waves: 1000
+$Wave Threshold: 0
+$Special Ship: 0		;! Xi Aurek 1
+$Arrival Location: Docking Bay
++Arrival Distance: 0
+$Arrival Anchor: Star Destroyer
+$Arrival Cue: ( is-event-true-delay 
+   "Release Superiority 1" 
+   0 
+)
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Ships: (		;! 6 total
+	"Xi Aurek 1"
+	"Xi Aurek 2"
+	"Xi Aurek 3"
+	"Xi Aurek 4"
+	"Xi Aurek 5"
+	"Xi Aurek 6"
+)
+$AI Goals: ( goals ( ai-chase-any 75 ) ( ai-chase-wing "Rebel Boarding Craft" 85 ) )
++Flags: ( "no-arrival-music" "no-arrival-message" "no-first-wave-message" )
++Wave Delay Min: 20
++Wave Delay Max: 30
+
+$Name: Xi Besh
+$Waves: 1000
+$Wave Threshold: 0
+$Special Ship: 0		;! Xi Besh 1
+$Arrival Location: Docking Bay
++Arrival Distance: 0
+$Arrival Anchor: Star Destroyer
+$Arrival Cue: ( is-event-true-delay 
+   "Release Superiority 2" 
+   0 
+)
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Ships: (		;! 6 total
+	"Xi Besh 1"
+	"Xi Besh 2"
+	"Xi Besh 3"
+	"Xi Besh 4"
+	"Xi Besh 5"
+	"Xi Besh 6"
+)
+$AI Goals: ( goals ( ai-chase-any 75 ) ( ai-chase-wing "Rebel Boarding Craft" 85 ) )
++Flags: ( "no-arrival-music" "no-arrival-message" "no-first-wave-message" )
++Wave Delay Min: 20
++Wave Delay Max: 30
+
+$Name: Xi Cresh
+$Waves: 1000
+$Wave Threshold: 0
+$Special Ship: 0		;! Xi Cresh 1
+$Arrival Location: Docking Bay
++Arrival Distance: 0
+$Arrival Anchor: Star Destroyer
+$Arrival Cue: ( is-event-true-delay 
+   "Release Superiority 3" 
+   0 
+)
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Ships: (		;! 6 total
+	"Xi Cresh 1"
+	"Xi Cresh 2"
+	"Xi Cresh 3"
+	"Xi Cresh 4"
+	"Xi Cresh 5"
+	"Xi Cresh 6"
+)
+$AI Goals: ( goals ( ai-chase-any 75 ) ( ai-guard-wing "Imperial Boarding Craft" 85 ) )
++Flags: ( "no-arrival-music" "no-arrival-message" "no-first-wave-message" )
++Wave Delay Min: 20
++Wave Delay Max: 30
+
+$Name: Beta Aurek
+$Waves: 1000
+$Wave Threshold: 0
+$Special Ship: 0		;! Beta Aurek 1
+$Arrival Location: Docking Bay
++Arrival Distance: 0
+$Arrival Anchor: Star Destroyer
+$Arrival Cue: ( is-event-true-delay 
+   "Release Interceptors 1" 
+   0 
+)
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Ships: (		;! 6 total
+	"Beta Aurek 1"
+	"Beta Aurek 2"
+	"Beta Aurek 3"
+	"Beta Aurek 4"
+	"Beta Aurek 5"
+	"Beta Aurek 6"
+)
+$AI Goals: ( goals ( ai-guard "Star Destroyer" 75 ) )
++Flags: ( "no-arrival-music" "no-arrival-message" "no-first-wave-message" )
++Wave Delay Min: 20
++Wave Delay Max: 30
+
+$Name: Beta Besh
+$Waves: 1000
+$Wave Threshold: 0
+$Special Ship: 0		;! Beta Besh 1
+$Arrival Location: Docking Bay
++Arrival Distance: 0
+$Arrival Anchor: Star Destroyer
+$Arrival Cue: ( is-event-true-delay 
+   "Release Interceptors 2" 
+   0 
+)
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Ships: (		;! 6 total
+	"Beta Besh 1"
+	"Beta Besh 2"
+	"Beta Besh 3"
+	"Beta Besh 4"
+	"Beta Besh 5"
+	"Beta Besh 6"
+)
+$AI Goals: ( goals ( ai-guard "Raider Corvette 2" 75 ) ( ai-guard "Star Destroyer" 50 ) )
++Flags: ( "no-arrival-music" "no-arrival-message" "no-first-wave-message" )
++Wave Delay Min: 20
++Wave Delay Max: 30
+
+$Name: Beta Cresh
+$Waves: 1000
+$Wave Threshold: 0
+$Special Ship: 0		;! Beta Cresh 1
+$Arrival Location: Docking Bay
++Arrival Distance: 0
+$Arrival Anchor: Star Destroyer
+$Arrival Cue: ( is-event-true-delay 
+   "Release Interceptors 3" 
+   0 
+)
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Ships: (		;! 6 total
+	"Beta Cresh 1"
+	"Beta Cresh 2"
+	"Beta Cresh 3"
+	"Beta Cresh 4"
+	"Beta Cresh 5"
+	"Beta Cresh 6"
+)
+$AI Goals: ( goals ( ai-guard "Raider Corvette 1" 75 ) ( ai-guard "Star Destroyer" 50 ) )
++Flags: ( "no-arrival-music" "no-arrival-message" "no-first-wave-message" )
++Wave Delay Min: 20
++Wave Delay Max: 30
+
+$Name: Gamma Aurek
+$Waves: 1000
+$Wave Threshold: 0
+$Special Ship: 0		;! Gamma Aurek 1
+$Arrival Location: Docking Bay
++Arrival Distance: 0
+$Arrival Anchor: Star Destroyer
+$Arrival Cue: ( is-event-true-delay 
+   "Release Escorts 1" 
+   0 
+)
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Ships: (		;! 6 total
+	"Gamma Aurek 1"
+	"Gamma Aurek 2"
+	"Gamma Aurek 3"
+	"Gamma Aurek 4"
+	"Gamma Aurek 5"
+	"Gamma Aurek 6"
+)
+$AI Goals: ( goals ( ai-guard-wing "Delta Aurek" 75 ) )
++Flags: ( "no-arrival-music" "no-arrival-message" "no-first-wave-message" )
++Wave Delay Min: 20
++Wave Delay Max: 30
+
+$Name: Gamma Besh
+$Waves: 1000
+$Wave Threshold: 0
+$Special Ship: 0		;! Gamma Besh 1
+$Arrival Location: Docking Bay
++Arrival Distance: 0
+$Arrival Anchor: Star Destroyer
+$Arrival Cue: ( is-event-true-delay 
+   "Release Escorts 2" 
+   0 
+)
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Ships: (		;! 6 total
+	"Gamma Besh 1"
+	"Gamma Besh 2"
+	"Gamma Besh 3"
+	"Gamma Besh 4"
+	"Gamma Besh 5"
+	"Gamma Besh 6"
+)
+$AI Goals: ( goals ( ai-guard-wing "Delta Besh" 75 ) )
++Flags: ( "no-arrival-music" "no-arrival-message" "no-first-wave-message" )
++Wave Delay Min: 20
++Wave Delay Max: 30
+
+$Name: Gamma Cresh
+$Waves: 1000
+$Wave Threshold: 0
+$Special Ship: 0		;! Gamma Cresh 1
+$Arrival Location: Docking Bay
++Arrival Distance: 0
+$Arrival Anchor: Star Destroyer
+$Arrival Cue: ( is-event-true-delay 
+   "Release Escorts 3" 
+   0 
+)
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Ships: (		;! 6 total
+	"Gamma Cresh 1"
+	"Gamma Cresh 2"
+	"Gamma Cresh 3"
+	"Gamma Cresh 4"
+	"Gamma Cresh 5"
+	"Gamma Cresh 6"
+)
+$AI Goals: ( goals ( ai-guard-wing "Delta Cresh" 75 ) )
++Flags: ( "no-arrival-music" "no-arrival-message" "no-first-wave-message" )
++Wave Delay Min: 20
++Wave Delay Max: 30
+
+$Name: Delta Aurek
+$Waves: 1000
+$Wave Threshold: 0
+$Special Ship: 0		;! Delta Aurek 1
+$Arrival Location: Docking Bay
++Arrival Distance: 0
+$Arrival Anchor: Star Destroyer
+$Arrival Cue: ( is-event-true-delay 
+   "Release Bombers 1" 
+   0 
+)
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Ships: (		;! 6 total
+	"Delta Aurek 1"
+	"Delta Aurek 2"
+	"Delta Aurek 3"
+	"Delta Aurek 4"
+	"Delta Aurek 5"
+	"Delta Aurek 6"
+)
+$AI Goals: ( goals ( ai-destroy-subsystem "Mon Calamari Cruiser" "Sensor01A" 75 ) ( ai-destroy-subsystem "Mon Calamari Cruiser" "Sensor02A" 75 ) ( ai-destroy-subsystem "Mon Calamari Cruiser" "Sensor03A" 75 ) ( ai-destroy-subsystem "Mon Calamari Cruiser" "BridgeA" 50 ) ( ai-destroy-subsystem "Mon Calamari Cruiser" "Reactor" 25 ) )
++Hotkey: 1
++Flags: ( "no-arrival-music" "no-arrival-message" "no-first-wave-message" )
++Wave Delay Min: 20
++Wave Delay Max: 30
+
+$Name: Delta Besh
+$Waves: 1000
+$Wave Threshold: 0
+$Special Ship: 0		;! Delta Besh 1
+$Arrival Location: Docking Bay
++Arrival Distance: 0
+$Arrival Anchor: Star Destroyer
+$Arrival Cue: ( is-event-true-delay 
+   "Release Bombers 2" 
+   0 
+)
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Ships: (		;! 6 total
+	"Delta Besh 1"
+	"Delta Besh 2"
+	"Delta Besh 3"
+	"Delta Besh 4"
+	"Delta Besh 5"
+	"Delta Besh 6"
+)
+$AI Goals: ( goals ( ai-disable-ship "Mon Calamari Cruiser" 75 ) ( ai-destroy-subsystem "Mon Calamari Cruiser" "Sensor01A" 50 ) ( ai-destroy-subsystem "Mon Calamari Cruiser" "Sensor02A" 50 ) ( ai-destroy-subsystem "Mon Calamari Cruiser" "Sensor03A" 50 ) ( ai-destroy-subsystem "Mon Calamari Cruiser" "Reactor" 25 ) )
++Hotkey: 1
++Flags: ( "no-arrival-music" "no-arrival-message" "no-first-wave-message" )
++Wave Delay Min: 20
++Wave Delay Max: 30
+
+$Name: Delta Cresh
+$Waves: 1000
+$Wave Threshold: 0
+$Special Ship: 0		;! Delta Cresh 1
+$Arrival Location: Docking Bay
++Arrival Distance: 0
+$Arrival Anchor: Star Destroyer
+$Arrival Cue: ( is-event-true-delay 
+   "Release Bombers 3" 
+   0 
+)
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Ships: (		;! 6 total
+	"Delta Cresh 1"
+	"Delta Cresh 2"
+	"Delta Cresh 3"
+	"Delta Cresh 4"
+	"Delta Cresh 5"
+	"Delta Cresh 6"
+)
+$AI Goals: ( goals ( ai-destroy-subsystem "Mon Calamari Cruiser" "Communications01A" 75 ) ( ai-destroy-subsystem "Mon Calamari Cruiser" "Communications02A" 75 ) ( ai-chase "Rebel Transport 1" 50 ) ( ai-chase "Rebel Transport 2" 50 ) ( ai-destroy-subsystem "Mon Calamari Cruiser" "Reactor" 25 ) )
++Hotkey: 1
++Flags: ( "no-arrival-music" "no-arrival-message" "no-first-wave-message" )
++Wave Delay Min: 20
++Wave Delay Max: 30
+
+$Name: Red Aurek
+$Waves: 1000
+$Wave Threshold: 0
+$Special Ship: 0		;! Red Aurek 1
+$Arrival Location: Docking Bay
++Arrival Distance: 0
+$Arrival Anchor: Mon Calamari Cruiser
+$Arrival Cue: ( is-event-true-delay 
+   "Release Superiority 1" 
+   0 
+)
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Ships: (		;! 3 total
+	"Red Aurek 1"
+	"Red Aurek 2"
+	"Red Aurek 3"
+)
+$AI Goals: ( goals ( ai-chase-any 75 ) ( ai-ignore-new "Raider Corvette 2" 50 ) ( ai-ignore-new "Raider Corvette 1" 50 ) )
++Hotkey: 0
++Flags: ( "no-arrival-music" "no-arrival-message" "no-first-wave-message" )
++Wave Delay Min: 20
++Wave Delay Max: 30
+
+$Name: Red Besh
+$Waves: 1000
+$Wave Threshold: 0
+$Special Ship: 0		;! Red Besh 1
+$Arrival Location: Docking Bay
++Arrival Distance: 0
+$Arrival Anchor: Mon Calamari Cruiser
+$Arrival Cue: ( is-event-true-delay 
+   "Release Superiority 2" 
+   0 
+)
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Ships: (		;! 3 total
+	"Red Besh 1"
+	"Red Besh 2"
+	"Red Besh 3"
+)
+$AI Goals: ( goals ( ai-chase-any 75 ) ( ai-ignore-new "Raider Corvette 2" 50 ) ( ai-ignore-new "Raider Corvette 1" 50 ) ( ai-chase-wing "Imperial Boarding Craft" 85 ) )
++Hotkey: 0
++Flags: ( "no-arrival-music" "no-arrival-message" "no-first-wave-message" )
++Wave Delay Min: 20
++Wave Delay Max: 30
+
+$Name: Red Cresh
+$Waves: 1000
+$Wave Threshold: 0
+$Special Ship: 0		;! Red Cresh 1
+$Arrival Location: Docking Bay
++Arrival Distance: 0
+$Arrival Anchor: Mon Calamari Cruiser
+$Arrival Cue: ( is-event-true-delay 
+   "Release Superiority 3" 
+   0 
+)
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Ships: (		;! 3 total
+	"Red Cresh 1"
+	"Red Cresh 2"
+	"Red Cresh 3"
+)
+$AI Goals: ( goals ( ai-chase-any 75 ) ( ai-ignore-new "Raider Corvette 2" 50 ) ( ai-ignore-new "Raider Corvette 1" 50 ) ( ai-guard-wing "Rebel Boarding Craft" 85 ) )
++Hotkey: 0
++Flags: ( "no-arrival-music" "no-arrival-message" "no-first-wave-message" )
++Wave Delay Min: 20
++Wave Delay Max: 30
+
+$Name: Blue Aurek
+$Waves: 1000
+$Wave Threshold: 0
+$Special Ship: 0		;! Blue Aurek 1
+$Arrival Location: Docking Bay
++Arrival Distance: 0
+$Arrival Anchor: Mon Calamari Cruiser
+$Arrival Cue: ( is-event-true-delay 
+   "Release Escorts 1" 
+   0 
+)
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Ships: (		;! 3 total
+	"Blue Aurek 1"
+	"Blue Aurek 2"
+	"Blue Aurek 3"
+)
+$AI Goals: ( goals ( ai-guard-wing "Gold Aurek" 75 ) )
++Flags: ( "no-arrival-music" "no-arrival-message" "no-first-wave-message" )
++Wave Delay Min: 20
++Wave Delay Max: 30
+
+$Name: Blue Besh
+$Waves: 1000
+$Wave Threshold: 0
+$Special Ship: 0		;! Blue Besh 1
+$Arrival Location: Docking Bay
++Arrival Distance: 0
+$Arrival Anchor: Mon Calamari Cruiser
+$Arrival Cue: ( is-event-true-delay 
+   "Release Escorts 2" 
+   0 
+)
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Ships: (		;! 3 total
+	"Blue Besh 1"
+	"Blue Besh 2"
+	"Blue Besh 3"
+)
+$AI Goals: ( goals ( ai-guard-wing "Gold Besh" 75 ) )
++Flags: ( "no-arrival-music" "no-arrival-message" "no-first-wave-message" )
++Wave Delay Min: 20
++Wave Delay Max: 30
+
+$Name: Blue Cresh
+$Waves: 1000
+$Wave Threshold: 0
+$Special Ship: 0		;! Blue Cresh 1
+$Arrival Location: Docking Bay
++Arrival Distance: 0
+$Arrival Anchor: Mon Calamari Cruiser
+$Arrival Cue: ( is-event-true-delay 
+   "Release Escorts 3" 
+   0 
+)
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Ships: (		;! 3 total
+	"Blue Cresh 1"
+	"Blue Cresh 2"
+	"Blue Cresh 3"
+)
+$AI Goals: ( goals ( ai-guard-wing "Gold Cresh" 75 ) )
++Flags: ( "no-arrival-music" "no-arrival-message" "no-first-wave-message" )
++Wave Delay Min: 20
++Wave Delay Max: 30
+
+$Name: Green Aurek
+$Waves: 1000
+$Wave Threshold: 0
+$Special Ship: 0		;! Green Aurek 1
+$Arrival Location: Docking Bay
++Arrival Distance: 0
+$Arrival Anchor: Mon Calamari Cruiser
+$Arrival Cue: ( is-event-true-delay 
+   "Release Interceptors 1" 
+   0 
+)
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Ships: (		;! 3 total
+	"Green Aurek 1"
+	"Green Aurek 2"
+	"Green Aurek 3"
+)
+$AI Goals: ( goals ( ai-guard "Mon Calamari Cruiser" 75 ) )
++Flags: ( "no-arrival-music" "no-arrival-message" "no-first-wave-message" )
++Wave Delay Min: 20
++Wave Delay Max: 30
+
+$Name: Green Besh
+$Waves: 1000
+$Wave Threshold: 0
+$Special Ship: 0		;! Green Besh 1
+$Arrival Location: Docking Bay
++Arrival Distance: 0
+$Arrival Anchor: Mon Calamari Cruiser
+$Arrival Cue: ( is-event-true-delay 
+   "Release Interceptors 2" 
+   0 
+)
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Ships: (		;! 3 total
+	"Green Besh 1"
+	"Green Besh 2"
+	"Green Besh 3"
+)
+$AI Goals: ( goals ( ai-guard "Rebel Transport 1" 75 ) ( ai-guard "Mon Calamari Cruiser" 50 ) )
++Flags: ( "no-arrival-music" "no-arrival-message" "no-first-wave-message" )
++Wave Delay Min: 20
++Wave Delay Max: 30
+
+$Name: Green Cresh
+$Waves: 1000
+$Wave Threshold: 0
+$Special Ship: 0		;! Green Cresh 1
+$Arrival Location: Docking Bay
++Arrival Distance: 0
+$Arrival Anchor: Mon Calamari Cruiser
+$Arrival Cue: ( is-event-true-delay 
+   "Release Interceptors 3" 
+   0 
+)
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Ships: (		;! 3 total
+	"Green Cresh 1"
+	"Green Cresh 2"
+	"Green Cresh 3"
+)
+$AI Goals: ( goals ( ai-guard "Rebel Transport 2" 75 ) ( ai-guard "Mon Calamari Cruiser" 50 ) )
++Flags: ( "no-arrival-music" "no-arrival-message" "no-first-wave-message" )
++Wave Delay Min: 20
++Wave Delay Max: 30
+
+$Name: Gold Aurek
+$Waves: 1000
+$Wave Threshold: 0
+$Special Ship: 0		;! Gold Aurek 1
+$Arrival Location: Docking Bay
++Arrival Distance: 0
+$Arrival Anchor: Mon Calamari Cruiser
+$Arrival Cue: ( is-event-true-delay 
+   "Release Bombers 1" 
+   0 
+)
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Ships: (		;! 6 total
+	"Gold Aurek 1"
+	"Gold Aurek 2"
+	"Gold Aurek 3"
+	"Gold Aurek 4"
+	"Gold Aurek 5"
+	"Gold Aurek 6"
+)
+$AI Goals: ( goals ( ai-chase "Raider Corvette 1" 80 ) ( ai-disable-ship "Star Destroyer" 75 ) ( ai-chase "Raider Corvette 2" 70 ) ( ai-destroy-subsystem "Star Destroyer" "Reactor" 50 ) ( ai-destroy-subsystem "Star Destroyer" "Bridge" 50 ) )
++Flags: ( "no-arrival-music" "no-arrival-message" "no-first-wave-message" )
++Wave Delay Min: 20
++Wave Delay Max: 30
+
+$Name: Gold Besh
+$Waves: 1000
+$Wave Threshold: 0
+$Special Ship: 0		;! Gold Besh 1
+$Arrival Location: Docking Bay
++Arrival Distance: 0
+$Arrival Anchor: Mon Calamari Cruiser
+$Arrival Cue: ( is-event-true-delay 
+   "Release Bombers 2" 
+   0 
+)
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Ships: (		;! 6 total
+	"Gold Besh 1"
+	"Gold Besh 2"
+	"Gold Besh 3"
+	"Gold Besh 4"
+	"Gold Besh 5"
+	"Gold Besh 6"
+)
+$AI Goals: ( goals ( ai-disable-ship "Star Destroyer" 75 ) ( ai-destroy-subsystem "Star Destroyer" "Bridge" 50 ) ( ai-destroy-subsystem "Star Destroyer" "Reactor" 25 ) ( ai-destroy-subsystem "Star Destroyer" "SensorsLeft" 10 ) ( ai-destroy-subsystem "Star Destroyer" "SensorsRight" 10 ) )
++Flags: ( "no-arrival-music" "no-arrival-message" "no-first-wave-message" )
++Wave Delay Min: 20
++Wave Delay Max: 30
+
+$Name: Gold Cresh
+$Waves: 1000
+$Wave Threshold: 0
+$Special Ship: 0		;! Gold Cresh 1
+$Arrival Location: Docking Bay
++Arrival Distance: 0
+$Arrival Anchor: Mon Calamari Cruiser
+$Arrival Cue: ( is-event-true-delay 
+   "Release Bombers 3" 
+   0 
+)
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Ships: (		;! 6 total
+	"Gold Cresh 1"
+	"Gold Cresh 2"
+	"Gold Cresh 3"
+	"Gold Cresh 4"
+	"Gold Cresh 5"
+	"Gold Cresh 6"
+)
+$AI Goals: ( goals ( ai-destroy-subsystem "Star Destroyer" "Communications" 75 ) ( ai-destroy-subsystem "Star Destroyer" "Reactor" 50 ) ( ai-destroy-subsystem "Star Destroyer" "SensorsLeft" 25 ) ( ai-destroy-subsystem "Star Destroyer" "SensorsRight" 25 ) ( ai-disable-ship "Star Destroyer" 15 ) )
++Flags: ( "no-arrival-music" "no-arrival-message" "no-first-wave-message" )
++Wave Delay Min: 20
++Wave Delay Max: 30
+
+$Name: Rebel Boarding Craft
+$Waves: 1000
+$Wave Threshold: 0
+$Special Ship: 0		;! Rebel Boarding Craft 1
+$Arrival Location: Docking Bay
++Arrival Distance: 0
+$Arrival Anchor: Mon Calamari Cruiser
+$Arrival Cue: ( is-event-true-delay 
+   "Release Boarding Craft" 
+   ( rand-multiple 0 30000 ) 
+)
+$Departure Location: Hyperspace
+$Departure Cue: ( > @rebel-boarding-stop[0] 0 ) 
+$Ships: (		;! 1 total
+	"Rebel Boarding Craft 1"
+)
+$AI Goals: ( goals ( ai-waypoints "Rebel Boarding Craft Path" 50 ) )
++Hotkey: 2
++Flags: ( "no-arrival-music" "no-arrival-message" "no-first-wave-message" )
++Wave Delay Min: 60
++Wave Delay Max: 120
+
+$Name: Imperial Boarding Craft
+$Waves: 1000
+$Wave Threshold: 0
+$Special Ship: 0		;! Imperial Boarding Craft 1
+$Arrival Location: Docking Bay
++Arrival Distance: 0
+$Arrival Anchor: Star Destroyer
+$Arrival Cue: ( is-event-true-delay 
+   "Release Boarding Craft" 
+   ( rand-multiple 0 30000 ) 
+)
+$Departure Location: Hyperspace
+$Departure Cue: ( > @imperial-boarding-stop[0] 0 ) 
+$Ships: (		;! 1 total
+	"Imperial Boarding Craft 1"
+)
+$AI Goals: ( goals ( ai-waypoints "Imperial Boarding Craft Path" 50 ) )
++Flags: ( "no-arrival-music" "no-arrival-message" "no-first-wave-message" )
++Wave Delay Min: 60
++Wave Delay Max: 120
+
+$Name: Grey Aurek
+$Waves: 1
+$Wave Threshold: 0
+$Special Ship: 0		;! Grey Aurek 1
+$Arrival Location: Hyperspace
+$Arrival Cue: ( true ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Ships: (		;! 1 total
+	"Grey Aurek 1"
+)
++Flags: ( )
+
+#Events		;! 21 total
+
+$Formula: ( when ( true ) ( do-nothing ) ) 
++Name: -- SETUP --
++Repeat Count: 1
++Interval: 1
+
+$Formula: ( when ( true ) ( do-nothing ) ) 
++Name: EnableAssaultMode
++Repeat Count: 1
++Interval: 1
+
+$Formula: ( when ( true ) ( do-nothing ) ) 
++Name: EnableHangarRepair
++Repeat Count: 1
++Interval: 1
+
+$Formula: ( when 
+   ( true ) 
+   ( replace-skybox-texture 
+      "S_PlanetBase" 
+      "BP_Hoth" 
+   )
+)
++Name: Set Up Planet Texture
++Repeat Count: 1
++Interval: 1
+
+$Formula: ( when ( true ) ( do-nothing ) ) 
++Name: -- FIGHTER SPAWNING --
++Repeat Count: 1
++Interval: 1
+
+$Formula: ( when 
+   ( is-event-true-delay 
+      "-- FIGHTER SPAWNING --" 
+      3 
+   )
+   ( do-nothing ) 
+)
++Name: Release Superiority 1
++Repeat Count: 1
++Interval: 1
+
+$Formula: ( when 
+   ( is-event-true-delay 
+      "Release Superiority 1" 
+      3 
+   )
+   ( do-nothing ) 
+)
++Name: Release Superiority 2
++Repeat Count: 1
++Interval: 1
+
+$Formula: ( when 
+   ( is-event-true-delay 
+      "Release Superiority 2" 
+      3 
+   )
+   ( do-nothing ) 
+)
++Name: Release Superiority 3
++Repeat Count: 1
++Interval: 1
+
+$Formula: ( when 
+   ( is-event-true-delay 
+      "Release Superiority 3" 
+      5 
+   )
+   ( do-nothing ) 
+)
++Name: Release Boarding Craft
++Repeat Count: 1
++Interval: 1
+
+$Formula: ( when 
+   ( is-event-true-delay 
+      "Release Boarding Craft" 
+      3 
+   )
+   ( do-nothing ) 
+)
++Name: Release Bombers 1
++Repeat Count: 1
++Interval: 1
+
+$Formula: ( when 
+   ( is-event-true-delay 
+      "Release Bombers 1" 
+      3 
+   )
+   ( do-nothing ) 
+)
++Name: Release Escorts 1
++Repeat Count: 1
++Interval: 1
+
+$Formula: ( when 
+   ( is-event-true-delay 
+      "Release Escorts 1" 
+      3 
+   )
+   ( do-nothing ) 
+)
++Name: Release Bombers 2
++Repeat Count: 1
++Interval: 1
+
+$Formula: ( when 
+   ( is-event-true-delay 
+      "Release Bombers 2" 
+      3 
+   )
+   ( do-nothing ) 
+)
++Name: Release Escorts 2
++Repeat Count: 1
++Interval: 1
+
+$Formula: ( when 
+   ( is-event-true-delay 
+      "Release Escorts 2" 
+      3 
+   )
+   ( do-nothing ) 
+)
++Name: Release Bombers 3
++Repeat Count: 1
++Interval: 1
+
+$Formula: ( when 
+   ( is-event-true-delay 
+      "Release Bombers 3" 
+      3 
+   )
+   ( do-nothing ) 
+)
++Name: Release Escorts 3
++Repeat Count: 1
++Interval: 1
+
+$Formula: ( when 
+   ( is-event-true-delay 
+      "Release Escorts 3" 
+      3 
+   )
+   ( do-nothing ) 
+)
++Name: Release Interceptors 1
++Repeat Count: 1
++Interval: 1
+
+$Formula: ( when 
+   ( is-event-true-delay 
+      "Release Interceptors 1" 
+      3 
+   )
+   ( do-nothing ) 
+)
++Name: Release Interceptors 2
++Repeat Count: 1
++Interval: 1
+
+$Formula: ( when 
+   ( is-event-true-delay 
+      "Release Interceptors 2" 
+      3 
+   )
+   ( do-nothing ) 
+)
++Name: Release Interceptors 3
++Repeat Count: 1
++Interval: 1
+
+$Formula: ( when 
+   ( has-time-elapsed 2 ) 
+   ( turret-free-all 
+      "Rebel Transport 1" 
+      "Rebel Transport 2" 
+      "Raider Corvette 2" 
+      "Raider Corvette 1" 
+   )
+)
++Name: Corvettes Open Fire
++Repeat Count: 1
++Interval: 1
+
+$Formula: ( when 
+   ( is-event-true-delay 
+      "Corvettes Open Fire" 
+      2 
+   )
+   ( turret-free-all 
+      "Mon Calamari Cruiser" 
+      "Star Destroyer" 
+   )
+)
++Name: Capitals Open Fire
++Repeat Count: 1
++Interval: 1
+
+$Formula: ( when ( true ) ( do-nothing ) ) 
++Name: NoMessageCaching
++Repeat Count: 1
++Interval: 1
+
+#Goals		;! 7 total
+
+$Type: Primary
++Name: Destroy Enemy Fighters
+$MessageNew:  XSTR("Destroy Enemy Fighters", 2764)
+$end_multi_text
+$Formula: ( has-departed-delay 0 "Grey Aurek 1" ) 
++No music
+
+$Type: Primary
++Name: Destroy Enemy Boarding Craft
+$MessageNew:  XSTR("Destroy Enemy Boarding Craft", 2765)
+$end_multi_text
+$Formula: ( has-departed-delay 0 "Grey Aurek 1" ) 
++No music
+
+$Type: Primary
++Name: Destroy Enemy Subsystems
+$MessageNew:  XSTR("Destroy Enemy Subsystems", 2766)
+$end_multi_text
+$Formula: ( has-departed-delay 0 "Grey Aurek 1" ) 
++No music
+
+$Type: Secondary
++Name: Escort Allied Bombers
+$MessageNew:  XSTR("Escort Allied Bombers", 2767)
+$end_multi_text
+$Formula: ( has-departed-delay 0 "Grey Aurek 1" ) 
++No music
+
+$Type: Secondary
++Name: Defend Allied Subsystems
+$MessageNew:  XSTR("Defend Allied Subsystems", 2768)
+$end_multi_text
+$Formula: ( has-departed-delay 0 "Grey Aurek 1" ) 
++No music
+
+$Type: Secondary
++Name: Manage Boarding Parties
+$MessageNew:  XSTR("Manage Boarding Parties", 2769)
+$end_multi_text
+$Formula: ( has-departed-delay 0 "Grey Aurek 1" ) 
++No music
+
+$Type: Secondary
++Name: Command Superiority Squadron
+$MessageNew:  XSTR("Command Superiority Squadron", 2770)
+$end_multi_text
+$Formula: ( has-departed-delay 0 "Grey Aurek 1" ) 
++No music
+
+#Waypoints		;! 2 lists total
+
+$Name: Rebel Boarding Craft Path
+$List: (		;! 2 points in list
+	( -2.767356, -151.381058, 1523.424438 )
+	( -3.838476, -47.075241, 1728.806519 )
+)
+
+$Name: Imperial Boarding Craft Path
+$List: (		;! 3 points in list
+	( 1.737391, -96.280228, -1758.545410 )
+	( 6.622192, -52.312000, -1955.716431 )
+	( 6.093719, -40.837303, -2020.822388 )
+)
+
+#Messages		;! 1 total
+
+
+$Name: dummy
+$Team: -1
+$MessageNew:  XSTR("This is default text for the dummy message.  It should not play in the mission. $no_msg_cache", 2771)
+$end_multi_text
+
+#Reinforcements		;! 0 total
+
+
+#Background bitmaps		;! 0 total
+
+$Num stars: 500
+$Ambient light level: 789001
+
+$Bitmap List:
++Flags: ( "corrected angles" )
+$Sun: SunWhite
++Angles: 6.021386 0.000000 4.712389
++Scale: 2.250000
+
+#Asteroid Fields
+
+#Music
+
+$Event Music: Hoth
+$Briefing Music: Brief1
+
+#End
+

@@ -1,0 +1,68 @@
+#Ship Classes
+
+$Name: Bunker imperial
+  +Use Template: TN-series #Container Template
+  $Display Name: Bunker imperial
+  $Species: Imperial
+  $POF file: ss_g_bunker.pof
+  $POF target LOD: 0
+  $Detail distance: (0, 9000)
+  $Collision LOD: 0
+  $Hitpoints: 1400
+  $Flags: ( "cruiser" "large ship deathroll" "no ets" "intrinsic no shields" "disable all generic impact debris" "disable all generic explosion debris" )
+  $Closeup_pos: 0.0, 10.0, -120
+  $Closeup_pos_targetbox: 0.0, 10.0, -120
+
+$Name: Hangar imperial
+  +Use Template: TN-series #Container Template
+  $Display Name: Hangar imperial
+  $Species: Imperial
+  $POF file: ss_g_hangar.pof
+  $POF target LOD: 0
+  $Detail distance: (0, 9000)
+  $Collision LOD: 0
+  $Hitpoints: 1800
+  $Flags: ( "cruiser" "large ship deathroll" "no ets" "intrinsic no shields" "disable all generic impact debris" "disable all generic explosion debris" )
+  $Closeup_pos: 0.0, 10.0, -120
+  $Closeup_pos_targetbox: 0.0, 10.0, -120
+
+$Name: Caserne imperiale
+  +Use Template: TN-series #Container Template
+  $Display Name: Caserne imperiale
+  $Species: Imperial
+  $POF file: ss_g_barracks.pof
+  $POF target LOD: 0
+  $Detail distance: (0, 9000)
+  $Collision LOD: 0
+  $Hitpoints: 1200
+  $Flags: ( "cruiser" "large ship deathroll" "no ets" "intrinsic no shields" "disable all generic impact debris" "disable all generic explosion debris" )
+  $Closeup_pos: 0.0, 10.0, -120
+  $Closeup_pos_targetbox: 0.0, 10.0, -120
+
+$Name: Tour de communication
+  +Use Template: TN-series #Container Template
+  $Display Name: Tour de communication
+  $Species: Imperial
+  $POF file: ss_g_tower.pof
+  $POF target LOD: 0
+  $Detail distance: (0, 9000)
+  $Collision LOD: 0
+  $Hitpoints: 700
+  $Flags: ( "cruiser" "large ship deathroll" "no ets" "intrinsic no shields" "disable all generic impact debris" "disable all generic explosion debris" )
+  $Closeup_pos: 0.0, 10.0, -120
+  $Closeup_pos_targetbox: 0.0, 10.0, -120
+
+$Name: Reservoirs imperiaux
+  +Use Template: TN-series #Container Template
+  $Display Name: Reservoirs imperiaux
+  $Species: Imperial
+  $POF file: ss_g_tanks.pof
+  $POF target LOD: 0
+  $Detail distance: (0, 9000)
+  $Collision LOD: 0
+  $Hitpoints: 650
+  $Flags: ( "cruiser" "large ship deathroll" "no ets" "intrinsic no shields" "disable all generic impact debris" "disable all generic explosion debris" )
+  $Closeup_pos: 0.0, 10.0, -120
+  $Closeup_pos_targetbox: 0.0, 10.0, -120
+
+#End

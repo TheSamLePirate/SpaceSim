@@ -1,0 +1,140 @@
+T-65c X-wing | - | x-wing.pof
+T-65c X-wing | - | -
+BTL-A4 Y-wing | - | -
+BTL-LP Longprobe | - | -
+RZ-1 A-wing | - | -
+ASF-01 B-wing | - | -
+E-7 E-wing | - | -
+T.I.E. Fighter | - | -
+TIE/ln Fighter | - | -
+TIE/rc Fighter | - | -
+TIE Advanced X1 | - | -
+TIE/In Interceptor | - | -
+TIE/In Interceptor Mk.2 | - | -
+TIE/sa Bomber | - | -
+TIE/sh Shuttle | - | -
+V38 Assault Fighter | - | -
+N-1 Starfighter | - | -
+Z-95 Headhunter | - | -
+ARC-170 Starfighter | - | -
+A-3 V-wing Starfighter | - | -
+Vulture Droid Starfighter | - | -
+Vulture Droid Starfighter#TF | - | -
+Vulture Droid Starfighter#CIS | - | -
+Cloakshape Fighter | - | -
+ZY-wing | - | -
+TYE-wing | - | -
+TYE-Vulture | - | -
+ZTI-wing | - | -
+T-Blade Bomber | - | -
+UT-60D U-wing | - | -
+XG-1 Star Wing | - | -
+DX-9 Stormtrooper Transport | - | -
+Lambda T-4a Shuttle | - | -
+Zeta Hvy Cargo Shuttle | - | -
+Skipray Blastboat | - | -
+Firespray Gunship | - | -
+Modified Firespray Gunship | - | -
+YT-1300 Freighter | - | -
+Modified YT-1300 Freighter | - | -
+Star Speeder 3000 | - | -
+Action VI Transport | - | -
+Corellian Star Shuttle | - | -
+Corellian Star Shuttle#Rep | - | -
+TN1 Container | - | -
+TN2 Container | - | -
+TN3 Container | - | -
+TN4 Container | - | -
+DV-3 Freighter | - | -
+DV-3 Freighter#Working | - | -
+DV-3 Freighter#NoCargo | - | -
+DV-3 Container | - | -
+BFF-1 Freighter | - | -
+BFF-1 Freighter#NoCargo | - | -
+BFF-1 Container | - | -
+Rayter Transport | - | -
+GR-75 Transport | - | -
+AT-AT#Static | - | -
+AT-AT#Mobile | - | -
+Gozanti Cruiser#Imp | - | -
+Gozanti Cruiser#Rep | - | -
+Gozanti Cruiser#Pirate | - | -
+Charger c70 Frigate | - | -
+CR90 Corvette#Reb | - | -
+CR90 Corvette#Imp | - | -
+Raider Corvette | - | -
+Braha'tok Gunship | - | -
+Marauder Corvette#Pir | - | -
+Marauder Corvette#Rep | - | -
+Marauder Corvette#Imp | - | -
+Carrack Lgt Cruiser#I | - | -
+Carrack Lgt Cruiser#R | - | -
+Arquitens Lgt Cruiser#I | - | -
+Arquitens Lgt Cruiser#R | - | -
+Nebulon-B Frigate | - | -
+MC30 Type Frigate | - | -
+Strike Med Cruiser#I | - | -
+Strike Med Cruiser#R | - | -
+Dreadnaught Hvy Cruiser#P | - | -
+Dreadnaught Hvy Cruiser#Reb | - | -
+Dreadnaught Hvy Cruiser#I | - | -
+Dreadnaught Hvy Cruiser#Rep | - | -
+MC40 Type Star Cruiser | - | -
+Vindicator Hvy Cruiser | - | -
+Interdictor Cruiser | - | -
+Venator Cruiser#Republic | - | -
+Venator Cruiser#Pirate | - | -
+Imperial Star Destroyer | - | -
+Liberty Type Star Cruiser | - | -
+Home One Type Star Cruiser | - | -
+Super Star Destroyer#Prop | - | -
+Asteroid Base | - | -
+XQ1 Platform#Reb | - | -
+XQ1 Platform#Imp | - | -
+XQ2 Platform#Reb | - | -
+XQ2 Platform#Imp | - | -
+Golan 120 Station | - | -
+M-3185 Shield Gate | - | -
+Shield Plane#ForGate | - | fondor_shield_plane.pof
+Defense Satellite#Reb | - | -
+Defense Satellite#Imp | - | -
+Sensor Satellite#Reb | - | -
+Sensor Satellite#Imp | - | -
+Defense Mine#Explosive | - | -
+Defense Mine#Ion | - | -
+Escape Pod | - | -
+Escape Pod#Fancy | - | -
+Sensor Probe | - | -
+DKT Repair Droid | - | -
+Nav Buoy | - | -
+Nav Buoy#real | - | -
+Asteroid#Small01 | - | AstSml01_brown.pof
+Asteroid#Small02 | - | AstSml02_blue.pof
+Asteroid#Small03 | - | AstSml03_grey.pof
+Asteroid#Medium01 | - | AstMed01_brown.pof
+Asteroid#Medium02 | - | AstMed02_blue.pof
+Asteroid#Medium03 | - | AstMed03_grey.pof
+Asteroid#Big01 | - | AstBig01_brown.pof
+Asteroid#Big02 | - | AstBig02_blue.pof
+Asteroid#Big03 | - | AstBig03_grey.pof
+Generic Debris#Tube01 | - | G_Debris05.pof
+Generic Debris#Tube02 | - | G_Debris11.pof
+Generic Debris#Dish01 | - | G_Debris05.pof
+Generic Debris#Dish02 | - | G_Debris08.pof
+Generic Debris#Scaffold01 | - | G_Debris14.pof
+Generic Debris#Scaffold02 | - | G_Debris16.pof
+ISD Debris#Small01 | - | ISD_Sml_1.pof
+ISD Debris#Small02 | - | ISD_Sml_2.pof
+ISD Debris#Small03 | - | ISD_Sml_3.pof
+ISD Debris#Small04 | - | ISD_Sml_4.pof
+ISD Debris#Small05 | - | ISD_Sml_5.pof
+ISD Debris#Small06 | - | ISD_Sml_6.pof
+ISD Debris#Big01 | - | ISD_Big_1.pof
+ISD Debris#Big02 | - | ISD_Big_2.pof
+ISD Debris#Big03 | - | ISD_Big_3.pof
+Command_Controller_Ship | - | -
+Explosion_Dummy | - | -
+Bombardment_Target | - | 0_target.pof
+Hyperspace_Tunnel | - | hyperspace-tunnel.pof
+FotG Logo#Prop | - | logo.pof
+ExcR Opening Crawl#Prop | - | crawl-excr.pof

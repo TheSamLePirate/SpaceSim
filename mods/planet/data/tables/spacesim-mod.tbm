@@ -1,0 +1,10 @@
+#GAME SETTINGS
+$Window title: SpaceSim - Aurore 02
+$Mod title: SpaceSim Aurore
+$Fix scripted velocity: YES
+#GRAPHICS SETTINGS
+$Enable External Shaders: YES
+$Max draw distance: 1000000
+$Shadow Cascade Distances: ( 120 420 1500 5000 )
+$Min draw distance: 20
+#END

@@ -1,0 +1,119 @@
+#Lua SEXPs
+
+$Operator: player-hyperdrive-active
+$Category: Status
+$Subcategory: LUA-Condition
+$Minimum Arguments: 0
+$Maximum Arguments: 0
+$Return Type: Boolean
+$Description: This sexp checks to see if the player is using the hyperdrive. Returns true if the player is actively entering or exiting hyperspace, false otherwise. Note, does not work in multiplayer. 
+
+$Operator: ship-has-hyperdrive
+$Category: Status
+$Subcategory: LUA-Condition
+$Minimum Arguments: 1
+$Maximum Arguments: 1
+$Return Type: Boolean
+$Description: This sexp checks to see if the specified ship has a hyperdrive, according to the Star Wars canon. Returns true if the ship has a hyperdrive and false if the ship does not have a hyperdrive. Note, does not work in multiplayer. 
+$Parameter: 
+	+Description: Ship name to check.
+	+Type: Ship
+
+$Operator: did-player-jumpout?
+$Category: Status
+$Subcategory: LUA-Condition
+$Minimum Arguments: 0
+$Maximum Arguments: 0
+$Return Type: Boolean
+$Description: This sexp checks to see if the player has jumped out via hyperspace. Returns true if the player did jump out and false if not. The useful aspect of this script is that it answers true a few seconds before the game recognizes the player leaves, so it gives time to set or record other mission information.  Note, does not work in multiplayer. 
+
+$Operator: run-hyperspace-skybox-helper
+$Category: Change
+$Subcategory: LUA-Action
+$Minimum Arguments: 1
+$Maximum Arguments: 3
+$Return Type: Nothing
+$Description: This sexp runs the 'exit out of hyperspace' animation for an asteroid or planet skybox for a specified player position. Player position can be either South, East, or West. South is the default player location (pitch, bank, and heading all set to 0), East is to the right (heading -90) and West is the left (heading 90). Any other setting does not alter the skybox, such as North (heading 180).  Note, does not work in multiplayer. 
+$Parameter: 
+	+Description: Skybox type (1=planet skybox, 2=any asteroid or debris skybox). Using the planet skybox value will automatically delete the last planet entry once the hyperspace effect is completed (which should be a large planet to match the general size of the planet skybox).  
+	+Type: Number
+$Parameter: 
+	+Description: Player location (1=South, 2=East, 3=West). Only used if the skybox type is asteroids. Any other value (such as 0=North) does not do anything.   
+	+Type: Number
+$Parameter: 
+	+Description: Filename of texture to set the planet skybox to when effect done. Only used if the skybox type is planet. For example, 'S_PlanetBase' without the quotes (no need to put file type in file name).
+	+Type: String
+
+$Operator: show-hyperspace-vector
+$Category: Change
+$Subcategory: LUA-Action
+$Minimum Arguments: 1
+$Maximum Arguments: 1
+$Return Type: Nothing
+$Description: This sexp toggles the hyperspace vector if it is present in the mission. Note, does not work in multiplayer. 
+$Parameter: 
+	+Description: Boolean to show the vector or not, true shows the vector and false hides the vector.  
+	+Type: Boolean
+
+$Operator: show-hyperspace-blinker
+$Category: Change
+$Subcategory: LUA-Action
+$Minimum Arguments: 1
+$Maximum Arguments: 1
+$Return Type: Nothing
+$Description: This sexp toggles the hyperspace blinker that points to the hyperspace vector if it is present in the mission. Note, the blinker will only show if the vector is enabled. Note, does not work in multiplayer. 
+$Parameter: 
+	+Description: Boolean to show the blinker or not, true shows the vector and false hides the vector.  
+	+Type: Boolean	
+
+$Operator: set-player-warp-status
+$Category: Change
+$Subcategory: LUA-Action
+$Minimum Arguments: 1
+$Maximum Arguments: 1
+$Return Type: Nothing
+$Description: Toggles the player's ability to jump into hyperspace. If set to false ('Off'), the player cannot jump out and the exit points are no longer visible. If set to true ('On') the player can jump out and exit points are visible. Note, does not work in multiplayer. 
+$Parameter: 
+	+Description: Boolean to set the warp status. False toggles the player warp off. True toggles the player warp On.
+	+Type: Boolean
+
+$Operator: update-hyperspace-exit-vector
+$Category: Change
+$Subcategory: LUA-Action
+$Minimum Arguments: 0
+$Maximum Arguments: 0
+$Return Type: Nothing
+$Description: This sexp updates any hyperspace exit vectors to reflect the current locations of the JumpOutPoint waypoints. You only need to use this sexp if you changed the position of any JumpOutPoints during a mission after the start of the mission. Note, does not work in multiplayer. 
+
+$Operator: ai-order-depart
+$Category: Change
+$Subcategory: LUA-Action
+$Minimum Arguments: 2
+; No maximum arguments means that it accepts a variable number of arguments
+$Return Type: Nothing
+$Description: Gives the ship an order to depart. Acts like ai-goal-warpout, but actually accounts for departure via bays. Note, does not work in multiplayer. 
+$Parameter: 
+	+Description: Priority of order.
+	+Type: Number
+$Repeat	
+$Parameter: 
+	+Description: Ship(s) name.
+	+Type: Ship	
+
+$Operator: ai-force-warpout
+$Category: Change
+$Subcategory: LUA-Action
+$Minimum Arguments: 2
+; No maximum arguments means that it accepts a variable number of arguments
+$Return Type: Nothing
+$Description: Forces a ship to warpout, regardless of jump out waypoints or departures status or location. Note, does not work in multiplayer. 
+$Parameter: 
+	+Description: Delay in seconds before ship jumps. A negative number will result in a slight random delay, while 0 results in no delay, and a positive number results in that amount of seconds for the delay. 
+	+Type: Number	
+$Repeat	
+$Parameter: 
+	+Description: Ship(s) name.
+	+Type: Ship	
+
+
+#End

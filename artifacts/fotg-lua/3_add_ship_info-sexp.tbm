@@ -1,0 +1,39 @@
+#Lua SEXPs
+
+$Operator: lua-AddShipInfo-set-text
+$Category: Training
+$Subcategory: Add Ship Info
+$Minimum Arguments: 2
+$Return Type: Nothing
+$Description: Sets some additional text associated with the given ship(s). Note, does not work in multiplayer.
+$Parameter:
+	+Description: Text to display
+	+Type: string
+$Repeat
+$Parameter:
+	+Description: Ship to which the text applies
+	+Type: shipname
+
+$Operator: lua-AddShipInfo-has-text
+$Category: Training
+$Subcategory: Add Ship Info
+$Minimum Arguments: 1
+$Maximum Arguments: 1
+$Return Type: Boolean
+$Description: Returns whether the specified ship has any text assigned to it. Note, does not work in multiplayer.
+$Parameter:
+	+Description: Ship to check
+	+Type: shipname
+
+$Operator: lua-AddShipInfo-clear-text
+$Category: Training
+$Subcategory: Add Ship Info
+$Minimum Arguments: 1
+$Return Type: Nothing
+$Description: Clears any text associated with the given ship(s). Note, does not work in multiplayer.
+$Repeat
+$Parameter:
+	+Description: Ship to which the text applies
+	+Type: shipname
+
+#End

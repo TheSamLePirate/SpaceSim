@@ -1,0 +1,160 @@
+#Lua SEXPs
+
+$Operator: is-campaign?
+$Category: Status
+$Subcategory: LUA-Condition
+$Minimum Arguments: 0
+$Maximum Arguments: 0
+$Return Type: Boolean
+$Description: This sexp checks to see if the current mission is being played in a campaign or the Tech-room. Returns true if in a campaign and false if not.
+
+$Operator: difficulty-number
+$Category: Status
+$Subcategory: LUA-Condition
+$Minimum Arguments: 0
+$Maximum Arguments: 0
+$Return Type: Number
+$Description: This sexp returns the difficulty level from 1-5, 1 being the lowest, (Beginner) and 5 being the highest (Elite).
+
+$Operator: variable-divide
+$Category: Status
+$Subcategory: LUA-Condition
+$Minimum Arguments: 2
+$Maximum Arguments: 2
+$Return Type: Number
+$Description: Divides two number variables and returns the percent rounded to the closest whole number. In other words, the SEXP returns (var1.Value/var2.Value)*100.   
+$Parameter: 
+	+Description: Variable 1, the numerator. The variable needs to be a number. 
+	+Type: Variable	
+$Parameter: 
+	+Description: Variable 2, the denominator. The variable needs to be a number. 
+	+Type: Variable	
+
+$Operator: number-to-time
+$Category: Change
+$Subcategory: LUA-Action
+$Minimum Arguments: 2
+$Maximum Arguments: 2
+$Return Type: Nothing
+$Description: This sexp takes a number and converts it to a time format saves it to a string variable (IE input of 90 becomes 1:30). 
+$Parameter: 
+	+Description: Number to convert to string format. 
+	+Type: Number
+$Parameter: 
+	+Description: String variable to save value to. 
+	+Type: Variable
+
+;$Operator: set-cockpit-moveable
+;$Category: Change
+;$Subcategory: LUA-Action
+;$Minimum Arguments: 1
+;$Maximum Arguments: 4
+;$Return Type: Nothing
+;$Description: Updates the data for a moveable animation in the player cockpit.
+;$Parameter: 
+	;+Description: Name is the name of the moveable.
+	;+Type: String
+;$Repeat
+;$Parameter: 
+	;+Description: Rest: The data for the moveable. Depends on moveable type. Refer to the following: || Orientation: Three numbers, x, y, z rotation respectively, in degrees || Rotation: Three numbers, x, y, z rotation respectively, in degrees || Axis Rotation:  One number, rotation angle in degrees || Inverse Kinematics: Three required numbers: x, y, z position target relative to base, in 1/100th meters || Three optional numbers: x, y, z rotation target relative to base, in degrees
+	;+Type: Number
+
+$Operator: set-player-target-sub
+$Category: Change
+$Subcategory: LUA-Action
+$Minimum Arguments: 1
+$Maximum Arguments: 2
+$Return Type: Nothing
+$Description: This sexp sets the player's target to a specific ship and subsystem. Does not work in multiplayer.
+$Parameter: 	
+	+Description: Ship to set as target.
+	+Type: Ship
+$Parameter: 
+	+Description: Subsystem to set as target.
+	+Type: Subsystem
+
+$Operator: set-shield-recharge-percent
+$Category: Change
+$Subcategory: LUA-Action
+$Minimum Arguments: 2
+$Return Type: Nothing
+$Description: This sexp sets the shield recharge percent rate of a given ship.
+$Parameter: 	
+	+Description: New shield recharge percent value. Value of 100 is 100% recharge per second. Value of 1 is 1% recharge per second. Values less then 0 will be set to 0. Note, this sexp only works in singelplayer.
+	+Type: Number
+$Repeat
+$Parameter: 
+	+Description: Ship(s) to set.
+	+Type: Ship
+
+$Operator: set-shield-special-hitpoints
+$Category: Change
+$Subcategory: LUA-Action
+$Minimum Arguments: 2
+$Return Type: Nothing
+$Description: This sexp sets a given ship's shields with special hitpoints by changing the maximum and remaining hitpoints. Useful to make individual ship's shields weaker or stronger. Note, this sexp only works in singelplayer. 
+$Parameter: 
+	+Description: Percentage to use to calculate the new special shield hitpoints. For example, to make a shield twice as strong, set this to 200. Must be greater than 0. 
+	+Type: Number
+$Repeat
+$Parameter: 
+	+Description: Ship(s) on which the special shield hitpoints will be set. Must be in the mission. 
+	+Type: Ship
+
+$Operator: set-hull-special-hitpoints
+$Category: Change
+$Subcategory: LUA-Action
+$Minimum Arguments: 2
+$Return Type: Nothing
+$Description: This sexp sets a given ship's hull with special hitpoints by changing the maximum and remaining hitpoints. Useful to make individual ship's hull weaker or stronger. Note, this sexp only works in singelplayer. 
+$Parameter: 
+	+Description: Percentage to use to calculate the new special hull hitpoints. For example, to make a hull twice as strong, set this to 200. Must be greater than 0. 
+	+Type: Number
+$Repeat
+$Parameter: 
+	+Description: Ship(s) on which the special hull hitpoints will be set. Must be in the mission. 
+	+Type: Ship
+
+$Operator: set-subsystem-special-hitpoints
+$Category: Change
+$Subcategory: LUA-Action
+$Minimum Arguments: 3
+$Return Type: Nothing
+$Description: This sexp sets a given subsystem with special hitpoints by changing the maximum and remaining hitpoints. Useful to make individual subsystems weaker or stronger. Note, this sexp only works in singelplayer. 
+$Parameter: 
+	+Description: Percentage to use to calculate the new special hitpoints. For example, to make a subsystem twice as strong, set this to 200. Must be greater than 0. 
+	+Type: Number
+$Repeat
+$Parameter: 
+	+Description: Ship on which the subystem special hitpoints will be set. Must be in the mission. 
+	+Type: Ship
+$Parameter: 
+	+Description: Subsystems to set.
+	+Type: Subsystem
+
+$Operator: set-impact-armor-type
+$Category: Change
+$Subcategory: LUA-Action
+$Minimum Arguments: 2
+$Return Type: Nothing
+$Description: This sexp sets the Impact Armor type of a given ship to either Low Damage Impact Armor or High Damage Impact Armor.
+$Parameter: 	
+	+Description: The type of Impact Armor to set, where 0 is the default Low Damage Impact Armor and 1 is the High Damage Impact Armor. Values less then 0 will be set to 0. Note, this sexp only works in singelplayer.
+	+Type: Number
+$Repeat
+$Parameter: 
+	+Description: Ship(s) to set.
+	+Type: Ship
+
+$Operator: set-guarders-to-orbit
+$Category: Change
+$Subcategory: LUA-Action
+$Minimum Arguments: 1
+$Return Type: Nothing
+$Description: This sexp tells any craft guarding this ship to orbit the ship when guarding, even if it is a small ship. Does nothing to ships that have a radius of >= 50 meters, since the AI already always orbits those ships. Note, this sexp only works in singelplayer.
+$Repeat
+$Parameter: 
+	+Description: Ship(s) to set.
+	+Type: Ship
+
+#End

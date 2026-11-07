@@ -1,0 +1,69 @@
+#Lua SEXPs
+
+$Operator: sp-respawner-ply-count
+$Category: Status
+$Subcategory: LUA-Condition
+$Minimum Arguments: 0
+$Maximum Arguments: 0
+$Return Type: Number
+$Description: This sexp returns the number of times the player has respawned during the mission.
+
+$Operator: sp-respawner-is-active
+$Category: Status
+$Subcategory: LUA-Condition
+$Minimum Arguments: 0
+$Maximum Arguments: 0
+$Return Type: Boolean
+$Description: Returns if singleplayer respawning is enabled for this mission or not. Recall, singleplayer respawning can be set by the player in the settings menu, but mission designers can also override this choice with the sexp 'sp-respawner-set-values'.
+
+$Operator: sp-respawner-set-values
+$Category: Change
+$Subcategory: LUA-Action
+$Minimum Arguments: 1
+$Maximum Arguments: 11
+$Return Type: Nothing
+$Description: Sets the singleplayer respawn values for a mission. Recall, singleplayer respawning can be set by the player in the settings menu, but enabling or disabling singleplayer respawns with this method will override what the player has set. 
+$Parameter: 
+    +Description: Respawn value to set. Value of 1 forces singleplayer respawn on regardless of player setting, value of 0 uses whatever the player has set in the menu, and a value of -1 disables singleplayer respawning regardless of what the player has set.   
+    +Type: Number
+$Parameter: 
+    +Description: If singleplayer respawning is allowed, set if secondary weapons are restored to full when the ship respawns. Set to 'true' to enable weapon restoration or false to disable (default is 'false').
+    +Type: Boolean
+$Parameter: 
+    +Description: If singleplayer respawning is allowed, determine whether to respawn to a specific position and orientation or the default method (respawning 1500 m below where player dies). To use a specific position and orientation set this value to 'true' then set subsequent 6 arguments. To use the default value set this value to 'false'.  
+    +Type: Boolean
+$Parameter: 
+    +Description: The X value of the specific singleplayer respawn position. Default is 0.
+    +Type: Number
+$Parameter: 
+    +Description: The Y value of the specific singleplayer respawn position. Default is 0.
+    +Type: Number
+$Parameter: 
+    +Description: The Z value of the specific singleplayer respawn position. Default is 0.
+    +Type: Number
+$Parameter: 
+    +Description: The pitch value of the specific singleplayer respawn orientation. Default is 0.
+    +Type: Number
+$Parameter: 
+    +Description: The bank value of the specific singleplayer respawn orientation. Default is 0.
+    +Type: Number
+$Parameter: 
+    +Description: The heading value of the specific singleplayer respawn orientation. Default is 0.
+    +Type: Number
+$Parameter:
+    +Description: Whether to check for big ships obstructing respawn location. Default is true.
+    +Type: Boolean
+$Parameter:
+    +Description: Whether to force the resapwning ship to 0 velocity. Default is false.
+    +Type: Boolean
+
+$Operator: sp-respawner-run
+$Category: Change
+$Subcategory: LUA-Action
+$Minimum Arguments: 0
+$Maximum Arguments: 0
+$Return Type: Nothing
+$Description: Runs the singleplayer respawn function for the player ship. 
+
+#End
+

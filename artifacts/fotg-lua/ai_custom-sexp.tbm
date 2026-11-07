@@ -1,0 +1,41 @@
+#Lua AI
+
+;; Recall default orders are not really AI and just run script code, so targets and addition to object type table is not needed
+
+$Operator: ai-run-default
+$Description: Orders AI to clear their current player given orders and run default orders. By default this is an 'attack any' order but custom sexps can be used to set this to something different. 
+;+HUD String: Restoring ; would only show up for 1-frame and so may look odd
+$Player Order:
+	+Display String: Run default orders
+	+Parse String: restore default orders
+	+Acknowledge Message: yes
+
+$Operator: ai-formation-tighten
+$Description: Orders AI to tighten wing formation spacing. Only valid for wings.
+;+HUD String: Tightening Up ; would only show up for 1-frame and so may look odd
+$Player Order:
+	+Display String: Tighten formation
+	+Parse String: formation tighten
+	+Ship Restrictions: Wing
+	+Acknowledge Message: yes
+
+$Operator: ai-formation-loosen
+$Description: Orders AI to loosen wing formation spacing. Only valid for wings.
+;+HUD String: Tightening Up ; would only show up for 1-frame and so may look odd
+$Player Order:
+	+Display String: Loosen formation
+	+Parse String: formation loosen
+	+Ship Restrictions: Wing
+	+Acknowledge Message: yes
+
+$Operator: ai-formation-default
+$Description: Orders AI to restore default wing formation spacing. Only valid for wings.
+;+HUD String: Tightening Up ; would only show up for 1-frame and so may look odd
+$Player Order:
+	+Display String: Default formation
+	+Parse String: formation default
+	+Ship Restrictions: Wing
+	+Acknowledge Message: yes
+
+
+#End

@@ -1,0 +1,35 @@
+#Lua SEXPs
+
+$Operator: add-decal-to-ship
+$Category: Change
+$Subcategory: LUA-Action
+$Minimum Arguments: 2
+$Maximum Arguments: 8
+$Return Type: Nothing
+$Description: Adds a decal to a ship, with various options. For a random decal only the first 2 options are needed. For decals that can or should be replicated all options are needed.  Note, does not work in multiplayer. 
+$Parameter: 
+	+Description: Ship to add decal to.
+	+Type: Ship
+$Parameter: 
+	+Description: Name of the decal from the table.
+	+Type: String
+$Parameter: 
+	+Description: Size of the decal in meters. If not set or set to a negative number, the size is a random value based on the ship radius. 
+	+Type: Number
+$Parameter: 
+	+Description: Lifetime of decal in milliseconds. If not set or set to a negative number, the lifetime is eternal (for the entire mission).
+	+Type: Number
+$Parameter: 
+	+Description: Rotation of the decal in degrees (0-359). If not set or set to a negative number, the rotation is random.
+	+Type: Number
+$Parameter: 
+	+Description: Local x-offset from where to ray cast to the center of ship. If specifying manually, ensure this point falls outside the ship geometry. If this or y- or z- values are not set, then position is random.
+	+Type: Number
+$Parameter: 
+	+Description: Local y-offset from where to ray cast to the center of ship. If specifying manually, ensure this point falls outside the ship geometry. If this or x- or z- values are not set, then position is random.
+	+Type: Number
+$Parameter: 
+	+Description: Local z-offset from where to ray cast to the center of ship. If specifying manually, ensure this point falls outside the ship geometry. If this or x- or y- values are not set, then position is random.
+	+Type: Number
+
+#End

@@ -1,0 +1,27 @@
+{
+  "vertices": 9794,
+  "triangles": 19584,
+  "lods": [
+    96,
+    32
+  ],
+  "bounds": [
+    [
+      -4000.0,
+      -350.0,
+      -4000.0
+    ],
+    [
+      4000.0,
+      1397.7403029117322,
+      4000.0
+    ]
+  ],
+  "radius_m": 5776.569192745254,
+  "pof_bytes": 2184320,
+  "width_m": 8000,
+  "depth_m": 8000,
+  "height_function": "height(x,z) in scripts/build_terrain.py",
+  "format": "PSPO 2117, textured BSP, closed mesh",
+  "source": "original generated geometry and texture"
+}

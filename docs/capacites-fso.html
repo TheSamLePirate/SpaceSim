@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><style>
+:root{font-family:var(--font-sans);color:var(--foreground)}
+html,body{margin:0}figure{margin:0}figcaption{font-weight:500;margin:0 0 14px} .note{color:var(--muted-foreground);margin:12px 0 0;font-size:12px}
+.chart{display:grid;grid-template-columns:minmax(130px,1.6fr) repeat(4,minmax(56px,1fr));gap:0;align-items:stretch;font-size:14px}
+.cell{padding:12px 5px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:center;text-align:center;min-width:0;overflow-wrap:anywhere}.label{justify-content:flex-start;text-align:left;padding-left:0}.heading{color:var(--muted-foreground);font-size:12px;font-weight:500}
+.mark{width:14px;height:14px;border-radius:50%;display:inline-block;background:var(--chart-1)}.custom{background:var(--chart-2);border-radius:2px}.research{background:var(--chart-3);border-radius:0;transform:rotate(45deg);width:11px;height:11px}.blank{color:var(--muted-foreground)}
+.sources{display:flex;flex-wrap:wrap;gap:14px;margin-top:12px;font-size:12px}.sources a{color:var(--foreground)}
+@media(max-width:440px){.chart{grid-template-columns:minmax(104px,1.5fr) repeat(4,minmax(40px,1fr));font-size:12px}.heading{font-size:11px}.cell{padding-top:11px;padding-bottom:11px}}
+</style></head><body><figure aria-label="Fonctions de FreeSpace Open classées selon le travail nécessaire pour SpaceSim">
+<figcaption>Votre projet dans FSO 26.2</figcaption>
+<div class="chart" role="table" aria-label="Capacités et travail à prévoir">
+<div class="cell heading label" role="columnheader">Fonction</div><div class="cell heading" role="columnheader">Base existante</div><div class="cell heading" role="columnheader">Contenu<br>et scripts</div><div class="cell heading" role="columnheader">Prototype<br>à valider</div><div class="cell heading" role="columnheader">Dév.<br>moteur</div>
+<div class="cell label" role="rowheader">Coopération à quatre</div><div class="cell" role="cell" aria-label="Base existante"><span class="mark"></span></div><div class="cell" role="cell"></div><div class="cell" role="cell"></div><div class="cell" role="cell"></div>
+<div class="cell label" role="rowheader">Histoire, rôles et livrées</div><div class="cell" role="cell"></div><div class="cell" role="cell" aria-label="Contenu et scripts"><span class="mark custom"></span></div><div class="cell" role="cell"></div><div class="cell" role="cell"></div>
+<div class="cell label" role="rowheader">Canyon et base au sol</div><div class="cell" role="cell"></div><div class="cell" role="cell" aria-label="Géométrie et collisions à préparer"><span class="mark custom"></span></div><div class="cell" role="cell"></div><div class="cell" role="cell"></div>
+<div class="cell label" role="rowheader">Sol → espace, zone locale</div><div class="cell" role="cell"></div><div class="cell" role="cell"></div><div class="cell" role="cell" aria-label="Prototype à valider"><span class="mark research"></span></div><div class="cell" role="cell"></div>
+<div class="cell label" role="rowheader">Tour d’une petite lune 3D</div><div class="cell" role="cell"></div><div class="cell" role="cell"></div><div class="cell" role="cell" aria-label="Prototype à valider"><span class="mark research"></span></div><div class="cell" role="cell"></div>
+<div class="cell label" role="rowheader">Atmosphère selon l’altitude</div><div class="cell" role="cell"></div><div class="cell" role="cell"></div><div class="cell" role="cell" aria-label="Rendu et scripts à prototyper"><span class="mark research"></span></div><div class="cell" role="cell"></div>
+<div class="cell label" role="rowheader">Planète réelle et terrain chargé progressivement</div><div class="cell" role="cell"></div><div class="cell" role="cell"></div><div class="cell" role="cell"></div><div class="cell" role="cell" aria-label="Développement du moteur important"><span class="mark research"></span></div>
+</div>
+<p class="note">Classification technique, pas un délai ni un benchmark. Les prototypes planétaires n’ont pas encore été testés.</p>
+<div class="sources"><a href="https://github.com/scp-fs2open/fs2open.github.com/blob/release_26_2_0/code/prop/prop.cpp">Décors et collisions</a><a href="https://github.com/scp-fs2open/fs2open.github.com/blob/release_26_2_0/code/scripting/api/libs/multi.cpp">Réseau et Lua</a><a href="https://www.fateofthegalaxy.net/">Fate of the Galaxy</a></div>
+</figure></body></html>

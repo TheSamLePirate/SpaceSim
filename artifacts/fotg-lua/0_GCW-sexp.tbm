@@ -1,0 +1,226 @@
+#Lua SEXPs
+
+$Operator: GCW-callin
+$Category: Status
+$Subcategory: LUA-Condition (GCW)
+$Minimum Arguments: 2
+$Maximum Arguments: 2
+$Return Type: Boolean
+$Description: Checks if the given ship or wing can be called in against the value in the GCW lua table. Note, only works in the GCW campaigns. 
+$Parameter: 
+	+Description: Ship name to check, needs to be a string, no quotes.
+	+Type: String
+$Parameter: 
+	+Description: Option to check call status for a wing or ship. Viable options are 'ships' or 'wings' without quotes.
+	+Type: String	
+
+$Operator: GCW-number-oncall-or-called
+$Category: Status
+$Subcategory: LUA-Condition (GCW)
+$Minimum Arguments: 2
+$Maximum Arguments: 4
+$Return Type: Number
+$Description: This sexp counts the total number of a given group of ships with the 'oncall' or 'called' status as true. The SEXP counts both small and big ships through ships list (GCW.data.ships). If no ship size is specified then the sexp simply counts all of the oncall ships with the given team or basename, regardless of ship size. Note, only works in the GCW campaigns.   
+$Parameter: 
+	+Description: Call status to count. Valid options are 'oncall' or 'called' without quotes.
+	+Type: String
+$Parameter: 
+	+Description: Basename or team to count. Valid options are 'Friendly', 'Hostile', or a specific basename such as 'Vanguard' or 'Red A' without quotes.
+	+Type: String
+$Parameter:
+	+Description: Optional size of ship to count. Valid options are 'big' or 'small' without quotes.
+	+Type: String	
+$Parameter:
+	+Description: Optional type of small ship to count. Valid options are 'fighters' or 'bombers' without quotes.
+	+Type: String
+
+$Operator: GCW-player-by-dockable-ship
+$Category: Status
+$Subcategory: LUA-Condition (GCW)
+$Minimum Arguments: 0
+$Maximum Arguments: 0
+$Return Type: Boolean
+$Description: Checks if the player is near a large friendly ship that they can dock with. Returns true if the player is near a friendly, dockable ship. Note, only works in the GCW campaigns. 
+
+$Operator: compare-GCW-var-to-string
+$Category: Status
+$Subcategory: LUA-Condition (GCW)
+$Minimum Arguments: 3
+$Maximum Arguments: 4
+$Return Type: Boolean
+$Description: Checks to see if a given string is equal to a variable from the GCW table. Only use this on GCW missions. The SEXP requires a string input or string variable because it uses string-equals for comparisons. Boolean and number values are converted to string to check for equality. The GCW variable is also trimmed to 32 characters if the original variable was longer than 32 characters, thus you can only check up to 32 characters. If the variable cannot be found, returns string 'null'. Note, only works in the GCW campaigns. 
+$Parameter: 
+	+Description: Name of value to compare the GCW variable to.
+	+Type: String	
+$Parameter: 
+	+Description: Name of parent variable within GCW.data. Valid choices are 'player', 'ships', or 'wings' without quotes.
+	+Type: String
+$Parameter: 
+	+Description: Name of child variable to check within the parent name. For example, to get a ship's info you would write the 'ships' then the ship name, ie 'Vanguard 1'. No quotes are needed.
+	+Type: String
+$Parameter: 
+	+Description: Name of value variable to check within the child name. For example, to get the health of Vanguard 1, the value would be 'health' with child 'Vanguard 1'. No quotes are needed.
+	+Type: String	
+
+$Operator: get-GCW-number-variable
+$Category: Status
+$Subcategory: LUA-Condition (GCW)
+$Minimum Arguments: 2
+$Maximum Arguments: 3
+$Return Type: Number
+$Description: Calls a number variable from the GCW table. Only use this on GCW missions. Original variable must be a number. If the variable cannot be found or is not a number, returns 0. Note, only works in the GCW campaigns. 
+$Parameter: 
+	+Description: Name of parent variable within GCW.data. Valid choices are 'player', 'ships', or 'wings' without quotes.
+	+Type: String
+$Parameter: 
+	+Description: Name of child variable to check within the parent name. For example, to get a ship's health the child would be 'health' with parent 'ships'. No quotes are needed.
+	+Type: String	
+$Parameter: 
+	+Description: Name of value variable to check within the child name. For example, to get the health of Vanguard 1, the value would be 'health' with child 'Vanguard 1'. No quotes are needed.
+	+Type: String			
+
+$Operator: set-GCW-from-variable
+$Category: Change
+$Subcategory: LUA-Action (GCW)
+$Minimum Arguments: 3
+$Maximum Arguments: 4
+$Return Type: Nothing
+$Description: Sets a variable in the GCW table to a given value. Only use this on GCW missions. The SEXP automatically detects what kind of variable the GCW uses and then converts the string value input into that form. Valid options are boolean, string, or number. If the variable cannot be found, nothing is changed in the GCW table. Note, only works in the GCW campaigns. 
+$Parameter: 
+	+Description: Value of the GCW variable to set. The input is only a string, but the SEXP will change the string to the appropriate variable type when setting the value in the GCW table. 
+	+Type: String	
+$Parameter: 
+	+Description: Name of parent variable within GCW.data. Valid choices are 'player', 'ships', or 'wings' without quotes.
+	+Type: String
+$Parameter: 
+	+Description: Name of child variable to set within the parent name. For example, to set a ship's health the child would be 'health' with parent 'ships'. No quotes are needed.
+	+Type: String
+$Parameter: 
+	+Description: Name of value variable to check within the child name. For example, to get the health of Vanguard 1, the value would be 'health' with child 'Vanguard 1'. No quotes are needed.
+	+Type: String		
+
+$Operator: set-variable-from-GCW
+$Category: Change
+$Subcategory: LUA-Action (GCW)
+$Minimum Arguments: 3
+$Maximum Arguments: 4
+$Return Type: Nothing
+$Description: Sets a SEXP variable to a given value from the GCW table. Only use this on GCW missions. The SEXP variable needs to be a string type. If the variable or GCW value cannot be found, nothing is changed. Note, only works in the GCW campaigns. 
+$Parameter: 
+	+Description: SEXP variable to set. The variable needs to be string type. 
+	+Type: Variable	
+$Parameter: 
+	+Description: Name of parent variable within GCW.data. Valid choices are 'player', 'ships', or 'wings' without quotes.
+	+Type: String
+$Parameter: 
+	+Description: Name of child variable to set within the parent name. For example, to set a ship's health the child would be 'health' with parent 'ships'. No quotes are needed.
+	+Type: String
+$Parameter: 
+	+Description: Name of value variable to check within the child name. For example, to get the health of Vanguard 1, the value would be 'health' with child 'Vanguard 1'. No quotes are needed.
+	+Type: String
+
+$Operator: modify-variable-GCW-string
+$Category: Change
+$Subcategory: LUA-Action (GCW)
+$Minimum Arguments: 2
+$Maximum Arguments: 2
+$Return Type: Nothing
+$Description: Modifies a string SEXP variable while also updating the cached value in the GCW table. Only use this on GCW missions. The SEXP variable needs to be a string type. If the variable or GCW value cannot be found, nothing is changed. Note, only works in the GCW campaigns. 
+$Parameter: 
+	+Description: SEXP variable to set. The variable needs to be string type. 
+	+Type: Variable	
+$Parameter: 
+	+Description: SEXP variable to set. The variable needs to be string type. 
+	+Type: String
+
+$Operator: modify-variable-GCW-number
+$Category: Change
+$Subcategory: LUA-Action (GCW)
+$Minimum Arguments: 2
+$Maximum Arguments: 2
+$Return Type: Nothing
+$Description: Modifies a number SEXP variable while also updating the cached value in the GCW table. Only use this on GCW missions. The SEXP variable needs to be a number type. If the variable or GCW value cannot be found, nothing is changed. Note, only works in the GCW campaigns. 
+$Parameter: 
+	+Description: SEXP variable to set. The variable needs to be string type. 
+	+Type: Variable	
+$Parameter: 
+	+Description: SEXP variable to set. The variable needs to be string type. 
+	+Type: Number
+
+$Operator: GCW-set-play-message
+$Category: Change
+$Subcategory: LUA-Action (GCW)
+$Minimum Arguments: 2
+$Maximum Arguments: 4
+$Return Type: Nothing
+$Description: Plays a message in from the GCW table options. Requires the message name, which needs to be listed in the messages section of the mission. This sexp also uses input information to find the correct message sender. Note, only works in the GCW campaigns. 
+$Parameter: 
+	+Description: Sender name. '#Command' is also valid (no quotes). 
+	+Type: String	
+$Parameter: 
+	+Description: Base name of message in GCW Message_List table. 
+	+Type: String 	
+$Parameter: 
+	+Description: Delay in seconds from when message will start playing. Default is 0.
+	+Type: Number		
+$Parameter: 
+	+Description: Message priority. Valid options are 'High', 'Normal', or 'Low' (no quotes). Default is 'Normal'. 
+	+Type: String	
+
+$Operator: GCW-add-to-jump-queue
+$Category: Change
+$Subcategory: LUA-Action (GCW)
+$Minimum Arguments: 1
+$Maximum Arguments: 3
+$Return Type: Nothing
+$Description: Orders a ship to exit into hyperspace using the GCW protocols, such as wait times and playing messages. Note, only works in the GCW campaigns. 
+$Parameter: 
+	+Description: Ship name.
+	+Type: Ship
+$Parameter: 
+	+Description: Priority of order. Default is 200.
+	+Type: Number	
+$Parameter: 
+	+Description: Option to how the ship should enter hyperspace and exit the mission. To use ai-warp-goal and have the ship follow the named exit waypoints in the mission set this to 1 (this is the default). To force the ship to exit along its current vector set this to 2.   
+	+Type: Number
+
+$Operator: GCW-add-to-intel
+$Category: Change
+$Subcategory: LUA-Action (GCW)
+$Minimum Arguments: 2
+$Maximum Arguments: 2
+$Return Type: Nothing
+$Description: Adds a ship to the GCW intel tracker with the type of gathered intel. The gathered intel will evaluate and update once the mission is over. Only tracked for hostile ships thus far. Note, only works in the GCW campaigns. 
+$Parameter: 
+	+Description: Ship name.
+	+Type: Ship
+$Parameter: 
+	+Description: Intel type, 1 = scanned, 2 = tagged.
+	+Type: Number
+
+$Operator: GCW-update-battle
+$Category: Change
+$Subcategory: LUA-Action (GCW)
+$Minimum Arguments: 0
+$Maximum Arguments: 0
+$Return Type: Nothing
+$Description: This sexp runs and checks multiple components for the body mission of the GCW campaign. First, this sexp runs the battle update functions, which includes checking for a tactical retreat if one side is heavily losing and performing any needed big ship engine repairs and/or depart queues. Next this sexp checks the mission type outcome function. If the outcome is complete and has not been run before, then it runs the mission outcome protocols, such as success or failure departures. Note, only works in the GCW campaigns. 
+
+$Operator: GCW-run-M1-end
+$Category: Change
+$Subcategory: LUA-Action (GCW)
+$Minimum Arguments: 0
+$Maximum Arguments: 0
+$Return Type: Nothing
+$Description: Runs the final end mission protocol for body mission of the GCW campaign, such as updating the allegiance score. Note, only works in the GCW campaigns. 	
+
+$Operator: GCW-ply-dock-var-update
+$Category: Change
+$Subcategory: LUA-Action (GCW)
+$Minimum Arguments: 0
+$Maximum Arguments: 0
+$Return Type: Nothing
+$Description: This sexp finds the ship the player is supposed to dock with and runs the departed protocol for that ship so that the variables stay up-to-date. Only run this right before mission end when the player has clicked the 'Dock' button. Note, only works in the GCW campaigns. 
+
+
+#End

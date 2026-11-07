@@ -1,0 +1,14 @@
+#Conditional Hooks
+$Application: FS2_Open
+
+$On Game Init:
+[
+ba.print("FotG is loading version 1.1.0, safety first! \n")
+if IS_STANDALONE then
+    print("FotG Standalone Status: Running in Standalone Mode \n")
+else
+    print("FotG Standalone Status: FotG Running in Regular Mode \n")
+end
+]
+
+#End

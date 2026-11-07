@@ -1,0 +1,1904 @@
+#Mission Info
+
+$Version: 23.1
+$Name:  XSTR("[Rebel] Strike at Sullust", 2920)
+$Author: username
+$Created: 02/20/21 at 14:04:33
+$Modified: 09/14/26 at 01:52:25
+$Notes:
+This is a FRED2_OPEN created mission for Fate of the Galaxy.
+$End Notes:
+
+$Mission Desc:
+ XSTR("Walkthrough mission showing new mission designers how to make a simple mission.  More information is listed in the Fate of the Galaxy FRED Document.", 2921)
+$end_multi_text
++Game Type Flags: 1
++Flags: 0
+
++Disallow Support: 1
++Hull Repair Ceiling: 60.000000
++Subsystem Repair Ceiling: 90.000000
+
++Viewer pos: -116.009224, 1645.478271, -61.846230
++Viewer orient:
+	0.999946, 0.000002, -0.010451,
+	0.010451, -0.003027, 0.999941,
+	-0.000030, -0.999995, -0.003027
+
+$Starting wing names: ( "Red" "Gold" "Green" )
+$Squadron wing names: ( "Red" "Gold" "Green" "Grey" "Blue" )
+$Team-versus-team wing names: ( "Red" "Alpha" )
+
+$Skybox Model: skybox_starfield.pof
+$Skybox Model Animations:( "Hyperspace_Asteroids_East" "Hyperspace_Asteroids_South" "Hyperspace_Asteroids_West" )
+
+$AI Profile: FOTG_AI
+
+$Sound Environment: Default
+
+#Sexp_variables
+
+$Variables:
+(
+		0		"BFF-1s"		"3"		"number"
+		1		"CutsceneStage"		"0"		"number"
+		2		"Friendly-destroyed"		"Red 1"		"string"
+		3		"StartTime"		"0"		"number"
+)
+
+#Command Briefing
+
+$Stage Text:
+ XSTR("$f Strike $f at $f Sullust 
+
+The successful sabotage of an Imperial manufacturing facility near Pinyumb has been a real morale boost for the Sullustan Resistance.
+
+Our contact on the ground has informed us that the Imperials are expecting a shipment of new mining parts which they desperately need to continue production.  
+
+It is imperative that this shipment is disrupted in order to further weaken the Imperial presence on the planet.  Despite that the ISB is on high alert, we have no reason to believe they will be expecting such a bold strike immediately following the local sabotage.", 2922)
+$end_multi_text
+$Ani Filename: <default>
++Wave Filename: WalkThr_CB_1.ogg
+
+#Briefing
+$start_briefing
+$num_stages: 4
+$start_stage
+$multi_text
+ XSTR("The shipment convoy will consist of three BFF-1 Bulk Freighters.
+
+This convoy is part of an Imperial operation and we will not have the luxury of time to target only the containers.  
+
+Your sole objective is to completely destroy all three BFF-1 Bulk Freighters and retreat.", 2923)
+$end_multi_text
+$voice: WalkThr_B_1.ogg
+$camera_pos: 500.687561, 2151.111816, 7499.712891
+$camera_orient:
+	1.000000, 0.000002, 0.000040,
+	-0.000040, 0.000595, 1.000000,
+	0.000002, -1.000000, 0.000595
+$camera_time: 500
+$num_lines: 0
+$num_icons: 4
+$Flags: 0
+$Formula: ( true ) 
+$start_icon
+$type: 27
+$team: Hostile
+$class: BFF-1 Freighter
+$pos: -159.700073, -707.894531, 7504.939453
+$label:  XSTR("BFF-1 X7-4UI7", 2924)
++id: 1
+$hlight: 0
+$mirror: 0
+$multi_text
+$end_multi_text
+$end_icon
+$start_icon
+$type: 34
+$team: Hostile
+$class: BFF-1 Freighter
+$pos: 70.391846, -734.414062, 7318.569336
+$label:  XSTR("BFF-1 X7-4UI7", 2924)
++id: 2
+$hlight: 0
+$mirror: 0
+$multi_text
+$end_multi_text
+$end_icon
+$start_icon
+$type: 34
+$team: Hostile
+$class: BFF-1 Freighter
+$pos: -449.001465, -759.255859, 7719.541016
+$label:  XSTR("BFF-1 X7-4UI3", 2925)
++id: 3
+$hlight: 0
+$mirror: 0
+$multi_text
+$end_multi_text
+$end_icon
+$start_icon
+$type: 7
+$team: Hostile
+$class: BFF-1 Freighter
+$pos: 1605.735718, -656.533447, 7622.169922
+$label:  XSTR("Sullust", 2926)
++id: 12
+$hlight: 0
+$mirror: 0
+$multi_text
+$end_multi_text
+$end_icon
+$end_stage
+$start_stage
+$multi_text
+ XSTR("Imperial Star Destroyer Vigilance will be there to ensure safe delivery.
+
+Despite the presence of the Vigilance, we do not expect them to be on high alert.  However that will not make this an easy mission.", 2927)
+$end_multi_text
+$voice: WalkThr_B_2.ogg
+$camera_pos: 500.687561, 2151.111816, 7499.712891
+$camera_orient:
+	1.000000, 0.000002, 0.000040,
+	-0.000040, 0.000595, 1.000000,
+	0.000002, -1.000000, 0.000595
+$camera_time: 500
+$num_lines: 0
+$num_icons: 6
+$Flags: 0
+$Formula: ( true ) 
+$start_icon
+$type: 27
+$team: Hostile
+$class: BFF-1 Freighter
+$pos: -159.700073, -707.894531, 7504.939453
+$label:  XSTR("BFF-1 X7-4UI7", 2924)
++id: 1
+$hlight: 0
+$mirror: 0
+$multi_text
+$end_multi_text
+$end_icon
+$start_icon
+$type: 34
+$team: Hostile
+$class: BFF-1 Freighter
+$pos: 70.391846, -734.414062, 7318.569336
+$label:  XSTR("BFF-1 X7-4UI7", 2924)
++id: 2
+$hlight: 0
+$mirror: 0
+$multi_text
+$end_multi_text
+$end_icon
+$start_icon
+$type: 34
+$team: Hostile
+$class: BFF-1 Freighter
+$pos: -449.001465, -759.255859, 7719.541016
+$label:  XSTR("BFF-1 X7-4UI3", 2925)
++id: 3
+$hlight: 0
+$mirror: 0
+$multi_text
+$end_multi_text
+$end_icon
+$start_icon
+$type: 6
+$team: Hostile
+$class: Imperial Star Destroyer
+$pos: 1141.473633, -2081.998535, 7314.978516
+$label:  XSTR("Vigilance", 2928)
++id: 4
+$hlight: 1
+$mirror: 0
+$multi_text
+$end_multi_text
+$end_icon
+$start_icon
+$type: 1
+$team: Hostile
+$class: TIE/ln Fighter
+$pos: 490.585022, -852.724365, 7596.162598
+$label:  XSTR("Delta", 2929)
++id: 5
+$hlight: 0
+$mirror: 0
+$use wing icon: 1
+$multi_text
+$end_multi_text
+$end_icon
+$start_icon
+$type: 7
+$team: Hostile
+$class: BFF-1 Freighter
+$pos: 1605.735718, -656.533447, 7622.169922
+$label:  XSTR("Sullust", 2926)
++id: 12
+$hlight: 0
+$mirror: 0
+$multi_text
+$end_multi_text
+$end_icon
+$end_stage
+$start_stage
+$multi_text
+ XSTR("Gold Wing will consist of three Y-wings for each of the freighters.  Gold will be armed with Krupx MG7-A Proton Torpedoes and should make short work of the freighters.
+
+Red Wing will comprise three A-wings to provide escort.", 2930)
+$end_multi_text
+$voice: WalkThr_B_3.ogg
+$camera_pos: -432.353149, 2151.135254, 7540.484375
+$camera_orient:
+	1.000000, 0.000002, 0.000040,
+	-0.000040, 0.000595, 1.000000,
+	0.000002, -1.000000, 0.000595
+$camera_time: 1500
+$num_lines: 0
+$num_icons: 5
+$Flags: 0
+$Formula: ( true ) 
+$start_icon
+$type: 34
+$team: Hostile
+$class: BFF-1 Freighter
+$pos: -449.001465, -759.255859, 7719.541016
+$label:  XSTR("BFF-1", 2931)
++id: 3
+$hlight: 0
+$mirror: 0
+$multi_text
+$end_multi_text
+$end_icon
+$start_icon
+$type: 6
+$team: Hostile
+$class: Imperial Star Destroyer
+$pos: 1141.473633, -2081.998535, 7314.978516
+$label:  XSTR("Vigilance", 2928)
++id: 4
+$hlight: 0
+$mirror: 0
+$multi_text
+$end_multi_text
+$end_icon
+$start_icon
+$type: 16
+$team: Friendly
+$class: BTL-A4 Y-wing#Gold
+$pos: -921.459839, -8.140137, 7722.136719
+$label:  XSTR("Gold 1", 2932)
++id: 6
+$hlight: 0
+$mirror: 0
+$use wing icon: 1
+$multi_text
+$end_multi_text
+$end_icon
+$start_icon
+$type: 0
+$team: Friendly
+$class: RZ-1 A-wing
+$pos: -1161.182373, -1.195557, 7489.848633
+$label:  XSTR("Red 1", 2933)
++id: 9
+$hlight: 0
+$mirror: 0
+$use wing icon: 1
+$multi_text
+$end_multi_text
+$end_icon
+$start_icon
+$type: 7
+$team: Hostile
+$class: BFF-1 Freighter
+$pos: 1605.735718, -656.533447, 7622.169922
+$label:  XSTR("Sullust", 2926)
++id: 12
+$hlight: 0
+$mirror: 0
+$multi_text
+$end_multi_text
+$end_icon
+$end_stage
+$start_stage
+$multi_text
+ XSTR("After the initial TIE patrol is dealt with, Gold will have approximately 30secs before the Vigilance can deploy more fighters.  
+
+It will not be long before you are overwhelmed so it is imperative to stick to the objective.  Hit and run!
+
+We cannot afford any casualties, neither for the sake of the pilots nor the morale in the sector.", 2934)
+$end_multi_text
+$voice: WalkThr_B_4.ogg
+$camera_pos: 500.687561, 2151.111816, 7499.712891
+$camera_orient:
+	1.000000, 0.000002, 0.000040,
+	-0.000040, 0.000595, 1.000000,
+	0.000002, -1.000000, 0.000595
+$camera_time: 2500
+$num_lines: 0
+$num_icons: 6
+$Flags: 0
+$Formula: ( true ) 
+$start_icon
+$type: 34
+$team: Hostile
+$class: BFF-1 Freighter
+$pos: 657.334473, -759.255859, 7666.257324
+$label:  XSTR("BFF-1", 2931)
++id: 3
+$hlight: 0
+$mirror: 0
+$multi_text
+$end_multi_text
+$end_icon
+$start_icon
+$type: 6
+$team: Hostile
+$class: Imperial Star Destroyer
+$pos: 676.324646, -2081.998535, 7139.144531
+$label:  XSTR("Vigilance", 2928)
++id: 4
+$hlight: 0
+$mirror: 0
+$multi_text
+$end_multi_text
+$end_icon
+$start_icon
+$type: 16
+$team: Friendly
+$class: BTL-A4 Y-wing#Gold
+$pos: 103.592346, -8.140137, 7698.316895
+$label:  XSTR("Gold", 1262)
++id: 6
+$hlight: 0
+$mirror: 0
+$multi_text
+$end_multi_text
+$end_icon
+$start_icon
+$type: 1
+$team: Hostile
+$class: TIE/ln Fighter
+$pos: -482.553528, -2831.336426, 7343.417480
++id: 11
+$hlight: 0
+$mirror: 0
+$use wing icon: 1
+$multi_text
+$end_multi_text
+$end_icon
+$start_icon
+$type: 7
+$team: Hostile
+$class: BFF-1 Freighter
+$pos: 1605.735718, -656.533447, 7622.169922
+$label:  XSTR("Sullust", 2926)
++id: 12
+$hlight: 0
+$mirror: 0
+$multi_text
+$end_multi_text
+$end_icon
+$start_icon
+$type: 0
+$team: Friendly
+$class: RZ-1 A-wing
+$pos: -252.276672, -1.195557, 7487.689941
+$label:  XSTR("Red", 1261)
++id: 9
+$hlight: 0
+$mirror: 0
+$multi_text
+$end_multi_text
+$end_icon
+$end_stage
+$end_briefing
+
+#Debriefing_info
+
+$Num stages: 5
+
+$Formula: ( and 
+   ( is-goal-true-delay "Survive" 0 ) 
+   ( is-goal-true-delay 
+      "BFF-1s Destroyed" 
+      0 
+   )
+   ( is-goal-true-delay 
+      "Eliminate the Officers" 
+      0 
+   )
+)
+$Multi text
+    XSTR("Mission Success!
+
+Excellent work pilots!  This brave hit and run was a risky one but it has been well worth it.  The destruction of the Imperial shipment might only delay production for a matter of days or weeks but it has certainly bolstered the morale of the Sullustan Resistance.
+
+The Empire will certainly feel the embarrassment of losing this equipment right under the nose of the Vigilance.  We can expect increased patrols and further reprisals on Sullust but the success of this bold mission with zero casualties has sent a clear message that we are very capable and well organized.
+
+Well done!", 2935)
+$end_multi_text
+$Voice: WalkThr_DB_1.ogg
+$Recommendation text:
+    XSTR("Destroying the Lambda Shuttle ferrying Imperial officers from Sullust will strike fear among the higher ranking Imperials stationed there.  Taking out this high value target was a valuable bonus to an already successful operation.", 2936)
+$end_multi_text
+
+$Formula: ( and 
+   ( is-goal-true-delay "Survive" 0 ) 
+   ( is-goal-true-delay 
+      "BFF-1s Destroyed" 
+      0 
+   )
+   ( not 
+      ( is-goal-true-delay 
+         "Eliminate the Officers" 
+         0 
+      )
+   )
+)
+$Multi text
+    XSTR("Mission Success!
+
+Excellent work pilots!  This brave hit and run was a risky one but it has been well worth it.  The destruction of the Imperial shipment might only delay production for a matter of days or weeks but it has certainly bolstered the morale of the Sullustan Resistance.
+
+The Empire will certainly feel the embarrassment of losing this equipment right under the nose of the Vigilance.  We can expect increased patrols and further reprisals on Sullust but the success of this bold mission with zero casualties has sent a clear message that we are very capable and well organized.
+
+Well done!", 2935)
+$end_multi_text
+$Voice: WalkThr_DB_1.ogg
+$Recommendation text:
+    XSTR("The loss of every TIE pilot is a victory for us.  Unfortunately they are readily replaceable.  If you want to really impress and hit the Empire where it hurts then don't let the Imperial Officers escape.", 2937)
+$end_multi_text
+
+$Formula: ( and 
+   ( not 
+      ( is-goal-true-delay "Survive" 0 ) 
+   )
+   ( not 
+      ( is-goal-true-delay 
+         "BFF-1s Destroyed" 
+         0 
+      )
+   )
+)
+$Multi text
+    XSTR("Mission Failed!
+
+The mission was a risky one.  The failed attempt to disrupt the Imperial production on Sullust will render the ground efforts to be no more than a temporary inconvenience to the Empire.  We can expect support for the Sullustan Resistance to fall.
+
+The increased ISB suspicion of the Cobalt Laborers' Reformation Front has caused many within the group to distance themselves from the Sullustan resistance itself.  It might be some time before we can expect to receive any further intel.", 2938)
+$end_multi_text
+$Voice: WalkThr_DB_2.ogg
+$Recommendation text:
+    XSTR("", -1)
+$end_multi_text
+
+$Formula: ( and 
+   ( not 
+      ( is-goal-true-delay "Survive" 0 ) 
+   )
+   ( is-goal-true-delay 
+      "BFF-1s Destroyed" 
+      0 
+   )
+)
+$Multi text
+    XSTR("Mission Failed!
+
+The mission was a risky one.  Sadly the losses suffered today will be more than to our pilot ranks.  By destroying the shipment we have successfully delayed Imperial production on Sullust, perhaps for a few days, but the lives of our pilots are worth more than the cost of mining equipment.
+
+The increased ISB suspicion of the Cobalt Laborers' Reformation Front has caused many within the group to distance themselves from the Sullustan Resistance.  It might be some time before we can expect to receive any further intel.
+
+When the new shipment arrives, likely in a few days, we will not stand a chance of intercepting it.  We can only hope that the Sullustan Resistance holds.", 2939)
+$end_multi_text
+$Voice: WalkThr_DB_3.ogg
+$Recommendation text:
+    XSTR("", -1)
+$end_multi_text
+
+$Formula: ( and 
+   ( is-goal-true-delay "Survive" 0 ) 
+   ( not 
+      ( is-goal-true-delay 
+         "BFF-1s Destroyed" 
+         0 
+      )
+   )
+)
+$Multi text
+    XSTR("Mission Failed!
+
+The mission was a risky one.  The failed attempt to disrupt the Imperial production on Sullust will render the ground efforts to be no more than a temporary inconvenience to the Empire.  We can expect support for the Sullustan Resistance to fall.
+
+The increased ISB suspicion of the Cobalt Laborers' Reformation Front has caused many within the group to distance themselves from the Sullustan resistance itself.  It might be some time before we can expect to receive any further intel.", 2940)
+$end_multi_text
+$Voice: WalkThr_DB_4.ogg
+$Recommendation text:
+    XSTR("", -1)
+$end_multi_text
+
+#Players		;! 1 total
+
+$Starting Shipname: Red 1
+$Ship Choices: (
+	"T-65c X-wing#Red"	5
+)
+
++Weaponry Pool: (
+	"T&B KX-5#Red"	19
+	"T&B KX-5#Grn"	16
+	"T&B KX-9"	16
+	"T&B IX4#Red"	16
+	"T&B IX4#Grn"	16
+	"Gyrhil R-9X"	16
+	"Borstel RG-9"	19
+	"T&B KT6#Olv"	16
+	"Gyrhil 72"	16
+	"SFS L-s1"	16
+	"SFS L-s7.2"	16
+	"SFS L-s9.3"	16
+	"SFS L-s1 (Burst)"	16
+	"SFS L-s7.2 (Burst)"	16
+	"SFS L-s9.3 (Burst)"	16
+	"ArMek SW-4"	19
+	"ArMek SW-7a"	16
+	"SFS L-s8.1"	16
+	"SFS L-s8.1 (Burst)"	16
+	"Borstel NK-3"	16
+	"CEC AG-2G"	16
+	"Manual control"	16
+	"Mixed control"	16
+	"Gunner control"	16
+	"Silent Turret"	16
+	"T&B KX-4#Red"	16
+	"T&B KX-4#Grn"	16
+	"Arakyd ST2#Orn"	500
+	"Krupx MG5#Orn"	500
+	"Dymek HM-6#Orn"	530
+	"Dymek HM-6a#Orn"	500
+	"Krupx MG7-A#Pnk"	500
+	"Krupx VL-4a#Orn"	500
+	"Dymek HM-8#Pnk"	500
+	"Frei-Tek MAG-2#Yel"	500
+	"Frei-Tek IR-4#Red"	500
+	"Merr-Sonn NG2#Yel"	500
+	"S-K INTR#Red"	500
+	"ArmaTek VL-61/79#Pnk"	518
+	"XX-23 Homing Beacon"	500
+)
+
+#Objects		;! 31 total
+
+$Name: Red 1		;! Object #0
+$Class: RZ-1 A-wing#Red
+$Team: Friendly
+$Location: -0.448425, -1.195618, -0.440929
+$Orientation:
+	0.644827, 0.000000, -0.764329,
+	-0.000000, 1.000000, 0.000000,
+	0.764329, 0.000000, 0.644827
+$Cargo 1:  XSTR("Nothing", 1169)
++Initial Velocity: 100
++Subsystem: Pilot
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( "cargo-known" "player-start" )
++Flags2: ( "always-death-scream" )
++Respawn priority: 0
++Group: 0
++Score: 10
+
+$Name: Hyperspace Preload_Ship		;! Object #1
+$Class: Nav Buoy
+$Team: Friendly
+$Location: -29.560743, -1.195633, -29.740654
+$Orientation:
+	0.644827, 0.000000, -0.764329,
+	-0.000000, 1.000000, 0.000000,
+	0.764329, 0.000000, 0.644827
+$Cargo 1:  XSTR("Nothing", 1169)
++Initial Velocity: 33
++Subsystem: Pilot
+$Arrival Location: Hyperspace
+$Arrival Cue: ( true ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( "cargo-known" "protect-ship" "no-arrival-music" "invulnerable" "hidden-from-sensors" "no-dynamic" "stealth" "friendly-stealth-invisible" )
++Flags2: ( "no-builtin-messages" "no-ets" "cloaked" "no_collide" )
++Respawn priority: 0
++Group: 0
++Use Table Score:
++Score: 0
+
+$Name: Vigilance		;! Object #2
+$Class: Imperial Star Destroyer
+$Team: Hostile
+$Location: 1087.500000, -2082.000000, 9547.200195
+$Orientation:
+	-0.908301, 0.000000, -0.418318,
+	0.000000, 1.000000, 0.000000,
+	0.418318, 0.000000, -0.908301
++AI Class: AI_08_Major
+$AI Goals: ( goals ( ai-guard "BFF-1 X7-4UI7" 70 ) ( ai-guard "BFF-1 X7-4UI3" 70 ) ( ai-guard "BFF-1 X7-4UI14" 70 ) ( ai-guard "AGM6-32" 50 ) ( ai-guard "HFV-2367" 50 ) )
+$Cargo 1:  XSTR("Nothing", 1169)
++Initial Velocity: 33
++Subsystem: Pilot
++Subsystem: TurretAA001
++Subsystem: TurretAA002
++Subsystem: TurretAA003
++Subsystem: TurretAA004
++Subsystem: TurretAA005
++Subsystem: TurretAA006
++Subsystem: TurretAA007
++Subsystem: TurretAA008
++Subsystem: TurretAA009
++Subsystem: TurretAA010
++Subsystem: TurretAA011
++Subsystem: TurretAA012
++Subsystem: TurretAA013
++Subsystem: TurretAA014
++Subsystem: TurretAA015
++Subsystem: TurretAA016
++Subsystem: TurretAA017
++Subsystem: TurretAA018
++Subsystem: TurretDual001
++Subsystem: TurretIon001
++Subsystem: TurretIon002
++Subsystem: TurretIon003
++Subsystem: TurretIon004
++Subsystem: TurretIon005
++Subsystem: TurretIon006
++Subsystem: TurretLauncher001
++Subsystem: TurretMain001
++Subsystem: TurretMain002
++Subsystem: TurretMain003
++Subsystem: TurretMain004
++Subsystem: TurretMain005
++Subsystem: TurretMain006
++Subsystem: TurretMain007
++Subsystem: TurretMain008
++Subsystem: TurretQuad001
++Subsystem: TurretQuad002
++Subsystem: TurretQuad003
++Subsystem: TurretQuad004
++Subsystem: TurretQuad005
++Subsystem: TurretQuad006
++Subsystem: TurretQuad007
++Subsystem: TurretQuad008
++Subsystem: TurretQuad009
++Subsystem: TurretQuad010
++Subsystem: TurretQuad011
++Subsystem: TurretQuad012
++Subsystem: TurretQuad013
++Subsystem: TurretQuad014
++Subsystem: TurretQuad015
++Subsystem: TurretQuad016
++Subsystem: TurretQuad017
++Subsystem: TurretTri001
++Subsystem: TurretTri002
++Subsystem: TurretTri003
++Subsystem: TurretTri004
++Subsystem: TurretTri005
++Subsystem: TurretTri006
++Subsystem: TurretTri007
++Subsystem: TurretTri008
++Subsystem: TurretTri009
++Subsystem: TurretTri010
++Subsystem: TurretTri011
++Subsystem: TurretTri012
++Subsystem: TurretTri013
++Subsystem: TurretTri014
++Subsystem: TurretTri015
++Subsystem: TurretTri016
++Subsystem: TurretTri017
++Subsystem: TurretTri018
++Subsystem: TurretTri019
++Subsystem: TurretWing001
++Subsystem: TurretWing002
+$Arrival Location: Hyperspace
+$Arrival Cue: ( true ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( )
++Flags2: ( "no-ets" )
++Respawn priority: 0
++Orders Accepted List: ( )
++Use Table Score:
++Score: 4500
+
+$Name: BFF-1 X7-4UI3		;! Object #3
+$Class: BFF-1 Freighter
+$Team: Hostile
+$Location: -482.613831, -759.255798, 7786.600586
+$Orientation:
+	1.000000, 0.000000, -0.000000,
+	0.000000, 0.985585, 0.169182,
+	0.000000, -0.169182, 0.985585
+$AI Goals: ( goals ( ai-waypoints "BFF-1 Route" 90 ) )
+$Cargo 1:  XSTR("disks, shanks, flukes", 2941)
++Initial Velocity: 33
++Initial Shields: 20
++Subsystem: Pilot
+$Arrival Location: Hyperspace
+$Arrival Cue: ( true ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( )
++Flags2: ( "no-ets" )
++Respawn priority: 0
++Orders Accepted List: ( )
++Use Table Score:
++Score: 30
+
+$Name: BFF-1 X7-4UI14		;! Object #4
+$Class: BFF-1 Freighter
+$Team: Hostile
+$Location: -296.824982, -656.533447, 7463.788574
+$Orientation:
+	1.000000, 0.000000, -0.000000,
+	0.000000, 0.985585, 0.169182,
+	0.000000, -0.169182, 0.985585
+$AI Goals: ( goals ( ai-waypoints "BFF-1 Route" 90 ) )
+$Cargo 1:  XSTR("excavator parts", 2942)
++Initial Velocity: 33
++Initial Shields: 20
++Subsystem: Pilot
+$Arrival Location: Hyperspace
+$Arrival Cue: ( true ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( )
++Flags2: ( "no-ets" )
++Respawn priority: 0
++Orders Accepted List: ( )
++Use Table Score:
++Score: 30
+
+$Name: BFF-1 X7-4UI7		;! Object #5
+$Class: BFF-1 Freighter
+$Team: Hostile
+$Location: -131.272522, -734.414001, 7158.660156
+$Orientation:
+	1.000000, 0.000000, -0.000000,
+	0.000000, 0.985585, 0.169182,
+	0.000000, -0.169182, 0.985585
+$AI Goals: ( goals ( ai-waypoints "BFF-1 Route" 90 ) )
+$Cargo 1:  XSTR("droid parts", 2943)
++Initial Velocity: 33
++Initial Shields: 20
++Subsystem: Pilot
+$Arrival Location: Hyperspace
+$Arrival Cue: ( true ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( )
++Flags2: ( "no-ets" )
++Respawn priority: 0
++Orders Accepted List: ( )
++Use Table Score:
++Score: 30
+
+$Name: Red 2		;! Object #6
+$Class: RZ-1 A-wing#Red
+$Team: Friendly
+$Location: -95.680756, -1.195618, -57.823795
+$Orientation:
+	0.652438, 0.000000, -0.757842,
+	-0.000000, 1.000000, 0.000000,
+	0.757842, 0.000000, 0.652438
+$Cargo 1:  XSTR("Nothing", 1169)
++Initial Velocity: 100
++Subsystem: Pilot
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( "cargo-known" )
++Flags2: ( "always-death-scream" )
++Respawn priority: 0
++Use Table Score:
++Score: 12
++Persona Name: Rebel Pilot 1
+
+$Name: Red 3		;! Object #7
+$Class: RZ-1 A-wing#Red
+$Team: Friendly
+$Location: -71.678192, -1.195618, -78.760361
+$Orientation:
+	0.652438, 0.000000, -0.757842,
+	-0.000000, 1.000000, 0.000000,
+	0.757842, 0.000000, 0.652438
+$Cargo 1:  XSTR("Nothing", 1169)
++Initial Velocity: 100
++Subsystem: Pilot
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( "cargo-known" )
++Flags2: ( "always-death-scream" )
++Respawn priority: 0
++Use Table Score:
++Score: 12
++Persona Name: Rebel Pilot 2
+
+$Name: Gold 1		;! Object #8
+$Class: BTL-A4 Y-wing#Gold
+$Team: Friendly
+$Location: 40.233208, -8.140213, 75.232391
+$Orientation:
+	0.652438, 0.000000, -0.757842,
+	-0.000000, 1.000000, 0.000000,
+	0.757842, 0.000000, 0.652438
++AI Class: AI_S_DiveBomber
+$AI Goals: ( goals ( ai-chase "BFF-1 X7-4UI3" 88 ) ( ai-chase "BFF-1 X7-4UI14" 87 ) ( ai-chase "BFF-1 X7-4UI7" 86 ) ( ai-warp-out 85 ) )
+$Cargo 1:  XSTR("Nothing", 1169)
++Initial Velocity: 100
++Subsystem: Pilot
++Subsystem: BombTurret
++AI Class: AI_S_DiveBomber
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( "cargo-known" "no-dynamic" )
++Flags2: ( "always-death-scream" )
++Respawn priority: 0
++Use Table Score:
++Score: 10
++Persona Name: Rebel Pilot 3
+
+$Name: Gold 2		;! Object #9
+$Class: BTL-A4 Y-wing#Gold
+$Team: Friendly
+$Location: 75.933464, -1.195633, 51.023632
+$Orientation:
+	0.652438, 0.000000, -0.757842,
+	-0.000000, 1.000000, 0.000000,
+	0.757842, 0.000000, 0.652438
++AI Class: AI_S_DiveBomber
+$AI Goals: ( goals ( ai-chase "BFF-1 X7-4UI14" 88 ) ( ai-chase "BFF-1 X7-4UI7" 87 ) ( ai-chase "BFF-1 X7-4UI7" 86 ) ( ai-warp-out 85 ) )
+$Cargo 1:  XSTR("Nothing", 1169)
++Initial Velocity: 100
++Subsystem: Pilot
++Subsystem: BombTurret
++AI Class: AI_S_DiveBomber
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( "no-dynamic" )
++Flags2: ( "always-death-scream" )
++Respawn priority: 0
++Use Table Score:
++Score: 10
++Persona Name: Rebel Pilot 4
+
+$Name: Delta 1		;! Object #10
+$Class: TIE/ln Fighter
+$Team: Hostile
+$Location: 956.725708, -852.723694, 7558.354492
+$Orientation:
+	-0.108987, 0.000000, 0.994043,
+	0.000000, 1.000000, 0.000000,
+	-0.994043, 0.000000, -0.108987
+$Cargo 1:  XSTR("Nothing", 1169)
++Initial Velocity: 33
++Subsystem: Pilot
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( )
++Flags2: ( )
++Respawn priority: 0
++Orders Accepted List: ( )
++Use Table Score:
++Score: 8
+
+$Name: Delta 2		;! Object #11
+$Class: TIE/ln Fighter
+$Team: Hostile
+$Location: 968.013062, -852.724976, 7589.615723
+$Orientation:
+	-0.108987, 0.000000, 0.994043,
+	0.000000, 1.000000, 0.000000,
+	-0.994043, 0.000000, -0.108987
+$Cargo 1:  XSTR("Nothing", 1169)
++Initial Velocity: 33
++Subsystem: Pilot
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( )
++Flags2: ( )
++Respawn priority: 0
++Orders Accepted List: ( )
++Use Table Score:
++Score: 8
+
+$Name: Delta 3		;! Object #12
+$Class: TIE/ln Fighter
+$Team: Hostile
+$Location: 978.218567, -852.724976, 7546.135254
+$Orientation:
+	-0.108987, 0.000000, 0.994043,
+	0.000000, 1.000000, 0.000000,
+	-0.994043, 0.000000, -0.108987
+$Cargo 1:  XSTR("Nothing", 1169)
++Initial Velocity: 33
++Subsystem: Pilot
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( )
++Flags2: ( )
++Respawn priority: 0
++Orders Accepted List: ( )
++Use Table Score:
++Score: 8
+
+$Name: Alpha 1		;! Object #13
+$Class: TIE/ln Fighter
+$Team: Hostile
+$Location: 1004.903809, -2446.065674, 9538.053711
+$Orientation:
+	1.000000, 0.000000, 0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, 0.000000, 1.000000
+$Cargo 1:  XSTR("Nothing", 1169)
++Initial Velocity: 33
++Subsystem: Pilot
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( )
++Flags2: ( )
++Respawn priority: 0
++Orders Accepted List: ( )
++Use Table Score:
++Score: 8
+
+$Name: Alpha 2		;! Object #14
+$Class: TIE/ln Fighter
+$Team: Hostile
+$Location: 1091.663574, -2368.197510, 9535.750977
+$Orientation:
+	1.000000, 0.000000, 0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, 0.000000, 1.000000
+$Cargo 1:  XSTR("Nothing", 1169)
++Initial Velocity: 33
++Subsystem: Pilot
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( )
++Flags2: ( )
++Respawn priority: 0
++Orders Accepted List: ( )
++Use Table Score:
++Score: 8
+
+$Name: Alpha 3		;! Object #15
+$Class: TIE/ln Fighter
+$Team: Hostile
+$Location: 1068.256592, -2308.436035, 9960.770508
+$Orientation:
+	1.000000, 0.000000, 0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, 0.000000, 1.000000
+$Cargo 1:  XSTR("Nothing", 1169)
++Initial Velocity: 33
++Subsystem: Pilot
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( )
++Flags2: ( )
++Respawn priority: 0
++Orders Accepted List: ( )
++Use Table Score:
++Score: 8
+
+$Name: Alpha 4		;! Object #16
+$Class: TIE/ln Fighter
+$Team: Hostile
+$Location: 1036.332520, -2368.197510, 9719.453125
+$Orientation:
+	1.000000, 0.000000, 0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, 0.000000, 1.000000
+$Cargo 1:  XSTR("Nothing", 1169)
++Initial Velocity: 33
++Subsystem: Pilot
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( )
++Flags2: ( )
++Respawn priority: 0
++Orders Accepted List: ( )
++Use Table Score:
++Score: 8
+
+$Name: Alpha 5		;! Object #17
+$Class: TIE/ln Fighter
+$Team: Hostile
+$Location: 1004.903809, -2368.197510, 9538.053711
+$Orientation:
+	1.000000, 0.000000, 0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, 0.000000, 1.000000
+$Cargo 1:  XSTR("Nothing", 1169)
++Initial Velocity: 33
++Subsystem: Pilot
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( )
++Flags2: ( )
++Respawn priority: 0
++Orders Accepted List: ( )
++Use Table Score:
++Score: 8
+
+$Name: Alpha 6		;! Object #18
+$Class: TIE/ln Fighter
+$Team: Hostile
+$Location: 1068.256592, -2368.197021, 9960.770508
+$Orientation:
+	1.000000, 0.000000, 0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, 0.000000, 1.000000
+$Cargo 1:  XSTR("Nothing", 1169)
++Initial Velocity: 33
++Subsystem: Pilot
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( )
++Flags2: ( )
++Respawn priority: 0
++Orders Accepted List: ( )
++Use Table Score:
++Score: 8
+
+$Name: Beta 1		;! Object #19
+$Class: TIE/ln Fighter
+$Team: Hostile
+$Location: 770.341675, -2831.336426, 9393.047852
+$Orientation:
+	1.000000, 0.000000, 0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, 0.000000, 1.000000
+$Cargo 1:  XSTR("Nothing", 1169)
++Initial Velocity: 33
++Subsystem: Pilot
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( )
++Flags2: ( )
++Respawn priority: 0
++Orders Accepted List: ( )
++Use Table Score:
++Score: 8
+
+$Name: Beta 2		;! Object #20
+$Class: TIE/ln Fighter
+$Team: Hostile
+$Location: 900.579956, -2831.336426, 9401.159180
+$Orientation:
+	1.000000, 0.000000, 0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, 0.000000, 1.000000
+$Cargo 1:  XSTR("Nothing", 1169)
++Initial Velocity: 33
++Subsystem: Pilot
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( )
++Flags2: ( )
++Respawn priority: 0
++Orders Accepted List: ( )
++Use Table Score:
++Score: 8
+
+$Name: Beta 3		;! Object #21
+$Class: TIE/ln Fighter
+$Team: Hostile
+$Location: 509.817261, -2831.336426, 9643.746094
+$Orientation:
+	1.000000, 0.000000, 0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, 0.000000, 1.000000
+$Cargo 1:  XSTR("Nothing", 1169)
++Initial Velocity: 33
++Subsystem: Pilot
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( )
++Flags2: ( )
++Respawn priority: 0
++Orders Accepted List: ( )
++Use Table Score:
++Score: 8
+
+$Name: Beta 4		;! Object #22
+$Class: TIE/ln Fighter
+$Team: Hostile
+$Location: 699.030396, -2831.745117, 9913.181641
+$Orientation:
+	1.000000, 0.000000, 0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, 0.000000, 1.000000
+$Cargo 1:  XSTR("Nothing", 1169)
++Initial Velocity: 33
++Subsystem: Pilot
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( )
++Flags2: ( )
++Respawn priority: 0
++Orders Accepted List: ( )
++Use Table Score:
++Score: 8
+
+$Name: Beta 5		;! Object #23
+$Class: TIE/ln Fighter
+$Team: Hostile
+$Location: 1008.923218, -2831.336914, 9718.896484
+$Orientation:
+	1.000000, 0.000000, 0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, 0.000000, 1.000000
+$Cargo 1:  XSTR("Nothing", 1169)
++Initial Velocity: 33
++Subsystem: Pilot
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( )
++Flags2: ( )
++Respawn priority: 0
++Orders Accepted List: ( )
++Use Table Score:
++Score: 8
+
+$Name: Beta 6		;! Object #24
+$Class: TIE/ln Fighter
+$Team: Hostile
+$Location: 1193.662598, -2831.336914, 9698.435547
+$Orientation:
+	1.000000, 0.000000, 0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, 0.000000, 1.000000
+$Cargo 1:  XSTR("Nothing", 1169)
++Initial Velocity: 33
++Subsystem: Pilot
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( )
++Flags2: ( )
++Respawn priority: 0
++Orders Accepted List: ( )
++Use Table Score:
++Score: 8
+
+$Name: Gold 3		;! Object #25
+$Class: BTL-A4 Y-wing#Gold
+$Team: Friendly
+$Location: 68.544540, -8.140213, 102.478546
+$Orientation:
+	0.652438, 0.000000, -0.757842,
+	-0.000000, 1.000000, 0.000000,
+	0.757842, 0.000000, 0.652438
++AI Class: AI_S_DiveBomber
+$AI Goals: ( goals ( ai-chase "BFF-1 X7-4UI7" 100 ) ( ai-chase "BFF-1 X7-4UI3" 95 ) ( ai-chase "BFF-1 X7-4UI14" 90 ) ( ai-warp-out 85 ) )
+$Cargo 1:  XSTR("Nothing", 1169)
++Initial Velocity: 100
++Subsystem: Pilot
++Subsystem: BombTurret
++AI Class: AI_S_DiveBomber
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( )
++Flags2: ( "always-death-scream" )
++Respawn priority: 0
++Use Table Score:
++Score: 10
++Persona Name: Rebel Pilot 5
+
+$Name: DORO-5-287		;! Object #26
+$Class: Lambda T-4a Shuttle
+$Team: Hostile
+$Location: -668.291016, -3400.941406, 25389.554688
+$Orientation:
+	-0.999965, 0.000000, -0.008407,
+	0.000000, 1.000000, 0.000000,
+	0.008407, 0.000000, -0.999965
++AI Class: AI_11_General
+$AI Goals: ( goals ( ai-waypoints-once "Lambda Jump" 80 ) ( ai-warp-out 70 ) )
+$Cargo 1:  XSTR("Imperial Officers", 2944)
++Initial Velocity: 33
++Subsystem: Pilot
++Subsystem: AftTurret
+$Arrival Location: Hyperspace
+$Arrival Cue: ( true ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( are-waypoints-done-delay 
+   "DORO-5-287" 
+   "Lambda Jump" 
+   0 
+)
+$Determination: 10
++Flags: ( "scannable" )
++Flags2: ( )
++Respawn priority: 0
++Orders Accepted List: ( )
++Score: 40
+
+$Name: AGM6-32		;! Object #27
+$Class: Action VI Transport
+$Team: Hostile
+$Location: -541.478027, -1267.924316, 9724.398438
+$Orientation:
+	1.000000, 0.000000, 0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, 0.000000, 1.000000
+$AI Goals: ( goals ( ai-waypoints "BFF-1 Route" 70 ) )
+$Cargo 1:  XSTR("Nothing", 1169)
++Initial Velocity: 33
++Subsystem: Pilot
+$Arrival Location: Hyperspace
+$Arrival Cue: ( true ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( )
++Flags2: ( "no-ets" )
++Respawn priority: 0
++Orders Accepted List: ( )
++Use Table Score:
++Score: 40
+
+$Name: HFV-2367		;! Object #28
+$Class: Action VI Transport
+$Team: Hostile
+$Location: -390.597656, -1267.924072, 10091.304688
+$Orientation:
+	1.000000, 0.000000, 0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, 0.000000, 1.000000
+$AI Goals: ( goals ( ai-waypoints "BFF-1 Route" 70 ) )
+$Cargo 1:  XSTR("Nothing", 1169)
++Initial Velocity: 33
++Subsystem: Pilot
+$Arrival Location: Hyperspace
+$Arrival Cue: ( true ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( )
++Flags2: ( "no-ets" )
++Respawn priority: 0
++Orders Accepted List: ( )
++Use Table Score:
++Score: 40
+
+$Name: Epsilon 1		;! Object #29
+$Class: TIE/ln Fighter
+$Team: Hostile
+$Location: -455.431641, -3528.666504, 25560.789062
+$Orientation:
+	1.000000, 0.000000, 0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, 0.000000, 1.000000
++AI Class: AI_11_General
+$Cargo 1:  XSTR("Nothing", 1169)
++Initial Velocity: 33
++Subsystem: Pilot
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( )
++Flags2: ( )
++Respawn priority: 0
++Orders Accepted List: ( )
++Use Table Score:
++Score: 8
+
+$Name: Epsilon 2		;! Object #30
+$Class: TIE/ln Fighter
+$Team: Hostile
+$Location: -521.707031, -3528.666504, 25545.046875
+$Orientation:
+	1.000000, 0.000000, 0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, 0.000000, 1.000000
++AI Class: AI_11_General
+$Cargo 1:  XSTR("Nothing", 1169)
++Initial Velocity: 33
++Subsystem: Pilot
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( )
++Flags2: ( )
++Respawn priority: 0
++Orders Accepted List: ( )
++Use Table Score:
++Score: 8
+
+#Wings		;! 6 total
+
+$Name: Red
+$Waves: 1
+$Wave Threshold: 0
+$Special Ship: 0		;! Red 1
+$Arrival Location: Hyperspace
+$Arrival Cue: ( true ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Ships: (		;! 3 total
+	"Red 1"
+	"Red 2"
+	"Red 3"
+)
+$AI Goals: ( goals ( ai-chase-wing "Delta" 85 ) ( ai-guard-wing "Gold" 80 ) ( ai-chase-ship-class "BFF-1 Freighter" 60 ) ( ai-warp-out 50 ) )
++Hotkey: 0
++Flags: ( )
+
+$Name: Gold
+$Waves: 1
+$Wave Threshold: 0
+$Special Ship: 0		;! Gold 1
++Formation: Y Box
+$Arrival Location: Hyperspace
++Arrival delay: 3
+$Arrival Cue: ( true ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Ships: (		;! 3 total
+	"Gold 1"
+	"Gold 2"
+	"Gold 3"
+)
++Hotkey: 1
++Flags: ( "no-dynamic" )
+
+$Name: Delta
+$Waves: 1
+$Wave Threshold: 0
+$Special Ship: 0		;! Delta 1
+$Arrival Location: Hyperspace
+$Arrival Cue: ( true ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Ships: (		;! 3 total
+	"Delta 1"
+	"Delta 2"
+	"Delta 3"
+)
+$AI Goals: ( goals ( ai-chase-ship-class "BTL-A4 Y-wing#Gold" 90 ) )
++Flags: ( )
+
+$Name: Alpha
+$Waves: 3
+$Wave Threshold: 0
+$Special Ship: 0		;! Alpha 1
+$Arrival Location: Docking Bay
++Arrival Distance: 0
+$Arrival Anchor: Vigilance
++Arrival Paths: ( "$bay05_tie_left01" "$bay06_tie_left02" "$bay07_tie_left03" "$bay08_tie_left04" "$bay09_tie_left05" "$bay10_tie_left06" )
++Arrival delay: 35
+$Arrival Cue: ( true ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Ships: (		;! 6 total
+	"Alpha 1"
+	"Alpha 2"
+	"Alpha 3"
+	"Alpha 4"
+	"Alpha 5"
+	"Alpha 6"
+)
+$AI Goals: ( goals ( ai-chase-ship-class "BTL-A4 Y-wing#Gold" 80 ) ( ai-chase-wing "Red" 60 ) )
++Flags: ( )
++Wave Delay Min: 8
++Wave Delay Max: 10
+
+$Name: Beta
+$Waves: 3
+$Wave Threshold: 0
+$Special Ship: 0		;! Beta 1
+$Arrival Location: Docking Bay
++Arrival Distance: 0
+$Arrival Anchor: Vigilance
++Arrival Paths: ( "$bay12_tie_right01" "$bay13_tie_right02" "$bay14_tie_right03" "$bay15_tie_right04" "$bay16_tie_right05" "$bay17_tie_right06" )
++Arrival delay: 45
+$Arrival Cue: ( true ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Ships: (		;! 6 total
+	"Beta 1"
+	"Beta 2"
+	"Beta 3"
+	"Beta 4"
+	"Beta 5"
+	"Beta 6"
+)
+$AI Goals: ( goals ( ai-chase-ship-class "BTL-A4 Y-wing#Gold" 80 ) ( ai-chase-wing "Red" 60 ) )
++Flags: ( )
++Wave Delay Min: 8
++Wave Delay Max: 10
+
+$Name: Epsilon
+$Waves: 1
+$Wave Threshold: 0
+$Special Ship: 0		;! Epsilon 1
++Formation: Y Box
+$Arrival Location: Hyperspace
+$Arrival Cue: ( true ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Ships: (		;! 2 total
+	"Epsilon 1"
+	"Epsilon 2"
+)
+$AI Goals: ( goals ( ai-guard "DORO-5-287" 80 ) ( ai-chase-any 70 ) )
++Flags: ( )
+
+#Events		;! 18 total
+
+$Formula: ( when ( true ) ( do-nothing ) ) 
++Name: DestroyedSubsystemsReact
++Repeat Count: 1
++Interval: 1
+
+$Formula: ( when ( true ) ( do-nothing ) ) 
++Name: EnableDynamicMusic
++Repeat Count: 1
++Interval: 1
+
+$Formula: ( when 
+   ( true ) 
+   ( invalidate-goal 
+      "Eliminate the Officers" 
+   )
+)
++Name: Invalidate Bonus Goal
++Repeat Count: 1
++Interval: 1
+
+$Formula: ( when 
+   ( is-goal-true-delay "Survive" 0 ) 
+   ( do-nothing ) 
+)
++Name: Directive Protect Friendlies
++Repeat Count: 1
++Interval: 1
++Objective:  XSTR("Protect All Friendlies", 2945)
+
+$Formula: ( when-argument 
+   ( any-of 
+      "BFF-1 X7-4UI3" 
+      "BFF-1 X7-4UI7" 
+      "BFF-1 X7-4UI14" 
+   )
+   ( is-destroyed-delay 0 "<argument>" ) 
+   ( modify-variable 
+      @BFF-1s[3] 
+      ( - @BFF-1s[3] 1 ) 
+   )
+   ( invalidate-argument "<argument>" ) 
+)
++Name: BFF-1s Track Remaining
++Repeat Count: -1
++Trigger Count: 3
++Interval: 0
+
+$Formula: ( when 
+   ( and 
+      ( is-goal-true-delay 
+         "BFF-1s Destroyed" 
+         1 
+      )
+      ( directive-value @BFF-1s[3] ) 
+   )
+   ( do-nothing ) 
+)
++Name: Directive BFF-1s
++Repeat Count: 1
++Interval: 1
++Objective:  XSTR("Destroy all BFF-1s", 2946)
+
+$Formula: ( when 
+   ( is-goal-true-delay "Survive" 0 ) 
+   ( do-nothing ) 
+)
++Name: Directive Hyperspace Out
++Repeat Count: 1
++Interval: 1
++Chained: 0
++Objective:  XSTR("Exit To Hyperspace", 2947)
+
+$Formula: ( when ( true ) ( do-nothing ) ) 
++Name: PlayerArrivesFromHyperspace
++Repeat Count: 1
++Interval: 1
+
+$Formula: ( when 
+   ( true ) 
+   ( ship-subsys-guardian-threshold 
+      20 
+      "BFF-1 X7-4UI3" 
+      "<all engines>" 
+   )
+   ( ship-subsys-guardian-threshold 
+      20 
+      "BFF-1 X7-4UI14" 
+      "<all engines>" 
+   )
+   ( ship-subsys-guardian-threshold 
+      20 
+      "BFF-1 X7-4UI7" 
+      "<all engines>" 
+   )
+)
++Name: Guardian BFF-1 Engines
++Repeat Count: 1
++Interval: 1
+
+$Formula: ( ship-guardian 
+   "Gold 1" 
+   "Gold 2" 
+   "Gold 3" 
+   "Red 2" 
+   "Red 3" 
+)
++Name: Guardian the Friendlies
++Repeat Count: 1
++Interval: 1
+
+$Formula: ( when-argument 
+   ( any-of 
+      "Gold 1" 
+      "Gold 2" 
+      "Gold 3" 
+      "Red 2" 
+      "Red 3" 
+   )
+   ( = ( hits-left "<argument>" ) 1 ) 
+   ( modify-variable 
+      "@Friendly-destroyed[Red 1]" 
+      "<argument>" 
+   )
+   ( fade-out 200 ) 
+   ( invalidate-argument "<argument>" ) 
+   ( modify-variable 
+      @StartTime[0] 
+      ( mission-time-msecs ) 
+   )
+   ( modify-variable @CutsceneStage[0] 1 ) 
+)
++Name: Find Dying Friendly
++Repeat Count: -1
++Trigger Count: 5
++Interval: 1300
++Event Flags: ( "interval & delay use msecs" )
+
+$Formula: ( when 
+   ( and 
+      ( = @CutsceneStage[0] 1 ) 
+      ( > 
+         ( mission-time-msecs ) 
+         ( + @StartTime[0] 200 ) 
+      )
+   )
+   ( set-cutscene-bars ) 
+   ( set-camera-position 
+      ( get-object-x 
+         "@Friendly-destroyed[Red 1]" 
+         "<none>" 
+         0 
+         0 
+         -10 
+      )
+      ( get-object-y 
+         "@Friendly-destroyed[Red 1]" 
+         "<none>" 
+         0 
+         0 
+         -10 
+      )
+      ( get-object-z 
+         "@Friendly-destroyed[Red 1]" 
+         "<none>" 
+         0 
+         0 
+         -10 
+      )
+   )
+   ( set-camera-facing-object 
+      "@Friendly-destroyed[Red 1]" 
+   )
+   ( fade-in 700 ) 
+   ( modify-variable @CutsceneStage[0] 2 ) 
+)
++Name: Setup Cutscene
++Repeat Count: -1
++Trigger Count: 5
++Interval: 0
+
+$Formula: ( when 
+   ( and 
+      ( = @CutsceneStage[0] 2 ) 
+      ( > 
+         ( mission-time-msecs ) 
+         ( + @StartTime[0] 1200 ) 
+      )
+   )
+   ( set-subsystem-strength 
+      "@Friendly-destroyed[Red 1]" 
+      "Hull" 
+      0 
+   )
+   ( modify-variable @CutsceneStage[0] 3 ) 
+)
++Name: Finish off Friendly
++Repeat Count: -1
++Trigger Count: 5
++Interval: 0
+
+$Formula: ( when 
+   ( and 
+      ( = @CutsceneStage[0] 3 ) 
+      ( > 
+         ( mission-time-msecs ) 
+         ( + @StartTime[0] 3200 ) 
+      )
+   )
+   ( fade-out 1500 ) 
+   ( modify-variable @CutsceneStage[0] 4 ) 
+)
++Name: Fade Out
++Repeat Count: -1
++Trigger Count: 5
++Interval: 0
+
+$Formula: ( when 
+   ( and 
+      ( = @CutsceneStage[0] 4 ) 
+      ( > 
+         ( mission-time-msecs ) 
+         ( + @StartTime[0] 5200 ) 
+      )
+   )
+   ( unset-cutscene-bars ) 
+   ( reset-camera ) 
+   ( modify-variable @CutsceneStage[0] 0 ) 
+   ( fade-in 500 ) 
+)
++Name: Reset Camera
++Repeat Count: -1
++Trigger Count: 5
++Interval: 0
+
+$Formula: ( when 
+   ( is-goal-false-delay "Survive" 7 ) 
+   ( send-message 
+      "#Command" 
+      "High" 
+      "Survive Fail" 
+   )
+)
++Name: Mission Failed Message
++Repeat Count: 1
++Interval: 1
+
+$Formula: ( when 
+   ( and 
+      ( is-goal-incomplete "Survive" ) 
+      ( is-goal-true-delay 
+         "BFF-1s Destroyed" 
+         0 
+      )
+   )
+   ( send-message 
+      "#Command" 
+      "Normal" 
+      "Mission Success" 
+   )
+   ( validate-goal 
+      "Eliminate the Officers" 
+   )
+)
++Name: Mission Success Message
++Repeat Count: 1
++Interval: 1
+
+$Formula: ( when 
+   ( is-destroyed-delay 0 "DORO-5-287" ) 
+   ( if-then-else 
+      ( is-event-true-delay 
+         "Mission Success Message" 
+         0 
+      )
+      ( send-message 
+         "#Command" 
+         "Normal" 
+         "Bonus Later" 
+      )
+      ( send-message 
+         "#Command" 
+         "Normal" 
+         "Bonus Early" 
+      )
+   )
+)
++Name: Bonus Goal Messages
++Repeat Count: 1
++Interval: 1
+
+#Goals		;! 3 total
+
+$Type: Primary
++Name: Survive
+$MessageNew:  XSTR("All friendly craft must hyper out upon mission completion.", 2948)
+$end_multi_text
+$Formula: ( has-departed-delay 
+   0 
+   "Red 1" 
+   "Red 2" 
+   "Red 3" 
+   "Gold 1" 
+   "Gold 2" 
+   "Gold 3" 
+)
++Score: 500
+
+$Type: Primary
++Name: BFF-1s Destroyed
+$MessageNew:  XSTR("Completely destroy the shipment.", 2949)
+$end_multi_text
+$Formula: ( is-destroyed-delay 
+   0 
+   "BFF-1 X7-4UI3" 
+   "BFF-1 X7-4UI14" 
+   "BFF-1 X7-4UI7" 
+)
++Score: 500
+
+$Type: Bonus
++Name: Eliminate the Officers
+$MessageNew:  XSTR("Destroy the Lambda Shuttle with the Officers onboard.", 2950)
+$end_multi_text
+$Formula: ( is-destroyed-delay 0 "DORO-5-287" ) 
++Score: 250
+
+#Waypoints		;! 3 lists total
+
+$Name: JumpOutPoint
+$List: (		;! 1 points in list
+	( -19.567791, -1.195633, -21.310068 )
+)
+
+$Name: BFF-1 Route
+$List: (		;! 1 points in list
+	( -3101.008545, -21263.943359, 97167.171875 )
+)
+
+$Name: Lambda Jump
+$List: (		;! 1 points in list
+	( -624.486328, -1144.997925, 10485.841797 )
+)
+
+#Messages		;! 4 total
+
+$Command Persona: Rebel Commander 1
+
+$Name: Survive Fail
+$Team: -1
+$MessageNew:  XSTR("Abort mission, we have taken losses.", 2951)
+$end_multi_text
+
+$Name: Mission Success
+$Team: -1
+$MessageNew:  XSTR("Mission successful, return to base.", 2952)
+$end_multi_text
+
+$Name: Bonus Later
+$Team: -1
+$MessageNew:  XSTR("Return to base.", 2953)
+$end_multi_text
+
+$Name: Bonus Early
+$Team: -1
+$MessageNew:  XSTR("Stay on the mission.", 2954)
+$end_multi_text
+
+#Reinforcements		;! 0 total
+
+
+#Background bitmaps		;! 1 total
+
+$Num stars: 500
+$Ambient light level: 7895180
+
+$Bitmap List:
++Flags: ( "corrected angles" )
+$Sun: SunWhite
++Angles: 5.235988 0.000000 4.014257
++Scale: 2.000000
+$Starbitmap: BP_Sullust
++Angles: 0.349066 0.000000 0.000000
++ScaleX: 4.000000
++ScaleY: 4.000000
++DivX: 1
++DivY: 1
+
+#Asteroid Fields
+
+#Music
+
+$Event Music: None
+$Briefing Music: Brief2
+
+#End
+

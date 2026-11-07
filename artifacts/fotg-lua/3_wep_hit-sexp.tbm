@@ -1,0 +1,71 @@
+#Lua SEXPs
+
+$Operator: lua-WeaponHit-createCheck
+$Category: Training
+$Subcategory: Weapon Hit
+$Minimum Arguments: 1
+$Maximum Arguments: 4
+$Return Type: Nothing
+$Description: Create a definition for a weapon hit check.
+$Parameter:
+	+Description: A string to use to refer to this weapon hit check
+	+Type: string
+$Parameter:
+	+Description: A weapon class name, or 'all' or unspecified to check any weapon
+	+Type: string
+$Parameter:
+	+Description: A ship name, or 'all' or unspecified to check any ship
+	+Type: shipname
+$Parameter:
+	+Description: A subsystem name, or 'none', 'hull', or unspecified to check the hull
+	+Type: string
+
+$Operator: lua-WeaponHit-removeCheck
+$Category: Training
+$Subcategory: Weapon Hit
+$Minimum Arguments: 1
+$Maximum Arguments: 1
+$Return Type: Nothing
+$Description: Remove a previously defined weapon hit check.
+$Parameter:
+	+Description: The weapon hit check
+	+Type: string
+
+$Operator: lua-WeaponHit-evalCheck
+$Category: Training
+$Subcategory: Weapon Hit
+$Minimum Arguments: 3
+$Return Type: Nothing
+$Description: Evaluates the status of a previously defined weapon hit check.  The results, if any, are saved to the specified SEXP variable(s).  Results must be listed in pairs, a data item followed by a data variable.
+$Parameter:
+	+Description: The weapon hit check
+	+Type: string
+$Repeat
+$Parameter:
+	+Description: The type of data to save to a variable: 'age' for age in seconds$semicolon 'x', 'y', or 'z' for coordinates$semicolon 'weaponclass' for the weapon class name, 'ship' for the ship name, 'subsystem' for the subsystem name.
+	+Type: string
+$Parameter:
+	+Description: A variable to hold the data
+	+Type: variable
+
+$Operator: lua-WeaponHit-isRecent
+$Category: Training
+$Subcategory: Weapon Hit
+$Minimum Arguments: 2
+$Return Type: Boolean
+$Description: Evaluates the status of a previously defined weapon hit check.  If a hit occurred with an age less than or equal to the threshold, it returns true$semicolon otherwise it returns false.  The results, if any, are saved to the specified SEXP variable(s).  Results must be listed in pairs, a data item followed by a data variable.
+$Parameter:
+	+Description: The age threshold, in seconds.  If the age of the hit is less than or equal to this number, the operator returns true.  Specifying 0 will check for a hit in the most recent game frame.
+	+Type: number
+$Parameter:
+	+Description: The weapon hit check
+	+Type: string
+$Repeat
+$Parameter:
+	+Description: The type of data to save to a variable: 'age' for age in seconds$semicolon 'x', 'y', or 'z' for coordinates$semicolon 'weaponclass' for the weapon class name$semicolon 'ship' for the ship name$semicolon 'subsystem' for the subsystem name.
+	+Type: string
+$Parameter:
+	+Description: A variable to hold the data
+	+Type: variable
+
+#End

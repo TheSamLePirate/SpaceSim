@@ -1,0 +1,4 @@
+#DEFAULT PROFILE
+$Tonemapper: ACES
+$Exposure: 2.9
+#END DEFAULT PROFILE

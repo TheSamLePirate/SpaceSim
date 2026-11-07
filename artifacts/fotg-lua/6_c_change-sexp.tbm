@@ -1,0 +1,17 @@
+#Lua SEXPs
+
+$Operator: change-ship-class-safe
+$Category: Change
+$Subcategory: LUA-Action
+$Minimum Arguments: 2
+$Maximum Arguments: 2
+$Return Type: Nothing
+$Description: Runs change-ship-class sexp while also accounting for various Fate of the Galaxy scripts. Note, this sexp should only be used in very careful circumstances and should not be used at the start of a mission if you are also using any special player arrival events (such as event names that trigger the player to arrive from hyperspace, docking points, or fighterbays). Also, if the ship is actively moving its s-foils then this sexp will wait to trigger until that process is complete. Note, does not work in multiplayer.
+$Parameter: 
+	+Description: The name of the new ship class.  
+	+Type: Shipclass	
+$Parameter: 
+	+Description: The ship to change the class of (ships needs to be in-mission).
+	+Type: Ship
+
+#End

@@ -1,0 +1,54 @@
+#Lua SEXPs
+
+$Operator: ship-has-astromech-unit
+$Category: Status
+$Subcategory: LUA-Condition
+$Minimum Arguments: 1
+$Maximum Arguments: 1
+$Return Type: Boolean
+$Description: This sexp checks to see if the specified ship has an astromech unit. Returns true if the ship has an astromech unit and false if the ship does not have an astromech unit. Note, does not work in multiplayer.
+$Parameter: 
+	+Description: Ship name to check.
+	+Type: Ship
+
+$Operator: play-astromech-chatter
+$Category: Change
+$Subcategory: LUA-Action
+$Minimum Arguments: 1
+$Maximum Arguments: 1
+$Return Type: Nothing
+$Description: Plays a 2D astromech chatter sound. Use 0 to play no sound, 1 to play yes sound, 2 to play idle sound, and 3 to play upset sound. Note, does not work in multiplayer. 
+$Parameter: 
+	+Description: Number option to play of astromech chatter.
+	+Type: Number
+
+$Operator: set-astromech-chatter
+$Category: Change
+$Subcategory: LUA-Action
+$Minimum Arguments: 1
+$Maximum Arguments: 2
+$Return Type: Nothing
+$Description: Sets the astromech unit chatter for the player, which includes droid sound type. Note, does not work in multiplayer.
+$Parameter: 
+	+Description: Toggles the astromech unit chatter for the player. Use 0 to turn off all R2 chatter, use 1 to turn on R2 chatter if the player ship supports an R2 unit, and use 2 to turn on R2 chatter regardless of whether the player ship supports an R2 unit or not.
+	+Type: Number
+$Parameter: 
+	+Description: Sets the droid sound type for the player. Use 1 for a well-maintained and sharp sounding astromech or 2 for a beat-up and weathered sounding astromech. Default is 1.  
+	+Type: Number
+
+$Operator: change-astromech-type
+$Category: Change
+$Subcategory: LUA-Action
+$Minimum Arguments: 2
+;$Maximum Arguments: 1
+$Return Type: Nothing
+$Description: Changes the astromech type on a ship (assuming the ship has an astromech). Note, does not work in multiplayer.  
+$Parameter: 
+	+Description: Astromech type to change to: 1-R2 (Red), 2-R2 (Blue), 3-R2 (Orange), 4-R5 (Red), 5-R5 (Blue), 6-R5 (Orange), 7-R6 (Red), 8-R6 (Blue), 9-R6 (Orange).
+	+Type: Number	
+$Repeat
+$Parameter: 
+	+Description: Ship(s) to change astromech.
+	+Type: Ship	
+
+#End

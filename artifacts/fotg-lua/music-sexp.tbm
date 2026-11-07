@@ -1,0 +1,23 @@
+#Lua SEXPs
+
+$Operator: set-dmusic-hostile-distance
+$Category: Change
+$Subcategory: LUA-Action
+$Minimum Arguments: 1
+$Return Type: Nothing
+$Description: This sexp updates the distance at which combat tracks for the Dynamic Music tracks begin playing if hostiles are present, thus this sexp is only useful if Dynamic Music is enabled. For example, setting the distance to 9000 will ensure that combat music will play if any hostile is within that distance to the player. Note, this sexp only works in singleplayer. 
+$Parameter: 
+	+Description: Distance at which combat music starts playing if Dynamic Music is enabled and hostiles are present. If less than or equal to 0 then combat music will always play if hostiles are present. 
+	+Type: Number
+
+$Operator: set-debriefing-music
+$Category: Change
+$Subcategory: LUA-Action
+$Minimum Arguments: 1
+$Return Type: Nothing
+$Description: This sexp sets the music track to play for the mission debriefing. Note, this sexp only works in singleplayer. 
+$Parameter: 
+	+Description: Track entry name from music.tbl of the track to set as the debriefing music. Options are <Brief1>, <Brief2>, <Brief3>, <Brief4>, <Brief5>, <Success>, <Average>, <Failure>, <Aquitaine>, <Cinema>, or <Silent>. Note, do not use <> in the entered name. 
+	+Type: String
+
+#End

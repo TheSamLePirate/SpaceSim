@@ -1,0 +1,4830 @@
+#Mission Info
+
+$Version: 24.1
+$Name:  XSTR("Questions", 1476)
+$Author: TopAce/Swash
+$Created: 01/16/11 at 23:24:21
+$Modified: 11/02/26 at 19:31:49
+$Notes:
+$End Notes:
+
+$Mission Desc:
+ XSTR("", -1)
+$end_multi_text
++Game Type Flags: 1
++Flags: 393216
+
++Disallow Support: 1
++Hull Repair Ceiling: 0.000000
++Subsystem Repair Ceiling: 100.000000
+
++Viewer pos: 34.584251, 2508.841309, -2730.493164
++Viewer orient:
+	0.999887, 0.000001, -0.015012,
+	0.005470, 0.931221, 0.364415,
+	0.013980, -0.364456, 0.931116
+
+$Squadron wing names: ( "Alpha" "Beta" "Gamma" "Tau" "Epsilon" )
+
+$Load Screen 1024: _GCW_E1
+
+$Skybox Model: skybox_asteroids_brown.pof
+$Skybox Model Animations:( "Hyperspace_Asteroids_East" "Hyperspace_Asteroids_South" "Hyperspace_Asteroids_West" )
++Skybox Orientation:
+	-1.000000, 0.000000, 0.000000,
+	-0.000000, -0.000000, -1.000000,
+	0.000000, -1.000000, 0.000000
++Skybox Flags: 1573120
+
+$AI Profile: FOTG_AI
+
+$Sound Environment: Default
+
+#Sexp_variables
+
+$Variables:
+(
+		0		"Alpha"		"3"		"number"		"save-on-mission-progress"
+		1		"Beta"		"3"		"number"		"save-on-mission-progress"
+		2		"Gamma"		"3"		"number"		"save-on-mission-progress"
+		3		"MiscShips"		"0"		"number"
+		4		"NumTagged"		"0"		"number"
+		5		"Performance"		"1"		"number"		"save-on-mission-progress"
+		6		"RTBCritDealtWith"		"0"		"number"
+		7		"RTBDealtWith"		"0"		"number"
+		8		"Tau"		"3"		"number"		"save-on-mission-progress"
+)
+
+#Command Briefing
+
+#Briefing
+$start_briefing
+$num_stages: 5
+$start_stage
+$multi_text
+ XSTR("Our stormtrooper transports have been recalled and $f Convictor is moving into position to lock down the area.  We expect many ships will attempt to flee the system, and we intend to use the chaos this produces to our advantage.", 1477)
+$end_multi_text
+$voice: l1_M3_b1.ogg
+$camera_pos: 0.000000, 12870.666016, 7551.539062
+$camera_orient:
+	1.000000, 0.000000, 0.000000,
+	0.000000, -0.000065, 1.000000,
+	0.000000, -1.000000, -0.000065
+$camera_time: 2000
+$num_lines: 0
+$num_icons: 4
+$Flags: 0
+$Formula: ( true ) 
+$start_icon
+$type: 6
+$team: Friendly
+$class: Imperial Star Destroyer
+$pos: -3769.154785, 424.999908, 7322.923828
+$label:  XSTR("Convictor", 1370)
++id: 1
+$hlight: 0
+$mirror: 1
+$multi_text
+$end_multi_text
+$end_icon
+$start_icon
+$type: 11
+$team: Hostile
+$class: Action VI Transport
+$pos: 3113.642822, -399.999786, 6137.392090
+$label:  XSTR("Fleeing Ships", 1478)
++id: 2
+$hlight: 1
+$mirror: 1
+$multi_text
+$end_multi_text
+$end_icon
+$start_icon
+$type: 11
+$team: Hostile
+$class: Action VI Transport
+$pos: 3840.939697, -3500.001709, 8694.584961
+$label:  XSTR("Fleeing Ships", 1478)
++id: 3
+$hlight: 1
+$mirror: 1
+$multi_text
+$end_multi_text
+$end_icon
+$start_icon
+$type: 15
+$team: Civilian
+$class: XQ2 Platform#Reb
+$pos: -420.959595, 824.013916, 7209.979004
+$label:  XSTR("Bilbringi 9", 1479)
++id: 11
+$hlight: 0
+$mirror: 0
+$multi_text
+$end_multi_text
+$end_icon
+$end_stage
+$start_stage
+$multi_text
+ XSTR("While some of the shipping moving through $y Bilbringi $y 9 is legitimate, several potential targets docked at the supply depot have already been identified.  Ships that power down immediately will be inspected, but we are not interested in those that have nothing to hide.  Any vessels that flee are criminals at best and more likely $h Rebels$|.", 1480)
+$end_multi_text
+$voice: l1_M3_b2.ogg
+$camera_pos: 2004.665527, 7772.857422, 7390.095215
+$camera_orient:
+	1.000000, 0.000000, 0.000000,
+	0.000000, -0.000065, 1.000000,
+	0.000000, -1.000000, -0.000065
+$camera_time: 2000
+$num_lines: 0
+$num_icons: 4
+$Flags: 0
+$Formula: ( true ) 
+$start_icon
+$type: 6
+$team: Friendly
+$class: Imperial Star Destroyer
+$pos: -3769.154785, 424.999908, 7322.923828
+$label:  XSTR("Convictor", 1370)
++id: 1
+$hlight: 0
+$mirror: 1
+$multi_text
+$end_multi_text
+$end_icon
+$start_icon
+$type: 11
+$team: Hostile
+$class: Action VI Transport
+$pos: 3051.847412, -399.999969, 6355.981934
+$label:  XSTR("Fleeing Ships", 1478)
++id: 2
+$hlight: 0
+$mirror: 1
+$multi_text
+$end_multi_text
+$end_icon
+$start_icon
+$type: 11
+$team: Hostile
+$class: Action VI Transport
+$pos: 3749.157227, -3500.002441, 8233.471680
+$label:  XSTR("Fleeing Ships", 1478)
++id: 3
+$hlight: 0
+$mirror: 1
+$multi_text
+$end_multi_text
+$end_icon
+$start_icon
+$type: 15
+$team: Civilian
+$class: XQ2 Platform#Reb
+$pos: -420.959595, 824.013916, 7209.979004
+$label:  XSTR("Bilbringi 9", 1479)
++id: 11
+$hlight: 0
+$mirror: 0
+$multi_text
+$end_multi_text
+$end_icon
+$end_stage
+$start_stage
+$multi_text
+ XSTR("Of particular interest are the light freighters $n Tayana $n Star$|, $n Zaltin $n 12$|, and $n Sulonan$|.  These vessels are to be tagged with homing beacons and allowed to escape, though superficial damage would help make the pursuit look convincing.  As our most experienced pilot, $f Alpha $f 1 will fly the bomber that will tag the freighters.", 1481)
+$end_multi_text
+$voice: l1_M3_b3.ogg
+$camera_pos: 4263.110352, 10030.731445, 8602.448242
+$camera_orient:
+	1.000000, 0.000000, 0.000000,
+	0.000000, -0.000065, 1.000000,
+	0.000000, -1.000000, -0.000065
+$camera_time: 2000
+$num_lines: 0
+$num_icons: 6
+$Flags: 0
+$Formula: ( true ) 
+$start_icon
+$type: 6
+$team: Friendly
+$class: Imperial Star Destroyer
+$pos: -3769.154785, 424.999908, 7322.923828
+$label:  XSTR("Convictor", 1370)
++id: 1
+$hlight: 0
+$mirror: 1
+$multi_text
+$end_multi_text
+$end_icon
+$start_icon
+$type: 11
+$team: Hostile
+$class: Corellian Star Shuttle
+$pos: 7065.009766, -3500.001221, 8076.408203
+$label:  XSTR("Tayana Star", 1482)
++id: 4
+$hlight: 0
+$mirror: 1
+$multi_text
+$end_multi_text
+$end_icon
+$start_icon
+$type: 11
+$team: Hostile
+$class: Rayter Transport
+$pos: 4643.796875, -0.001451, 6967.115723
+$label:  XSTR("Zaltin 12", 1483)
++id: 5
+$hlight: 0
+$mirror: 1
+$multi_text
+$end_multi_text
+$end_icon
+$start_icon
+$type: 11
+$team: Hostile
+$class: BFF-1 Freighter
+$pos: 4613.622070, -0.001424, 9720.095703
+$label:  XSTR("Sulonan", 1484)
++id: 6
+$hlight: 0
+$mirror: 1
+$multi_text
+$end_multi_text
+$end_icon
+$start_icon
+$type: 1
+$team: Friendly
+$class: TIE/ln Fighter
+$pos: 2359.242432, 424.999786, 7575.487793
+$label:  XSTR("Alpha", 1182)
++id: 7
+$hlight: 0
+$mirror: 0
+$use wing icon: 1
+$multi_text
+$end_multi_text
+$end_icon
+$start_icon
+$type: 16
+$team: Friendly
+$class: TIE/sa Bomber
+$pos: 3630.184814, 599.999207, 8469.337891
+$label:  XSTR("Alpha 1 (Homing Beacon)", 1485)
++id: 8
+$hlight: 0
+$mirror: 0
+$multi_text
+$end_multi_text
+$end_icon
+$end_stage
+$start_stage
+$multi_text
+ XSTR("The mechanism $f Imperial $f Intelligence has devised for delivering the $f XX-23 $f Homing $f Beacon falls somewhere below military standards in terms of reliability, so $f Alpha $f 1 will need to be covered closely to ensure that the devices are fully secured.  Once tagged, these ships should not be hindered further, though scans of their cargo may still be of some use to us.", 1486)
+$end_multi_text
+$voice: l1_M3_b4.ogg
+$camera_pos: 5762.684082, 9700.686523, 8602.424805
+$camera_orient:
+	1.000000, 0.000000, 0.000000,
+	0.000000, -0.000065, 1.000000,
+	0.000000, -1.000000, -0.000065
+$camera_time: 2000
+$num_lines: 0
+$num_icons: 7
+$Flags: 0
+$Formula: ( true ) 
+$start_icon
+$type: 6
+$team: Friendly
+$class: Imperial Star Destroyer
+$pos: -3769.154785, 424.999908, 7322.923828
+$label:  XSTR("Convictor", 1370)
++id: 1
+$hlight: 0
+$mirror: 1
+$multi_text
+$end_multi_text
+$end_icon
+$start_icon
+$type: 11
+$team: Hostile
+$class: Corellian Star Shuttle
+$pos: 7065.009766, -3500.001221, 8076.408203
+$label:  XSTR("Tayana Star", 1482)
++id: 4
+$hlight: 0
+$mirror: 1
+$multi_text
+$end_multi_text
+$end_icon
+$start_icon
+$type: 11
+$team: Hostile
+$class: Rayter Transport
+$pos: 4643.796875, -0.001451, 6967.115723
+$label:  XSTR("Zaltin 12", 1483)
++id: 5
+$hlight: 0
+$mirror: 1
+$multi_text
+$end_multi_text
+$end_icon
+$start_icon
+$type: 11
+$team: Hostile
+$class: BFF-1 Freighter
+$pos: 4613.622070, -0.001424, 9720.095703
+$label:  XSTR("Sulonan", 1484)
++id: 6
+$hlight: 0
+$mirror: 1
+$multi_text
+$end_multi_text
+$end_icon
+$start_icon
+$type: 1
+$team: Friendly
+$class: TIE/ln Fighter
+$pos: 4492.933105, 425.000366, 8223.700195
+$label:  XSTR("Alpha", 1182)
++id: 7
+$hlight: 0
+$mirror: 0
+$use wing icon: 1
+$multi_text
+$end_multi_text
+$end_icon
+$start_icon
+$type: 16
+$team: Friendly
+$class: TIE/sa Bomber
+$pos: 5432.114746, 599.999268, 8972.818359
+$label:  XSTR("Alpha 1 (Homing Beacon)", 1485)
++id: 8
+$hlight: 0
+$mirror: 0
+$multi_text
+$end_multi_text
+$end_icon
+$start_icon
+$type: 15
+$team: Civilian
+$class: XQ2 Platform#Reb
+$pos: -420.959595, 824.013916, 7209.979004
+$label:  XSTR("Bilbringi 9", 1479)
++id: 11
+$hlight: 0
+$mirror: 0
+$multi_text
+$end_multi_text
+$end_icon
+$end_stage
+$start_stage
+$multi_text
+ XSTR("Other fleeing vessels are to be disabled or destroyed at the wing commander's discretion.  Any ship that poses a danger should be eliminated as quickly as possible to serve as a warning to the others.  With luck, our objectives will be accomplished with minimal bloodshed.  All squadrons will be prepared to launch in fifteen minutes.", 1487)
+$end_multi_text
+$voice: l1_M3_b5.ogg
+$camera_pos: 8926.903320, 6662.867676, 10711.196289
+$camera_orient:
+	1.000000, 0.000000, 0.000000,
+	0.000000, -0.000065, 1.000000,
+	0.000000, -1.000000, -0.000065
+$camera_time: 2000
+$num_lines: 0
+$num_icons: 6
+$Flags: 0
+$Formula: ( true ) 
+$start_icon
+$type: 6
+$team: Friendly
+$class: Imperial Star Destroyer
+$pos: -3769.154785, 424.999908, 7322.923828
+$label:  XSTR("Convictor", 1370)
++id: 1
+$hlight: 0
+$mirror: 1
+$multi_text
+$end_multi_text
+$end_icon
+$start_icon
+$type: 1
+$team: Friendly
+$class: TIE/ln Fighter
+$pos: 8055.064453, 424.999298, 10056.912109
+$label:  XSTR("Alpha", 1182)
++id: 7
+$hlight: 0
+$mirror: 0
+$use wing icon: 1
+$multi_text
+$end_multi_text
+$end_icon
+$start_icon
+$type: 16
+$team: Friendly
+$class: TIE/sa Bomber
+$pos: 8099.639648, 599.998474, 11154.700195
+$label:  XSTR("Alpha 1 (Homing Beacon)", 1485)
++id: 8
+$hlight: 0
+$mirror: 0
+$multi_text
+$end_multi_text
+$end_icon
+$start_icon
+$type: 11
+$team: Hostile
+$class: Action VI Transport
+$pos: 10550.879883, -3000.003174, 11289.411133
+$label:  XSTR("Fleeing Ships", 1478)
++id: 9
+$hlight: 0
+$mirror: 1
+$multi_text
+$end_multi_text
+$end_icon
+$start_icon
+$type: 11
+$team: Hostile
+$class: Action VI Transport
+$pos: 10618.019531, -3499.995605, 9476.020508
+$label:  XSTR("Fleeing Ships", 1478)
++id: 10
+$hlight: 0
+$mirror: 1
+$multi_text
+$end_multi_text
+$end_icon
+$start_icon
+$type: 15
+$team: Civilian
+$class: XQ2 Platform#Reb
+$pos: -420.959595, 824.013916, 7209.979004
+$label:  XSTR("Bilbringi 9", 1479)
++id: 11
+$hlight: 0
+$mirror: 0
+$multi_text
+$end_multi_text
+$end_icon
+$end_stage
+$end_briefing
+
+#Debriefing_info
+
+$Num stages: 8
+
+$Formula: ( not 
+   ( is-event-true-delay 
+      "Alpha 1 Traitor" 
+      0 
+   )
+)
+$Multi text
+    XSTR("In a typical act of desperation and cowardice, the Rebels cornered in the fueling station overloaded the facility's reactor rather than risking capture.  The resulting explosion killed thousands of workers, and it was only thanks to the scanning equipment sent in with the stormtrooper force that we were able to withdraw our men in time.", 1488)
+$end_multi_text
+$Voice: I1_M3_db1.ogg
+$Recommendation text:
+    XSTR("", -1)
+$end_multi_text
+
+$Formula: ( and 
+   ( = @NumTagged[0] 3 ) 
+   ( not 
+      ( is-event-true-delay 
+         "Alpha 1 Traitor" 
+         0 
+      )
+   )
+)
+$Multi text
+    XSTR("In spite of these terrorist acts, Alpha 1 distinguished himself today.  All three of the critical black market vessels are now transmitting clear signals, and will provide valuable information on the Rebel supply chains.", 1489)
+$end_multi_text
+$Voice: I1_M3_db2.ogg
+$Recommendation text:
+    XSTR("", -1)
+$end_multi_text
+
+$Formula: ( and 
+   ( > @NumTagged[0] 0 ) 
+   ( != @NumTagged[0] 3 ) 
+   ( not 
+      ( is-event-true-delay 
+         "Alpha 1 Traitor" 
+         0 
+      )
+   )
+)
+$Multi text
+    XSTR("Although Alpha 1 was unable to tag all three critical freighters before they could make the jump to lightspeed, we have acquired enough information to begin tracing the Rebel supply chains.", 1490)
+$end_multi_text
+$Voice: I1_M3_db3.ogg
+$Recommendation text:
+    XSTR("Tagging Tayana Star, Zaltin 12, and Sulonan should be your highest priority.  Divert power to engines if needed.", 1491)
+$end_multi_text
+
+$Formula: ( and 
+   ( = @NumTagged[0] 0 ) 
+   ( not 
+      ( is-event-true-delay 
+         "Alpha 1 Traitor" 
+         0 
+      )
+   )
+)
+$Multi text
+    XSTR("As Alpha 1 failed to tag any of the escaping freighters, we will have no way of bringing these criminals to justice.  Lord Vader will soon be visiting the site of the attack, and he will not be pleased with this performance.  He is a most creative man when it comes to finding ways to motivate his officers.", 1492)
+$end_multi_text
+$Voice: I1_M3_db4.ogg
+$Recommendation text:
+    XSTR("Tagging Tayana Star, Zaltin 12, and Sulonan should be your highest priority.  Divert power to engines if needed.", 1491)
+$end_multi_text
+
+$Formula: ( and 
+   ( percent-ships-destroyed 
+      5 
+      "Charmed" 
+      "Ulabos Ringer" 
+      "Blue Mountain Drifter" 
+      "Tayana Star" 
+      "Night Bloom" 
+      "Sulonan" 
+      "Zaltin 12" 
+   )
+   ( not 
+      ( is-event-true-delay 
+         "Alpha 1 Traitor" 
+         0 
+      )
+   )
+)
+$Multi text
+    XSTR("Regrettably, our wing was unable to prevent the destruction of unarmed vessels during this engagement.  Greater restraint is required in dealing with civilians, even criminals.  We are soldiers, not butchers.", 1493)
+$end_multi_text
+$Voice: I1_M3_db5.ogg
+$Recommendation text:
+    XSTR("Make sure any deployed flights have orders to disable or ignore the secondary objective freighters.  Even with explicit disable orders, your overzealous pilots may accidentally destroy a target ship if they are not positioned to attack from the aft quarter.", 1494)
+$end_multi_text
+
+$Formula: ( and 
+   ( is-event-true-delay 
+      "Tau Does Something" 
+      0 
+   )
+   ( not 
+      ( is-event-true-delay "Tau Blasted" 0 ) 
+   )
+   ( not 
+      ( is-event-true-delay 
+         "Alpha 1 Traitor" 
+         0 
+      )
+   )
+)
+$Multi text
+    XSTR("Although this was a dark day for the Empire, congratulations are in order for Tau Squadron, who performed admirably in their first combat.  Your bravery is a credit to the entire wing.", 1495)
+$end_multi_text
+$Voice: I1_M3_db6.ogg
+$Recommendation text:
+    XSTR("", -1)
+$end_multi_text
+
+$Formula: ( not 
+   ( is-event-true-delay 
+      "Alpha 1 Traitor" 
+      0 
+   )
+)
+$Multi text
+    XSTR("It may be some time before we can bring peace to the victims of Bilbringi, but I assure you we will make the Rebel scum pay for what they have done here.  Dismissed.", 1496)
+$end_multi_text
+$Voice: I1_M3_db7.ogg
+$Recommendation text:
+    XSTR("", -1)
+$end_multi_text
+
+$Formula: ( is-event-true-delay 
+   "Alpha 1 Traitor" 
+   0 
+)
+$Multi text
+    XSTR("You have been found guilty of the crime of treason against the Emperor, and are to be executed immediately.  This betrayal is particularly disappointing coming from such a gifted and well-bred individual.  You have not only failed yourself, your fleet, and your Emperor, but your family too will lose everything.  Be thankful that the circumstances of our deployment have spared you from Lord Vader's tender mercies.  You have one hour to prepare yourself.", 1443)
+$end_multi_text
+$Voice: I1_Traitor.ogg
+$Recommendation text:
+    XSTR("Refrain from shooting friendly targets.", 1497)
+$end_multi_text
+
+#Players		;! 1 total
+
+$Starting Shipname: Alpha 1
+$Ship Choices: (
+	"TIE/sa Bomber"	4
+	"TIE/ln Fighter"	24
+)
+
++Weaponry Pool: (
+	"SFS L-s1"	24
+	"SFS L-s7.2"	24
+	"SFS L-s9.3"	24
+	"SFS L-s1 (Burst)"	24
+	"SFS L-s7.2 (Burst)"	24
+	"SFS L-s9.3 (Burst)"	24
+	"Krupx MG7-A#Pnk"	128
+	"Frei-Tek MAG-2#Yel"	116
+	"XX-23 Homing Beacon"	6
+	"Krupx MG5#Orn"	64
+	"Merr-Sonn NG2#Yel"	12
+	"ArmaTek VL-61/79#Pnk"	180
+	"Krupx MG7-A#Blu"	96
+	"Frei-Tek MAG-2#Tel"	12
+)
+
+#Objects		;! 57 total
+
+$Name: Alpha 1		;! Object #0
+$Class: TIE/sa Bomber
+$Team: Friendly
+$Location: 15.084892, -93.988937, -2707.967773
+$Orientation:
+	1.000000, 0.000000, 0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, 0.000000, 1.000000
+$Cargo 1:  XSTR("Nothing", 1169)
++Initial Velocity: 30
++Subsystem: Pilot
++Secondary Banks: ( "Frei-Tek MAG-2#Tel" "XX-23 Homing Beacon" )
++Subsystem: BombTurret
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( "cargo-known" "player-start" )
++Flags2: ( )
++Respawn priority: 0
++Orders Accepted List: ( "attack ship" "disable ship" "disarm ship" "guard ship" "ignore ship" "form on wing" "cover me" "attack any" "disable subsys" )
++Group: 0
++Use Table Score:
++Score: 9
+
+$Name: Alpha 2		;! Object #1
+$Class: TIE/ln Fighter
+$Team: Friendly
+$Location: 68.089592, -93.988937, -2750.507324
+$Orientation:
+	1.000000, 0.000000, 0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, 0.000000, 1.000000
++AI Class: AI_08_Major
+$Cargo 1:  XSTR("Nothing", 1169)
++Initial Velocity: 30
++Subsystem: Pilot
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( "protect-ship" )
++Flags2: ( )
++Respawn priority: 0
++Group: 0
++Use Table Score:
++Score: 8
++Persona Name: Imperial Pilot 6
+
+$Name: Alpha 3		;! Object #2
+$Class: TIE/ln Fighter
+$Team: Friendly
+$Location: -21.610699, -93.988937, -2753.225586
+$Orientation:
+	1.000000, 0.000000, 0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, 0.000000, 1.000000
++AI Class: AI_08_Major
+$Cargo 1:  XSTR("Nothing", 1169)
++Initial Velocity: 30
++Subsystem: Pilot
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( )
++Flags2: ( "no-builtin-messages" )
++Respawn priority: 0
++Group: 0
++Use Table Score:
++Score: 8
+
+$Name: Alpha 4		;! Object #3
+$Class: TIE/ln Fighter
+$Team: Friendly
+$Location: -64.180092, -93.988937, -2787.948486
+$Orientation:
+	1.000000, 0.000000, 0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, 0.000000, 1.000000
++AI Class: AI_08_Major
+$Cargo 1:  XSTR("Nothing", 1169)
++Initial Velocity: 30
++Subsystem: Pilot
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( )
++Flags2: ( "no-builtin-messages" )
++Respawn priority: 0
++Group: 0
++Use Table Score:
++Score: 8
+
+$Name: Bilbringi 9		;! Object #4
+$Class: XQ2 Platform#Reb
+$Team: Civilian
+$Location: 25.400000, -375.000000, 4484.200195
+$Orientation:
+	0.667463, 0.000000, -0.744643,
+	-0.000000, 1.000000, 0.000000,
+	0.744643, 0.000000, 0.667463
+$Cargo 1:  XSTR("Nothing", 1169)
++Subsystem: Pilot
++Subsystem: Turret01
++Subsystem: Turret02
++Subsystem: Turret03
++Subsystem: Turret04
++Subsystem: Turret05
++Subsystem: Turret06
++Subsystem: Turret07
++Subsystem: Turret08
++Subsystem: Turret09
++Subsystem: Turret10
++Subsystem: Turret11
++Subsystem: Turret12
++Subsystem: Turret13
++Subsystem: Turret14
++Subsystem: Turret15
++Subsystem: Turret16
++Subsystem: Turret17
++Subsystem: Turret18
+$Arrival Location: Hyperspace
+$Arrival Cue: ( true ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( "protect-ship" "invulnerable" )
++Flags2: ( "lock-all-turrets" "no-ets" )
++Respawn priority: 0
++Group: 0
++Use Table Score:
++Score: 1000
+
+$Name: Night Bloom		;! Object #5
+$Class: Action VI Transport
+$Team: Hostile
+$Location: 382.796387, -406.356750, 4000.183838
+$Orientation:
+	-0.205706, -0.000000, 0.978614,
+	0.978614, 0.000000, 0.205706,
+	-0.000000, 1.000000, 0.000000
+$Cargo 1:  XSTR("CLL-8 Load Lifter Parts", 1498)
++Subsystem: Pilot
+$Arrival Location: Hyperspace
+$Arrival Cue: ( true ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( < 
+   ( distance 
+      "Night Bloom" 
+      "NB Escape:1" 
+   )
+   50 
+)
+$Determination: 10
++Flags: ( "protect-ship" "escort" "scannable" "missile-protect-ship" )
++Flags2: ( "no-ets" )
++Respawn priority: 0
++Escort priority: 25
++Special Hitpoints: 7000
++Group: 0
++Use Table Score:
++Score: 40
+
+$Name: Tayana Star		;! Object #6
+$Class: Corellian Star Shuttle
+$Team: Hostile
+$Location: 345.581451, -337.822052, 4993.314941
+$Orientation:
+	-0.667450, 0.000000, 0.744655,
+	0.000000, 1.000000, -0.000000,
+	-0.744655, -0.000000, -0.667450
+$Cargo 1:  XSTR("Power Generators", 1499)
++Subsystem: Pilot
+$Arrival Location: Hyperspace
+$Arrival Cue: ( true ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( < 
+   ( distance 
+      "Tayana Star" 
+      "TS Escape:1" 
+   )
+   50 
+)
+$Determination: 10
++Flags: ( "protect-ship" "escort" "scannable" "missile-protect-ship" )
++Flags2: ( "no-ets" )
++Respawn priority: 0
++Escort priority: 100
++Group: 0
++Use Table Score:
++Score: 40
+$Texture Replace:
++old: starshuttle
++new: starshuttle_blue
+
+$Name: Hypermatter Processing Plant		;! Object #7
+$Class: Asteroid Base
+$Team: Friendly
+$Location: -515.632996, 824.013733, 8537.040039
+$Orientation:
+	1.000000, 0.000000, 0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, 0.000000, 1.000000
+$Cargo 1:  XSTR("Nothing", 1169)
++Subsystem: Pilot
++Subsystem: Turret01
+$Arrival Location: Hyperspace
+$Arrival Cue: ( true ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( )
++Flags2: ( "lock-all-turrets" "no-ets" )
++Respawn priority: 0
+$Special Explosion:
++Special Exp Damage: 200
++Special Exp Blast: 2000
++Special Exp Inner Radius: 1350
++Special Exp Outer Radius: 3000
++Special Exp Shockwave Speed: 1000
++Group: 0
++Use Table Score:
++Score: 1000
+
+$Name: Zaltin 12		;! Object #8
+$Class: Rayter Transport
+$Team: Hostile
+$Location: -666.099976, -450.000000, 5844.700195
+$Orientation:
+	-0.999816, 0.000000, -0.019198,
+	0.000000, 1.000000, 0.000000,
+	0.019198, -0.000000, -0.999816
+$AI Goals: ( goals ( ai-waypoints-once "Zaltin Escape" 52 ) )
+$Cargo 1:  XSTR("Export-Grade Bacta", 1500)
++Subsystem: Pilot
++Subsystem: Turret
+$Arrival Location: Hyperspace
+$Arrival Cue: ( is-event-true-delay 
+   "Zaltin 12 can arrive" 
+   0 
+)
+$Departure Location: Hyperspace
+$Departure Cue: ( or 
+   ( < 
+      ( distance 
+         "Zaltin 12" 
+         "Zaltin Escape:1" 
+      )
+      50 
+   )
+   ( and 
+      ( destroyed-or-departed-delay 
+         0 
+         "Healer" 
+      )
+      ( <= 
+         ( get-secondary-ammo "Alpha 1" 1 ) 
+         0 
+      )
+   )
+)
+$Determination: 10
++Flags: ( "protect-ship" "escort" "invulnerable" "scannable" "missile-protect-ship" )
++Flags2: ( "no-ets" )
++Respawn priority: 0
++Escort priority: 100
++Group: 0
++Score: 40
+
+$Name: Sulonan		;! Object #9
+$Class: BFF-1 Freighter
+$Team: Hostile
+$Location: 612.965820, -0.000908, 4969.021484
+$Orientation:
+	1.000000, 0.000000, 0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, 0.000000, 1.000000
+$Cargo 1:  XSTR("XP-38 Landspeeders", 1501)
++Subsystem: Pilot
+$Arrival Location: Hyperspace
+$Arrival Cue: ( true ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( < 
+   ( distance 
+      "Sulonan" 
+      "Sulonan Escape:1" 
+   )
+   50 
+)
+$Determination: 10
++Flags: ( "protect-ship" "escort" "scannable" "missile-protect-ship" )
++Flags2: ( "no-ets" )
++Respawn priority: 0
++Escort priority: 100
+$Special Explosion:
++Special Exp Damage: 50
++Special Exp Blast: 2500
++Special Exp Inner Radius: 50
++Special Exp Outer Radius: 250
++Special Exp Shockwave Speed: 1
++Special Shield Points: 5000
++Group: 0
++Score: 40
+
+$Name: Ulabos Ringer		;! Object #10
+$Class: YT-1300 Freighter
+$Team: Hostile
+$Location: -601.444336, -400.000031, 4392.103027
+$Orientation:
+	0.967852, -0.000000, 0.251519,
+	-0.056841, 0.974129, 0.218727,
+	-0.245012, -0.225992, 0.942813
+$AI Goals: ( goals ( ai-waypoints-once "UR Escape" 52 ) )
+$Cargo 1:  XSTR("Ithorian Grain", 1502)
++Subsystem: Pilot
++Subsystem: Turret
+$Arrival Location: Hyperspace
+$Arrival Cue: ( true ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( < 
+   ( distance 
+      "Ulabos Ringer" 
+      "UR Escape:1" 
+   )
+   50 
+)
+$Determination: 10
++Flags: ( "protect-ship" "escort" "scannable" "missile-protect-ship" )
++Flags2: ( )
++Respawn priority: 0
++Escort priority: 25
+$Special Explosion:
++Special Exp Damage: 50
++Special Exp Blast: 2500
++Special Exp Inner Radius: 50
++Special Exp Outer Radius: 200
++Special Shield Points: 1000
++Group: 0
++Score: 40
+
+$Name: Charmed		;! Object #11
+$Class: Action VI Transport
+$Team: Hostile
+$Location: 962.203674, -0.001038, 5304.072266
+$Orientation:
+	0.368125, 0.000000, -0.929776,
+	0.000000, 1.000000, 0.000000,
+	0.929776, -0.000000, 0.368125
+$AI Goals: ( goals ( ai-waypoints-once "Charmed Escape" 52 ) )
+$Cargo 1:  XSTR("Durasteel", 1348)
++Initial Velocity: 100
++Subsystem: Pilot
+$Arrival Location: Hyperspace
+$Arrival Cue: ( is-event-true-delay 
+   "Charmed can arrive" 
+   0 
+)
+$Departure Location: Hyperspace
+$Departure Cue: ( < 
+   ( distance 
+      "Charmed" 
+      "Charmed Escape:1" 
+   )
+   50 
+)
+$Determination: 10
++Flags: ( "protect-ship" "escort" "scannable" "missile-protect-ship" )
++Flags2: ( "no-ets" )
++Respawn priority: 0
++Escort priority: 25
++Special Hitpoints: 7000
++Group: 0
++Use Table Score:
++Score: 40
+
+$Name: Blue Mountain Drifter		;! Object #12
+$Class: Action VI Transport
+$Team: Hostile
+$Location: 8085.100098, -2200.000000, 4739.799805
+$Orientation:
+	0.138701, 0.000000, 0.990334,
+	0.000000, 1.000000, -0.000000,
+	-0.990334, 0.000000, 0.138701
+$AI Goals: ( goals ( ai-waypoints-once "BMDWaypoint" 52 ) ( ai-warp-out 50 ) )
+$Cargo 1:  XSTR("Carbonite Slabs", 1503)
++Initial Velocity: 33
++Subsystem: Pilot
+$Arrival Location: Hyperspace
+$Arrival Cue: ( is-event-true-delay 
+   "Blue Mountain can arrive" 
+   0 
+)
+$Departure Location: Hyperspace
+$Departure Cue: ( is-event-true-delay 
+   "Blue Mountain can arrive" 
+   300 
+)
+$Determination: 10
++Flags: ( "protect-ship" "escort" "scannable" "missile-protect-ship" )
++Flags2: ( "no-ets" )
++Respawn priority: 0
++Escort priority: 25
++Special Hitpoints: 7000
++Group: 0
++Use Table Score:
++Score: 40
+
+$Name: Convictor		;! Object #13
+$Class: Imperial Star Destroyer
+$Team: Friendly
+$Location: 13.375968, -0.000032, -3149.183838
+$Orientation:
+	1.000000, 0.000000, 0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, 0.000000, 1.000000
+$Cargo 1:  XSTR("Nothing", 1169)
++Subsystem: Pilot
++Subsystem: TurretAA001
++Subsystem: TurretAA002
++Subsystem: TurretAA003
++Subsystem: TurretAA004
++Subsystem: TurretAA005
++Subsystem: TurretAA006
++Subsystem: TurretAA007
++Subsystem: TurretAA008
++Subsystem: TurretAA009
++Subsystem: TurretAA010
++Subsystem: TurretAA011
++Subsystem: TurretAA012
++Subsystem: TurretAA013
++Subsystem: TurretAA014
++Subsystem: TurretAA015
++Subsystem: TurretAA016
++Subsystem: TurretAA017
++Subsystem: TurretAA018
++Subsystem: TurretDual001
++Subsystem: TurretIon001
++Subsystem: TurretIon002
++Subsystem: TurretIon003
++Subsystem: TurretIon004
++Subsystem: TurretIon005
++Subsystem: TurretIon006
++Subsystem: TurretLauncher001
++Subsystem: TurretMain001
++Subsystem: TurretMain002
++Subsystem: TurretMain003
++Subsystem: TurretMain004
++Subsystem: TurretMain005
++Subsystem: TurretMain006
++Subsystem: TurretMain007
++Subsystem: TurretMain008
++Subsystem: TurretQuad001
++Subsystem: TurretQuad002
++Subsystem: TurretQuad003
++Subsystem: TurretQuad004
++Subsystem: TurretQuad005
++Subsystem: TurretQuad006
++Subsystem: TurretQuad007
++Subsystem: TurretQuad008
++Subsystem: TurretQuad009
++Subsystem: TurretQuad010
++Subsystem: TurretQuad011
++Subsystem: TurretQuad012
++Subsystem: TurretQuad013
++Subsystem: TurretQuad014
++Subsystem: TurretQuad015
++Subsystem: TurretQuad016
++Subsystem: TurretQuad017
++Subsystem: TurretTri001
++Subsystem: TurretTri002
++Subsystem: TurretTri003
++Subsystem: TurretTri004
++Subsystem: TurretTri005
++Subsystem: TurretTri006
++Subsystem: TurretTri007
++Subsystem: TurretTri008
++Subsystem: TurretTri009
++Subsystem: TurretTri010
++Subsystem: TurretTri011
++Subsystem: TurretTri012
++Subsystem: TurretTri013
++Subsystem: TurretTri014
++Subsystem: TurretTri015
++Subsystem: TurretTri016
++Subsystem: TurretTri017
++Subsystem: TurretTri018
++Subsystem: TurretTri019
++Subsystem: TurretWing001
++Subsystem: TurretWing002
+$Arrival Location: Hyperspace
+$Arrival Cue: ( true ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( "protect-ship" "invulnerable" )
++Flags2: ( "lock-all-turrets" "no-ets" )
++Respawn priority: 0
++Orders Accepted List: ( )
++Group: 0
++Use Table Score:
++Score: 4500
+
+$Name: Delta 1		;! Object #14
+$Class: DX-9 Stormtrooper Transport
+$Team: Friendly
+$Location: -31.782967, -255.035889, 1512.444824
+$Orientation:
+	-0.999501, 0.000000, -0.031588,
+	0.000000, 1.000000, 0.000000,
+	0.031588, 0.000000, -0.999501
+$Cargo 1:  XSTR("Stormtroopers", 1445)
++Initial Velocity: 33
++Subsystem: Pilot
++Subsystem: blaster-turret-01
++Subsystem: blaster-turret-02
++Subsystem: blaster-turret-03
++Subsystem: blaster-turret-04
+$Arrival Location: Hyperspace
+$Arrival Cue: ( true ) 
+$Departure Location: Docking Bay
+$Departure Anchor: Convictor
++Departure Paths: ( "$bay02_main02" )
+$Departure Cue: ( has-time-elapsed 3 ) 
+$Determination: 10
++Flags: ( "cargo-known" "scannable" )
++Flags2: ( )
++Respawn priority: 0
++Orders Accepted List: ( )
++Group: 0
++Use Table Score:
++Score: 18
+
+$Name: Delta 2		;! Object #15
+$Class: DX-9 Stormtrooper Transport
+$Team: Friendly
+$Location: 105.712723, -455.035767, 1736.467651
+$Orientation:
+	-0.999501, 0.000000, -0.031588,
+	0.000000, 1.000000, 0.000000,
+	0.031588, 0.000000, -0.999501
+$Cargo 1:  XSTR("Stormtroopers", 1445)
++Initial Velocity: 33
++Subsystem: Pilot
++Subsystem: blaster-turret-01
++Subsystem: blaster-turret-02
++Subsystem: blaster-turret-03
++Subsystem: blaster-turret-04
+$Arrival Location: Hyperspace
+$Arrival Cue: ( true ) 
+$Departure Location: Docking Bay
+$Departure Anchor: Convictor
++Departure Paths: ( "$bay03_main03" )
+$Departure Cue: ( has-time-elapsed 1 ) 
+$Determination: 10
++Flags: ( "cargo-known" "scannable" )
++Flags2: ( )
++Respawn priority: 0
++Orders Accepted List: ( )
++Group: 0
++Use Table Score:
++Score: 18
+
+$Name: Delta 3		;! Object #16
+$Class: DX-9 Stormtrooper Transport
+$Team: Friendly
+$Location: -217.387238, -105.035675, 1675.367676
+$Orientation:
+	-0.999501, 0.000000, -0.031588,
+	0.000000, 1.000000, 0.000000,
+	0.031588, 0.000000, -0.999501
+$Cargo 1:  XSTR("Stormtroopers", 1445)
++Initial Velocity: 33
++Subsystem: Pilot
++Subsystem: blaster-turret-01
++Subsystem: blaster-turret-02
++Subsystem: blaster-turret-03
++Subsystem: blaster-turret-04
+$Arrival Location: Hyperspace
+$Arrival Cue: ( true ) 
+$Departure Location: Docking Bay
+$Departure Anchor: Convictor
++Departure Paths: ( "$bay01_main01" )
+$Departure Cue: ( has-time-elapsed 2 ) 
+$Determination: 10
++Flags: ( "cargo-known" "scannable" )
++Flags2: ( )
++Respawn priority: 0
++Orders Accepted List: ( )
++Group: 0
++Use Table Score:
++Score: 18
+
+$Name: Traveller 1		;! Object #17
+$Class: N-1 Starfighter#Grey
+$Team: Hostile
+$Location: 533.390869, -235.007126, 5027.096680
+$Orientation:
+	1.000000, 0.000000, 0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, 0.000000, 1.000000
++AI Class: AI_12_Jedi
+$AI Goals: ( goals ( ai-guard "Tayana Star" 50 ) )
+$Cargo 1:  XSTR("Nothing", 1169)
++Subsystem: Pilot
++Secondary Banks: ( "" )
++Sbank Ammo: ( 0 )
+$Arrival Location: Hyperspace
+$Arrival Cue: ( true ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( has-departed-delay 0 "Tayana Star" ) 
+$Determination: 10
++Flags: ( )
++Flags2: ( )
++Respawn priority: 0
++Orders Accepted List: ( )
++Group: 0
++Score: 8
+
+$Name: Healer 1		;! Object #18
+$Class: Cloakshape Fighter#Yellow
+$Team: Hostile
+$Location: -1473.694336, -0.002075, 6002.513184
+$Orientation:
+	-0.999831, 0.000000, -0.018406,
+	0.000000, 1.000000, 0.000000,
+	0.018406, 0.000000, -0.999831
++AI Class: AI_05_Officer
+$Cargo 1:  XSTR("Nothing", 1169)
++Subsystem: Pilot
++Secondary Banks: ( "" )
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( )
++Flags2: ( )
++Respawn priority: 0
++Orders Accepted List: ( )
++Group: 0
++Use Table Score:
++Score: 7
+
+$Name: Healer 2		;! Object #19
+$Class: Cloakshape Fighter#Yellow
+$Team: Hostile
+$Location: -1375.973267, -0.002136, 6014.549316
+$Orientation:
+	-0.999831, 0.000000, -0.018406,
+	0.000000, 1.000000, 0.000000,
+	0.018406, 0.000000, -0.999831
++AI Class: AI_05_Officer
+$Cargo 1:  XSTR("Nothing", 1169)
++Subsystem: Pilot
++Secondary Banks: ( "" )
++Sbank Ammo: ( 0 )
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( )
++Flags2: ( )
++Respawn priority: 0
++Orders Accepted List: ( )
++Group: 0
++Use Table Score:
++Score: 7
+
+$Name: Healer 3		;! Object #20
+$Class: Cloakshape Fighter#Yellow
+$Team: Hostile
+$Location: -1289.458740, -0.002075, 6068.652344
+$Orientation:
+	-0.999831, 0.000000, -0.018406,
+	0.000000, 1.000000, 0.000000,
+	0.018406, 0.000000, -0.999831
++AI Class: AI_05_Officer
+$Cargo 1:  XSTR("Nothing", 1169)
++Subsystem: Pilot
++Secondary Banks: ( "" )
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( )
++Flags2: ( )
++Respawn priority: 0
++Orders Accepted List: ( )
++Group: 0
++Use Table Score:
++Score: 7
+
+$Name: Healer 4		;! Object #21
+$Class: Cloakshape Fighter#Yellow
+$Team: Hostile
+$Location: -1197.505981, -0.002136, 6082.550293
+$Orientation:
+	-0.999831, 0.000000, -0.018406,
+	0.000000, 1.000000, 0.000000,
+	0.018406, 0.000000, -0.999831
++AI Class: AI_05_Officer
+$Cargo 1:  XSTR("Nothing", 1169)
++Subsystem: Pilot
++Secondary Banks: ( "" )
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( )
++Flags2: ( )
++Respawn priority: 0
++Orders Accepted List: ( )
++Group: 0
++Use Table Score:
++Score: 7
+
+$Name: Rampant 1		;! Object #22
+$Class: BTL-A4 Y-wing#Blue
+$Team: Hostile
+$Location: 3302.503906, -0.004236, 5548.310547
+$Orientation:
+	1.000000, 0.000000, 0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, 0.000000, 1.000000
+$Cargo 1:  XSTR("Nothing", 1169)
++Subsystem: Pilot
++Secondary Banks: ( "" "" )
++Sbank Ammo: ( 0 0 )
++Subsystem: BombTurret
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( )
++Flags2: ( "secondaries-locked" )
++Respawn priority: 0
++Orders Accepted List: ( )
++Group: 0
++Score: 8
+
+$Name: Rampant 2		;! Object #23
+$Class: BTL-A4 Y-wing#Blue
+$Team: Hostile
+$Location: 3369.929932, -0.004263, 5448.225586
+$Orientation:
+	1.000000, 0.000000, 0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, 0.000000, 1.000000
+$Cargo 1:  XSTR("Nothing", 1169)
++Subsystem: Pilot
++Secondary Banks: ( "" "" )
++Sbank Ammo: ( 0 0 )
++Subsystem: BombTurret
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( )
++Flags2: ( "secondaries-locked" )
++Respawn priority: 0
++Orders Accepted List: ( )
++Group: 0
++Score: 8
+
+$Name: Rampant 3		;! Object #24
+$Class: BTL-A4 Y-wing#Blue
+$Team: Hostile
+$Location: 3250.316650, -0.004185, 5415.105957
+$Orientation:
+	1.000000, 0.000000, 0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, 0.000000, 1.000000
+$Cargo 1:  XSTR("Nothing", 1169)
++Subsystem: Pilot
++Secondary Banks: ( "" "" )
++Sbank Ammo: ( 0 0 )
++Subsystem: BombTurret
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( )
++Flags2: ( "secondaries-locked" )
++Respawn priority: 0
++Orders Accepted List: ( )
++Group: 0
++Score: 8
+
+$Name: Rampant 4		;! Object #25
+$Class: BTL-A4 Y-wing#Blue
+$Team: Hostile
+$Location: 3040.982422, -0.004096, 5369.252441
+$Orientation:
+	1.000000, 0.000000, 0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, 0.000000, 1.000000
+$Cargo 1:  XSTR("Nothing", 1169)
++Subsystem: Pilot
++Secondary Banks: ( "" "" )
++Sbank Ammo: ( 0 0 )
++Subsystem: BombTurret
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( )
++Flags2: ( "secondaries-locked" )
++Respawn priority: 0
++Orders Accepted List: ( )
++Group: 0
++Score: 8
+
+$Name: Silver 1		;! Object #26
+$Class: T.I.E. Fighter
+$Team: Hostile
+$Location: 1482.271118, 0.000567, 5246.591309
+$Orientation:
+	1.000000, 0.000000, 0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, 0.000000, 1.000000
+$Cargo 1:  XSTR("Nothing", 1169)
++Subsystem: Pilot
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( )
++Flags2: ( "secondaries-locked" )
++Respawn priority: 0
++Orders Accepted List: ( )
++Group: 0
++Score: 10
+$Texture Replace:
++old: tiefighter
++new: tiefighter_pir
+
+$Name: Silver 2		;! Object #27
+$Class: T.I.E. Fighter
+$Team: Hostile
+$Location: 1532.768066, 0.000365, 5202.042480
+$Orientation:
+	1.000000, 0.000000, 0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, 0.000000, 1.000000
+$Cargo 1:  XSTR("Nothing", 1169)
++Subsystem: Pilot
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( )
++Flags2: ( "secondaries-locked" )
++Respawn priority: 0
++Orders Accepted List: ( )
++Group: 0
++Score: 10
+$Texture Replace:
++old: tiefighter
++new: tiefighter_pir
+
+$Name: Silver 3		;! Object #28
+$Class: T.I.E. Fighter
+$Team: Hostile
+$Location: 1449.037231, 0.000357, 5185.213379
+$Orientation:
+	1.000000, 0.000000, 0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, 0.000000, 1.000000
+$Cargo 1:  XSTR("Nothing", 1169)
++Subsystem: Pilot
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( )
++Flags2: ( "secondaries-locked" )
++Respawn priority: 0
++Orders Accepted List: ( )
++Group: 0
++Score: 10
+$Texture Replace:
++old: tiefighter
++new: tiefighter_pir
+
+$Name: Silver 4		;! Object #29
+$Class: T.I.E. Fighter
+$Team: Hostile
+$Location: 1395.277466, 0.000365, 5131.089355
+$Orientation:
+	1.000000, 0.000000, 0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, 0.000000, 1.000000
+$Cargo 1:  XSTR("Nothing", 1169)
++Subsystem: Pilot
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( )
++Flags2: ( "secondaries-locked" )
++Respawn priority: 0
++Orders Accepted List: ( )
++Group: 0
++Score: 10
+$Texture Replace:
++old: tiefighter
++new: tiefighter_pir
+
+$Name: Silver 5		;! Object #30
+$Class: T.I.E. Fighter
+$Team: Hostile
+$Location: 1549.425049, 0.000369, 5116.732422
+$Orientation:
+	1.000000, 0.000000, 0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, 0.000000, 1.000000
+$Cargo 1:  XSTR("Nothing", 1169)
++Subsystem: Pilot
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( )
++Flags2: ( "secondaries-locked" )
++Respawn priority: 0
++Orders Accepted List: ( )
++Group: 0
++Score: 10
+$Texture Replace:
++old: tiefighter
++new: tiefighter_pir
+
+$Name: Tau 1		;! Object #31
+$Class: TIE/ln Fighter
+$Team: Friendly
+$Location: 370.077240, -0.000496, 451.602295
+$Orientation:
+	1.000000, 0.000000, 0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, 0.000000, 1.000000
++AI Class: AI_05_Officer
+$Cargo 1:  XSTR("Nothing", 1169)
++Initial Velocity: 33
++Subsystem: Pilot
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( "protect-ship" )
++Flags2: ( )
++Respawn priority: 0
++Group: 0
++Use Table Score:
++Score: 8
++Persona Name: Imperial Pilot 4
+
+$Name: Tau 2		;! Object #32
+$Class: TIE/ln Fighter
+$Team: Friendly
+$Location: 313.389221, -0.000495, 417.978943
+$Orientation:
+	1.000000, 0.000000, 0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, 0.000000, 1.000000
++AI Class: AI_05_Officer
+$Cargo 1:  XSTR("Nothing", 1169)
++Initial Velocity: 33
++Subsystem: Pilot
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( )
++Flags2: ( "no-builtin-messages" )
++Respawn priority: 0
++Group: 0
++Use Table Score:
++Score: 8
+
+$Name: Tau 3		;! Object #33
+$Class: TIE/ln Fighter
+$Team: Friendly
+$Location: 251.298828, -0.000457, 383.693237
+$Orientation:
+	1.000000, 0.000000, 0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, 0.000000, 1.000000
++AI Class: AI_05_Officer
+$Cargo 1:  XSTR("Nothing", 1169)
++Initial Velocity: 33
++Subsystem: Pilot
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( )
++Flags2: ( "no-builtin-messages" )
++Respawn priority: 0
++Group: 0
++Use Table Score:
++Score: 8
+
+$Name: Tau 4		;! Object #34
+$Class: TIE/ln Fighter
+$Team: Friendly
+$Location: 170.816055, -0.000505, 392.856689
+$Orientation:
+	1.000000, 0.000000, 0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, 0.000000, 1.000000
++AI Class: AI_05_Officer
+$Cargo 1:  XSTR("Nothing", 1169)
++Initial Velocity: 33
++Subsystem: Pilot
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( )
++Flags2: ( "no-builtin-messages" )
++Respawn priority: 0
++Group: 0
++Use Table Score:
++Score: 8
+
+$Name: Beta 1		;! Object #35
+$Class: TIE/sa Bomber
+$Team: Friendly
+$Location: 326.383698, -147.331619, -2985.734619
+$Orientation:
+	1.000000, 0.000000, 0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, 0.000000, 1.000000
+$Cargo 1:  XSTR("Nothing", 1169)
++Initial Velocity: 30
++Subsystem: Pilot
++Sbank Ammo: ( 100 0 )
++Subsystem: BombTurret
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( "protect-ship" )
++Flags2: ( )
++Respawn priority: 0
++Group: 0
++Use Table Score:
++Score: 9
++Persona Name: Imperial Pilot 5
+
+$Name: Beta 2		;! Object #36
+$Class: TIE/sa Bomber
+$Team: Friendly
+$Location: 386.873016, -147.331528, -3006.860107
+$Orientation:
+	1.000000, 0.000000, 0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, 0.000000, 1.000000
+$Cargo 1:  XSTR("Nothing", 1169)
++Initial Velocity: 30
++Subsystem: Pilot
++Sbank Ammo: ( 100 0 )
++Subsystem: BombTurret
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( )
++Flags2: ( "no-builtin-messages" )
++Respawn priority: 0
++Group: 0
++Use Table Score:
++Score: 9
+
+$Name: Beta 3		;! Object #37
+$Class: TIE/sa Bomber
+$Team: Friendly
+$Location: 432.188812, -147.331619, -3029.712402
+$Orientation:
+	1.000000, 0.000000, 0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, 0.000000, 1.000000
+$Cargo 1:  XSTR("Nothing", 1169)
++Initial Velocity: 30
++Subsystem: Pilot
++Sbank Ammo: ( 100 0 )
++Subsystem: BombTurret
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( )
++Flags2: ( "no-builtin-messages" )
++Respawn priority: 0
++Group: 0
++Use Table Score:
++Score: 9
+
+$Name: Beta 4		;! Object #38
+$Class: TIE/sa Bomber
+$Team: Friendly
+$Location: 485.819336, -147.331589, -3050.443359
+$Orientation:
+	1.000000, 0.000000, 0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, 0.000000, 1.000000
+$Cargo 1:  XSTR("Nothing", 1169)
++Initial Velocity: 30
++Subsystem: Pilot
++Sbank Ammo: ( 100 0 )
++Subsystem: BombTurret
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( )
++Flags2: ( "no-builtin-messages" )
++Respawn priority: 0
++Group: 0
++Use Table Score:
++Score: 9
+
+$Name: Gamma 1		;! Object #39
+$Class: TIE/ln Fighter
+$Team: Friendly
+$Location: -242.316422, -147.331619, -2990.779785
+$Orientation:
+	1.000000, 0.000000, 0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, 0.000000, 1.000000
+$Cargo 1:  XSTR("Nothing", 1169)
++Subsystem: Pilot
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( "protect-ship" )
++Flags2: ( )
++Respawn priority: 0
++Group: 0
++Score: 11
++Persona Name: Imperial Pilot 1
+
+$Name: Gamma 2		;! Object #40
+$Class: TIE/ln Fighter
+$Team: Friendly
+$Location: -298.435333, -147.331589, -3016.398193
+$Orientation:
+	1.000000, 0.000000, 0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, 0.000000, 1.000000
+$Cargo 1:  XSTR("Nothing", 1169)
++Subsystem: Pilot
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( )
++Flags2: ( "no-builtin-messages" )
++Respawn priority: 0
++Group: 0
++Score: 11
+
+$Name: Gamma 3		;! Object #41
+$Class: TIE/ln Fighter
+$Team: Friendly
+$Location: -355.702393, -147.331573, -3038.234131
+$Orientation:
+	1.000000, 0.000000, 0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, 0.000000, 1.000000
+$Cargo 1:  XSTR("Nothing", 1169)
++Subsystem: Pilot
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( )
++Flags2: ( "no-builtin-messages" )
++Respawn priority: 0
++Group: 0
++Score: 11
+
+$Name: Gamma 4		;! Object #42
+$Class: TIE/ln Fighter
+$Team: Friendly
+$Location: -408.653687, -147.331558, -3057.913086
+$Orientation:
+	1.000000, 0.000000, 0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, 0.000000, 1.000000
+$Cargo 1:  XSTR("Nothing", 1169)
++Subsystem: Pilot
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( )
++Flags2: ( "no-builtin-messages" )
++Respawn priority: 0
++Group: 0
++Score: 11
+
+$Name: Gamma 5		;! Object #43
+$Class: TIE/ln Fighter
+$Team: Friendly
+$Location: -461.907440, -147.332260, -3075.821045
+$Orientation:
+	1.000000, 0.000000, 0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, 0.000000, 1.000000
+$Cargo 1:  XSTR("Nothing", 1169)
++Subsystem: Pilot
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( )
++Flags2: ( "no-builtin-messages" )
++Respawn priority: 0
++Group: 0
++Use Table Score:
++Score: 8
+
+$Name: Gamma 6		;! Object #44
+$Class: TIE/ln Fighter
+$Team: Friendly
+$Location: -518.299255, -147.332260, -3103.961182
+$Orientation:
+	1.000000, 0.000000, 0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, 0.000000, 1.000000
+$Cargo 1:  XSTR("Nothing", 1169)
++Subsystem: Pilot
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( )
++Flags2: ( "no-builtin-messages" )
++Respawn priority: 0
++Group: 0
++Use Table Score:
++Score: 8
+
+$Name: Alpha 5		;! Object #45
+$Class: TIE/ln Fighter
+$Team: Friendly
+$Location: 16.262146, -95.397598, -2796.102295
+$Orientation:
+	1.000000, 0.000000, 0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, 0.000000, 1.000000
++AI Class: AI_08_Major
+$Cargo 1:  XSTR("Nothing", 1169)
++Initial Velocity: 30
++Subsystem: Pilot
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( )
++Flags2: ( "no-builtin-messages" )
++Respawn priority: 0
++Group: 0
++Use Table Score:
++Score: 8
+
+$Name: Alpha 6		;! Object #46
+$Class: TIE/ln Fighter
+$Team: Friendly
+$Location: 104.102638, -93.563942, -2791.689209
+$Orientation:
+	1.000000, 0.000000, 0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, 0.000000, 1.000000
++AI Class: AI_08_Major
+$Cargo 1:  XSTR("Nothing", 1169)
++Initial Velocity: 30
++Subsystem: Pilot
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( )
++Flags2: ( "no-builtin-messages" )
++Respawn priority: 0
++Group: 0
++Use Table Score:
++Score: 8
+
+$Name: Tau 5		;! Object #47
+$Class: TIE/ln Fighter
+$Team: Friendly
+$Location: 134.181717, -0.000721, 422.314545
+$Orientation:
+	1.000000, 0.000000, 0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, 0.000000, 1.000000
++AI Class: AI_05_Officer
+$Cargo 1:  XSTR("Nothing", 1169)
++Initial Velocity: 33
++Subsystem: Pilot
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( )
++Flags2: ( "no-builtin-messages" )
++Respawn priority: 0
++Group: 0
++Use Table Score:
++Score: 8
+
+$Name: Tau 6		;! Object #48
+$Class: TIE/ln Fighter
+$Team: Friendly
+$Location: 77.430206, -0.000745, 468.983124
+$Orientation:
+	1.000000, 0.000000, 0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, 0.000000, 1.000000
++AI Class: AI_05_Officer
+$Cargo 1:  XSTR("Nothing", 1169)
++Initial Velocity: 33
++Subsystem: Pilot
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( )
++Flags2: ( "no-builtin-messages" )
++Respawn priority: 0
++Group: 0
++Use Table Score:
++Score: 8
+
+$Name: Beta 5		;! Object #49
+$Class: TIE/sa Bomber
+$Team: Friendly
+$Location: 528.686890, -147.332291, -3066.577881
+$Orientation:
+	1.000000, 0.000000, 0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, 0.000000, 1.000000
+$Cargo 1:  XSTR("Nothing", 1169)
++Initial Velocity: 30
++Subsystem: Pilot
++Sbank Ammo: ( 100 0 )
++Subsystem: BombTurret
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( )
++Flags2: ( "no-builtin-messages" )
++Respawn priority: 0
++Group: 0
++Use Table Score:
++Score: 9
+
+$Name: Beta 6		;! Object #50
+$Class: TIE/sa Bomber
+$Team: Friendly
+$Location: 579.595581, -147.332291, -3085.486084
+$Orientation:
+	1.000000, 0.000000, 0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, 0.000000, 1.000000
+$Cargo 1:  XSTR("Nothing", 1169)
++Initial Velocity: 30
++Subsystem: Pilot
++Sbank Ammo: ( 100 0 )
++Subsystem: BombTurret
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( )
++Flags2: ( "no-builtin-messages" )
++Respawn priority: 0
++Group: 0
++Use Table Score:
++Score: 9
+
+$Name: Epsilon 1		;! Object #51
+$Class: TIE/ln Fighter
+$Team: Friendly
+$Location: -407.774231, 0.001810, -4043.757568
+$Orientation:
+	1.000000, 0.000000, 0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, 0.000000, 1.000000
++AI Class: AI_09_Commander
+$Cargo 1:  XSTR("Nothing", 1169)
++Initial Velocity: 33
++Subsystem: Pilot
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( )
++Flags2: ( )
++Respawn priority: 0
++Orders Accepted List: ( )
++Group: 0
++Use Table Score:
++Score: 8
+
+$Name: Epsilon 2		;! Object #52
+$Class: TIE/ln Fighter
+$Team: Friendly
+$Location: -287.762573, 0.001667, -4057.052490
+$Orientation:
+	1.000000, 0.000000, 0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, 0.000000, 1.000000
++AI Class: AI_09_Commander
+$Cargo 1:  XSTR("Nothing", 1169)
++Initial Velocity: 33
++Subsystem: Pilot
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( )
++Flags2: ( )
++Respawn priority: 0
++Orders Accepted List: ( )
++Group: 0
++Use Table Score:
++Score: 8
+
+$Name: Epsilon 3		;! Object #53
+$Class: TIE/ln Fighter
+$Team: Friendly
+$Location: -147.780746, 0.001682, -4062.222412
+$Orientation:
+	1.000000, 0.000000, 0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, 0.000000, 1.000000
++AI Class: AI_09_Commander
+$Cargo 1:  XSTR("Nothing", 1169)
++Initial Velocity: 33
++Subsystem: Pilot
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( )
++Flags2: ( )
++Respawn priority: 0
++Orders Accepted List: ( )
++Group: 0
++Use Table Score:
++Score: 8
+
+$Name: Epsilon 4		;! Object #54
+$Class: TIE/ln Fighter
+$Team: Friendly
+$Location: 3.092478, 0.001655, -4062.501709
+$Orientation:
+	1.000000, 0.000000, 0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, 0.000000, 1.000000
++AI Class: AI_09_Commander
+$Cargo 1:  XSTR("Nothing", 1169)
++Initial Velocity: 33
++Subsystem: Pilot
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( )
++Flags2: ( )
++Respawn priority: 0
++Orders Accepted List: ( )
++Group: 0
++Use Table Score:
++Score: 8
+
+$Name: Epsilon 5		;! Object #55
+$Class: TIE/ln Fighter
+$Team: Friendly
+$Location: 171.165543, 0.001720, -4074.002441
+$Orientation:
+	1.000000, 0.000000, 0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, 0.000000, 1.000000
++AI Class: AI_09_Commander
+$Cargo 1:  XSTR("Nothing", 1169)
++Initial Velocity: 33
++Subsystem: Pilot
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( )
++Flags2: ( )
++Respawn priority: 0
++Orders Accepted List: ( )
++Group: 0
++Use Table Score:
++Score: 8
+
+$Name: Epsilon 6		;! Object #56
+$Class: TIE/ln Fighter
+$Team: Friendly
+$Location: 343.840424, 0.001772, -4090.719971
+$Orientation:
+	1.000000, 0.000000, 0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, 0.000000, 1.000000
++AI Class: AI_09_Commander
+$Cargo 1:  XSTR("Nothing", 1169)
++Initial Velocity: 33
++Subsystem: Pilot
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( )
++Flags2: ( )
++Respawn priority: 0
++Orders Accepted List: ( )
++Group: 0
++Use Table Score:
++Score: 8
+
+#Wings		;! 8 total
+
+$Name: Alpha
+$Waves: 1
+$Wave Threshold: 0
+$Special Ship: 0		;! Alpha 1
+$Arrival Location: Hyperspace
+$Arrival Cue: ( true ) 
+$Departure Location: Docking Bay
+$Departure Anchor: Convictor
++Departure Paths: ( "$bay18_tie_right_return" )
+$Departure Cue: ( is-event-true-delay 
+   "No More Targets" 
+   3 
+)
+$Ships: (		;! 6 total
+	"Alpha 1"
+	"Alpha 2"
+	"Alpha 3"
+	"Alpha 4"
+	"Alpha 5"
+	"Alpha 6"
+)
+$AI Goals: ( goals ( ai-guard "Alpha 1" 52 ) ( ai-ignore "Tayana Star" 50 ) ( ai-ignore "Sulonan" 50 ) ( ai-ignore "Zaltin 12" 50 ) )
++Hotkey: 0
++Flags: ( )
+
+$Name: Healer
+$Waves: 1
+$Wave Threshold: 0
+$Special Ship: 0		;! Healer 1
+$Arrival Location: Near Ship
++Arrival Distance: 200
+$Arrival Anchor: Zaltin 12
+$Arrival Cue: ( has-arrived-delay 5 "Zaltin 12" ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( has-departed-delay 0 "Zaltin 12" ) 
+$Ships: (		;! 4 total
+	"Healer 1"
+	"Healer 2"
+	"Healer 3"
+	"Healer 4"
+)
+$AI Goals: ( goals ( ai-guard "Zaltin 12" 75 ) )
++Flags: ( )
+
+$Name: Rampant
+$Waves: 1
+$Wave Threshold: 0
+$Special Ship: 0		;! Rampant 1
+$Arrival Location: Hyperspace
+$Arrival Cue: ( is-event-true-delay 
+   "Rampant can arrive" 
+   3 
+)
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Ships: (		;! 4 total
+	"Rampant 1"
+	"Rampant 2"
+	"Rampant 3"
+	"Rampant 4"
+)
+$AI Goals: ( goals ( ai-chase-any 50 ) )
++Flags: ( )
+
+$Name: Silver
+$Waves: 1
+$Wave Threshold: 0
+$Special Ship: 0		;! Silver 1
+$Arrival Location: Docking Bay
++Arrival Distance: 0
+$Arrival Anchor: Bilbringi 9
++Arrival Paths: ( "$bay01_lower01-left" "$bay02_lower01-middle" "$bay03_lower01-right" "$bay04_lower02-left" "$bay05_lower02-middle" "$bay06_lower02-right" "$bay07_lower03-left" "$bay08_lower03-middle" "$bay09_lower03-right" )
+$Arrival Cue: ( is-event-true-delay 
+   "Silver can arrive" 
+   5 
+)
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Ships: (		;! 5 total
+	"Silver 1"
+	"Silver 2"
+	"Silver 3"
+	"Silver 4"
+	"Silver 5"
+)
+$AI Goals: ( goals ( ai-chase-any 50 ) )
++Flags: ( )
+
+$Name: Tau
+$Waves: 1
+$Wave Threshold: 0
+$Special Ship: 0		;! Tau 1
+$Arrival Location: Docking Bay
++Arrival Distance: 20
+$Arrival Anchor: Convictor
++Arrival Paths: ( "$bay05_tie_left01" "$bay06_tie_left02" "$bay07_tie_left03" "$bay08_tie_left04" "$bay09_tie_left05" "$bay10_tie_left06" )
+$Arrival Cue: ( is-event-true-delay 
+   "Tau Available" 
+   0 
+)
+$Departure Location: Docking Bay
+$Departure Anchor: Convictor
++Departure Paths: ( "$bay11_tie_left_return" )
+$Departure Cue: ( is-event-true-delay 
+   "No More Targets" 
+   1 
+)
+$Ships: (		;! 6 total
+	"Tau 1"
+	"Tau 2"
+	"Tau 3"
+	"Tau 4"
+	"Tau 5"
+	"Tau 6"
+)
+$AI Goals: ( goals ( ai-guard "Alpha 1" 50 ) )
++Flags: ( "reinforcement" )
+
+$Name: Beta
+$Waves: 1
+$Wave Threshold: 0
+$Special Ship: 0		;! Beta 1
+$Arrival Location: Hyperspace
+$Arrival Cue: ( true ) 
+$Departure Location: Docking Bay
+$Departure Anchor: Convictor
++Departure Paths: ( "$bay18_tie_right_return" )
+$Departure Cue: ( is-event-true-delay 
+   "No More Targets" 
+   2 
+)
+$Ships: (		;! 6 total
+	"Beta 1"
+	"Beta 2"
+	"Beta 3"
+	"Beta 4"
+	"Beta 5"
+	"Beta 6"
+)
+$AI Goals: ( goals ( ai-guard-wing "Alpha" 50 ) )
++Hotkey: 1
++Flags: ( )
+
+$Name: Gamma
+$Waves: 1
+$Wave Threshold: 0
+$Special Ship: 0		;! Gamma 1
+$Arrival Location: Hyperspace
+$Arrival Cue: ( true ) 
+$Departure Location: Docking Bay
+$Departure Anchor: Convictor
++Departure Paths: ( "$bay11_tie_left_return" )
+$Departure Cue: ( is-event-true-delay 
+   "No More Targets" 
+   3 
+)
+$Ships: (		;! 6 total
+	"Gamma 1"
+	"Gamma 2"
+	"Gamma 3"
+	"Gamma 4"
+	"Gamma 5"
+	"Gamma 6"
+)
+$AI Goals: ( goals ( ai-guard-wing "Alpha" 50 ) )
++Hotkey: 2
++Flags: ( )
+
+$Name: Epsilon
+$Waves: 1
+$Wave Threshold: 0
+$Special Ship: 0		;! Epsilon 1
+$Arrival Location: Docking Bay
++Arrival Distance: 0
+$Arrival Anchor: Convictor
++Arrival Paths: ( "$bay05_tie_left01" "$bay06_tie_left02" "$bay07_tie_left03" "$bay08_tie_left04" "$bay09_tie_left05" "$bay10_tie_left06" "$bay12_tie_right01" "$bay13_tie_right02" "$bay14_tie_right03" "$bay15_tie_right04" "$bay16_tie_right05" "$bay17_tie_right06" )
+$Arrival Cue: ( is-event-true-delay 
+   "Alpha 1 Traitor" 
+   10 
+)
+$Departure Location: Hyperspace
+$Departure Cue: ( is-event-true-delay 
+   "No More Targets" 
+   5 
+)
+$Ships: (		;! 6 total
+	"Epsilon 1"
+	"Epsilon 2"
+	"Epsilon 3"
+	"Epsilon 4"
+	"Epsilon 5"
+	"Epsilon 6"
+)
+$AI Goals: ( goals ( ai-chase-any 50 ) )
++Flags: ( )
+
+#Events		;! 106 total
+
+$Formula: ( when 
+   ( true ) 
+   ( set-player-warp-status ( false ) ) 
+   ( fade-in 800 3 ) 
+)
++Name: Fade In
++Repeat Count: 1
++Interval: 1
+
+$Formula: ( when 
+   ( has-time-elapsed 1 ) 
+   ( cap-waypoint-speed "Tayana Star" 80 ) 
+   ( training-msg 
+      "Droid - Initial Status" 
+      "Droid - Initial Status" 
+      0 
+      12 
+   )
+   ( play-sound-from-table 0 0 0 "119" ) 
+   ( send-message-list 
+      "Ulabos Ringer" 
+      "High" 
+      ".. UR - Power Spike" 
+      8500 
+   )
+)
++Name: Start
++Repeat Count: 1
++Interval: 1
+
+$Formula: ( when 
+   ( has-time-elapsed 17 ) 
+   ( explosion-effect 
+      -545 
+      820 
+      8400 
+      0 
+      2000 
+      500 
+      10 
+      20000 
+      2000 
+      "White 01 Explosion" 
+      59 
+   )
+   ( explosion-effect 
+      -480 
+      780 
+      8400 
+      0 
+      0 
+      400 
+      10 
+      100 
+      0 
+      "White 02 Explosion" 
+      "<none>" 
+   )
+   ( self-destruct 
+      "Hypermatter Processing Plant" 
+   )
+   ( change-soundtrack "Hoth" ) 
+)
++Name: First Boom
++Repeat Count: 1
++Interval: 1
+
+$Formula: ( when 
+   ( true ) 
+   ( explosion-effect 
+      -515 
+      800 
+      8850 
+      0 
+      0 
+      1000 
+      10 
+      100 
+      0 
+      "Pink Explosion" 
+      "<none>" 
+   )
+   ( send-message-list 
+      "Convictor" 
+      "High" 
+      "Ab - Attention" 
+      9000 
+      "Convictor" 
+      "High" 
+      "Gri - Proceed" 
+      15000 
+   )
+)
++Name: Hypermatter self-destruct
++Repeat Count: 1
++Interval: 1
++Chained: 2
+
+$Formula: ( when 
+   ( or 
+      ( < 
+         ( distance "<any friendly>" "Charmed" ) 
+         2200 
+      )
+      ( is-disabled-delay 0 "Charmed" ) 
+      ( <= ( hits-left "Charmed" ) 95 ) 
+   )
+   ( change-iff "Civilian" "Charmed" ) 
+   ( clear-goals "Charmed" ) 
+   ( add-goal 
+      "Charmed" 
+      ( ai-play-dead 89 ) 
+   )
+   ( send-message 
+      "Charmed" 
+      "Normal" 
+      "Charmed surrenders" 
+   )
+   ( modify-variable 
+      @RTBDealtWith[0] 
+      ( + @RTBDealtWith[0] 1 ) 
+   )
+   ( ship-subsys-guardian-threshold 
+      100 
+      "Charmed" 
+      "<all engines>" 
+   )
+   ( set-scanned "Charmed" ) 
+   ( protect-ship "Charmed" ) 
+)
++Name: Charmed surrenders
++Repeat Count: 1
++Interval: 1
+
+$Formula: ( when 
+   ( < 
+      ( distance "Alpha 1" "Sulonan" ) 
+      1000 
+   )
+   ( send-message 
+      "Sulonan" 
+      "Low" 
+      "Sullustan gibberish" 
+   )
+)
++Name: Sulonan gibberish
++Repeat Count: 1
++Interval: 1
+
+$Formula: ( when 
+   ( < 
+      ( distance "Alpha 1" "Zaltin 12" ) 
+      1500 
+   )
+   ( send-message 
+      "Zaltin 12" 
+      "Low" 
+      "Zaltin 12 complains" 
+   )
+   ( ship-vulnerable "Zaltin 12" ) 
+   ( ship-guardian-threshold 
+      15 
+      "Zaltin 12" 
+   )
+   ( ship-subsys-guardian-threshold 
+      100 
+      "Zaltin 12" 
+      "<all engines>" 
+   )
+)
++Name: Zaltin msg
++Repeat Count: 1
++Interval: 1
+
+$Formula: ( when 
+   ( and 
+      ( is-event-true-delay 
+         "BMD Intercepted" 
+         0 
+         ( true ) 
+      )
+      ( is-event-true-delay 
+         "Blue Mountain can arrive" 
+         0 
+         ( false ) 
+      )
+   )
+   ( modify-variable 
+      @MiscShips[0] 
+      ( + @MiscShips[0] 1 ) 
+   )
+   ( add-remove-escort 
+      "Blue Mountain Drifter" 
+      0 
+   )
+)
++Name: BMD dealt with
++Repeat Count: 1
++Interval: 1
++Objective:  XSTR("Scan or Disable Blue Mt Drifter", 1504)
+
+$Formula: ( when 
+   ( is-event-true-delay 
+      "Night Bloom Intercepted" 
+      0 
+      ( true ) 
+   )
+   ( modify-variable 
+      @MiscShips[0] 
+      ( + @MiscShips[0] 1 ) 
+   )
+   ( add-remove-escort "Night Bloom" 0 ) 
+)
++Name: Night Bloom dealt with
++Repeat Count: 1
++Interval: 1
++Objective:  XSTR("Scan or Disable Night Bloom", 1505)
+
+$Formula: ( when 
+   ( and 
+      ( is-event-true-delay 
+         "Charmed Intercepted" 
+         0 
+         ( true ) 
+      )
+      ( is-event-true-delay 
+         "Charmed can arrive" 
+         5 
+         ( false ) 
+      )
+   )
+   ( add-remove-escort "Charmed" 0 ) 
+   ( do-nothing ) 
+)
++Name: Charmed dealt with
++Repeat Count: 1
++Interval: 1
++Objective:  XSTR("Scan or Disable Charmed", 1506)
+
+$Formula: ( when 
+   ( is-event-true-delay 
+      "Ulabos Ringer Intercepted" 
+      0 
+      ( true ) 
+   )
+   ( modify-variable 
+      @MiscShips[0] 
+      ( + @MiscShips[0] 1 ) 
+   )
+   ( add-remove-escort "Ulabos Ringer" 0 ) 
+)
++Name: Ulabos Ringer dealt with
++Repeat Count: 1
++Interval: 1
++Objective:  XSTR("Scan or Disable Ulabos Ringer", 1507)
+
+$Formula: ( when 
+   ( has-time-elapsed 20 ) 
+   ( add-goal 
+      "Tayana Star" 
+      ( ai-waypoints-once "TS Escape" 89 ) 
+   )
+)
++Name: Tayana Star can arrive
++Repeat Count: 1
++Interval: 1
+
+$Formula: ( when 
+   ( has-time-elapsed 48 ) 
+   ( do-nothing ) 
+)
++Name: Charmed can arrive
++Repeat Count: 1
++Interval: 1
+
+$Formula: ( when 
+   ( true ) 
+   ( training-msg 
+      "Droid - Charmed Here" 
+      "Droid - Charmed Here" 
+      0 
+      7 
+   )
+   ( play-sound-from-table 0 0 0 "118" ) 
+)
++Name: Charmed Notification
++Repeat Count: 1
++Interval: 1
++Chained: 3
+
+$Formula: ( when 
+   ( is-in-mission "Tayana Star" ) 
+   ( ship-guardian-threshold 
+      15 
+      "Tayana Star" 
+   )
+)
++Name: Tayana Star guardian
++Repeat Count: 1
++Interval: 1
+
+$Formula: ( when 
+   ( and 
+      ( is_tagged "Tayana Star" ) 
+      ( not 
+         ( destroyed-or-departed-delay 
+            0 
+            "Tayana Star" 
+         )
+      )
+      ( not 
+         ( is-event-true-delay 
+            "Tag Fail T Star" 
+            0 
+            ( true ) 
+         )
+      )
+   )
+   ( modify-variable 
+      @NumTagged[0] 
+      ( + @NumTagged[0] 1 ) 
+   )
+   ( add-remove-escort "Tayana Star" 0 ) 
+   ( change-iff "Civilian" "Tayana Star" ) 
+   ( ship-guardian-threshold 
+      45 
+      "Tayana Star" 
+   )
+   ( play-sound-from-table 0 0 0 "8" ) 
+)
++Name: TAG Tayana
++Repeat Count: 1
++Interval: 1
++Objective:  XSTR("Tag Tayana Star w Beacon", 1508)
+
+$Formula: ( when 
+   ( true ) 
+   ( training-msg 
+      "Droid - TS Transmitting" 
+      "Droid - TS Transmitting" 
+      0 
+      7 
+   )
+   ( play-sound-from-table 0 0 0 "118" ) 
+)
++Name: TS Transmitting
++Repeat Count: 1
++Interval: 1
++Chained: 1
+
+$Formula: ( when 
+   ( and 
+      ( is_tagged "Sulonan" ) 
+      ( not 
+         ( destroyed-or-departed-delay 
+            0 
+            "Sulonan" 
+         )
+      )
+      ( not 
+         ( is-event-true-delay 
+            "Tag Fail Sulon" 
+            0 
+            ( true ) 
+         )
+      )
+   )
+   ( modify-variable 
+      @NumTagged[0] 
+      ( + @NumTagged[0] 1 ) 
+   )
+   ( add-remove-escort "Sulonan" 0 ) 
+   ( change-iff "Civilian" "Sulonan" ) 
+   ( ship-guardian-threshold 
+      47 
+      "Sulonan" 
+   )
+   ( play-sound-from-table 0 0 0 "8" ) 
+)
++Name: TAG Sulonan
++Repeat Count: 1
++Interval: 1
++Objective:  XSTR("Tag Sulonan w Beacon", 1509)
+
+$Formula: ( when 
+   ( true ) 
+   ( training-msg 
+      "Droid - Sulonan Transmitting" 
+      "Droid - Sulonan Transmitting" 
+      0 
+      7 
+   )
+   ( play-sound-from-table 0 0 0 "118" ) 
+)
++Name: Sulonan Transmitting
++Repeat Count: 1
++Interval: 1
++Chained: 1
+
+$Formula: ( when 
+   ( has-time-elapsed 48 ) 
+   ( add-goal 
+      "Night Bloom" 
+      ( ai-waypoints-once "NB Escape" 89 ) 
+   )
+)
++Name: Night Bloom can arrive
++Repeat Count: 1
++Interval: 1
+
+$Formula: ( when 
+   ( has-time-elapsed 260 ) 
+   ( training-msg 
+      "Droid - Zaltin Here" 
+      "Droid - Zaltin Here" 
+      0 
+      8 
+   )
+   ( play-sound-from-table 0 0 0 "118" ) 
+)
++Name: Zaltin 12 can arrive
++Repeat Count: 1
++Interval: 1
+
+$Formula: ( when 
+   ( and 
+      ( has-arrived-delay 5 "Zaltin 12" ) 
+      ( > 
+         ( get-secondary-ammo "Alpha 1" 1 ) 
+         0 
+      )
+   )
+   ( do-nothing ) 
+)
++Name: Zaltin Tag Setup
++Repeat Count: 1
++Interval: 1
+
+$Formula: ( when 
+   ( and 
+      ( is_tagged "Zaltin 12" ) 
+      ( not 
+         ( destroyed-or-departed-delay 
+            0 
+            "Zaltin 12" 
+         )
+      )
+      ( not 
+         ( is-event-true-delay 
+            "Tag Fail Zaltin" 
+            0 
+            ( true ) 
+         )
+      )
+   )
+   ( modify-variable 
+      @NumTagged[0] 
+      ( + @NumTagged[0] 1 ) 
+   )
+   ( add-remove-escort "Zaltin 12" 0 ) 
+   ( change-iff "Civilian" "Zaltin 12" ) 
+   ( ship-guardian-threshold 
+      42 
+      "Zaltin 12" 
+   )
+   ( play-sound-from-table 0 0 0 "8" ) 
+)
++Name: TAG Zaltin 12
++Repeat Count: 1
++Interval: 1
++Chained: 0
++Objective:  XSTR("Tag Zaltin 12 w Beacon", 1510)
+
+$Formula: ( when 
+   ( true ) 
+   ( training-msg 
+      "Droid - Zaltin Transmitting" 
+      "Droid - Zaltin Transmitting" 
+      0 
+      7 
+   )
+   ( play-sound-from-table 0 0 0 "118" ) 
+)
++Name: Zaltin Transmitting
++Repeat Count: 1
++Interval: 1
++Chained: 1
+
+$Formula: ( when 
+   ( has-time-elapsed 182 ) 
+   ( do-nothing ) 
+)
++Name: Blue Mountain can arrive
++Repeat Count: 1
++Interval: 1
+
+$Formula: ( when 
+   ( true ) 
+   ( training-msg 
+      "Droid - BMD Here" 
+      "Droid - BMD Here" 
+      0 
+      7 
+   )
+   ( play-sound-from-table 0 0 0 "118" ) 
+)
++Name: Blue Mountain Here
++Repeat Count: 1
++Interval: 1
++Chained: 3
+
+$Formula: ( when 
+   ( has-time-elapsed 92 ) 
+   ( training-msg 
+      "Droid - Fighters Here" 
+      "Droid - Fighters Here" 
+      0 
+      7 
+   )
+   ( play-sound-from-table 0 0 0 "118" ) 
+)
++Name: Rampant can arrive
++Repeat Count: 1
++Interval: 1
+
+$Formula: ( when 
+   ( has-time-elapsed 192 ) 
+   ( training-msg 
+      "Droid - Silver here" 
+      "Droid - Silver here" 
+      0 
+      14 
+   )
+   ( play-sound-from-table 0 0 0 "118" ) 
+)
++Name: Silver can arrive
++Repeat Count: 1
++Interval: 1
+
+$Formula: ( when 
+   ( is-destroyed-delay 0 "Rampant" ) 
+   ( do-nothing ) 
+)
++Name: Rampant directive
++Repeat Count: 1
++Interval: 1
++Objective:  XSTR("Destroy Rampant", 1511)
+
+$Formula: ( when 
+   ( is-destroyed-delay 0 "Silver" ) 
+   ( do-nothing ) 
+)
++Name: Silver directive
++Repeat Count: 1
++Interval: 1
++Objective:  XSTR("Destroy Silver", 1512)
+
+$Formula: ( when 
+   ( is-destroyed-delay 0 "Healer" ) 
+   ( do-nothing ) 
+)
++Name: Healer directive
++Repeat Count: 1
++Interval: 1
++Objective:  XSTR("Destroy Healer", 1513)
+
+$Formula: ( when 
+   ( and 
+      ( >= @RTBDealtWith[0] 4 ) 
+      ( = @RTBCritDealtWith[0] 3 ) 
+      ( not 
+         ( is-event-true-delay 
+            "Alpha 1 Traitor" 
+            0 
+            ( true ) 
+         )
+      )
+      ( destroyed-or-departed-delay 
+         0 
+         "Healer" 
+         "Rampant" 
+         "Silver" 
+      )
+      ( true ) 
+   )
+   ( add-remove-escort "Convictor" 50 ) 
+   ( key-reset "1" ) 
+)
++Name: Conditions to depart
++Repeat Count: 1
++Interval: 1
+
+$Formula: ( when 
+   ( true ) 
+   ( training-msg 
+      "Droid - No remaining targets" 
+      "Droid - No remaining targets" 
+      0 
+      10 
+   )
+   ( play-sound-from-table 0 0 0 "118" ) 
+   ( key-reset-multiple "1" ) 
+)
++Name: No More Targets
++Repeat Count: 1
++Interval: 1
++Chained: 2
+
+$Formula: ( when 
+   ( or 
+      ( < 
+         ( distance-center-to-subsystem 
+            "Alpha 1" 
+            "Convictor" 
+            "HangarCrane" 
+         )
+         100 
+      )
+      ( key-pressed "1" ) 
+   )
+   ( end-mission ) 
+)
++Name: Depart
++Repeat Count: 1
++Interval: 1
++Chained: 0
++Objective:  XSTR("Return to Hangar", 1451)
++Objective key:  XSTR("Press $1$", 1452)
+
+$Formula: ( when-argument 
+   ( any-of 
+      "Charmed" 
+      "Night Bloom" 
+      "Blue Mountain Drifter" 
+      "Ulabos Ringer" 
+   )
+   ( or 
+      ( destroyed-or-departed-delay 
+         0 
+         "<argument>" 
+      )
+      ( is-disabled-delay 0 "<argument>" ) 
+      ( is-cargo-known-delay 0 "<argument>" ) 
+   )
+   ( modify-variable 
+      @RTBDealtWith[0] 
+      ( + @RTBDealtWith[0] 1 ) 
+   )
+   ( invalidate-argument "<argument>" ) 
+)
++Name: Noncritical RTB count
++Repeat Count: -1
++Trigger Count: 4
++Interval: 1
+
+$Formula: ( when-argument 
+   ( any-of 
+      "Sulonan" 
+      "Zaltin 12" 
+      "Tayana Star" 
+   )
+   ( or 
+      ( destroyed-or-departed-delay 
+         1 
+         "<argument>" 
+      )
+      ( is_tagged "<argument>" ) 
+   )
+   ( modify-variable 
+      @RTBCritDealtWith[0] 
+      ( + @RTBCritDealtWith[0] 1 ) 
+   )
+   ( invalidate-argument "<argument>" ) 
+)
++Name: Critical RTB count
++Repeat Count: -1
++Trigger Count: 3
++Interval: 1
+
+$Formula: ( when 
+   ( false ) 
+   ( ship-invulnerable 
+      "Alpha 1" 
+      "Alpha 2" 
+      "Alpha 3" 
+      "Alpha 4" 
+      "Beta 1" 
+      "Beta 2" 
+      "Beta 3" 
+      "Beta 4" 
+      "Gamma 1" 
+      "Gamma 2" 
+      "Gamma 3" 
+      "Gamma 4" 
+   )
+)
++Name: DEBUG
++Repeat Count: 1
++Interval: 1
+
+$Formula: ( when 
+   ( or 
+      ( is-event-true-delay "TAG Tayana" 0 ) 
+      ( is-event-true-delay "TAG Sulonan" 0 ) 
+      ( is-event-true-delay 
+         "TAG Zaltin 12" 
+         0 
+      )
+   )
+   ( do-nothing ) 
+)
++Name: Campaign progress
++Repeat Count: 1
++Interval: 1
+
+$Formula: ( when-argument 
+   ( any-of 
+      "Sulonan" 
+      "Zaltin 12" 
+      "Charmed" 
+      "Ulabos Ringer" 
+      "Tayana Star" 
+      "Blue Mountain Drifter" 
+      "Night Bloom" 
+   )
+   ( is-cargo-known-delay 0 "<argument>" ) 
+   ( invalidate-argument "<argument>" ) 
+)
++Name: Scan bonus
++Repeat Count: -1
++Trigger Count: 7
++Interval: 0
++Score: 50
+
+$Formula: ( when 
+   ( < ( hits-left "Tayana Star" ) 75 ) 
+   ( do-nothing ) 
+)
++Name: Tanaya chase convincing
++Repeat Count: 1
++Interval: 1
++Score: 50
+
+$Formula: ( when 
+   ( < ( hits-left "Sulonan" ) 75 ) 
+   ( do-nothing ) 
+)
++Name: Sulonan chase convincing
++Repeat Count: 1
++Interval: 1
++Score: 50
+
+$Formula: ( when 
+   ( < ( hits-left "Zaltin 12" ) 75 ) 
+   ( do-nothing ) 
+)
++Name: Zaltin 12 chase convincing
++Repeat Count: 1
++Interval: 1
++Score: 50
+
+$Formula: ( when 
+   ( has-time-elapsed 45 ) 
+   ( add-goal 
+      "Sulonan" 
+      ( ai-waypoints-once 
+         "Sulonan Escape" 
+         89 
+      )
+   )
+)
++Name: Sulonan can arrive
++Repeat Count: 1
++Interval: 1
+
+$Formula: ( when 
+   ( has-departed-delay 1 "Tayana Star" ) 
+   ( training-msg 
+      "Droid - TS Escaped" 
+      "Droid - TS Escaped" 
+      0 
+      6 
+   )
+   ( play-sound-from-table 0 0 0 "118" ) 
+)
++Name: TS Departed
++Repeat Count: 1
++Interval: 1
+
+$Formula: ( when 
+   ( has-departed-delay 1 "Sulonan" ) 
+   ( training-msg 
+      "Droid - Sulonan Escaped" 
+      "Droid - Sulonan Escaped" 
+      0 
+      6 
+   )
+   ( play-sound-from-table 0 0 0 "118" ) 
+)
++Name: Sulonan Departed
++Repeat Count: 1
++Interval: 1
+
+$Formula: ( when 
+   ( has-departed-delay 1 "Zaltin 12" ) 
+   ( training-msg 
+      "Droid - Zaltin Escaped" 
+      "Droid - Zaltin Escaped" 
+      0 
+      6 
+   )
+   ( play-sound-from-table 0 0 0 "118" ) 
+)
++Name: Zaltin Departed
++Repeat Count: 1
++Interval: 1
+
+$Formula: ( when 
+   ( and 
+      ( is-event-true-delay 
+         "Conditions to depart" 
+         0 
+      )
+      ( key-pressed "1" ) 
+   )
+   ( fade-out 1000 3 ) 
+)
++Name: Press 1 to end mission
++Repeat Count: 1
++Interval: 1
+
+$Formula: ( when ( true ) ( end-mission ) ) 
++Name: End
++Repeat Count: 1
++Interval: 1
++Chained: 1
+
+$Formula: ( when 
+   ( and 
+      ( has-arrived-delay 0 "Tau" ) 
+      ( not 
+         ( is-event-true-delay 
+            "Conditions to depart" 
+            0 
+         )
+      )
+   )
+   ( do-nothing ) 
+)
++Name: Tau Does Something
++Repeat Count: 1
++Interval: 1
+
+$Formula: ( when 
+   ( has-time-elapsed 12 ) 
+   ( add-goal 
+      "Ulabos Ringer" 
+      ( ai-waypoints-once "UR Escape" 89 ) 
+   )
+)
++Name: Ulabos Ringer can go
++Repeat Count: 1
++Interval: 1
+
+$Formula: ( when 
+   ( and 
+      ( is-event-true-delay "TAG Tayana" 0 ) 
+      ( is-event-true-delay "TAG Sulonan" 0 ) 
+      ( is-event-true-delay 
+         "TAG Zaltin 12" 
+         0 
+      )
+   )
+   ( modify-variable 
+      @Performance[1] 
+      ( + @Performance[1] 1 ) 
+   )
+)
++Name: All Three Tagged
++Repeat Count: 1
++Interval: 1
+
+$Formula: ( when 
+   ( and 
+      ( is-destroyed-delay 
+         0 
+         "Beta 2" 
+         "Beta 3" 
+         "Beta 4" 
+         "Beta 5" 
+         "Beta 6" 
+      )
+      ( > 3 ( difficulty-number ) ) 
+   )
+   ( unprotect-ship "Beta 1" ) 
+)
++Name: Unprotect Beta 1
++Repeat Count: 1
++Interval: 1
+
+$Formula: ( when 
+   ( and 
+      ( is-destroyed-delay 
+         0 
+         "Alpha 3" 
+         "Alpha 4" 
+         "Alpha 5" 
+         "Alpha 6" 
+      )
+      ( > 3 ( difficulty-number ) ) 
+   )
+   ( unprotect-ship "Alpha 2" ) 
+)
++Name: Unprotect Alpha 2
++Repeat Count: 1
++Interval: 1
+
+$Formula: ( when 
+   ( and 
+      ( is-destroyed-delay 
+         0 
+         "Tau 2" 
+         "Tau 3" 
+         "Tau 4" 
+         "Tau 5" 
+         "Tau 6" 
+      )
+      ( > 3 ( difficulty-number ) ) 
+   )
+   ( unprotect-ship "Tau 1" ) 
+)
++Name: Unprotect Tau 1
++Repeat Count: 1
++Interval: 1
+
+$Formula: ( when 
+   ( and 
+      ( is-destroyed-delay 
+         0 
+         "Gamma 2" 
+         "Gamma 3" 
+         "Gamma 4" 
+         "Gamma 5" 
+         "Gamma 6" 
+      )
+      ( > 3 ( difficulty-number ) ) 
+   )
+   ( unprotect-ship "Gamma 1" ) 
+)
++Name: Unprotect Gamma 1
++Repeat Count: 1
++Interval: 1
+
+$Formula: ( when 
+   ( is-iff "Traitor" "Alpha 1" ) 
+   ( unprotect-ship 
+      "Gamma 1" 
+      "Alpha 2" 
+      "Tau 1" 
+      "Beta 1" 
+   )
+   ( send-message-list 
+      "Convictor" 
+      "High" 
+      "Alpha Traitor" 
+      4500 
+   )
+   ( change-iff "Neutral" "Alpha 1" ) 
+   ( key-reset "1" ) 
+   ( training-msg 
+      "Comp Traitor" 
+      "Comp Traitor" 
+      0 
+      8 
+   )
+   ( play-sound-from-table 0 0 0 "118" ) 
+)
++Name: Alpha 1 Traitor
++Repeat Count: 1
++Interval: 1
+
+$Formula: ( when 
+   ( key-pressed "1" ) 
+   ( fade-out 3000 3 ) 
+)
++Name: Press 1 to Surrender
++Repeat Count: 1
++Interval: 1
++Chained: 7
++Objective:  XSTR("Press $1$ to Surrender", 1458)
+
+$Formula: ( when ( true ) ( end-mission ) ) 
++Name: Surrender End
++Repeat Count: 1
++Interval: 1
++Chained: 3
+
+$Formula: ( when 
+   ( has-departed-delay 
+      1 
+      "Blue Mountain Drifter" 
+   )
+   ( training-msg 
+      "Droid - BMD Escaped" 
+      "Droid - BMD Escaped" 
+      0 
+      6 
+   )
+   ( play-sound-from-table 0 0 0 "118" ) 
+)
++Name: BMD Escaped
++Repeat Count: 1
++Interval: 1
+
+$Formula: ( when 
+   ( has-departed-delay 
+      1 
+      "Ulabos Ringer" 
+   )
+   ( training-msg 
+      "Droid - UR Escaped" 
+      "Droid - UR Escaped" 
+      0 
+      6 
+   )
+   ( play-sound-from-table 0 0 0 "118" ) 
+)
++Name: UR Escaped
++Repeat Count: 1
++Interval: 1
+
+$Formula: ( when 
+   ( has-departed-delay 1 "Charmed" ) 
+   ( training-msg 
+      "Droid - Charmed Escaped" 
+      "Droid - Charmed Escaped" 
+      0 
+      6 
+   )
+   ( play-sound-from-table 0 0 0 "118" ) 
+)
++Name: Charmed Escaped
++Repeat Count: 1
++Interval: 1
+
+$Formula: ( when 
+   ( has-departed-delay 1 "Night Bloom" ) 
+   ( training-msg 
+      "Droid - NB Escaped" 
+      "Droid - NB Escaped" 
+      0 
+      6 
+   )
+   ( play-sound-from-table 0 0 0 "118" ) 
+)
++Name: Night Bloom Escaped
++Repeat Count: 1
++Interval: 1
+
+$Formula: ( when-argument 
+   ( any-of 
+      "Night Bloom" 
+      "Ulabos Ringer" 
+      "Blue Mountain Drifter" 
+      "Charmed" 
+   )
+   ( is-in-mission "<argument>" ) 
+   ( set-subsystem-special-hitpoints 
+      25 
+      "<argument>" 
+      "Engines" 
+   )
+   ( invalidate-argument "<argument>" ) 
+)
++Name: Weaken Bonus Ship Engines
++Repeat Count: -1
++Trigger Count: 4
++Interval: 0
+
+$Formula: ( when 
+   ( has-time-elapsed 16 ) 
+   ( do-nothing ) 
+)
++Name: Backup Available
++Repeat Count: 1
++Interval: 1
+
+$Formula: ( if-then-else 
+   ( = @Alpha[3] 0 ) 
+   ( when-argument 
+      ( every-of 
+         "Alpha 2" 
+         "Alpha 3" 
+         "Alpha 4" 
+         "Alpha 5" 
+         "Alpha 6" 
+      )
+      ( true ) 
+      ( change-ai-class 
+         "AI_05_Officer" 
+         "<argument>" 
+      )
+   )
+   ( if-then-else 
+      ( = @Alpha[3] 1 ) 
+      ( when-argument 
+         ( every-of 
+            "Alpha 2" 
+            "Alpha 3" 
+            "Alpha 4" 
+            "Alpha 5" 
+            "Alpha 6" 
+         )
+         ( true ) 
+         ( change-ai-class 
+            "AI_06_Lieutenant" 
+            "<argument>" 
+         )
+      )
+      ( if-then-else 
+         ( = @Alpha[3] 2 ) 
+         ( when-argument 
+            ( every-of 
+               "Alpha 2" 
+               "Alpha 3" 
+               "Alpha 4" 
+               "Alpha 5" 
+               "Alpha 6" 
+            )
+            ( true ) 
+            ( change-ai-class 
+               "AI_07_Captain" 
+               "<argument>" 
+            )
+         )
+         ( if-then-else 
+            ( = @Alpha[3] 4 ) 
+            ( when-argument 
+               ( every-of 
+                  "Alpha 2" 
+                  "Alpha 3" 
+                  "Alpha 4" 
+                  "Alpha 5" 
+                  "Alpha 6" 
+               )
+               ( true ) 
+               ( change-ai-class 
+                  "AI_09_Commander" 
+                  "<argument>" 
+               )
+            )
+            ( if-then-else 
+               ( = @Alpha[3] 5 ) 
+               ( when-argument 
+                  ( every-of 
+                     "Alpha 2" 
+                     "Alpha 3" 
+                     "Alpha 4" 
+                     "Alpha 5" 
+                     "Alpha 6" 
+                  )
+                  ( true ) 
+                  ( change-ai-class 
+                     "AI_10_Colonel" 
+                     "<argument>" 
+                  )
+               )
+               ( if-then-else 
+                  ( = @Alpha[3] 6 ) 
+                  ( when-argument 
+                     ( every-of 
+                        "Alpha 2" 
+                        "Alpha 3" 
+                        "Alpha 4" 
+                        "Alpha 5" 
+                        "Alpha 6" 
+                     )
+                     ( true ) 
+                     ( change-ai-class 
+                        "AI_11_General" 
+                        "<argument>" 
+                     )
+                  )
+                  ( do-nothing ) 
+               )
+            )
+         )
+      )
+   )
+)
++Name: Alpha Set Rank
++Repeat Count: 1
++Interval: 1
+
+$Formula: ( if-then-else 
+   ( = @Beta[3] 1 ) 
+   ( when-argument 
+      ( every-of 
+         "Beta 2" 
+         "Beta 3" 
+         "Beta 4" 
+         "Beta 5" 
+         "Beta 6" 
+         "Beta 1" 
+      )
+      ( true ) 
+      ( change-ai-class 
+         "AI_05_Officer" 
+         "<argument>" 
+      )
+   )
+   ( if-then-else 
+      ( = @Beta[3] 2 ) 
+      ( when-argument 
+         ( every-of 
+            "Beta 2" 
+            "Beta 3" 
+            "Beta 4" 
+            "Beta 5" 
+            "Beta 6" 
+            "Beta 1" 
+         )
+         ( true ) 
+         ( change-ai-class 
+            "AI_06_Lieutenant" 
+            "<argument>" 
+         )
+      )
+      ( if-then-else 
+         ( = @Beta[3] 4 ) 
+         ( when-argument 
+            ( every-of 
+               "Beta 2" 
+               "Beta 3" 
+               "Beta 4" 
+               "Beta 5" 
+               "Beta 6" 
+               "Beta 1" 
+            )
+            ( true ) 
+            ( change-ai-class 
+               "AI_08_Major" 
+               "<argument>" 
+            )
+         )
+         ( if-then-else 
+            ( = @Beta[3] 5 ) 
+            ( when-argument 
+               ( every-of 
+                  "Beta 2" 
+                  "Beta 3" 
+                  "Beta 4" 
+                  "Beta 5" 
+                  "Beta 6" 
+                  "Beta 1" 
+               )
+               ( true ) 
+               ( change-ai-class 
+                  "AI_09_Commander" 
+                  "<argument>" 
+               )
+            )
+            ( do-nothing ) 
+         )
+      )
+   )
+)
++Name: Beta Set Rank
++Repeat Count: 1
++Interval: 1
+
+$Formula: ( if-then-else 
+   ( = @Gamma[3] 0 ) 
+   ( when-argument 
+      ( every-of 
+         "Gamma 2" 
+         "Gamma 3" 
+         "Gamma 4" 
+         "Gamma 5" 
+         "Gamma 6" 
+         "Gamma 1" 
+      )
+      ( true ) 
+      ( change-ai-class 
+         "AI_04_Cadet" 
+         "<argument>" 
+      )
+   )
+   ( if-then-else 
+      ( = @Gamma[3] 1 ) 
+      ( when-argument 
+         ( every-of 
+            "Gamma 2" 
+            "Gamma 3" 
+            "Gamma 4" 
+            "Gamma 5" 
+            "Gamma 6" 
+            "Gamma 1" 
+         )
+         ( true ) 
+         ( change-ai-class 
+            "AI_05_Officer" 
+            "<argument>" 
+         )
+      )
+      ( if-then-else 
+         ( = @Gamma[3] 2 ) 
+         ( when-argument 
+            ( every-of 
+               "Gamma 2" 
+               "Gamma 3" 
+               "Gamma 4" 
+               "Gamma 5" 
+               "Gamma 6" 
+               "Gamma 1" 
+            )
+            ( true ) 
+            ( change-ai-class 
+               "AI_06_Lieutenant" 
+               "<argument>" 
+            )
+         )
+         ( if-then-else 
+            ( = @Gamma[3] 4 ) 
+            ( when-argument 
+               ( every-of 
+                  "Gamma 2" 
+                  "Gamma 3" 
+                  "Gamma 4" 
+                  "Gamma 5" 
+                  "Gamma 6" 
+                  "Gamma 1" 
+               )
+               ( true ) 
+               ( change-ai-class 
+                  "AI_08_Major" 
+                  "<argument>" 
+               )
+            )
+            ( if-then-else 
+               ( = @Gamma[3] 5 ) 
+               ( when-argument 
+                  ( every-of 
+                     "Gamma 2" 
+                     "Gamma 3" 
+                     "Gamma 4" 
+                     "Gamma 5" 
+                     "Gamma 6" 
+                     "Gamma 1" 
+                  )
+                  ( true ) 
+                  ( change-ai-class 
+                     "AI_09_Commander" 
+                     "<argument>" 
+                  )
+               )
+               ( if-then-else 
+                  ( = @Gamma[3] 6 ) 
+                  ( when-argument 
+                     ( every-of 
+                        "Gamma 2" 
+                        "Gamma 3" 
+                        "Gamma 4" 
+                        "Gamma 5" 
+                        "Gamma 6" 
+                        "Gamma 1" 
+                     )
+                     ( true ) 
+                     ( change-ai-class 
+                        "AI_10_Colonel" 
+                        "<argument>" 
+                     )
+                  )
+                  ( do-nothing ) 
+               )
+            )
+         )
+      )
+   )
+)
++Name: Gamma Set Rank
++Repeat Count: 1
++Interval: 1
+
+$Formula: ( if-then-else 
+   ( = @Tau[3] 1 ) 
+   ( when-argument 
+      ( every-of 
+         "Tau 2" 
+         "Tau 3" 
+         "Tau 4" 
+         "Tau 5" 
+         "Tau 6" 
+         "Tau 1" 
+      )
+      ( true ) 
+      ( change-ai-class 
+         "AI_04_Cadet" 
+         "<argument>" 
+      )
+   )
+   ( if-then-else 
+      ( = @Tau[3] 2 ) 
+      ( when-argument 
+         ( every-of 
+            "Tau 2" 
+            "Tau 3" 
+            "Tau 4" 
+            "Tau 5" 
+            "Tau 6" 
+            "Tau 1" 
+         )
+         ( true ) 
+         ( change-ai-class 
+            "AI_05_Officer" 
+            "<argument>" 
+         )
+      )
+      ( if-then-else 
+         ( = @Tau[3] 4 ) 
+         ( when-argument 
+            ( every-of 
+               "Tau 2" 
+               "Tau 3" 
+               "Tau 4" 
+               "Tau 5" 
+               "Tau 6" 
+               "Tau 1" 
+            )
+            ( true ) 
+            ( change-ai-class 
+               "AI_07_Captain" 
+               "<argument>" 
+            )
+         )
+         ( if-then-else 
+            ( = @Tau[3] 5 ) 
+            ( when-argument 
+               ( every-of 
+                  "Tau 2" 
+                  "Tau 3" 
+                  "Tau 4" 
+                  "Tau 5" 
+                  "Tau 6" 
+                  "Tau 1" 
+               )
+               ( true ) 
+               ( change-ai-class 
+                  "AI_08_Major" 
+                  "<argument>" 
+               )
+            )
+            ( do-nothing ) 
+         )
+      )
+   )
+)
++Name: Tau Set Rank
++Repeat Count: 1
++Interval: 1
+
+$Formula: ( when 
+   ( percent-ships-destroyed 70 "Alpha" ) 
+   ( modify-variable 
+      @Alpha[3] 
+      ( - @Alpha[3] 1 ) 
+   )
+)
++Name: Alpha Blasted
++Repeat Count: 1
++Interval: 1
+
+$Formula: ( when 
+   ( and 
+      ( not 
+         ( percent-ships-destroyed 35 "Alpha" ) 
+      )
+      ( is-event-true-delay 
+         "Campaign progress" 
+         0 
+      )
+   )
+   ( modify-variable 
+      @Alpha[3] 
+      ( + @Alpha[3] 1 ) 
+   )
+)
++Name: Alpha Learns
++Repeat Count: 1
++Interval: 1
+
+$Formula: ( when 
+   ( percent-ships-destroyed 70 "Gamma" ) 
+   ( modify-variable 
+      @Gamma[3] 
+      ( - @Gamma[3] 1 ) 
+   )
+)
++Name: Gamma Blasted
++Repeat Count: 1
++Interval: 1
+
+$Formula: ( when 
+   ( and 
+      ( not 
+         ( percent-ships-destroyed 35 "Gamma" ) 
+      )
+      ( is-event-true-delay 
+         "Campaign progress" 
+         0 
+      )
+      ( has-arrived-delay 0 "Gamma" ) 
+   )
+   ( modify-variable 
+      @Gamma[3] 
+      ( + @Gamma[3] 1 ) 
+   )
+)
++Name: Gamma Learns
++Repeat Count: 1
++Interval: 1
+
+$Formula: ( when 
+   ( percent-ships-destroyed 70 "Beta" ) 
+   ( modify-variable 
+      @Beta[3] 
+      ( - @Beta[3] 1 ) 
+   )
+)
++Name: Beta Blasted
++Repeat Count: 1
++Interval: 1
+
+$Formula: ( when 
+   ( and 
+      ( not 
+         ( percent-ships-destroyed 35 "Beta" ) 
+      )
+      ( is-event-true-delay 
+         "Campaign progress" 
+         0 
+      )
+      ( has-arrived-delay 0 "Beta" ) 
+   )
+   ( modify-variable 
+      @Beta[3] 
+      ( + @Beta[3] 1 ) 
+   )
+)
++Name: Beta Learns
++Repeat Count: 1
++Interval: 1
+
+$Formula: ( when 
+   ( percent-ships-destroyed 70 "Tau" ) 
+   ( modify-variable 
+      @Tau[3] 
+      ( - @Tau[3] 1 ) 
+   )
+)
++Name: Tau Blasted
++Repeat Count: 1
++Interval: 1
+
+$Formula: ( when 
+   ( and 
+      ( not 
+         ( percent-ships-destroyed 35 "Tau" ) 
+      )
+      ( is-event-true-delay 
+         "Campaign progress" 
+         0 
+      )
+      ( has-arrived-delay 0 "Tau" ) 
+   )
+   ( modify-variable 
+      @Tau[3] 
+      ( + @Tau[3] 1 ) 
+   )
+)
++Name: Tau Learns
++Repeat Count: 1
++Interval: 1
+
+$Formula: ( when 
+   ( < ( hits-left "Ulabos Ringer" ) 80 ) 
+   ( change-iff 
+      "Civilian" 
+      "Ulabos Ringer" 
+   )
+   ( clear-goals "Ulabos Ringer" ) 
+   ( add-goal 
+      "Ulabos Ringer" 
+      ( ai-play-dead-persistent 89 ) 
+   )
+   ( modify-variable 
+      @RTBDealtWith[0] 
+      ( + @RTBDealtWith[0] 1 ) 
+   )
+   ( ship-subsys-guardian-threshold 
+      100 
+      "Ulabos Ringer" 
+      "<all engines>" 
+   )
+   ( protect-ship "Ulabos Ringer" ) 
+   ( set-scanned "Ulabos Ringer" ) 
+   ( deactivate-glow-maps 
+      "Ulabos Ringer" 
+   )
+   ( set-thrusters-status 
+      ( false ) 
+      "Ulabos Ringer" 
+   )
+   ( ship-invulnerable "Ulabos Ringer" ) 
+)
++Name: Ulabos Ringer Surrenders
++Repeat Count: 1
++Interval: 1
+
+$Formula: ( when 
+   ( and 
+      ( has-time-elapsed 45 ) 
+      ( <= @NumTagged[0] 0 ) 
+      ( false ) 
+   )
+   ( training-msg 
+      "Remind How to Tag Message" 
+      "Remind How to Tag Message" 
+      0 
+      16 
+   )
+   ( play-sound-from-table 0 0 0 "119" ) 
+)
++Name: Remind How to Tag
++Repeat Count: 1
++Interval: 1
+$Annotations Start
++Comment: Using the role gauge to help with this now
+$end_multi_text
+$Annotations End
+
+$Formula: ( when 
+   ( is-event-true-delay 
+      "Backup Available" 
+      0 
+   )
+   ( role-gauge-add-object 
+      "Alpha:" 
+      "all purpose combat" 
+      "Beta:" 
+      "bombing" 
+      "Gamma:" 
+      "intercept craft" 
+      "Tau:" 
+      "assist (oncall)" 
+   )
+   ( do-nothing ) 
+)
++Name: Add Wing Role Start
++Repeat Count: 1
++Interval: 1
+
+$Formula: ( when-argument 
+   ( any-of 
+      "Night Bloom" 
+      "Tayana Star" 
+      "Zaltin 12" 
+      "Sulonan" 
+      "Ulabos Ringer" 
+      "Charmed" 
+      "Blue Mountain Drifter" 
+   )
+   ( is-in-mission "<argument>" ) 
+   ( set-armor-type 
+      "<argument>" 
+      ( true ) 
+      "Capital_Hull_Armor" 
+      "Hull" 
+   )
+   ( cap-waypoint-speed 
+      "<argument>" 
+      ( + 40 ( * ( difficulty-number ) 10 ) ) 
+   )
+   ( invalidate-argument "<argument>" ) 
+)
++Name: Tough and WP Speed Setup
++Repeat Count: -1
++Trigger Count: 7
++Interval: 0
+
+$Formula: ( when-argument 
+   ( any-of 
+      "Night Bloom" 
+      "Tayana Star" 
+      "Zaltin 12" 
+      "Sulonan" 
+      "Ulabos Ringer" 
+      "Charmed" 
+      "Blue Mountain Drifter" 
+   )
+   ( and 
+      ( is-in-mission "<argument>" ) 
+      ( is-disabled-delay 0 "<argument>" ) 
+   )
+   ( change-iff "Civilian" "<argument>" ) 
+   ( protect-ship "<argument>" ) 
+   ( ship-guardian-threshold 
+      ( rand-multiple 5 15 ) 
+      "<argument>" 
+   )
+   ( invalidate-argument "<argument>" ) 
+)
++Name: Save Disabled
++Repeat Count: -1
++Trigger Count: 7
++Interval: 0
+
+$Formula: ( when 
+   ( true ) 
+   ( role-gauge-toggle ( true ) ) 
+   ( role-gauge-set-separator " " ) 
+   ( role-gauge-add-object 
+      "Alpha 1:" 
+      "Tag Targets with Beacon" 
+      " (get right above target and" 
+      "dumbfire beacon weapon)" 
+   )
+   ( do-nothing ) 
+)
++Name: How to Tage Gauge
++Repeat Count: 1
++Interval: 1
+
+$Formula: ( when 
+   ( and 
+      ( or 
+         ( is-destroyed-delay 
+            0 
+            "Blue Mountain Drifter" 
+         )
+         ( is-disabled-delay 
+            0 
+            "Blue Mountain Drifter" 
+         )
+         ( is-cargo-known-delay 
+            0 
+            "Blue Mountain Drifter" 
+         )
+      )
+      ( not 
+         ( has-departed-delay 
+            0 
+            "Blue Mountain Drifter" 
+         )
+      )
+   )
+   ( do-nothing ) 
+)
++Name: BMD Intercepted
++Repeat Count: 1
++Interval: 1
+
+$Formula: ( when 
+   ( and 
+      ( or 
+         ( is-destroyed-delay 0 "Night Bloom" ) 
+         ( is-disabled-delay 0 "Night Bloom" ) 
+         ( is-cargo-known-delay 
+            0 
+            "Night Bloom" 
+         )
+      )
+      ( not 
+         ( has-departed-delay 0 "Night Bloom" ) 
+      )
+   )
+   ( do-nothing ) 
+)
++Name: Night Bloom Intercepted
++Repeat Count: 1
++Interval: 1
+
+$Formula: ( when 
+   ( or 
+      ( is-destroyed-delay 
+         0 
+         "Ulabos Ringer" 
+      )
+      ( is-disabled-delay 0 "Ulabos Ringer" ) 
+      ( is-event-true-delay 
+         "Ulabos Ringer Surrenders" 
+         0 
+         ( true ) 
+      )
+      ( is-cargo-known-delay 
+         0 
+         "Ulabos Ringer" 
+      )
+   )
+   ( do-nothing ) 
+)
++Name: Ulabos Ringer Intercepted
++Repeat Count: 1
++Interval: 1
+
+$Formula: ( when 
+   ( or 
+      ( is-destroyed-delay 0 "Charmed" ) 
+      ( is-event-true-delay 
+         "Charmed surrenders" 
+         0 
+         ( true ) 
+      )
+      ( is-cargo-known-delay 0 "Charmed" ) 
+   )
+   ( do-nothing ) 
+)
++Name: Charmed Intercepted
++Repeat Count: 1
++Interval: 1
+
+$Formula: ( when-argument 
+   ( any-of 
+      "Tayana Star" 
+      "Zaltin 12" 
+      "Sulonan" 
+   )
+   ( is-in-mission "<argument>" ) 
+   ( ship-subsys-guardian-threshold 
+      ( rand-multiple 38 42 ) 
+      "<argument>" 
+      "<all engines>" 
+   )
+   ( invalidate-argument "<argument>" ) 
+)
++Name: Protect TAGee Engines
++Repeat Count: -1
++Trigger Count: 3
++Interval: 0
+
+$Formula: ( when 
+   ( and 
+      ( has-departed-delay 
+         0 
+         "Tayana Star" 
+         "Zaltin 12" 
+         "Sulonan" 
+      )
+      ( <= @NumTagged[0] 0 ) 
+   )
+   ( do-nothing ) 
+)
++Name: Fail Taging
++Repeat Count: 1
++Interval: 1
+
+$Formula: ( when 
+   ( and 
+      ( > @NumTagged[0] 0 ) 
+      ( = @RTBCritDealtWith[0] 3 ) 
+      ( not 
+         ( is-event-true-delay "Fail Taging" 0 ) 
+      )
+   )
+   ( do-nothing ) 
+)
++Name: Tagged Enough
++Repeat Count: 1
++Interval: 1
+
+$Formula: ( when 
+   ( is-cargo-known-delay 
+      0 
+      "Charmed" 
+      "Night Bloom" 
+      "Blue Mountain Drifter" 
+      "Ulabos Ringer" 
+   )
+   ( do-nothing ) 
+)
++Name: Ships Scanned
++Repeat Count: 1
++Interval: 1
+
+$Formula: ( when 
+   ( and 
+      ( = @MiscShips[0] 4 ) 
+      ( percent-ships-departed 
+         0 
+         "Charmed" 
+         "Night Bloom" 
+         "Blue Mountain Drifter" 
+         "Ulabos Ringer" 
+      )
+   )
+   ( do-nothing ) 
+)
++Name: Ships Dealt With
++Repeat Count: 1
++Interval: 1
+
+$Formula: ( when-argument 
+   ( any-of 
+      "Night Bloom" 
+      "Tayana Star" 
+      "Zaltin 12" 
+      "Sulonan" 
+      "Ulabos Ringer" 
+      "Charmed" 
+      "Blue Mountain Drifter" 
+   )
+   ( is-in-mission "<argument>" ) 
+   ( set-armor-type 
+      "<argument>" 
+      ( true ) 
+      "Capital_Hull_Armor" 
+      "Hull" 
+   )
+   ( invalidate-argument "<argument>" ) 
+)
++Name: Capital Armor
++Repeat Count: -1
++Trigger Count: 7
++Interval: 0
+
+$Formula: ( when-argument 
+   ( any-of 
+      "Night Bloom" 
+      "Ulabos Ringer" 
+      "Charmed" 
+      "Blue Mountain Drifter" 
+   )
+   ( and 
+      ( is-in-mission "<argument>" ) 
+      ( is-cargo-known-delay 0 "<argument>" ) 
+   )
+   ( change-iff "Civilian" "<argument>" ) 
+   ( protect-ship "<argument>" ) 
+   ( ship-guardian-threshold 
+      ( rand-multiple 5 15 ) 
+      "<argument>" 
+   )
+   ( invalidate-argument "<argument>" ) 
+)
++Name: Save Scanned
++Repeat Count: 1
++Interval: 1
+
+$Formula: ( when-argument 
+   ( any-of 
+      "Charmed" 
+      "Night Bloom" 
+      "Blue Mountain Drifter" 
+      "Ulabos Ringer" 
+   )
+   ( is-in-mission "<argument>" ) 
+   ( ship-guardian-threshold 
+      ( rand-multiple 20 45 ) 
+      "<argument>" 
+   )
+   ( invalidate-argument "<argument>" ) 
+)
++Name: Guardian Ships
++Repeat Count: -1
++Trigger Count: 4
++Interval: 0
+
+$Formula: ( when 
+   ( has-arrived-delay 5 "Zaltin 12" ) 
+   ( do-nothing ) 
+)
++Name: Wait for Z12
++Repeat Count: 1
++Interval: 1
++Objective:  XSTR("Wait for Zaltin 12", 1514)
+
+$Formula: ( when 
+   ( is-event-true-msecs-delay 
+      "Hypermatter self-destruct" 
+      500 
+   )
+   ( toggle-asteroid-field ( true ) ) 
+)
++Name: Enabled Field
++Repeat Count: 1
++Interval: 1
+
+$Formula: ( when 
+   ( true ) 
+   ( toggle-asteroid-field ( false ) ) 
+)
++Name: Disable Field
++Repeat Count: 1
++Interval: 1
+
+$Formula: ( when 
+   ( has-arrived-delay 0 "Tau" ) 
+   ( role-gauge-update-object 
+      "Tau:" 
+      "assist" 
+   )
+)
++Name: Update roles Tau
++Repeat Count: 1
++Interval: 1
+
+$Formula: ( when 
+   ( or 
+      ( is-event-true-delay "Fail Taging" 1 ) 
+      ( <= 
+         ( get-secondary-ammo "Alpha 1" 1 ) 
+         0 
+      )
+   )
+   ( role-gauge-clear-all ) 
+   ( if-then-else 
+      ( is-event-true-delay 
+         "Update roles Tau" 
+         0 
+      )
+      ( role-gauge-add-object 
+         "Alpha:" 
+         "all purpose combat" 
+         "Beta:" 
+         "bombing" 
+         "Gamma:" 
+         "intercept craft" 
+         "Tau:" 
+         "assist" 
+      )
+      ( role-gauge-add-object 
+         "Alpha:" 
+         "all purpose combat" 
+         "Beta:" 
+         "bombing" 
+         "Gamma:" 
+         "intercept craft" 
+         "Tau:" 
+         "assist (oncall)" 
+      )
+   )
+)
++Name: Role Gauge Update Clear Tag
++Repeat Count: 1
++Interval: 1
+
+$Formula: ( when 
+   ( and 
+      ( is-event-true-delay 
+         "Backup Available" 
+         0 
+      )
+      ( not 
+         ( is-event-true-delay 
+            "No More Targets" 
+            0 
+         )
+      )
+   )
+   ( training-msg 
+      "Droid - Tau Available" 
+      "Droid - Tau Available" 
+      0 
+      6 
+   )
+   ( play-sound-from-table 0 0 0 "118" ) 
+)
++Name: Tau Available
++Repeat Count: 1
++Interval: 1
+
+$Formula: ( when 
+   ( has-time-elapsed 2 ) 
+   ( turret-set-rate-of-fire 
+      "Convictor" 
+      40 
+      "TurretMain001" 
+      "TurretMain002" 
+      "TurretMain003" 
+      "TurretMain004" 
+      "TurretMain005" 
+      "TurretMain006" 
+      "TurretMain007" 
+      "TurretMain008" 
+   )
+)
++Name: Tune Octuples
++Repeat Count: 1
++Interval: 1
+
+$Formula: ( when 
+   ( <= 
+      ( get-secondary-ammo "Alpha 1" 1 ) 
+      0 
+   )
+   ( do-nothing ) 
+)
++Name: Out of Tags
++Repeat Count: 1
++Interval: 1
+
+$Formula: ( when 
+   ( and 
+      ( is-event-true-delay "Out of Tags" 2 ) 
+      ( not ( is_tagged "Tayana Star" ) ) 
+   )
+   ( do-nothing ) 
+)
++Name: Tag Fail T Star
++Repeat Count: 1
++Interval: 1
+
+$Formula: ( when 
+   ( and 
+      ( is-event-true-delay "Out of Tags" 2 ) 
+      ( not ( is_tagged "Sulonan" ) ) 
+   )
+   ( do-nothing ) 
+)
++Name: Tag Fail Sulon
++Repeat Count: 1
++Interval: 1
+
+$Formula: ( when 
+   ( and 
+      ( is-event-true-delay "Out of Tags" 2 ) 
+      ( not ( is_tagged "Zaltin 12" ) ) 
+      ( has-arrived-delay 2 "Zaltin 12" ) 
+   )
+   ( do-nothing ) 
+)
++Name: Tag Fail Zaltin
++Repeat Count: 1
++Interval: 1
+
+$Formula: ( when 
+   ( and 
+      ( <= ( difficulty-number ) 3 ) 
+      ( <= 
+         ( get-secondary-ammo "Alpha 1" 1 ) 
+         1 
+      )
+   )
+   ( set-secondary-ammo "Alpha 1" 1 6 ) 
+)
++Name: Tag Recharge
++Repeat Count: -1
++Trigger Count: 5
++Interval: 1
+
+#Goals		;! 3 total
+
+$Type: Primary
++Name: Homing Beacon
+$MessageNew:  XSTR("Plant Homing Beacons on Tayana Star, Zaltin 12, Sulonan", 1515)
+$end_multi_text
+$Formula: ( is-event-true-delay 
+   "Tagged Enough" 
+   0 
+)
++No music
++Score: 250
+
+$Type: Secondary
++Name: Fleeing
+$MessageNew:  XSTR("Disable Other Fleeing Vessels", 1516)
+$end_multi_text
+$Formula: ( is-event-true-delay 
+   "Ships Dealt With" 
+   0 
+)
++Score: 100
+
+$Type: Secondary
++Name: Scan
+$MessageNew:  XSTR("Scan Fleeing Vessels' Cargo", 1517)
+$end_multi_text
+$Formula: ( is-event-true-delay 
+   "Ships Scanned" 
+   0 
+)
++No music
++Score: 100
+
+#Waypoints		;! 7 lists total
+
+$Name: UR Escape
+$List: (		;! 1 points in list
+	( -2000.000000, 1000.000000, -300.000031 )
+)
+
+$Name: TS Escape
+$List: (		;! 1 points in list
+	( -796.339722, 1396.196045, 11081.827148 )
+)
+
+$Name: Charmed Escape
+$List: (		;! 1 points in list
+	( 9490.299805, 5000.000000, 14866.599609 )
+)
+
+$Name: NB Escape
+$List: (		;! 1 points in list
+	( 996.799988, 6000.000000, 2406.699951 )
+)
+
+$Name: BMDWaypoint
+$List: (		;! 1 points in list
+	( -4323.600098, -2200.000000, 6477.700195 )
+)
+
+$Name: Sulonan Escape
+$List: (		;! 1 points in list
+	( 2423.100098, 972.000000, 4581.500000 )
+)
+
+$Name: Zaltin Escape
+$List: (		;! 1 points in list
+	( 88.148163, 1490.286621, 2155.171631 )
+)
+
+#Messages		;! 28 total
+
+$Command Persona: Flight Computer
+
+$Name: Ab - Attention
+$Team: -1
+$MessageNew:  XSTR("Attention, all vessels.  Power down your drives immediately and prepare to be boarded.  All traffic in and around the Bilbringi System is hereby suspended pending an investigation of this attack.  Failure to cooperate will be met with severe punishment.", 1518)
+$end_multi_text
++Wave Name: I1_M3_Ors_1.ogg
+
+$Name: Gri - Proceed
+$Team: -1
+$MessageNew:  XSTR("Alpha, proceed with the mission as planned.  Your questions about the explosion will be addressed as soon as the information is available.  All squadrons await your command.", 1519)
+$end_multi_text
++Wave Name: l1_M3_Grilner_1.ogg
+
+$Name: Charmed surrenders
+$Team: -1
+$MessageNew:  XSTR("Charmed here.  Hold your fire, please!  We're shutting down engines now.", 1520)
+$end_multi_text
++Wave Name: S1_M1_Charmed_1.ogg
+
+$Name: Sullustan gibberish
+$Team: -1
+$MessageNew:  XSTR("You Imperial Ranats will never take us ali--", 1521)
+$end_multi_text
++Wave Name: S1_M1_Sulonan_1.ogg
+
+$Name: Zaltin 12 complains
+$Team: -1
+$MessageNew:  XSTR("This bacta is urgently needed on Taris, Convictor!  You have no right to interfere with cartel operations!", 1522)
+$end_multi_text
++Wave Name: S1_M1_Zaltin_1.ogg
+
+$Name: Variables
+$Team: -1
+$MessageNew:  XSTR("Flight Computer: Crit: $RTBCritDealtWith Noncrit: $RTBDealtWith", 1523)
+$end_multi_text
+
+$Name: Droid - Initial Status
+$Team: -1
+$MessageNew:  XSTR("Flight Computer: Four targets are present at the station.  Three targets are inbound, including Zaltin 12.", 1524)
+$end_multi_text
+
+$Name: Droid - Zaltin Here
+$Team: -1
+$MessageNew:  XSTR("Flight Computer: Zaltin 12 has arrived on schedule.  Four escort fighters, Cloakshape class.", 1525)
+$end_multi_text
+
+$Name: Droid - BMD Here
+$Team: -1
+$MessageNew:  XSTR("Flight Computer: Blue Mountain Drifter has arrived.  Low priority target.", 1526)
+$end_multi_text
+
+$Name: Droid - Charmed Here
+$Team: -1
+$MessageNew:  XSTR("Flight Computer: Charmed has arrived ahead of schedule.  Low priority target.", 1527)
+$end_multi_text
+
+$Name: Droid - Fighters Here
+$Team: -1
+$MessageNew:  XSTR("Flight Computer: Fighters are emerging out of hyperspace.", -1)
+$end_multi_text
+
+$Name: Droid - TS Escaped
+$Team: -1
+$MessageNew:  XSTR("Flight Computer: Tayana Star has entered hyperspace.", 1529)
+$end_multi_text
+
+$Name: Droid - Sulonan Escaped
+$Team: -1
+$MessageNew:  XSTR("Flight Computer: Sulonan has entered hyperspace.", 1530)
+$end_multi_text
+
+$Name: Droid - Zaltin Escaped
+$Team: -1
+$MessageNew:  XSTR("Flight Computer: Zaltin 12 has entered hyperspace.", 1531)
+$end_multi_text
+
+$Name: Droid - TS Transmitting
+$Team: -1
+$MessageNew:  XSTR("Flight Computer: Tayana Star is broadcasting a clear signal.", 1532)
+$end_multi_text
+
+$Name: Droid - Sulonan Transmitting
+$Team: -1
+$MessageNew:  XSTR("Flight Computer: Sulonan is broadcasting a clear signal.", 1533)
+$end_multi_text
+
+$Name: Droid - Zaltin Transmitting
+$Team: -1
+$MessageNew:  XSTR("Flight Computer: Zaltin 12 is broadcasting a clear signal.", 1534)
+$end_multi_text
+
+$Name: Droid - No remaining targets
+$Team: -1
+$MessageNew:  XSTR("Flight Computer: There are no remaining targets.  This mission is over.  The hangar is prepared for your return.", 1535)
+$end_multi_text
+
+$Name: Droid - Silver here
+$Team: -1
+$MessageNew:  XSTR("Flight Computer: Fighters are launching from the station.  They are registered to a private security firm contracting to the Port Authority.  Low priority targets.", 1536)
+$end_multi_text
+
+$Name: Droid - BMD Escaped
+$Team: -1
+$MessageNew:  XSTR("Flight Computer: Blue Mountain Drifter has entered hyperspace.", 1537)
+$end_multi_text
+
+$Name: Droid - UR Escaped
+$Team: -1
+$MessageNew:  XSTR("Flight Computer: Ulabos Ringer has entered hyperspace.", 1538)
+$end_multi_text
+
+$Name: Droid - Charmed Escaped
+$Team: -1
+$MessageNew:  XSTR("Flight Computer: Charmed has entered hyperspace.", 1539)
+$end_multi_text
+
+$Name: Droid - NB Escaped
+$Team: -1
+$MessageNew:  XSTR("Flight Computer: Night Bloom has entered hyperspace.", 1540)
+$end_multi_text
+
+$Name: Alpha Traitor
+$Team: -1
+$MessageNew:  XSTR("Your family will pay the price for this treason, Wing Commander.  Fighters, destroy Alpha 1!", 1473)
+$end_multi_text
++Wave Name: I1_M5_Ors_9.ogg
+
+$Name: Comp Traitor
+$Team: -1
+$MessageNew:  XSTR("Flight Computer: You have been flagged as a hostile vessel.  Surrender immediately.", 1474)
+$end_multi_text
+
+$Name: Droid - Tau Available
+$Team: -1
+$MessageNew:  XSTR("Flight Computer: Tau Wing has been released to your command.", 1541)
+$end_multi_text
+
+$Name: .. UR - Power Spike
+$Team: -1
+$MessageNew:  XSTR("BB9 Open, this is Ulabos Ringer.  We're detecting a power spike at the fueling facility.  Do you want us to...oh no...Sithspit!  Camin, get us out of--", 1542)
+$end_multi_text
++Wave Name: S1_M1_Ulabos_1.ogg
+
+$Name: Remind How to Tag Message
+$Team: -1
+$MessageNew:  XSTR("Flight Computer: Remember that homing beacons launch from the bombing bay, so fly above the target ship then launch the beacon.", 1543)
+$end_multi_text
+
+#Reinforcements		;! 1 total
+
+$Name: Tau
+$Type: Attack/Protect
+$Num times: 1
++Arrival Delay: 0
++No Messages: ( )
++Yes Messages: ( )
+
+#Background bitmaps		;! 0 total
+
+$Num stars: 0
+$Ambient light level: 5394511
+
+$Bitmap List:
++Flags: ( "corrected angles" )
+$Sun: SunWhite
++Angles: 4.712389 5.235988 0.000000
++Scale: 4.000000
+
+#Asteroid Fields
+
+$Density: 40
++Field Type: 0
++Debris Genre: 0
++Field Debris Type Name: Brown
++Field Debris Type Name: Brown
++Field Debris Type Name: Brown
+$Average Speed: 9.000001
+$Minimum: -900.000000, 600.000000, 9200.000000
+$Maximum: -100.000000, 1200.000000, 9800.000000
++Use Enhanced Checks
+
+#Music
+
+$Event Music: None
+$Briefing Music: Brief4
+$Debriefing Success Music: Brief5
+$Debriefing Average Music: Brief5
+
+#End
+

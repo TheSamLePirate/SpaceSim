@@ -1,0 +1,15 @@
+#Lua SEXPs
+
+
+$Operator: force-mouse-toggle-status
+$Category: Change
+$Subcategory: LUA-Action
+$Minimum Arguments: 1
+$Return Type: Nothing
+$Description: This sexp forces the mouse movement flight mode to either On or Off. Note this sexp only works in singelplayer.
+$Parameter: 
+	+Description: Status to set for the mouse movement mode. True is on (mouse is in manuver mode) and False is off (mouse in is aiming mode). 
+	+Type: Boolean
+
+
+#End
