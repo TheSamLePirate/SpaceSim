@@ -115,8 +115,8 @@ Coûts mesurés : ombres ≈ 17 ms par image, entités FotG au sol ≈ 9 ms, vé
 |---|---|
 | 0 – dépôt git, plan | fait |
 | 1 – fondations solo | **fait** : 1.1 carte d'altitude ✅, 1.2-1.4 vol avion, manette, alarme ✅ (réglage fin à faire avec tes retours), 1.5 nettoyage ✅, 1.6 IA et relief ✅ (banc aitest : 0/4 → 4/4), 1.7 réapparition ✅ (FotG Respawner forcé, au-dessus de l'Aurore, protection 3 s) |
-| 2 – performances | en cours |
-| 3 – mission jouable | à faire |
+| 2 – performances | **fait** : Vulkan par défaut (canyon 14,5 → 26,5–30,8 FPS avec ombres), végétation en detail boxes, diagnostic complet dans AURORE-03.md |
+| 3 – mission jouable | en cours |
 | 4 – coop en réseau | à faire |
 | 5 – contenu | à faire |
 | 6 – qualité | à faire |

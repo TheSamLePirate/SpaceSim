@@ -299,7 +299,7 @@ engine.addHook('On Simulation',function()
     local now=mn.getMissionTime()
     local dt=ba.getMissionFrametime()
     local can=ok(sh) and not sh:isDying() and not scriptedByCinematic() and not FLIGHT_EXTERNAL and dt>0
-    if can and SPACESIM.state.auto then can=false end          -- planet proof autopilot (F8)
+    if can and (SPACESIM.state.auto or SPACESIM.state.showcase) then can=false end   -- autopilot (F8), showcase
     if not can then
         if F.active then F.active=false;ba.setControlMode(FLIGHT_CONTROL_NORMAL) end
         return

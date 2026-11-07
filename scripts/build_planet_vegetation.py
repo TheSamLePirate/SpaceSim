@@ -244,7 +244,9 @@ def build_sector(job):
         c[2].append(b)
     full = [i for c in cells.values() for i in c[0]]; lite = [i for c in cells.values() for i in c[1]]
     if BOXES:
-        # Per-cell detail boxes (main pass only: FSO's shadow pass ignores them, so off by default).
+        # Per-cell detail boxes: full trees only within NEAR_BOX of their 750 m cell, cones elsewhere.
+        # FSO 26.2 also honours detail boxes in the shadow pass (shadows.cpp, add_model_draws + view_pos),
+        # which is where most of the vegetation cost is (4 cascades).
         lod0 = [(Group(), '')]
         lod0[0][0].add([(0, -60, 0), (0.01, -60, 0), (0, -60, 0.01)], [(0, 2, 1)], [(0, 0)] * 3, 0)
         for (cx, cz), (cf, cl, pts) in cells.items():
@@ -253,7 +255,7 @@ def build_sector(job):
             hi = (P[:, 0].max() + NEAR_BOX, P[:, 1].max() + 900.0, P[:, 2].max() + NEAR_BOX)
             for g in pack_groups(cf): lod0.append((g, box_props(1, lo, hi)))
             for g in pack_groups(cl): lod0.append((g, box_props(-1, lo, hi)))
-        lods = [lod0, [(g, '') for g in pack_groups(far)], []]
+        lods = [lod0, [(g, '') for g in pack_groups(lite)], [(g, '') for g in pack_groups(far)], []]
     else:
         # Whole-sector levels: full trees, simplified trees, pyramids, nothing.
         lods = [[(g, '') for g in pack_groups(full)], [(g, '') for g in pack_groups(lite)], [(g, '') for g in pack_groups(far)], []]

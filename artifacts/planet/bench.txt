@@ -31,3 +31,17 @@ veg_mid raidshort phase=canyon frames=663 seconds=35.0 fps_mean=18.92 fps_1pct_l
 veg_mid raidclimb phase=ascension frames=4069 seconds=83.9 fps_mean=48.49 fps_1pct_low=18.37 frame_p95_ms=46.7 frame_max_ms=133.4
 aaa raidshort phase=canyon frames=805 seconds=35.0 fps_mean=22.97 fps_1pct_low=14.17 frame_p95_ms=67.5 frame_max_ms=250.0
 aaa raidclimb phase=ascension frames=4460 seconds=83.9 fps_mean=53.15 fps_1pct_low=26.42 frame_p95_ms=35.2 frame_max_ms=129.2
+14:26 base_max max 
+14:37 base_max max 
+14:44 base_max max phase=camp frames=140 fps_mean=13.7 fps_1pct_low=10.9 phase=canyon frames=1472 fps_mean=15.3 fps_1pct_low=10.3 
+14:47 casc_3000 max phase=camp frames=141 fps_mean=13.9 fps_1pct_low=9.9 phase=canyon frames=1440 fps_mean=14.9 fps_1pct_low=9.5 
+14:49 base_max2 max phase=camp frames=132 fps_mean=12.9 fps_1pct_low=9.9 phase=canyon frames=1378 fps_mean=14.3 fps_1pct_low=9.2 
+14:51 sans_ombres qualite phase=camp frames=266 fps_mean=26.0 fps_1pct_low=18.8 phase=canyon frames=2628 fps_mean=27.2 fps_1pct_low=16.1 
+14:54 ombres_q2 ombres phase=camp frames=133 fps_mean=13.1 fps_1pct_low=9.5 phase=canyon frames=1352 fps_mean=14.0 fps_1pct_low=8.9 
+14:57 noveg_max max phase=camp frames=211 fps_mean=20.7 fps_1pct_low=15.3 phase=canyon frames=2525 fps_mean=26.2 fps_1pct_low=14.9 
+14:59 noveg_qualite qualite phase=camp frames=331 fps_mean=32.3 fps_1pct_low=20.1 phase=canyon frames=3077 fps_mean=31.9 fps_1pct_low=17.7 
+15:02 veg_lod600 max phase=camp frames=148 fps_mean=14.6 fps_1pct_low=9.7 phase=canyon frames=1653 fps_mean=17.1 fps_1pct_low=11.4 
+15:07 veg_boxes max phase=camp frames=162 fps_mean=15.8 fps_1pct_low=6.7 phase=canyon frames=1571 fps_mean=16.3 fps_1pct_low=10.7 
+15:11 vulkan_max vk phase=camp frames=283 fps_mean=27.8 fps_1pct_low=18.4 phase=canyon frames=2936 fps_mean=30.4 fps_1pct_low=15.9 
+15:47 vk_qualite_q2 qualite phase=camp frames=330 fps_mean=32.3 fps_1pct_low=25.3 phase=canyon frames=2974 fps_mean=30.8 fps_1pct_low=17.6 
+15:49 vk_max_q3 max phase=camp frames=285 fps_mean=27.9 fps_1pct_low=20.3 phase=canyon frames=2558 fps_mean=26.5 fps_1pct_low=14.6 

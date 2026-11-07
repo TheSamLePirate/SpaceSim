@@ -35,8 +35,10 @@ local FLOOR=25        -- hard floor (m)
 local function scriptedByCinematic(sh)
     local c=CINE and CINE.active and CINE.c
     if not c or not c.xw then return false end
-    for _,x in ipairs(c.xw) do if x==sh then return true end end
-    return c.cargo==sh
+    -- compare signatures: two Lua handles to the same ship are different userdata
+    local sig=sh:getSignature()
+    for _,x in ipairs(c.xw) do if ok(x) and x:getSignature()==sig then return true end end
+    return ok(c.cargo) and c.cargo:getSignature()==sig
 end
 
 local function refreshList(now)
@@ -48,6 +50,7 @@ local function refreshList(now)
             if AVOID_TYPES[t:lower()] and not scriptedByCinematic(sh) then AV.list[#AV.list+1]=sh end
         end
     end
+    if cf.fileExists('spacesim-aidebug.flag','data',true) then local n={};for _,x in ipairs(AV.list) do n[#n+1]=x.Name..'('..(x.Class.Type.Name)..')' end;log('AI_LIST '..table.concat(n,', ')) end
 end
 
 local function avoid(sh,dt)
@@ -231,4 +234,26 @@ engine.addHook('On Simulation',function()
     if RT.dived and not sh:isDying() and not RT.back then
         RT.back=true;log(string.format('RESPAWNTEST alive again agl=%s hull=%.0f%%',tostring(agl(sh.Position)),100*sh.HitpointsLeft/sh.HitpointsMax))
     end
+end)
+
+-- fireball test (data/spacesim-fbtest.flag): Lua explosions in front of the player at t=2..6 s
+local FB=nil
+engine.addHook('On Gameplay Start',function() FB=nil end)
+engine.addHook('On Simulation',function()
+    if not (SPACESIM and SPACESIM.state and SPACESIM.state.active) then return end
+    if FB==nil then FB=cf.fileExists('spacesim-fbtest.flag','data',true) and {n=0} or false end
+    if not FB then return end
+    local now=mn.getMissionTime()
+    local p=hv.Player;local sh=p and p:isValid() and mn.Ships[tostring(p)]
+    if ok(sh) and now>2 and now<6 and now-(FB.t or 0)>0.5 then
+        FB.t=now;FB.n=FB.n+1
+        local fb=tb.FireballClasses['Exp_Det_Shp_01_Gld']
+        log('FBTEST before #'..FB.n);SPACESIM.flush()
+        if FB.n==3 then FB.cam=gr.createCamera('fbtest',sh.Position-sh.Orientation:getFvec()*50,sh.Orientation);gr.setCamera(FB.cam);log('FBTEST script camera on') end
+        local far=FB.n>=5
+        mn.createExplosion(sh.Position+sh.Orientation:getFvec()*(far and 80000 or 400),far and 9000 or 40,fb,true)
+        log('FBTEST far='..tostring(far))
+        log('FBTEST after #'..FB.n);SPACESIM.flush()
+    end
+    if now>7 and not FB.done then FB.done=true;log('FBTEST ok');SPACESIM.stop('mission_end') end
 end)

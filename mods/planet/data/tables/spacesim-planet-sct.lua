@@ -164,6 +164,10 @@ engine.addHook('On Gameplay Start',function()
     -- Atmosphere belongs to the planet props; the starfield always remains behind it.
     -- Diagnostic switches for visual captures (absent in normal play).
     if cf.fileExists('spacesim-noair.flag','data',true) and valid(mn.Props['Air 0']) then mn.Props['Air 0'].Position=V(0,9e6,0) end
+    -- diagnostic: no vegetation (forest sectors moved far away)
+    if cf.fileExists('spacesim-noveg.flag','data',true) then
+        for i=1,#mn.Props do local pr=mn.Props[i];if valid(pr) and pr.Name:sub(1,6)=='Foret ' then pr.Position=V(0,9e6,0) end end
+    end
     mn.SkyboxAlpha=1
     if valid(s.capital) then s.player.Target=s.capital end;cruise()
     s.presetIndex=2;setSun(PRESETS[2][2])

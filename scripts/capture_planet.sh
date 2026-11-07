@@ -22,6 +22,19 @@ CLIP0="$(pbpaste 2>/dev/null | shasum)"
 ERRFILE="$PROJECT_DIR/artifacts/planet/last-error.txt"; rm -f "$ERRFILE" "$U/spacesim-heartbeat.txt" "$U/spacesim-stop.txt"; DEADLINE=""
 for i in $(seq 1 $TIMEOUT); do
   sleep 1; [[ -f "$U/shot_$LAST.b64" ]] && break
+  # the game process died (crash): report it with the macOS crash report
+  if (( i > 5 )) && ! pgrep -f fs2_open_26_2_0_arm64 >/dev/null; then
+    REP=$(ls -t ~/Library/Logs/DiagnosticReports/fs2_open*.ips 2>/dev/null | head -1)
+    print -r -- "FSO_CRASH (le jeu s'est arrete) : $REP"
+    [[ -n "$REP" ]] && "$PROJECT_DIR/.venv/bin/python" - "$REP" <<'PYC' | tee "$ERRFILE"
+import json,sys
+t=open(sys.argv[1]).read().split('\n',1);d=json.loads(t[1])
+print(d.get('exception',{}).get('type'),d.get('exception',{}).get('signal'))
+th=[x for x in d['threads'] if x.get('triggered')][0]
+for f in th['frames'][:8]: print('  ',d['usedImages'][f['imageIndex']].get('name','?'),f.get('symbol','?'))
+PYC
+    rm -f "$U"/spacesim-*.flag; exit 4
+  fi
   # the game reports the end of the mission / the death of the player (spacesim-planet-sct.lua, stopSignal)
   if [[ -f "$U/spacesim-stop.txt" ]]; then
     REASON="$(cut -d' ' -f1 "$U/spacesim-stop.txt")"

@@ -4,12 +4,15 @@ PROJECT_DIR="${0:A:h:h}"
 LIBRARY_DIR="$HOME/Library/Application Support/io.github.KnossosNET.Knossos_NET/FreespaceOpen"
 MODE="${1:-libre}"
 PROFILE="${2:-qualite}"
-SHADOW_FLAGS=( -shadow_quality 0 )
+# Vulkan (MoltenVK) by default: shadows are 2x cheaper than with OpenGL 4.1 on macOS (no geometry-shader
+# cascade fallback). *_gl profiles keep the OpenGL renderer. Measured: docs/AURORE-03.md, "Phase 2".
+SHADOW_FLAGS=( -vulkan -enable_shadows -shadow_quality 2 -anisotropic_filter 16 )
+[[ "$PROFILE" == "max" || "$PROFILE" == "vk" ]] && SHADOW_FLAGS=( -vulkan -enable_shadows -shadow_quality 3 -anisotropic_filter 16 -soft_particles )
+[[ "$PROFILE" == "ultra" ]] && SHADOW_FLAGS=( -vulkan -enable_shadows -shadow_quality 4 -anisotropic_filter 16 -soft_particles )
+[[ "$PROFILE" == "rapide" ]] && SHADOW_FLAGS=( -vulkan -shadow_quality 0 )
+[[ "$PROFILE" == "qualite_gl" ]] && SHADOW_FLAGS=( -shadow_quality 0 )
 [[ "$PROFILE" == "ombres" ]] && SHADOW_FLAGS=( -enable_shadows -shadow_quality 2 )
-[[ "$PROFILE" == "ombres4" ]] && SHADOW_FLAGS=( -enable_shadows -shadow_quality 4 -anisotropic_filter 16 )
-[[ "$PROFILE" == "max" ]] && SHADOW_FLAGS=( -enable_shadows -shadow_quality 3 -anisotropic_filter 16 -soft_particles )
-[[ "$PROFILE" == "ultra" ]] && SHADOW_FLAGS=( -enable_shadows -shadow_quality 4 -anisotropic_filter 16 -soft_particles )
-[[ "$PROFILE" == "ombres3" ]] && SHADOW_FLAGS=( -enable_shadows -shadow_quality 3 -anisotropic_filter 16 -soft_particles )
+[[ "$PROFILE" == "max_gl" ]] && SHADOW_FLAGS=( -enable_shadows -shadow_quality 3 -anisotropic_filter 16 -soft_particles )
 [[ "$PROFILE" == "max_msaa" ]] && SHADOW_FLAGS=( -enable_shadows -shadow_quality 4 -msaa 4 -anisotropic_filter 16 -soft_particles )
 MISSION="_SPT_Planet_Libre"
 [[ "$MODE" == "auto" ]] && MISSION="_SPT_Planet_Auto"

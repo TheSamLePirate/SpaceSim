@@ -8,7 +8,7 @@
 local V=ba.createVector
 local C=V(0,-80000,0)
 local R=80000
-local CINE={active=false}
+CINE={active=false}   -- global: read by spacesim-flight (player control) and spacesim-game (AI avoidance)
 local function length(v) return math.sqrt(v.x*v.x+v.y*v.y+v.z*v.z) end
 local function unit(v) local d=length(v);if not (d>1e-6) then return V(0,0,1) end;return V(v.x/d,v.y/d,v.z/d) end
 local function dot(a,b) return a.x*b.x+a.y*b.y+a.z*b.z end
@@ -138,7 +138,7 @@ function CINE.init()
     SPACESIM.setSun(0.085,0.12)
     hu.HUDDrawn=false
     c.cam=gr.createCamera('cine',c.cargo.Position,c.cargo.Orientation);gr.setCamera(c.cam)
-    c.tex={glow=gr.loadTexture('ss_glow',true),orange=gr.loadTexture('ss_glow_orange',true),fire=gr.loadTexture('ss_glow_fire',true),blue=gr.loadTexture('ss_glow_blue',true),white=gr.loadTexture('ss_glow_white',true)}
+    c.tex={glow=gr.loadTexture('ss_glow',true),orange=gr.loadTexture('ss_glow_orange',true),fire=gr.loadTexture('ss_glow_fire',true),blue=gr.loadTexture('ss_glow_blue',true),white=gr.loadTexture('ss_glow_white',true),boom=gr.loadTexture('Exp_Det_Shp_01_Gld',true)}
     for k,x in ipairs(c.xw) do if ok(x) then x:setFlag(true,'no-dynamic');c.xs[k].pos=x.Position;c.xs[k].vel=V(0,0,0) end end
     c.canyonOnly=cf.fileExists('spacesim-cinecanyon.flag','data',true)
     if cf.fileExists('spacesim-cinefin.flag','data',true) then c.t0=T0-10;c.s=c.La-4000;c.finOnly=true end
@@ -364,8 +364,10 @@ local function destruction(c,T,dt)
     c.boom=heat
     if not c.broken and td<6 and math.random()<0.5 then
         local d=unit(unit(c.impact-C)+ba.createRandomVector()*(0.3+heat*0.7))
-        local fb=tb.FireballClasses['Exp_Det_Shp_01_Gld']
-        if fb then mn.createExplosion(C+d*80300,3000+9000*math.random(),fb,true) end
+        -- animated particle with the fireball texture (not mn.createExplosion: under Vulkan, fireball_create's
+        -- LOD computation (g3_get_bitmap_dims) crashed once on these huge, distant explosions)
+        local tex=(c.tex.boom and c.tex.boom:isValid()) and c.tex.boom or c.tex.fire
+        gr.createParticle(C+d*80300,V(0,0,0),2.2+math.random(),3000+9000*math.random(),PARTICLE_BITMAP,-1,false,tex)
     end
     if td>6 and not c.broken then breakup(c) end
     if not c.broken then return end
@@ -856,3 +858,16 @@ SPACESIM_PLAYER_CRASH=function(sh,hitpos)
     log(string.format('CRASH staged clone=%s pos=%s',tostring(clone and clone:isValid()),tostring(pos)))
     return true
 end
+
+-- the Aurore cannot die while the cinematic flies it: a missile salvo can deal more than the remaining hull
+-- within one frame (before the per-frame guard reacts). 'On Ship Death' is overridable at the very start of
+-- ship_hit_kill (shiphit.cpp): cancel the death, back to 30 % hull, invulnerable. Gameplay: not active.
+engine.addHook('On Ship Death',function() end,{},function()
+    local c=CINE.c
+    if not (CINE.active and c and not c.handover and ok(c.cargo) and ok(hv.Ship)) then return false end
+    if hv.Ship:getSignature()~=c.cargo:getSignature() then return false end
+    local sh=c.cargo
+    sh.HitpointsLeft=sh.HitpointsMax*0.30;sh:setFlag(true,'invulnerable')
+    log('CARGO_SAVED (death cancelled during the cinematic)')
+    return true
+end)

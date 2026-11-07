@@ -160,3 +160,42 @@ Test du canyon : `scripts/cine_test.sh canyon 300 "TARGETS|LOST" cinecanyon` →
 - **Hors cinématique** : mort réelle immédiate via `SPACESIM_REAL_DEATH`, avec la même caméra de mort cadrée.
 - Test : `STOP_AT=cine_end scripts/cine_test.sh crash 500 "CRASH|DEATHCAM" cinecanyon cinecrash`.
   Le X-wing plonge à T=30 s et la mission s'arrête 20 s après l'impact.
+
+## Phase 2 – performances (07/11, M1 Max, 1440×900, canyon de la cinématique)
+
+| Configuration | FPS canyon | 1 % bas |
+|---|---|---|
+| OpenGL, ombres niveau 3 (ancien `max`) | 14,3 à 15,3 | 9 à 10 |
+| OpenGL, sans ombres | 27,2 | 16 |
+| OpenGL, ombres, sans végétation (diagnostic) | 26,2 | 15 |
+| OpenGL, ombres, cascades 100/300/1000/3000 m | 14,9 | 9,5 |
+| OpenGL, ombres, végétation en cellules à detail boxes | 16,3 | 10,7 |
+| **Vulkan, ombres niveau 2 (`qualite`)** | **30,8** | 17,6 |
+| **Vulkan, ombres niveau 3 (`max`)** | **26,5 à 30,4** | 14,6 à 15,9 |
+
+Fin de la cinématique sous Vulkan : 81,5 FPS en orbite, 53,5 pendant la destruction (42 sous OpenGL).
+
+**Diagnostic**
+- **Les ombres coûtaient 17 ms par image, dont environ 25 ms imputables à la végétation**, dans les 4 cascades d'ombre.
+- **Ni la taille des cartes d'ombre ni les distances des cascades ne changent le coût.** C'est la géométrie qui est redessinée 4 fois.
+- **Cause sous macOS** : OpenGL 4.1 n'a pas `GL_ARB_shader_viewport_layer_array`. FSO passe alors par un geometry shader pour dupliquer chaque triangle dans les 4 cascades (`shadow_map-v.sdr`, `GEOMETRY_FALLBACK`), ce qui est lent sur les GPU Apple.
+- Le moteur Vulkan de FSO 26.2 (MoltenVK fourni avec l'application) écrit la couche directement dans le vertex shader.
+
+**Changements**
+- **Profils Vulkan par défaut** (`-vulkan`) :
+  - `qualite` : ombres niveau 2 ;
+  - `max` : ombres niveau 3, filtrage anisotrope 16x, particules douces ;
+  - `ultra` : ombres niveau 4.
+
+  OpenGL reste disponible : `qualite_gl`, `max_gl`, `ombres`, `max_msaa`.
+- **Rendu identique, vérifié** sur des plans fixes (forêt de jour, au couchant, sous-bois, vue haute) et sur la destruction de la planète.
+- **Végétation générée avec `--boxes`** : arbres complets à moins de 400 m de leur cellule de 750 m, cônes au-delà. FSO 26.2 respecte aussi ces boîtes pendant le calcul des ombres.
+
+**Limites connues sous Vulkan**
+- **Décalcomanies d'impact** (traces de tirs sur les coques) : leur pipeline est refusé par MoltenVK (`vertModelMatrix1 missing`). C'est un effet mineur, et les autres effets d'impact restent visibles.
+- **Crash intermittent** (une fois) dans `fireball_create`, sur une explosion Lua très lointaine (80 km, rayon de 12 km). Les explosions de la surface pendant le réchauffement de la planète sont donc devenues des particules animées avec la même texture.
+- **Le harnais signale désormais les crashs** (processus disparu) avec la pile d'appels du rapport macOS (code de sortie 4).
+
+**Ordre de reconstruction mis à jour**
+- Étape 5 : `build_planet_vegetation.py --spacing 9 --density 1.3 --boxes`.
+- Nouvelle étape après les tuiles : `build_planet_heightmap.py`.
