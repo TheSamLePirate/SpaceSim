@@ -80,7 +80,51 @@ do
     addShot('f04_foret_haut_jour',near('prop','Foret 2020',V(-600,350,-900),300),0.45,at('prop','Foret 2020'))
 end
 function SURFACE(p) return SURFACE_IMPL(p) end
-local function surface(p)
+-- ===================== ground height map (scripts/build_planet_heightmap.py) =====================
+-- Gnomonic grids on the north face: a=R*d.x/d.y, b=R*d.z/d.y with d=unit(p-C). 2 chars/sample (base 94).
+-- Decoded on demand: O(1) ground height instead of ray casts against the terrain props.
+local HM=nil
+local function hmLoad()
+    HM={}
+    if not cf.fileExists('spacesim-height.txt','data',true) then record('HEIGHTMAP missing');return end
+    local f=cf.openFile('spacesim-height.txt','r','data');local all=f:read('*a');f:close()
+    local pos,lines=1,{}
+    while #lines<3 do
+        local e=all:find('\n',pos,true);if not e then break end
+        lines[#lines+1]=all:sub(pos,e-1);pos=e+1
+    end
+    for k=2,3 do
+        local n,a0,b0,step,na,nb,u=lines[k]:match('^(%S+) (%S+) (%S+) (%S+) (%S+) (%S+) (%S+)')
+        local g={name=n,a0=tonumber(a0),b0=tonumber(b0),step=tonumber(step),na=tonumber(na),nb=tonumber(nb),unit=tonumber(u)}
+        g.off=pos;pos=pos+g.na*g.nb*2+1;HM[#HM+1]=g
+    end
+    HM.s=all
+    record(string.format('HEIGHTMAP grids=%d bytes=%d',#HM,#all))
+end
+local sbyte=string.byte
+local function hmSample(g,i,j)
+    local k=g.off+(j*g.na+i)*2
+    local c1,c2=sbyte(HM.s,k,k+1)
+    return ((c1-33)*94+(c2-33))*g.unit
+end
+-- ground height (m above the 80 km sphere) under p, or nil outside the maps
+local function hmHeight(p)
+    if not HM or not HM.s then return nil end
+    local dx,dy,dz=p.x-C.x,p.y-C.y,p.z-C.z
+    if dy<=0 then return nil end
+    local a,b=80000*dx/dy,80000*dz/dy
+    for _,g in ipairs(HM) do
+        local fx,fy=(a-g.a0)/g.step,(b-g.b0)/g.step
+        if fx>=0 and fy>=0 and fx<g.na-1 and fy<g.nb-1 then
+            local i,j=math.floor(fx),math.floor(fy);local tx,ty=fx-i,fy-j
+            local h00,h10=hmSample(g,i,j),hmSample(g,i+1,j)
+            local h01,h11=hmSample(g,i,j+1),hmSample(g,i+1,j+1)
+            return (h00+(h10-h00)*tx)*(1-ty)+(h01+(h11-h01)*tx)*ty
+        end
+    end
+    return nil
+end
+local function surfaceRay(p)
     local n=unit(p-C)
     local top=C+n*90000
     local q0=C+n*80000
@@ -91,6 +135,12 @@ local function surface(p)
         if q and (not hit or distance(q,C)>distance(hit,C)) then hit=q end
     end
     return hit
+end
+-- surface point under p (along the planet radius): height map first, ray cast outside it
+local function surface(p)
+    local h=hmHeight(p)
+    if h then return C+unit(p-C)*(80000+h) end
+    return surfaceRay(p)
 end
 local function cruise()
     local speeds={250,1500,5000};s.cruise=speeds[s.speedIndex]
@@ -104,6 +154,7 @@ engine.addHook('On Gameplay Start',function()
     if not (filename:find('_spt_planet_') or filename:find('_spt_aurore_')) then s.active=false;return end
     s={active=true,lines={},terrain={},auto=filename:find('_auto')~=nil,autoStart=0,stage='surface',speedIndex=1,frames=0,realTime=0,frameTimes={},bins={},lastLog=-1,lastRay=-1,contacts=0,probeContact=false,maxStep=0,maxError=0}
     s.player=mn.Ships['Red 1'];s.probe=mn.Ships['Sonde collision'];s.capital=mn.Ships['Vigilance']
+    if not HM then hmLoad() end
     if SPACESIM then SPACESIM.state=s end
     for i=1,#mn.Props do
         local prop=mn.Props[i]
@@ -134,6 +185,16 @@ engine.addHook('On Gameplay Start',function()
     for _,xz in ipairs({{0,-5000},{0,0},{1000,-1000},{5000,5000},{-6500,3500}}) do
         local q=surface(V(xz[1],3000,xz[2]))
         if q then record(string.format('RAY_HIT x=%.3f y=%.3f z=%.3f',q.x,q.y,q.z)) else record('RAY_MISS') end
+    end
+    if cf.fileExists('spacesim-hmtest.flag','data',true) then
+        -- height map vs terrain ray casts over the canyon area
+        math.randomseed(7);local n,sum,mx,worst=0,0,0,nil
+        for _=1,600 do
+            local q=V(-6000+math.random()*12000,4000,-11000+math.random()*20000)
+            local h=hmHeight(q);local r=surfaceRay(q)
+            if h and r then local e=math.abs((80000+h)-distance(r,C));n=n+1;sum=sum+e;if e>mx then mx=e;worst=q end end
+        end
+        record(string.format('HMTEST samples=%d mean_err=%.2f max_err=%.2f at=%s',n,sum/math.max(1,n),mx,tostring(worst)))
     end
     save()
 end)

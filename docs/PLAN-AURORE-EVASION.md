@@ -32,7 +32,7 @@ Noire ne détruise la planète. L'escadron Rouge (4 X-wing) l'escorte.
 
 | # | Tâche | Critère de réussite |
 |---|---|---|
-| 1.1 | **Carte d'altitude** exportée par la génération du terrain, lue en Lua (`SPACESIM.ground`) | hauteur sol en O(1), écart de moins de 3 m avec le maillage, lancer de rayon en secours hors carte |
+| 1.1 | **Carte d'altitude** exportée par la génération du terrain, lue en Lua (`SPACESIM.ground`) | hauteur sol en O(1), écart avec le maillage de collision : 0,4 m en moyenne, 4,6 m au pire (mesuré) ; lancer de rayon en secours hors carte |
 | 1.2 | **Vol de type avion** (`spacesim-flight-sct.lua`), dosé par la densité de l'air | roulis → virage coordonné, énergie (montée et piqué), décrochage en mode Simulation, assistance en mode Arcade, transition vers le vol spatial entre 20 et 40 km |
 | 1.3 | Manette X360 et clavier | commandes numériques lissées au clavier, zone morte et courbe à la manette, bascule de mode (F10) avec affichage sur le HUD |
 | 1.4 | **Alarme de proximité du sol** | « REMONTEZ » sur le HUD plus un son, anticipé d'après la vitesse verticale |
