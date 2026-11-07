@@ -291,14 +291,14 @@ end
 
 -- ------------------------------------------------------------------ hooks
 engine.addHook('On Gameplay Start',function()
-    F.active=false;F.init=false;TEST=nil;CAL=nil;F.lastVmax=nil
+    F.active=false;F.init=false;TEST=nil;CAL=nil;F.lastVmax=nil;FLIGHT_EXTERNAL=nil
 end)
 engine.addHook('On Simulation',function()
     if not (SPACESIM and SPACESIM.state and SPACESIM.state.active) then return end
     local sh=playerShip()
     local now=mn.getMissionTime()
     local dt=ba.getMissionFrametime()
-    local can=ok(sh) and not sh:isDying() and not scriptedByCinematic() and dt>0
+    local can=ok(sh) and not sh:isDying() and not scriptedByCinematic() and not FLIGHT_EXTERNAL and dt>0
     if can and SPACESIM.state.auto then can=false end          -- planet proof autopilot (F8)
     if not can then
         if F.active then F.active=false;ba.setControlMode(FLIGHT_CONTROL_NORMAL) end
