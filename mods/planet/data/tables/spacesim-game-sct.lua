@@ -137,7 +137,7 @@ engine.addHook('On Simulation',function()
                 if ori then ship.Orientation=ori end
                 if ok(cargo) then ship.Physics.Velocity=cargo.Physics.Velocity end
                 ship:setFlag(true,'invulnerable');RS.unprotect=mn.getMissionTime()+3
-                log(string.format('RESPAWN %s at %s',ship.Name,tostring(ship.Position)))
+                log(string.format('RESPAWN %s at %s',ship.Name,tostring(ship.Position)));GM.lastRespawn=mn.getMissionTime()
                 if SPACESIM.state then SPACESIM.state.stopped=nil end
             end
         end
@@ -209,5 +209,26 @@ engine.addHook('On Simulation',function()
             log(string.format('AITEST RESULT survivors=%d/%d min_agl=%.0f',alive,#AT.ties,AT.minh))
             SPACESIM.flush();SPACESIM.stop('mission_end')
         end
+    end
+end)
+
+-- respawn test (data/spacesim-respawntest.flag): dive into the ground at t=3 s, the respawn must follow
+local RT=nil
+engine.addHook('On Gameplay Start',function() RT=nil end)
+engine.addHook('On Simulation',function()
+    if not (SPACESIM and SPACESIM.state and SPACESIM.state.active) then return end
+    if RT==nil then RT=cf.fileExists('spacesim-respawntest.flag','data',true) and {} or false end
+    if not RT then return end
+    local now=mn.getMissionTime()
+    local p=hv.Player;local sh=p and p:isValid() and mn.Ships[tostring(p)]
+    if not ok(sh) then return end
+    if now>3 and not RT.dived then
+        if not RT.t then RT.t=now;FLIGHT_EXTERNAL=true end
+        local up=unit(sh.Position-C)
+        sh.Orientation=ba.createOrientationFromVectors(up*-1+V(0,0,0.3),V(0,0,1));sh.Physics.Velocity=up*-220
+        if sh:isDying() or GM.lastRespawn then RT.dived=true;FLIGHT_EXTERNAL=nil;log('RESPAWNTEST crashed') end
+    end
+    if RT.dived and not sh:isDying() and not RT.back then
+        RT.back=true;log(string.format('RESPAWNTEST alive again agl=%s hull=%.0f%%',tostring(agl(sh.Position)),100*sh.HitpointsLeft/sh.HitpointsMax))
     end
 end)
