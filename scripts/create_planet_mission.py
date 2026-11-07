@@ -85,6 +85,9 @@ def build(auto=False):
 '''+text[b:]
     text=text.replace('Red 1, le terrain est physique. Prenez la vallee puis montez vers Vigilance. Le trajet est continu et sans chargement.','Red 1, bienvenue sur Aurore. F8 lance le trajet sol-orbite. F9 change la vitesse de croisiere. Le terrain reste physique pendant tout le voyage.')
     path=DATA/'missions'/('_SPT_Planet_Auto.fs2' if auto else '_SPT_Planet_Libre.fs2');path.write_text(text)
+    if not auto:
+        # test copy without briefing (bit 10 = No_briefing): automated runs start without pressing Enter
+        (DATA/'missions'/'_SPT_Planet_Libre_Test.fs2').write_text(text.replace('+Flags: 0\n+Fog','+Flags: 1024\n+Fog',1))
     print('Mission',path,'start_y',start_y)
     return start_y
 

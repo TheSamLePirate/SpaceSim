@@ -114,7 +114,7 @@ Coûts mesurés : ombres ≈ 17 ms par image, entités FotG au sol ≈ 9 ms, vé
 | Phase | État |
 |---|---|
 | 0 – dépôt git, plan | fait |
-| 1 – fondations solo | en cours |
+| 1 – fondations solo | en cours : 1.1 carte d'altitude ✅, 1.2-1.4 vol avion, manette, alarme ✅ (réglage fin à faire avec tes retours), 1.5 nettoyage ✅, 1.6 IA et relief ⏳, 1.7 réapparition ⏳ |
 | 2 – performances | à faire |
 | 3 – mission jouable | à faire |
 | 4 – coop en réseau | à faire |

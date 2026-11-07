@@ -18,6 +18,7 @@ local function flush()
     if f then f:write(table.concat(s.lines,'\n')..'\n');f:close() end
 end
 -- Periodic writes are throttled (every 10 s): writing every second caused a visible hitch.
+local stopSignal   -- defined below (test harness), used by the collision hook
 local function save() if mn.getMissionTime()-(s.lastSave or -99)>10 then flush() end end
 -- Time of day: the shader reads the mission sun light, so moving the sun moves the sky.
 local SUN_AZ=0.8
@@ -242,6 +243,7 @@ engine.addHook('On Prop Collision',function() end,{},function()
         local v=sh.Physics.Velocity;local sp=math.sqrt(v.x*v.x+v.y*v.y+v.z*v.z)
         if sp>35 then
             record(string.format('CRASH %s speed=%.0f',sh.Name,sp))
+            if valid(s.player) and sh:getSignature()==s.player:getSignature() then stopSignal('player_crash') end
             local fb=tb.FireballClasses['Exp_Det_Shp_01_Gld']
             if fb then
                 mn.createExplosion(hv.Hitpos or sh.Position,70,fb,false)
@@ -381,7 +383,26 @@ local function drawPerf()
         gr.drawRectangle(x+(k-1)*7,y+70-math.min(38,ms*0.6),x+(k-1)*7+5,y+70,true)
     end
 end
-engine.addHook('On Frame',function() perfFrame();if not hu.HUDDrawn then drawPerf() end end)
+-- stop signal for the test harness: mission end (stop now), player death / crash (stop after a hold)
+stopSignal=function(reason)
+    if s.stopped then return end
+    s.stopped=reason
+    record('STOP reason='..reason);flush()
+    local f=cf.openFile('spacesim-stop.txt','w','data');if f then f:write(string.format('%s %.1f\n',reason,mn.getMissionTime()));f:close() end
+end
+engine.addHook('On Ship Death Started',function()
+    if s.active and valid(hv.Ship) and valid(s.player) and hv.Ship:getSignature()==s.player:getSignature() then stopSignal('player_death') end
+end)
+engine.addHook('On Mission About To End',function() if s.active then stopSignal('mission_end') end end)
+-- heartbeat for the test harness (scripts/capture_planet.sh): a blocking error dialog stops it
+local HB={t=0}
+local function heartbeat()
+    local now=time.getCurrentTime():getSeconds()
+    if now-HB.t<1 then return end
+    HB.t=now
+    local f=cf.openFile('spacesim-heartbeat.txt','w','data');if f then f:write(string.format('%.1f\n',mn.getMissionTime()));f:close() end
+end
+engine.addHook('On Frame',function() heartbeat();perfFrame();if not hu.HUDDrawn then drawPerf() end end)
 engine.addHook('On HUD Draw',function()
     drawPerf()
     if not s.active then return end
@@ -673,4 +694,4 @@ end)
 
 -- Shared helpers for other scripts of the mod (cinematic director).
 SPACESIM={state=s,surface=surface,setSun=setSun,record=record,flush=flush,capture=capture,
-          stream=STREAM,valid=valid}
+          stream=STREAM,valid=valid,stop=function(r) stopSignal(r) end}
