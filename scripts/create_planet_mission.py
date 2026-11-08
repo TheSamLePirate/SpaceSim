@@ -167,7 +167,29 @@ def playable(text):
     # replace the wings only: #Props (terrain, forests, camp) follows #Wings and must be kept
     a=text.index('#Wings');b=text.index('#Props',a)
     text=text[:a]+'#Wings\n'+'\n'.join(wings)+'\n'+text[b:]
-    ev=[event('Patrouille 1','( when ( spacesim-phase-reached 1 ) ( do-nothing ) )'),
+    for k in range(1,5):
+        objs_r=obj_block(f'Renfort {k}','TIE/In Interceptor','Hostile',(0,1500,0),'"cargo-known" "no-arrival-warp" "no-departure-warp"')
+        a=text.index('#Wings');text=text[:a]+objs_r+'\n'+text[a:]
+    a=text.index('#Props')
+    text=text[:a]+wing_block('Renforts',[f'Renfort {k}' for k in range(1,5)],'( is-event-true-delay "Renforts" 0 )',ai='( ai-chase "Aurore" 89 ) ( ai-chase-any 80 )')+'\n'+text[a:]
+    a=text.index('#Waypoints')
+    text=text[:a]+'''$Type: Secondary
++Name: Tour de communication
+$MessageNew: XSTR("Detruire la tour de communication avant le passage de l'Aurore (sinon : renforts)", -1)
+$end_multi_text
+$Formula: ( is-destroyed-delay 0 "Tour de communication 5" )
++Score: 0
+
+$Type: Secondary
++Name: Navette
+$MessageNew: XSTR("Abattre la navette Lambda qui tente de fuir l'avant-poste", -1)
+$end_multi_text
+$Formula: ( is-destroyed-delay 0 "Lambda Ombre" )
++Score: 0
+
+'''+text[a:]
+    ev=[event('Renforts','( when ( spacesim-flag "renforts" ) ( do-nothing ) )'),
+        event('Patrouille 1','( when ( spacesim-phase-reached 1 ) ( do-nothing ) )'),
         event('Patrouille 2','( when ( spacesim-phase-reached 2 ) ( do-nothing ) )'),
         event('Destroyers','( when ( spacesim-phase-reached 3 ) ( do-nothing ) )'),
         event('Chasseurs','( when ( spacesim-phase-reached 4 ) ( do-nothing ) )')]
@@ -218,6 +240,9 @@ def build_evasion():
     blk=re.sub(r'\$Location: [^\n]+','$Location: '+', '.join(f'{c:.3f}' for c in ships[1]['pos']),blk)
     blk=re.sub(r'\$Orientation:\n[^\n]+,\n[^\n]+,\n[^\n]+\n','$Orientation:\n '+orient_text(ships[1]['orient'])+'\n',blk)
     text=text[:a]+blk+text[b:]
+    for name,cls,dx,dz in [('Faucon de Brume','YT-1300 Freighter',-160,90),('Lueur','GR-75 Transport',150,-260)]:
+        pos,ori=at(dx,dz,8.0,0.12)
+        ships.append(dict(name=name,cls=cls,team='Friendly',pos=list(pos),orient=ori))
     extra=[ships[0]]+ships[2:]
     a=text.index('#Wings')
     text=text[:a]+'\n'.join(ship_text(sh) for sh in extra)+'\n'+text[a:]

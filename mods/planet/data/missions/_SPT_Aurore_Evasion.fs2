@@ -86,7 +86,7 @@ $Starting Shipname: Red 1
 $Ship Choices: ( "T-65c X-wing#Red" 1 )
 +Weaponry Pool: ( "T&B KX-9" 1 "Krupx MG7-A#Pnk" 6 )
 
-#Objects ;! 49 total
+#Objects ;! 51 total
 
 $Name: Red 1
 $Class: T-65c X-wing#Red
@@ -1152,6 +1152,50 @@ $Orientation:
  0.992800, -0.004118, -0.119711,
  -0.005497, 0.996790, -0.079870,
  0.119656, 0.079953, 0.989591
+$Cargo 1: XSTR("Garnison", -1)
++Subsystem: Pilot
+$Arrival Location: Hyperspace
+$Arrival Cue: ( true )
+$Departure Location: Hyperspace
+$Departure Cue: ( false )
+$Determination: 10
++Flags: ( "cargo-known" "no-arrival-warp" "no-departure-warp" )
++Flags2: ( )
++Respawn priority: 0
++Group: 0
++Use Table Score:
++Score: 0
+
+$Name: Faucon de Brume
+$Class: YT-1300 Freighter
+$Team: Friendly
+$Location: -741.204, 14.704, -6260.624
+$Orientation:
+ 0.992809, -0.000170, -0.119712,
+ -0.009235, 0.996910, -0.078002,
+ 0.119356, 0.078546, 0.989740
+$Cargo 1: XSTR("Garnison", -1)
++Subsystem: Pilot
+$Arrival Location: Hyperspace
+$Arrival Cue: ( true )
+$Departure Location: Hyperspace
+$Departure Cue: ( false )
+$Determination: 10
++Flags: ( "cargo-known" "no-arrival-warp" "no-departure-warp" )
++Flags2: ( )
++Respawn priority: 0
++Group: 0
++Use Table Score:
++Score: 0
+
+$Name: Lueur
+$Class: GR-75 Transport
+$Team: Friendly
+$Location: -431.173, -43.268, -6610.659
+$Orientation:
+ 0.992798, -0.004544, -0.119711,
+ -0.005374, 0.996585, -0.082396,
+ 0.119677, 0.082446, 0.989384
 $Cargo 1: XSTR("Garnison", -1)
 +Subsystem: Pilot
 $Arrival Location: Hyperspace

@@ -698,7 +698,9 @@ engine.addHook('On Simulation',function()
             local sh=mn.Ships[e.name]
             if not (sh and sh:isValid()) or sh:isDying() then e.dead=true;e.live=false end
         end
-        if not e.dead then
+        -- ships flown by the mission director (escaping shuttle...) are never streamed
+        local flown=CINE and CINE.c and CINE.c.scripted and CINE.c.scripted[e.name]
+        if not e.dead and not flown then
             if e.live and d>STREAM.FAR then
                 local sh=mn.Ships[e.name]
                 if sh and sh:isValid() then e.ori=sh.Orientation;e.hull=sh.HitpointsLeft;sh:vanish() end

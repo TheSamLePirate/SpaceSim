@@ -114,7 +114,7 @@ $Starting Shipname: Rouge 1
 $Ship Choices: ( "T-65c X-wing#Red" 4 )
 +Weaponry Pool: ( "T&B KX-9" 8 "Krupx MG7-A#Pnk" 24 )
 
-#Objects ;! 70 total
+#Objects ;! 76 total
 
 $Name: Rouge 1
 $Class: T-65c X-wing#Red
@@ -1194,6 +1194,50 @@ $Determination: 10
 +Use Table Score:
 +Score: 0
 
+$Name: Faucon de Brume
+$Class: YT-1300 Freighter
+$Team: Friendly
+$Location: -741.204, 14.704, -6260.624
+$Orientation:
+ 0.992809, -0.000170, -0.119712,
+ -0.009235, 0.996910, -0.078002,
+ 0.119356, 0.078546, 0.989740
+$Cargo 1: XSTR("Garnison", -1)
++Subsystem: Pilot
+$Arrival Location: Hyperspace
+$Arrival Cue: ( true )
+$Departure Location: Hyperspace
+$Departure Cue: ( false )
+$Determination: 10
++Flags: ( "cargo-known" "no-arrival-warp" "no-departure-warp" )
++Flags2: ( )
++Respawn priority: 0
++Group: 0
++Use Table Score:
++Score: 0
+
+$Name: Lueur
+$Class: GR-75 Transport
+$Team: Friendly
+$Location: -431.173, -43.268, -6610.659
+$Orientation:
+ 0.992798, -0.004544, -0.119711,
+ -0.005374, 0.996585, -0.082396,
+ 0.119677, 0.082446, 0.989384
+$Cargo 1: XSTR("Garnison", -1)
++Subsystem: Pilot
+$Arrival Location: Hyperspace
+$Arrival Cue: ( true )
+$Departure Location: Hyperspace
+$Departure Cue: ( false )
+$Determination: 10
++Flags: ( "cargo-known" "no-arrival-warp" "no-departure-warp" )
++Flags2: ( )
++Respawn priority: 0
++Group: 0
++Use Table Score:
++Score: 0
+
 $Name: Patrouille Noire 1
 $Class: TIE/ln Fighter
 $Team: Hostile
@@ -1617,6 +1661,86 @@ $Determination: 10
 +Respawn priority: 0
 +Group: 0
 
+$Name: Renfort 1
+$Class: TIE/In Interceptor
+$Team: Hostile
+$Location: 0.000, 1500.000, 0.000
+$Orientation:
+ 1, 0, 0,
+ 0, 1, 0,
+ 0, 0, 1
+$Cargo 1: XSTR("Nothing", -1)
++Subsystem: Pilot
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false )
+$Departure Location: Hyperspace
+$Departure Cue: ( false )
+$Determination: 10
++Flags: ( "cargo-known" "no-arrival-warp" "no-departure-warp" )
++Flags2: ( )
++Respawn priority: 0
++Group: 0
+
+$Name: Renfort 2
+$Class: TIE/In Interceptor
+$Team: Hostile
+$Location: 0.000, 1500.000, 0.000
+$Orientation:
+ 1, 0, 0,
+ 0, 1, 0,
+ 0, 0, 1
+$Cargo 1: XSTR("Nothing", -1)
++Subsystem: Pilot
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false )
+$Departure Location: Hyperspace
+$Departure Cue: ( false )
+$Determination: 10
++Flags: ( "cargo-known" "no-arrival-warp" "no-departure-warp" )
++Flags2: ( )
++Respawn priority: 0
++Group: 0
+
+$Name: Renfort 3
+$Class: TIE/In Interceptor
+$Team: Hostile
+$Location: 0.000, 1500.000, 0.000
+$Orientation:
+ 1, 0, 0,
+ 0, 1, 0,
+ 0, 0, 1
+$Cargo 1: XSTR("Nothing", -1)
++Subsystem: Pilot
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false )
+$Departure Location: Hyperspace
+$Departure Cue: ( false )
+$Determination: 10
++Flags: ( "cargo-known" "no-arrival-warp" "no-departure-warp" )
++Flags2: ( )
++Respawn priority: 0
++Group: 0
+
+$Name: Renfort 4
+$Class: TIE/In Interceptor
+$Team: Hostile
+$Location: 0.000, 1500.000, 0.000
+$Orientation:
+ 1, 0, 0,
+ 0, 1, 0,
+ 0, 0, 1
+$Cargo 1: XSTR("Nothing", -1)
++Subsystem: Pilot
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false )
+$Departure Location: Hyperspace
+$Departure Cue: ( false )
+$Determination: 10
++Flags: ( "cargo-known" "no-arrival-warp" "no-departure-warp" )
++Flags2: ( )
++Respawn priority: 0
++Group: 0
+
 #Wings
 $Name: Rouge
 $Waves: 1
@@ -1723,6 +1847,24 @@ $Ships: (
 	"Vengeance 2"
 	"Vengeance 3"
 	"Vengeance 4"
+)
+$AI Goals: ( goals ( ai-chase "Aurore" 89 ) ( ai-chase-any 80 ) )
++Flags: ( "no-arrival-music" )
+
+$Name: Renforts
+$Waves: 1
+$Wave Threshold: 0
+$Special Ship: 0
+$Arrival Location: Hyperspace
++Arrival Distance: 0
+$Arrival Cue: ( is-event-true-delay "Renforts" 0 )
+$Departure Location: Hyperspace
+$Departure Cue: ( false )
+$Ships: (
+	"Renfort 1"
+	"Renfort 2"
+	"Renfort 3"
+	"Renfort 4"
 )
 $AI Goals: ( goals ( ai-chase "Aurore" 89 ) ( ai-chase-any 80 ) )
 +Flags: ( "no-arrival-music" )
@@ -3541,6 +3683,11 @@ $Formula: ( when ( true ) ( add-remove-escort "Aurore" 100 ) )
 +Repeat Count: 1
 +Interval: 1
 
+$Formula: ( when ( spacesim-flag "renforts" ) ( do-nothing ) )
++Name: Renforts
++Repeat Count: 1
++Interval: 1
+
 $Formula: ( when ( spacesim-phase-reached 1 ) ( do-nothing ) )
 +Name: Patrouille 1
 +Repeat Count: 1
@@ -3574,6 +3721,20 @@ $Type: Primary
 $MessageNew: XSTR("Detruire les 10 batteries turbolaser du canyon", -1)
 $end_multi_text
 $Formula: ( is-destroyed-delay 0 "Batterie 1" "Batterie 2" "Batterie 3" "Batterie 4" "Batterie 5" "Batterie 6" "Batterie 7" "Batterie 8" "Batterie 9" "Batterie 10" )
++Score: 0
+
+$Type: Secondary
++Name: Tour de communication
+$MessageNew: XSTR("Detruire la tour de communication avant le passage de l'Aurore (sinon : renforts)", -1)
+$end_multi_text
+$Formula: ( is-destroyed-delay 0 "Tour de communication 5" )
++Score: 0
+
+$Type: Secondary
++Name: Navette
+$MessageNew: XSTR("Abattre la navette Lambda qui tente de fuir l'avant-poste", -1)
+$end_multi_text
+$Formula: ( is-destroyed-delay 0 "Lambda Ombre" )
 +Score: 0
 
 #Waypoints

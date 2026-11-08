@@ -35,6 +35,7 @@ local FLOOR=25        -- hard floor (m)
 local function scriptedByCinematic(sh)
     local c=CINE and CINE.active and CINE.c
     if not c or not c.xw then return false end
+    if c.scripted and c.scripted[sh.Name] then return true end
     if c.handover then return ok(c.cargo) and c.cargo:getSignature()==sh:getSignature() end
     -- compare signatures: two Lua handles to the same ship are different userdata
     local sig=sh:getSignature()
@@ -277,3 +278,38 @@ engine.addHook('On Simulation',function()
     end
 end)
 
+
+-- ------------------------------------------------------------------ smoke columns over the wrecks (local effect)
+local SM={wrecks={},t=0}
+local function smokeTarget(n)
+    return n:find('^Batterie') or n:find('^AT%-AT') or n:find('^Bunker') or n:find('^Hangar') or n:find('^Caserne')
+        or n:find('^Tour de') or n:find('^Reservoirs') or n=='Lambda Ombre' or n=='Lueur' or n:find('^Cargo')
+end
+engine.addHook('On Gameplay Start',function() SM.wrecks={};SM.t=0;SM.tex=nil end)
+engine.addHook('On Ship Death Started',function()
+    local sh=hv.Ship
+    if not (ok(sh) and SPACESIM and SPACESIM.state and SPACESIM.state.active and smokeTarget(sh.Name)) then return end
+    local h=agl(sh.Position)
+    if h and h<200 then SM.wrecks[#SM.wrecks+1]={p=sh.Position-unit(sh.Position-C)*h,t0=mn.getMissionTime(),r=sh.Radius} end
+end)
+engine.addHook('On Simulation',function()
+    if #SM.wrecks==0 then return end
+    local now=mn.getMissionTime()
+    if now-SM.t<0.25 then return end
+    SM.t=now
+    if not SM.tex then SM.tex=gr.loadTexture('ParticleSmoke01',true);SM.fire=gr.loadTexture('ss_glow_fire',true) end
+    local p=hv.Player;local eye=(p and p:isValid()) and p.Position
+    for _,w in ipairs(SM.wrecks) do
+        local age=now-w.t0
+        if age<300 and (not eye or length(w.p-eye)<9000) then
+            local up=unit(w.p-C);local k=math.max(0.35,1-age/300)
+            local j=V(math.random()-0.5,0,math.random()-0.5)*(w.r*0.4)
+            if SM.tex and SM.tex:isValid() then
+                gr.createParticle(w.p+up*(4+math.random()*8)+j,up*(6+math.random()*5)+V(2.5,0,1.2),12+math.random()*6,(16+math.random()*22)*(0.6+w.r/120)*k,PARTICLE_BITMAP,-1,false,SM.tex)
+            end
+            if age<90 and SM.fire and SM.fire:isValid() then
+                gr.createParticle(w.p+up*3+j*0.5,up*3,0.7,(6+math.random()*8)*(0.6+w.r/120),PARTICLE_BITMAP,-1,false,SM.fire)
+            end
+        end
+    end
+end)

@@ -11,4 +11,15 @@ $Parameter:
 	+Description: Phase number.
 	+Type: Number
 
+$Operator: spacesim-flag
+$Category: Status
+$Subcategory: LUA-Condition
+$Minimum Arguments: 1
+$Maximum Arguments: 1
+$Return Type: Boolean
+$Description: Aurore - Evasion: true once the mission director (server) has raised the named flag (e.g. "renforts").
+$Parameter:
+	+Description: Flag name.
+	+Type: String
+
 #End

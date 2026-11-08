@@ -139,7 +139,6 @@ function CINE.init()
     for _,q in ipairs({V(18800,93200,5200),V(19800,93600,9800),V(20200,93700,15500),V(20100,93500,22000),V(19500,93200,30000)}) do P[#P+1]=q end
     c.path=buildPath(P)
     c.Lc=segS(c.path,c.nCanyon);c.La=segS(c.path,c.nClimb)
-    if c.play then CINE.placeArrivals(c) end
     -- targets along the path: the player takes every other one, the wingmen share the rest
     local wing=2
     for k,tg in ipairs(c.targets) do
@@ -148,6 +147,7 @@ function CINE.init()
         tg.s=best
         if tg.name:find('^Batterie') then tg.who=1 else tg.who=wing;wing=wing+1;if wing>4 then wing=2 end end
     end
+    if c.play then CINE.placeArrivals(c) end
     SPACESIM.setSun(0.085,0.12)
     hu.HUDDrawn=false
     c.cam=gr.createCamera('cine',c.cargo.Position,c.cargo.Orientation);gr.setCamera(c.cam)
@@ -574,12 +574,14 @@ function CINE.update()
             setShip(cargo,pos,c.cfwd,unit(pos-C),c.cfwd*v);c.cargoV=v
         end
     end
+    if c.server then CINE.escorts(c,T,dt) end
     local s=c.s
     local prev=c.phase
     if T<10 then c.phase='camp' elseif s<c.Lc then c.phase='canyon' elseif s<c.La then c.phase='montee'
     elseif not c.tFire then c.phase='orbite' elseif not c.tImpact then c.phase='superlaser' else c.phase='destruction' end
     if prev~=c.phase then log('PHASE '..c.phase..string.format(' T=%.1f',T)) end
-    if c.play then CINE.gameplay(c,T,dt) end
+    if c.play then CINE.gameplay(c,T,dt);CINE.sideEvents(c,T,dt) end
+    if c.phase=='canyon' and T-(c.canLogT or 0)>15 then c.canLogT=T;log(string.format('CANYON T=%.0f s=%.0f v=%.0f alt=%.0f',T,c.s,c.cargoV or 0,c.cargoAlt or 0)) end
     if c.phase=='montee' and T-(c.climbLogT or 0)>4 then c.climbLogT=T;log(string.format('CLIMB T=%.0f s=%.1f/%.1f km alt=%.1f km v=%.0f m/s',T,c.s/1000,c.La/1000,(c.cargoAlt or 0)/1000,c.cargoV or 0)) end
     -- ground targets: shields down, low hull (one good hit destroys) - re-applied after streaming
     if c.server and (c.phase=='camp' or c.phase=='canyon') then
@@ -959,6 +961,12 @@ function CINE.placeArrivals(c)
         local q=p+f*(14000+k*2500)+r*((k-2)*7000)+u*(900*(k-2)+1500)
         pos['Destroyer '..n]={q,ba.createOrientationFromVectors(unit(p-q),u)}
     end
+    for _,tg in ipairs(c.targets) do
+        if tg.name:find('^Tour de') then
+            local b=tg.pos;local up=unit(b-C);local f=unit(sample(c.path,tg.s+600)-sample(c.path,tg.s))
+            for k=1,4 do pos['Renfort '..k]={b+up*(900+k*40)+f*(1500+k*60),ba.createOrientationFromVectors(f*-1,up)} end
+        end
+    end
     local n=0
     for po in mn.getArrivalList() do
         local e=pos[po.Name]
@@ -1109,3 +1117,80 @@ engine.addHook('On Key Pressed',function() end,{},function()
     if k=='Spacebar' or k=='Enter' or k=='Esc' then c.skip=true;return true end
     return false
 end)
+
+-- ===================== content: rebel escorts, side objectives =====================
+-- The Faucon de Brume (YT-1300) and the Lueur (GR-75) leave with the Aurore; the Lueur is shot down in the canyon.
+local ESCORTS={{'Faucon de Brume',-260,-120,45},{'Lueur',-700,95,25}}
+function CINE.escorts(c,T,dt)
+    c.scripted=c.scripted or {}
+    local cargo=c.cargo
+    for _,e in ipairs(ESCORTS) do
+        local sh=mn.Ships[e[1]]
+        if ok(sh) and not sh:isDying() and not sh:isDepartingWarp() then
+            c.scripted[e[1]]=true
+            local pos,fwd,up
+            if T<10 then
+                if not c['start_'..e[1]] then c['start_'..e[1]]={sh.Position,sh.Orientation:getFvec()} end
+                local st=c['start_'..e[1]];local w=sstep(5.5,10,T)
+                up=unit(st[1]-C);pos=st[1]+up*(60*w);fwd=st[2]
+            else
+                local sv=math.max(0,c.s+e[2])
+                local q=sample(c.path,sv);fwd=unit(sample(c.path,sv+80)-q);up=unit(q-C)
+                local side=unit(cross(up,fwd))
+                pos=q+side*e[3]+up*e[4]
+            end
+            local vel=ok(cargo) and cargo.Physics.Velocity or V(0,0,0)
+            setShip(sh,pos,fwd,up,vel)
+            if e[1]=='Lueur' and not c.lueurHit and c.s>2400 then
+                c.lueurHit=T;sh:kill(sh);log('LUEUR shot down')
+                c.subs[#c.subs+1]={T+0.5,5,'AURORE','La Lueur est touchee !... Non... ils etaient trente a bord.'}
+                c.subs[#c.subs+1]={T+6,4.5,'ECHO BASE','Aurore, ne ralentissez pas. Rouges, ces batteries !'}
+            end
+            if c.cargoJumped and not c['jump_'..e[1]] then c['jump_'..e[1]]=true;sh:clearOrders();sh:warpOut() end
+        end
+    end
+end
+
+-- gameplay side objectives (server): the communication tower calls interceptors if it survives the
+-- cargo's passage; the Lambda shuttle tries to escape to orbit to warn the fleet
+CINE.flags={}
+mn.LuaSEXPs['spacesim-flag'].Action=function(name) return CINE.flags[name]==true end
+function CINE.sideEvents(c,T,dt)
+    if not c.handover then return end
+    for _,tg in ipairs(c.targets) do
+        if tg.name:find('^Tour de') and not c.towerDone then
+            if isDead(tg.name) then
+                c.towerDone=true;c.subs[#c.subs+1]={T+0.5,4.5,'ROUGE 3','Tour de communication detruite : ils sont sourds !'}
+            elseif c.s>tg.s+300 then
+                c.towerDone=true;if c.server then CINE.flags.renforts=true end;log('FLAG renforts')
+                c.subs[#c.subs+1]={T+0.5,5,'ECHO BASE','La tour a donne l\'alerte : intercepteurs en approche !'}
+            end
+        end
+    end
+    -- the Lambda: takes off when the cargo approaches the outpost, climbs away, jumps above 9 km
+    local lam=mn.Ships['Lambda Ombre']
+    local lt=nil;for _,tg in ipairs(c.targets) do if tg.name=='Lambda Ombre' then lt=tg end end
+    if lt and not c.lambdaT and ok(lam) and not lam:isDying() and c.s>lt.s-2500 then
+        c.lambdaT=T;c.lam={p=lam.Position,v=8,f=unit(sample(c.path,lt.s+1500)-sample(c.path,lt.s))}
+        c.subs[#c.subs+1]={T+0.5,5,'ROUGE 2','Une navette decolle de l\'avant-poste ! Abattez-la avant qu\'elle ne saute !'}
+        log('LAMBDA takes off')
+    end
+    if c.lambdaT and c.server and ok(lam) and not lam:isDying() and not c.lambdaGone then
+        local L=c.lam;local t=T-c.lambdaT
+        local up=unit(L.p-C);local fh=unit(L.f-up*dot(L.f,up))
+        local g=SPACESIM.surface(L.p+fh*L.v*2);local clearance=g and (length(L.p+fh*L.v*2-C)-length(g-C)) or 999
+        local climb=t<4 and 1.4 or clamp(0.18+0.006*t+(clearance<180 and 0.5 or 0),0,0.9)
+        local dir=unit(fh*math.cos(climb)+up*math.sin(climb))
+        L.v=math.min(260,L.v+(t<4 and 4 or 22)*dt)
+        L.p=L.p+dir*L.v*dt
+        c.scripted=c.scripted or {};c.scripted['Lambda Ombre']=true
+        setShip(lam,L.p,unit(fh+up*0.15),up,dir*L.v)
+        if length(L.p-C)-80000>9000 then
+            c.lambdaGone=true;lam:clearOrders();lam:warpOut();log('LAMBDA escaped')
+            c.subs[#c.subs+1]={T+0.5,5,'ECHO BASE','La navette est passee en hyperespace... la flotte sait ou nous allons.'}
+        end
+    end
+    if c.lambdaT and not c.lambdaDown and isDead('Lambda Ombre') and not c.lambdaGone then
+        c.lambdaDown=true;c.subs[#c.subs+1]={T+0.5,4,'ROUGE 4','Navette abattue ! Elle ne previendra personne.'}
+    end
+end

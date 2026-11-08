@@ -118,8 +118,8 @@ Coûts mesurés : ombres ≈ 17 ms par image, entités FotG au sol ≈ 9 ms, vé
 | 2 – performances | **fait** : Vulkan par défaut (canyon 14,5 → 26,5–30,8 FPS avec ombres), végétation en detail boxes, diagnostic complet dans AURORE-03.md |
 | 3 – mission jouable | **fait** (solo) : voir « Phase 3 – état » |
 | 4 – coop en réseau | **fait** (architecture, mission `_MPC_`, non testé en réseau réel) |
-| 5 – contenu | en cours |
-| 6 – qualité | à faire |
+| 5 – contenu | **fait** (escortes rebelles, Lueur abattue, fumées, tour de communication et renforts, fuite de la navette) |
+| 6 – qualité | en cours |
 
 ## Phase 3 – état (07/11)
 
@@ -203,3 +203,20 @@ Mission `_MPC_Aurore_Evasion.fs2` :
   - la même première aile en « team versus team ».
 
 **Non testé en réseau réel** (comme convenu) : les mécanismes sont ceux que FSO synchronise nativement. La partie solo de chaque chemin de code est validée par les bancs automatiques.
+
+## Phase 5 – contenu ajouté (07/11)
+
+**Toutes les missions**
+- Le **Faucon de Brume** (YT-1300) et la **Lueur** (GR-75) décollent avec l'*Aurore* et la suivent, pilotés par le serveur.
+- La *Lueur* est **abattue dans le canyon**, avec des sous-titres. Le Faucon saute avec l'*Aurore*.
+- **Colonnes de fumée et feux** au sol, pendant 5 min, au-dessus des cibles détruites. C'est un effet local à chaque machine, avec les textures FotG `ParticleSmoke01` et `ss_glow_fire`, limité à 9 km de la caméra.
+
+**Mission jouable : objectifs secondaires**
+- **Tour de communication** : si elle est encore debout quand l'*Aurore* la dépasse, l'aile **Renforts** (4 intercepteurs) arrive (SEXP `spacesim-flag "renforts"`).
+- **Navette Lambda** : elle décolle de l'avant-poste à l'approche du cargo et monte vers l'orbite. Elle saute en hyperespace au-dessus de 9 km si personne ne l'abat.
+- Les vaisseaux pilotés par le directeur sont exclus de l'évitement IA et du chargement à la volée.
+
+**Idées restantes** (non faites)
+- Rivière au fond du canyon, oiseaux, poussière au ras du sol.
+- Gozanti déposant des AT-AT qui marchent.
+- Bombardement depuis l'orbite.
