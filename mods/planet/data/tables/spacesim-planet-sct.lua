@@ -19,6 +19,15 @@ local function flush()
 end
 -- Periodic writes are throttled (every 10 s): writing every second caused a visible hitch.
 local stopSignal   -- defined below (test harness), used by the collision hook
+-- the local player's ship (multiplayer: each machine its own; after a respawn the handle changes)
+function localPlayer()
+    local p=hv.Player
+    local sh=p and p:isValid() and mn.Ships[tostring(p)]
+    if sh and sh:isValid() then return sh end
+    -- mn.Ships[missing] returns an invalid handle (truthy), not nil
+    local r=mn.Ships['Rouge 1'];if r and r:isValid() then return r end
+    return mn.Ships['Red 1']
+end
 -- explosion effect without mn.createExplosion: under Vulkan, fireball_create's LOD computation called from Lua
 -- (g3_get_bitmap_dims) crashes (seen from a collision hook and from On Simulation). Animated particle with the
 -- same fireball texture + FotG explosion sound. The engine's own fireballs (ship deaths) are unaffected.
@@ -163,7 +172,7 @@ engine.addHook('On Gameplay Start',function()
     local filename=mn.getMissionFilename():lower()
     if not (filename:find('_spt_planet_') or filename:find('_spt_aurore_')) then s.active=false;return end
     s={active=true,lines={},terrain={},auto=filename:find('_auto')~=nil,autoStart=0,stage='surface',speedIndex=1,frames=0,realTime=0,frameTimes={},bins={},lastLog=-1,lastRay=-1,contacts=0,probeContact=false,maxStep=0,maxError=0}
-    s.player=mn.Ships['Red 1'];s.probe=mn.Ships['Sonde collision'];s.capital=mn.Ships['Vigilance']
+    s.player=localPlayer();s.probe=mn.Ships['Sonde collision'];s.capital=mn.Ships['Vigilance']
     if not HM then hmLoad() end
     if SPACESIM then SPACESIM.state=s end
     for i=1,#mn.Props do
@@ -241,10 +250,12 @@ end)
 
 engine.addHook('On Prop Collision',function() end,{},function()
     if not s.active or not valid(hv.Prop) or not valid(hv.Ship) then return false end
+    if ba.MultiplayerMode and not multi.isServer() then return false end
     local terrain=false
     for _,p in ipairs(s.terrain) do if p:getSignature()==hv.Prop:getSignature() then terrain=true;break end end
     if not terrain then return false end
     local isProbe=valid(s.probe) and hv.Ship:getSignature()==s.probe:getSignature()
+    local isLocalPlayer=valid(s.player) and hv.Ship:getSignature()==s.player:getSignature()
     if isProbe and not s.probeContact then
         s.probeContact=true;s.probeTime=mn.getMissionTime()
         record(string.format('NATIVE_COLLISION incoming_vy=%.3f hit_y=%.3f',hv.Ship.Physics.Velocity.y,hv.Hitpos.y));save()
@@ -276,6 +287,7 @@ engine.addHook('On Prop Collision',function() end,{},function()
     return false
 end)
 engine.addHook('On Simulation',function()
+    if s.active and not valid(s.player) then s.player=localPlayer() end
     if not s.active or not valid(s.player) then return end
     local t=mn.getMissionTime();local dt=ba.getRealFrametime();local p=s.player.Position;local alt=altitude(p)
     s.alt=alt;s.frames=s.frames+1;s.realTime=s.realTime+dt
@@ -656,6 +668,8 @@ end)
 local STREAM={list=nil,nextCheck=0,FAR=9000,NEAR=7000}
 local function streamInit()
     STREAM.list={}
+    -- multiplayer: ships cannot be vanished / created by a script (not networked): streaming is off
+    if ba.MultiplayerMode then record('STREAM off (multiplayer)');return end
     for i=1,#mn.Ships do
         local sh=mn.Ships[i]
         if sh and sh:isValid() then

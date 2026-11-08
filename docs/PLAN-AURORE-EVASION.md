@@ -117,8 +117,8 @@ Coûts mesurés : ombres ≈ 17 ms par image, entités FotG au sol ≈ 9 ms, vé
 | 1 – fondations solo | **fait** : 1.1 carte d'altitude ✅, 1.2-1.4 vol avion, manette, alarme ✅ (réglage fin à faire avec tes retours), 1.5 nettoyage ✅, 1.6 IA et relief ✅ (banc aitest : 0/4 → 4/4), 1.7 réapparition ✅ (FotG Respawner forcé, au-dessus de l'Aurore, protection 3 s) |
 | 2 – performances | **fait** : Vulkan par défaut (canyon 14,5 → 26,5–30,8 FPS avec ombres), végétation en detail boxes, diagnostic complet dans AURORE-03.md |
 | 3 – mission jouable | **fait** (solo) : voir « Phase 3 – état » |
-| 4 – coop en réseau | en cours |
-| 5 – contenu | à faire |
+| 4 – coop en réseau | **fait** (architecture, mission `_MPC_`, non testé en réseau réel) |
+| 5 – contenu | en cours |
 | 6 – qualité | à faire |
 
 ## Phase 3 – état (07/11)
@@ -159,3 +159,47 @@ Missions générées par `create_planet_mission.py` :
 **Sous Vulkan, plus aucun `mn.createExplosion` dans nos scripts** : il plantait le jeu (deux crashs analysés). À la place, `SPACESIM.boom` produit des particules animées avec la même texture, plus le son d'explosion.
 
 **Reste pour la phase 4** : les destroyers, les TIE et les patrouilles sont encore créés en Lua (`createShip`). Ils passeront en arrivées de mission, ce qui est obligatoire en réseau.
+
+## Phase 4 – coop en réseau : architecture (07/11)
+
+Mission `_MPC_Aurore_Evasion.fs2` :
+- coop, **4 joueurs**, 30 réapparitions ;
+- aile de départ « Rouge » (Rouge 1 à 4, toutes `player-start`), les places libres étant pilotées par l'IA ;
+- l'*Aurore* est le point de réapparition (`Respawn priority 100`) ;
+- réserve de 4 X-wing, 8 KX-9 et 24 MG7.
+
+**Ce qui passe par le moteur (synchronisé)**
+- **Arrivées de mission**, déclenchées par le SEXP Lua `spacesim-phase-reached` (`spacesim-sexp.tbm`), évalué sur le serveur :
+  - Patrouille Noire et Patrouille Grise dans le canyon, sans effet de saut ;
+  - destroyers Chimère, Tyran et Vengeance (hyperespace) ;
+  - leurs escadrilles de TIE, lancées depuis les hangars (`Docking Bay`).
+- **Points d'arrivée** écrits dans les parse objects par `CINE.placeArrivals`. Ils sont calculés de la même façon sur toutes les machines, à partir du trajet déterministe du cargo.
+- **Positions des vaisseaux pilotés par le serveur** : le cargo, les ailiers IA, et l'IA qui évite le relief.
+- **Morts et dégâts** : la mort au contact du sol est décidée par le serveur. En multi, pas de témoin local : un `kill` simple.
+- **Ordres IA** (`giveOrder`) donnés sur le serveur, tirs IA natifs, fin de mission (`end-mission`) envoyée par le serveur.
+
+**Ce que chaque client calcule lui-même (directeur en « miroir »)**
+- **Avancement du cargo** : projection de sa position synchronisée sur le trajet (`CINE.projectS`). Il en tire les mêmes phases, la même chronologie de l'Étoile Noire, les mêmes sous-titres et la même destruction de la planète. Les fragments sont créés en même nombre sur chaque machine.
+- **Caméras de l'intro, HUD et sous-titres.**
+- **Son propre vaisseau** :
+  - pendant l'intro, positionné par son client ;
+  - après la passation, le vol avion (`spacesim-flight-sct.lua`) ;
+  - l'autorisation de saut (`never-warp` sur son vaisseau) ;
+  - la réapparition FSO : il se replace au-dessus de l'*Aurore* (`MP_RESPAWN`).
+
+**Désactivé en multijoueur**
+- Le chargement à la volée des entités (`vanish` / `createShip` impossibles) : toutes les cibles restent actives, au prix de quelques FPS.
+- Le saut de l'intro.
+- Le Respawner FotG (solo seulement).
+- La mort mise en scène de la cinématique et le bot de test.
+
+**Reste en `createShip` / `createWeapon` : la cinématique seule** (`_SPT_Aurore_Evasion`, solo). Les missions jouables n'en utilisent plus.
+
+**Pièges rencontrés**
+- `mn.Ships['absent']` renvoie un handle **invalide mais vrai**. Il faut toujours tester avec `isValid()`.
+- Une aile de départ impose :
+  - un sous-système `Pilot` dans chaque bloc de vaisseau ;
+  - des réserves de vaisseaux et d'armes pour toutes ses places (sinon : « Player must select a place in player wing ») ;
+  - la même première aile en « team versus team ».
+
+**Non testé en réseau réel** (comme convenu) : les mécanismes sont ceux que FSO synchronise nativement. La partie solo de chaque chemin de code est validée par les bancs automatiques.

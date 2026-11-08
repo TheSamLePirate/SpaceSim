@@ -178,6 +178,27 @@ engine.addHook('On Simulation',function()
     end
 end)
 
+-- multiplayer respawn (FSO): 2 km beside the respawn-priority ship (the Aurore), possibly inside the canyon walls.
+-- Each client owns its ship's position: when my ship is a new object (respawned), I move it above the cargo.
+local MR={}
+engine.addHook('On Gameplay Start',function() MR.sig=nil end)
+engine.addHook('On Simulation',function()
+    if not (ba.MultiplayerMode and SPACESIM and SPACESIM.state and SPACESIM.state.active) then return end
+    local p=hv.Player
+    if not (p and p:isValid()) then return end
+    local sig=p:getSignature()
+    if MR.sig and sig~=MR.sig then
+        local sh=mn.Ships[tostring(p)]
+        local pos,ori=respawnPoint()
+        if ok(sh) and pos then
+            sh.Position=pos;sh.Orientation=ori
+            local cargo=mn.Ships['Aurore'];if ok(cargo) then sh.Physics.Velocity=cargo.Physics.Velocity end
+            log('MP_RESPAWN '..sh.Name..' moved above the Aurore')
+        end
+    end
+    MR.sig=sig
+end)
+
 -- ------------------------------------------------------------------ AI test bench (data/spacesim-aitest.flag)
 local AT=nil
 local function valleyX(z) return 650*math.sin(z/2700)+180*math.sin(z/730) end

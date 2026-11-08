@@ -20,6 +20,8 @@ LAST="${STOP_AT:-12_orbite}"
 # (osapi/dialogs.cpp): watch it, so a blocked game is reported instead of waiting for the timeout.
 CLIP0="$(pbpaste 2>/dev/null | shasum)"
 ERRFILE="$PROJECT_DIR/artifacts/planet/last-error.txt"; rm -f "$ERRFILE" "$U/spacesim-heartbeat.txt" "$U/spacesim-stop.txt"; DEADLINE=""
+# never read a previous run: the telemetry of this run only
+rm -f "$U/spacesim-planet-telemetry.txt"
 for i in $(seq 1 $TIMEOUT); do
   sleep 1; [[ -f "$U/shot_$LAST.b64" ]] && break
   # the game process died (crash): report it with the macOS crash report

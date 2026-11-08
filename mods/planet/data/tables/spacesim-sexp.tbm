@@ -1,0 +1,14 @@
+#Lua SEXPs
+
+$Operator: spacesim-phase-reached
+$Category: Status
+$Subcategory: LUA-Condition
+$Minimum Arguments: 1
+$Maximum Arguments: 1
+$Return Type: Boolean
+$Description: Aurore - Evasion: true once the mission director (spacesim-cine-sct.lua, server) has reached the given phase. 1 = first canyon patrol, 2 = second canyon patrol, 3 = Star Destroyers, 4 = their fighters.
+$Parameter:
+	+Description: Phase number.
+	+Type: Number
+
+#End

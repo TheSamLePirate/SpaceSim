@@ -30,9 +30,9 @@ $end_multi_text
 	0.010849, 0.950842, 0.309487,
 	0.033313, -0.309677, 0.950258
 
-$Starting wing names: ( "Red" "Blue" "Green" )
-$Squadron wing names: ( "Red" "Blue" "Green" "Grey" "Gold" )
-$Team-versus-team wing names: ( "Red" "Alpha" )
+$Starting wing names: ( "Rouge" )
+$Squadron wing names: ( "Rouge" )
+$Team-versus-team wing names: ( "Rouge" )
 
 $Skybox Model: skybox_starfield.pof
 +Skybox Flags: 1573120
@@ -110,13 +110,13 @@ $end_multi_text
 
 
 #Players
-$Starting Shipname: Red 1
-$Ship Choices: ( "T-65c X-wing#Red" 1 )
-+Weaponry Pool: ( "T&B KX-9" 1 "Krupx MG7-A#Pnk" 6 )
+$Starting Shipname: Rouge 1
+$Ship Choices: ( "T-65c X-wing#Red" 4 )
++Weaponry Pool: ( "T&B KX-9" 8 "Krupx MG7-A#Pnk" 24 )
 
-#Objects ;! 49 total
+#Objects ;! 70 total
 
-$Name: Red 1
+$Name: Rouge 1
 $Class: T-65c X-wing#Red
 $Team: Friendly
 $Location: -651.495, 29.285, -6473.628
@@ -127,7 +127,7 @@ $Orientation:
 $Cargo 1: XSTR("Prototype", -1)
 +Subsystem: Pilot
 $Arrival Location: Hyperspace
-$Arrival Cue: ( true )
+$Arrival Cue: ( false )
 $Departure Location: Hyperspace
 $Departure Cue: ( false )
 $Determination: 10
@@ -147,6 +147,7 @@ $Orientation:
  -0.006598, 0.999874, -0.014468,
  -0.000095, 0.014467, 0.999895
 $Cargo 1: XSTR("Garnison", -1)
++Subsystem: Pilot
 $Arrival Location: Hyperspace
 $Arrival Cue: ( true )
 $Departure Location: Hyperspace
@@ -168,6 +169,7 @@ $Orientation:
  -0.004852, 0.999884, -0.014468,
  -0.000070, 0.014468, 0.999895
 $Cargo 1: XSTR("Garnison", -1)
++Subsystem: Pilot
 $Arrival Location: Hyperspace
 $Arrival Cue: ( true )
 $Departure Location: Hyperspace
@@ -189,6 +191,7 @@ $Orientation:
  -0.006908, 0.999851, -0.015837,
  0.999976, 0.006920, 0.000687
 $Cargo 1: XSTR("Garnison", -1)
++Subsystem: Pilot
 $Arrival Location: Hyperspace
 $Arrival Cue: ( true )
 $Departure Location: Hyperspace
@@ -210,6 +213,7 @@ $Orientation:
  -0.004538, 0.999864, -0.015833,
  0.999989, 0.004550, 0.000724
 $Cargo 1: XSTR("Garnison", -1)
++Subsystem: Pilot
 $Arrival Location: Hyperspace
 $Arrival Cue: ( true )
 $Departure Location: Hyperspace
@@ -231,6 +235,7 @@ $Orientation:
  -0.005724, 0.999846, -0.016588,
  -0.000095, 0.016587, 0.999862
 $Cargo 1: XSTR("Garnison", -1)
++Subsystem: Pilot
 $Arrival Location: Hyperspace
 $Arrival Cue: ( true )
 $Departure Location: Hyperspace
@@ -252,6 +257,7 @@ $Orientation:
  -0.003851, 0.999879, -0.015082,
  0.295496, 0.015546, 0.955217
 $Cargo 1: XSTR("Garnison", -1)
++Subsystem: Pilot
 $Arrival Location: Hyperspace
 $Arrival Cue: ( true )
 $Departure Location: Hyperspace
@@ -273,6 +279,7 @@ $Orientation:
  -0.007593, 0.999857, -0.015086,
  -0.000115, 0.015086, 0.999886
 $Cargo 1: XSTR("Garnison", -1)
++Subsystem: Pilot
 $Arrival Location: Hyperspace
 $Arrival Cue: ( true )
 $Departure Location: Hyperspace
@@ -294,6 +301,7 @@ $Orientation:
  -0.002853, 0.999905, -0.013458,
  0.389415, 0.013507, 0.920963
 $Cargo 1: XSTR("Garnison", -1)
++Subsystem: Pilot
 $Arrival Location: Hyperspace
 $Arrival Cue: ( true )
 $Departure Location: Hyperspace
@@ -315,6 +323,7 @@ $Orientation:
  -0.008587, 0.999871, -0.013584,
  0.932006, 0.012925, 0.362212
 $Cargo 1: XSTR("Garnison", -1)
++Subsystem: Pilot
 $Arrival Location: Hyperspace
 $Arrival Cue: ( true )
 $Departure Location: Hyperspace
@@ -336,6 +345,7 @@ $Orientation:
  -0.005725, 0.999898, -0.013097,
  0.515566, -0.008271, -0.856810
 $Cargo 1: XSTR("Garnison", -1)
++Subsystem: Pilot
 $Arrival Location: Hyperspace
 $Arrival Cue: ( true )
 $Departure Location: Hyperspace
@@ -357,6 +367,7 @@ $Orientation:
  -0.007592, 0.999887, -0.012965,
  0.389348, 0.014898, 0.920970
 $Cargo 1: XSTR("Garnison", -1)
++Subsystem: Pilot
 $Arrival Location: Hyperspace
 $Arrival Cue: ( true )
 $Departure Location: Hyperspace
@@ -378,6 +389,7 @@ $Orientation:
  -0.006222, 0.999912, -0.011722,
  0.198606, 0.012724, 0.979997
 $Cargo 1: XSTR("Garnison", -1)
++Subsystem: Pilot
 $Arrival Location: Hyperspace
 $Arrival Cue: ( true )
 $Departure Location: Hyperspace
@@ -399,6 +411,7 @@ $Orientation:
  -0.005038, 0.999928, -0.010850,
  -0.479473, 0.007106, 0.877528
 $Cargo 1: XSTR("Garnison", -1)
++Subsystem: Pilot
 $Arrival Location: Hyperspace
 $Arrival Cue: ( true )
 $Departure Location: Hyperspace
@@ -420,6 +433,7 @@ $Orientation:
  -0.005975, 0.999800, -0.019085,
  0.141251, -0.018050, -0.989809
 $Cargo 1: XSTR("Garnison", -1)
++Subsystem: Pilot
 $Arrival Location: Hyperspace
 $Arrival Cue: ( true )
 $Departure Location: Hyperspace
@@ -441,6 +455,7 @@ $Orientation:
  -0.014545, 0.998902, -0.044524,
  -0.000648, 0.044519, 0.999008
 $Cargo 1: XSTR("Garnison", -1)
++Subsystem: Pilot
 $Arrival Location: Hyperspace
 $Arrival Cue: ( true )
 $Departure Location: Hyperspace
@@ -462,6 +477,7 @@ $Orientation:
  0.003263, 0.999004, -0.044507,
  0.000145, 0.044506, 0.999009
 $Cargo 1: XSTR("Garnison", -1)
++Subsystem: Pilot
 $Arrival Location: Hyperspace
 $Arrival Cue: ( true )
 $Departure Location: Hyperspace
@@ -483,6 +499,7 @@ $Orientation:
  -0.016523, 0.999493, -0.027210,
  -0.000450, 0.027206, 0.999630
 $Cargo 1: XSTR("Garnison", -1)
++Subsystem: Pilot
 $Arrival Location: Hyperspace
 $Arrival Cue: ( true )
 $Departure Location: Hyperspace
@@ -504,6 +521,7 @@ $Orientation:
  0.004249, 0.999622, -0.027166,
  0.000115, 0.027165, 0.999631
 $Cargo 1: XSTR("Garnison", -1)
++Subsystem: Pilot
 $Arrival Location: Hyperspace
 $Arrival Cue: ( true )
 $Departure Location: Hyperspace
@@ -525,6 +543,7 @@ $Orientation:
  -0.014281, 0.999861, -0.008663,
  -0.000124, 0.008662, 0.999962
 $Cargo 1: XSTR("Garnison", -1)
++Subsystem: Pilot
 $Arrival Location: Hyperspace
 $Arrival Cue: ( true )
 $Departure Location: Hyperspace
@@ -546,6 +565,7 @@ $Orientation:
  0.006502, 0.999941, -0.008652,
  0.000056, 0.008652, 0.999963
 $Cargo 1: XSTR("Garnison", -1)
++Subsystem: Pilot
 $Arrival Location: Hyperspace
 $Arrival Cue: ( true )
 $Departure Location: Hyperspace
@@ -567,6 +587,7 @@ $Orientation:
  -0.004171, 0.999929, 0.011123,
  0.000046, -0.011123, 0.999938
 $Cargo 1: XSTR("Garnison", -1)
++Subsystem: Pilot
 $Arrival Location: Hyperspace
 $Arrival Cue: ( true )
 $Departure Location: Hyperspace
@@ -588,6 +609,7 @@ $Orientation:
  0.013641, 0.999845, 0.011135,
  -0.000152, -0.011134, 0.999938
 $Cargo 1: XSTR("Garnison", -1)
++Subsystem: Pilot
 $Arrival Location: Hyperspace
 $Arrival Cue: ( true )
 $Departure Location: Hyperspace
@@ -609,6 +631,7 @@ $Orientation:
  -0.004689, 0.999474, 0.032098,
  0.000151, -0.032097, 0.999485
 $Cargo 1: XSTR("Garnison", -1)
++Subsystem: Pilot
 $Arrival Location: Hyperspace
 $Arrival Cue: ( true )
 $Departure Location: Hyperspace
@@ -630,6 +653,7 @@ $Orientation:
  0.016049, 0.999356, 0.032095,
  -0.000515, -0.032090, 0.999485
 $Cargo 1: XSTR("Garnison", -1)
++Subsystem: Pilot
 $Arrival Location: Hyperspace
 $Arrival Cue: ( true )
 $Departure Location: Hyperspace
@@ -651,6 +675,7 @@ $Orientation:
  -0.012152, 0.998290, -0.057182,
  -0.000696, 0.057178, 0.998364
 $Cargo 1: XSTR("Garnison", -1)
++Subsystem: Pilot
 $Arrival Location: Hyperspace
 $Arrival Cue: ( true )
 $Departure Location: Hyperspace
@@ -672,6 +697,7 @@ $Orientation:
  -0.003947, 0.998356, -0.057179,
  -0.000226, 0.057178, 0.998364
 $Cargo 1: XSTR("Garnison", -1)
++Subsystem: Pilot
 $Arrival Location: Hyperspace
 $Arrival Cue: ( true )
 $Departure Location: Hyperspace
@@ -693,6 +719,7 @@ $Orientation:
  -0.009924, 0.998892, -0.045998,
  -0.000457, 0.045996, 0.998942
 $Cargo 1: XSTR("Garnison", -1)
++Subsystem: Pilot
 $Arrival Location: Hyperspace
 $Arrival Cue: ( true )
 $Departure Location: Hyperspace
@@ -714,6 +741,7 @@ $Orientation:
  -0.001719, 0.998940, -0.045993,
  -0.000079, 0.045993, 0.998942
 $Cargo 1: XSTR("Garnison", -1)
++Subsystem: Pilot
 $Arrival Location: Hyperspace
 $Arrival Cue: ( true )
 $Departure Location: Hyperspace
@@ -735,6 +763,7 @@ $Orientation:
  -0.009637, 0.999346, -0.034844,
  -0.000336, 0.034842, 0.999393
 $Cargo 1: XSTR("Garnison", -1)
++Subsystem: Pilot
 $Arrival Location: Hyperspace
 $Arrival Cue: ( true )
 $Departure Location: Hyperspace
@@ -756,6 +785,7 @@ $Orientation:
  -0.001424, 0.999392, -0.034827,
  -0.000050, 0.034827, 0.999393
 $Cargo 1: XSTR("Garnison", -1)
++Subsystem: Pilot
 $Arrival Location: Hyperspace
 $Arrival Cue: ( true )
 $Departure Location: Hyperspace
@@ -777,6 +807,7 @@ $Orientation:
  -0.010499, 0.999665, -0.023665,
  -0.000249, 0.023664, 0.999720
 $Cargo 1: XSTR("Garnison", -1)
++Subsystem: Pilot
 $Arrival Location: Hyperspace
 $Arrival Cue: ( true )
 $Departure Location: Hyperspace
@@ -798,6 +829,7 @@ $Orientation:
  -0.002277, 0.999718, -0.023650,
  -0.000054, 0.023650, 0.999720
 $Cargo 1: XSTR("Garnison", -1)
++Subsystem: Pilot
 $Arrival Location: Hyperspace
 $Arrival Cue: ( true )
 $Departure Location: Hyperspace
@@ -819,6 +851,7 @@ $Orientation:
  -0.009236, 0.999880, -0.012453,
  -0.000115, 0.012453, 0.999922
 $Cargo 1: XSTR("Garnison", -1)
++Subsystem: Pilot
 $Arrival Location: Hyperspace
 $Arrival Cue: ( true )
 $Departure Location: Hyperspace
@@ -840,6 +873,7 @@ $Orientation:
  -0.001016, 0.999922, -0.012447,
  -0.000013, 0.012447, 0.999923
 $Cargo 1: XSTR("Garnison", -1)
++Subsystem: Pilot
 $Arrival Location: Hyperspace
 $Arrival Cue: ( true )
 $Departure Location: Hyperspace
@@ -861,6 +895,7 @@ $Orientation:
  -0.004712, 0.999988, -0.001244,
  -0.000006, 0.001244, 0.999999
 $Cargo 1: XSTR("Garnison", -1)
++Subsystem: Pilot
 $Arrival Location: Hyperspace
 $Arrival Cue: ( true )
 $Departure Location: Hyperspace
@@ -882,6 +917,7 @@ $Orientation:
  0.003502, 0.999993, -0.001245,
  0.000004, 0.001245, 0.999999
 $Cargo 1: XSTR("Garnison", -1)
++Subsystem: Pilot
 $Arrival Location: Hyperspace
 $Arrival Cue: ( true )
 $Departure Location: Hyperspace
@@ -903,6 +939,7 @@ $Orientation:
  0.000247, 0.999950, 0.009954,
  -0.000002, -0.009954, 0.999950
 $Cargo 1: XSTR("Garnison", -1)
++Subsystem: Pilot
 $Arrival Location: Hyperspace
 $Arrival Cue: ( true )
 $Departure Location: Hyperspace
@@ -924,6 +961,7 @@ $Orientation:
  0.008452, 0.999915, 0.009945,
  -0.000084, -0.009945, 0.999951
 $Cargo 1: XSTR("Garnison", -1)
++Subsystem: Pilot
 $Arrival Location: Hyperspace
 $Arrival Cue: ( true )
 $Departure Location: Hyperspace
@@ -945,6 +983,7 @@ $Orientation:
  0.002280, 0.999774, 0.021123,
  -0.000048, -0.021123, 0.999777
 $Cargo 1: XSTR("Garnison", -1)
++Subsystem: Pilot
 $Arrival Location: Hyperspace
 $Arrival Cue: ( true )
 $Departure Location: Hyperspace
@@ -966,6 +1005,7 @@ $Orientation:
  0.010487, 0.999722, 0.021136,
  -0.000222, -0.021135, 0.999777
 $Cargo 1: XSTR("Garnison", -1)
++Subsystem: Pilot
 $Arrival Location: Hyperspace
 $Arrival Cue: ( true )
 $Departure Location: Hyperspace
@@ -987,6 +1027,7 @@ $Orientation:
  0.001619, 0.999476, 0.032339,
  -0.000052, -0.032339, 0.999477
 $Cargo 1: XSTR("Garnison", -1)
++Subsystem: Pilot
 $Arrival Location: Hyperspace
 $Arrival Cue: ( true )
 $Departure Location: Hyperspace
@@ -1008,6 +1049,7 @@ $Orientation:
  0.009824, 0.999429, 0.032325,
  -0.000318, -0.032323, 0.999477
 $Cargo 1: XSTR("Garnison", -1)
++Subsystem: Pilot
 $Arrival Location: Hyperspace
 $Arrival Cue: ( true )
 $Departure Location: Hyperspace
@@ -1029,6 +1071,7 @@ $Orientation:
  0.001448, 0.999048, 0.043596,
  -0.000063, -0.043596, 0.999049
 $Cargo 1: XSTR("Garnison", -1)
++Subsystem: Pilot
 $Arrival Location: Hyperspace
 $Arrival Cue: ( true )
 $Departure Location: Hyperspace
@@ -1050,6 +1093,7 @@ $Orientation:
  0.009658, 0.999005, 0.043545,
  -0.000421, -0.043543, 0.999051
 $Cargo 1: XSTR("Garnison", -1)
++Subsystem: Pilot
 $Arrival Location: Hyperspace
 $Arrival Cue: ( true )
 $Departure Location: Hyperspace
@@ -1071,6 +1115,7 @@ $Orientation:
  -0.007244, 0.996836, -0.079157,
  0.119514, 0.079455, 0.989648
 $Cargo 1: XSTR("Garnison", -1)
++Subsystem: Pilot
 $Arrival Location: Hyperspace
 $Arrival Cue: ( true )
 $Departure Location: Hyperspace
@@ -1092,8 +1137,9 @@ $Orientation:
  -0.006372, 0.996722, -0.080653,
  0.119589, 0.080835, 0.989527
 $Cargo 1: XSTR("Garnison", -1)
++Subsystem: Pilot
 $Arrival Location: Hyperspace
-$Arrival Cue: ( true )
+$Arrival Cue: ( false )
 $Departure Location: Hyperspace
 $Departure Cue: ( false )
 $Determination: 10
@@ -1113,8 +1159,9 @@ $Orientation:
  -0.008985, 0.996765, -0.079863,
  0.119376, 0.080364, 0.989591
 $Cargo 1: XSTR("Garnison", -1)
++Subsystem: Pilot
 $Arrival Location: Hyperspace
-$Arrival Cue: ( true )
+$Arrival Cue: ( false )
 $Departure Location: Hyperspace
 $Departure Cue: ( false )
 $Determination: 10
@@ -1134,8 +1181,9 @@ $Orientation:
  -0.005497, 0.996790, -0.079870,
  0.119656, 0.079953, 0.989591
 $Cargo 1: XSTR("Garnison", -1)
++Subsystem: Pilot
 $Arrival Location: Hyperspace
-$Arrival Cue: ( true )
+$Arrival Cue: ( false )
 $Departure Location: Hyperspace
 $Departure Cue: ( false )
 $Determination: 10
@@ -1146,18 +1194,538 @@ $Determination: 10
 +Use Table Score:
 +Score: 0
 
+$Name: Patrouille Noire 1
+$Class: TIE/ln Fighter
+$Team: Hostile
+$Location: 0.000, 900.000, -3000.000
+$Orientation:
+ 1, 0, 0,
+ 0, 1, 0,
+ 0, 0, 1
+$Cargo 1: XSTR("Nothing", -1)
++Subsystem: Pilot
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false )
+$Departure Location: Hyperspace
+$Departure Cue: ( false )
+$Determination: 10
++Flags: ( "cargo-known" "no-arrival-warp" "no-departure-warp" )
++Flags2: ( )
++Respawn priority: 0
++Group: 0
+
+$Name: Patrouille Noire 2
+$Class: TIE/ln Fighter
+$Team: Hostile
+$Location: 0.000, 900.000, -3000.000
+$Orientation:
+ 1, 0, 0,
+ 0, 1, 0,
+ 0, 0, 1
+$Cargo 1: XSTR("Nothing", -1)
++Subsystem: Pilot
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false )
+$Departure Location: Hyperspace
+$Departure Cue: ( false )
+$Determination: 10
++Flags: ( "cargo-known" "no-arrival-warp" "no-departure-warp" )
++Flags2: ( )
++Respawn priority: 0
++Group: 0
+
+$Name: Patrouille Noire 3
+$Class: TIE/ln Fighter
+$Team: Hostile
+$Location: 0.000, 900.000, -3000.000
+$Orientation:
+ 1, 0, 0,
+ 0, 1, 0,
+ 0, 0, 1
+$Cargo 1: XSTR("Nothing", -1)
++Subsystem: Pilot
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false )
+$Departure Location: Hyperspace
+$Departure Cue: ( false )
+$Determination: 10
++Flags: ( "cargo-known" "no-arrival-warp" "no-departure-warp" )
++Flags2: ( )
++Respawn priority: 0
++Group: 0
+
+$Name: Patrouille Grise 1
+$Class: TIE/ln Fighter
+$Team: Hostile
+$Location: 0.000, 900.000, -3000.000
+$Orientation:
+ 1, 0, 0,
+ 0, 1, 0,
+ 0, 0, 1
+$Cargo 1: XSTR("Nothing", -1)
++Subsystem: Pilot
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false )
+$Departure Location: Hyperspace
+$Departure Cue: ( false )
+$Determination: 10
++Flags: ( "cargo-known" "no-arrival-warp" "no-departure-warp" )
++Flags2: ( )
++Respawn priority: 0
++Group: 0
+
+$Name: Patrouille Grise 2
+$Class: TIE/ln Fighter
+$Team: Hostile
+$Location: 0.000, 900.000, -3000.000
+$Orientation:
+ 1, 0, 0,
+ 0, 1, 0,
+ 0, 0, 1
+$Cargo 1: XSTR("Nothing", -1)
++Subsystem: Pilot
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false )
+$Departure Location: Hyperspace
+$Departure Cue: ( false )
+$Determination: 10
++Flags: ( "cargo-known" "no-arrival-warp" "no-departure-warp" )
++Flags2: ( )
++Respawn priority: 0
++Group: 0
+
+$Name: Patrouille Grise 3
+$Class: TIE/In Interceptor
+$Team: Hostile
+$Location: 0.000, 900.000, -3000.000
+$Orientation:
+ 1, 0, 0,
+ 0, 1, 0,
+ 0, 0, 1
+$Cargo 1: XSTR("Nothing", -1)
++Subsystem: Pilot
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false )
+$Departure Location: Hyperspace
+$Departure Cue: ( false )
+$Determination: 10
++Flags: ( "cargo-known" "no-arrival-warp" "no-departure-warp" )
++Flags2: ( )
++Respawn priority: 0
++Group: 0
+
+$Name: Destroyer Chimere
+$Class: Imperial Star Destroyer
+$Team: Hostile
+$Location: 0.000, 95000.000, 0.000
+$Orientation:
+ 1, 0, 0,
+ 0, 1, 0,
+ 0, 0, 1
+$AI Goals: ( goals ( ai-chase "Aurore" 80 ) )
+$Cargo 1: XSTR("Nothing", -1)
++Subsystem: Pilot
+$Arrival Location: Hyperspace
+$Arrival Cue: ( is-event-true-delay "Destroyers" 0 )
+$Departure Location: Hyperspace
+$Departure Cue: ( false )
+$Determination: 10
++Flags: ( "cargo-known" )
++Flags2: ( )
++Respawn priority: 0
++Group: 0
+
+$Name: Destroyer Tyran
+$Class: Imperial Star Destroyer
+$Team: Hostile
+$Location: 0.000, 95000.000, 0.000
+$Orientation:
+ 1, 0, 0,
+ 0, 1, 0,
+ 0, 0, 1
+$AI Goals: ( goals ( ai-chase "Aurore" 80 ) )
+$Cargo 1: XSTR("Nothing", -1)
++Subsystem: Pilot
+$Arrival Location: Hyperspace
+$Arrival Cue: ( is-event-true-delay "Destroyers" 0 )
+$Departure Location: Hyperspace
+$Departure Cue: ( false )
+$Determination: 10
++Flags: ( "cargo-known" )
++Flags2: ( )
++Respawn priority: 0
++Group: 0
+
+$Name: Destroyer Vengeance
+$Class: Imperial Star Destroyer
+$Team: Hostile
+$Location: 0.000, 95000.000, 0.000
+$Orientation:
+ 1, 0, 0,
+ 0, 1, 0,
+ 0, 0, 1
+$AI Goals: ( goals ( ai-chase "Aurore" 80 ) )
+$Cargo 1: XSTR("Nothing", -1)
++Subsystem: Pilot
+$Arrival Location: Hyperspace
+$Arrival Cue: ( is-event-true-delay "Destroyers" 0 )
+$Departure Location: Hyperspace
+$Departure Cue: ( false )
+$Determination: 10
++Flags: ( "cargo-known" )
++Flags2: ( )
++Respawn priority: 0
++Group: 0
+
+$Name: Chimere 1
+$Class: TIE/ln Fighter
+$Team: Hostile
+$Location: 0.000, 95000.000, 0.000
+$Orientation:
+ 1, 0, 0,
+ 0, 1, 0,
+ 0, 0, 1
+$Cargo 1: XSTR("Nothing", -1)
++Subsystem: Pilot
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false )
+$Departure Location: Hyperspace
+$Departure Cue: ( false )
+$Determination: 10
++Flags: ( "cargo-known" )
++Flags2: ( )
++Respawn priority: 0
++Group: 0
+
+$Name: Chimere 2
+$Class: TIE/ln Fighter
+$Team: Hostile
+$Location: 0.000, 95000.000, 0.000
+$Orientation:
+ 1, 0, 0,
+ 0, 1, 0,
+ 0, 0, 1
+$Cargo 1: XSTR("Nothing", -1)
++Subsystem: Pilot
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false )
+$Departure Location: Hyperspace
+$Departure Cue: ( false )
+$Determination: 10
++Flags: ( "cargo-known" )
++Flags2: ( )
++Respawn priority: 0
++Group: 0
+
+$Name: Chimere 3
+$Class: TIE/In Interceptor
+$Team: Hostile
+$Location: 0.000, 95000.000, 0.000
+$Orientation:
+ 1, 0, 0,
+ 0, 1, 0,
+ 0, 0, 1
+$Cargo 1: XSTR("Nothing", -1)
++Subsystem: Pilot
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false )
+$Departure Location: Hyperspace
+$Departure Cue: ( false )
+$Determination: 10
++Flags: ( "cargo-known" )
++Flags2: ( )
++Respawn priority: 0
++Group: 0
+
+$Name: Chimere 4
+$Class: TIE/In Interceptor
+$Team: Hostile
+$Location: 0.000, 95000.000, 0.000
+$Orientation:
+ 1, 0, 0,
+ 0, 1, 0,
+ 0, 0, 1
+$Cargo 1: XSTR("Nothing", -1)
++Subsystem: Pilot
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false )
+$Departure Location: Hyperspace
+$Departure Cue: ( false )
+$Determination: 10
++Flags: ( "cargo-known" )
++Flags2: ( )
++Respawn priority: 0
++Group: 0
+
+$Name: Tyran 1
+$Class: TIE/ln Fighter
+$Team: Hostile
+$Location: 0.000, 95000.000, 0.000
+$Orientation:
+ 1, 0, 0,
+ 0, 1, 0,
+ 0, 0, 1
+$Cargo 1: XSTR("Nothing", -1)
++Subsystem: Pilot
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false )
+$Departure Location: Hyperspace
+$Departure Cue: ( false )
+$Determination: 10
++Flags: ( "cargo-known" )
++Flags2: ( )
++Respawn priority: 0
++Group: 0
+
+$Name: Tyran 2
+$Class: TIE/ln Fighter
+$Team: Hostile
+$Location: 0.000, 95000.000, 0.000
+$Orientation:
+ 1, 0, 0,
+ 0, 1, 0,
+ 0, 0, 1
+$Cargo 1: XSTR("Nothing", -1)
++Subsystem: Pilot
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false )
+$Departure Location: Hyperspace
+$Departure Cue: ( false )
+$Determination: 10
++Flags: ( "cargo-known" )
++Flags2: ( )
++Respawn priority: 0
++Group: 0
+
+$Name: Tyran 3
+$Class: TIE/In Interceptor
+$Team: Hostile
+$Location: 0.000, 95000.000, 0.000
+$Orientation:
+ 1, 0, 0,
+ 0, 1, 0,
+ 0, 0, 1
+$Cargo 1: XSTR("Nothing", -1)
++Subsystem: Pilot
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false )
+$Departure Location: Hyperspace
+$Departure Cue: ( false )
+$Determination: 10
++Flags: ( "cargo-known" )
++Flags2: ( )
++Respawn priority: 0
++Group: 0
+
+$Name: Tyran 4
+$Class: TIE/In Interceptor
+$Team: Hostile
+$Location: 0.000, 95000.000, 0.000
+$Orientation:
+ 1, 0, 0,
+ 0, 1, 0,
+ 0, 0, 1
+$Cargo 1: XSTR("Nothing", -1)
++Subsystem: Pilot
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false )
+$Departure Location: Hyperspace
+$Departure Cue: ( false )
+$Determination: 10
++Flags: ( "cargo-known" )
++Flags2: ( )
++Respawn priority: 0
++Group: 0
+
+$Name: Vengeance 1
+$Class: TIE/ln Fighter
+$Team: Hostile
+$Location: 0.000, 95000.000, 0.000
+$Orientation:
+ 1, 0, 0,
+ 0, 1, 0,
+ 0, 0, 1
+$Cargo 1: XSTR("Nothing", -1)
++Subsystem: Pilot
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false )
+$Departure Location: Hyperspace
+$Departure Cue: ( false )
+$Determination: 10
++Flags: ( "cargo-known" )
++Flags2: ( )
++Respawn priority: 0
++Group: 0
+
+$Name: Vengeance 2
+$Class: TIE/ln Fighter
+$Team: Hostile
+$Location: 0.000, 95000.000, 0.000
+$Orientation:
+ 1, 0, 0,
+ 0, 1, 0,
+ 0, 0, 1
+$Cargo 1: XSTR("Nothing", -1)
++Subsystem: Pilot
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false )
+$Departure Location: Hyperspace
+$Departure Cue: ( false )
+$Determination: 10
++Flags: ( "cargo-known" )
++Flags2: ( )
++Respawn priority: 0
++Group: 0
+
+$Name: Vengeance 3
+$Class: TIE/In Interceptor
+$Team: Hostile
+$Location: 0.000, 95000.000, 0.000
+$Orientation:
+ 1, 0, 0,
+ 0, 1, 0,
+ 0, 0, 1
+$Cargo 1: XSTR("Nothing", -1)
++Subsystem: Pilot
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false )
+$Departure Location: Hyperspace
+$Departure Cue: ( false )
+$Determination: 10
++Flags: ( "cargo-known" )
++Flags2: ( )
++Respawn priority: 0
++Group: 0
+
+$Name: Vengeance 4
+$Class: TIE/In Interceptor
+$Team: Hostile
+$Location: 0.000, 95000.000, 0.000
+$Orientation:
+ 1, 0, 0,
+ 0, 1, 0,
+ 0, 0, 1
+$Cargo 1: XSTR("Nothing", -1)
++Subsystem: Pilot
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false )
+$Departure Location: Hyperspace
+$Departure Cue: ( false )
+$Determination: 10
++Flags: ( "cargo-known" )
++Flags2: ( )
++Respawn priority: 0
++Group: 0
+
 #Wings
-$Name: Red
+$Name: Rouge
 $Waves: 1
 $Wave Threshold: 0
 $Special Ship: 0
 $Arrival Location: Hyperspace
++Arrival Distance: 0
 $Arrival Cue: ( true )
 $Departure Location: Hyperspace
 $Departure Cue: ( false )
-$Ships: ( "Red 1" )
-+Hotkey: 0
-+Flags: ( )
+$Ships: (
+	"Rouge 1"
+	"Rouge 2"
+	"Rouge 3"
+	"Rouge 4"
+)
+$AI Goals: ( goals ( ai-guard "Aurore" 89 ) )
++Flags: ( "no-arrival-music" )
+
+$Name: Patrouille Noire
+$Waves: 1
+$Wave Threshold: 0
+$Special Ship: 0
+$Arrival Location: Hyperspace
++Arrival Distance: 0
+$Arrival Cue: ( is-event-true-delay "Patrouille 1" 0 )
+$Departure Location: Hyperspace
+$Departure Cue: ( false )
+$Ships: (
+	"Patrouille Noire 1"
+	"Patrouille Noire 2"
+	"Patrouille Noire 3"
+)
+$AI Goals: ( goals ( ai-chase "Aurore" 89 ) ( ai-chase-any 80 ) )
++Flags: ( "no-arrival-music" )
+
+$Name: Patrouille Grise
+$Waves: 1
+$Wave Threshold: 0
+$Special Ship: 0
+$Arrival Location: Hyperspace
++Arrival Distance: 0
+$Arrival Cue: ( is-event-true-delay "Patrouille 2" 0 )
+$Departure Location: Hyperspace
+$Departure Cue: ( false )
+$Ships: (
+	"Patrouille Grise 1"
+	"Patrouille Grise 2"
+	"Patrouille Grise 3"
+)
+$AI Goals: ( goals ( ai-chase-any 89 ) )
++Flags: ( "no-arrival-music" )
+
+$Name: Escadrille Chimere
+$Waves: 1
+$Wave Threshold: 0
+$Special Ship: 0
+$Arrival Location: Docking Bay
++Arrival Distance: 0
+$Arrival Anchor: Destroyer Chimere
+$Arrival Cue: ( is-event-true-delay "Chasseurs" 2 )
+$Departure Location: Hyperspace
+$Departure Cue: ( false )
+$Ships: (
+	"Chimere 1"
+	"Chimere 2"
+	"Chimere 3"
+	"Chimere 4"
+)
+$AI Goals: ( goals ( ai-chase "Aurore" 89 ) ( ai-chase-any 80 ) )
++Flags: ( "no-arrival-music" )
+
+$Name: Escadrille Tyran
+$Waves: 1
+$Wave Threshold: 0
+$Special Ship: 0
+$Arrival Location: Docking Bay
++Arrival Distance: 0
+$Arrival Anchor: Destroyer Tyran
+$Arrival Cue: ( is-event-true-delay "Chasseurs" 2 )
+$Departure Location: Hyperspace
+$Departure Cue: ( false )
+$Ships: (
+	"Tyran 1"
+	"Tyran 2"
+	"Tyran 3"
+	"Tyran 4"
+)
+$AI Goals: ( goals ( ai-chase "Aurore" 89 ) ( ai-chase-any 80 ) )
++Flags: ( "no-arrival-music" )
+
+$Name: Escadrille Vengeance
+$Waves: 1
+$Wave Threshold: 0
+$Special Ship: 0
+$Arrival Location: Docking Bay
++Arrival Distance: 0
+$Arrival Anchor: Destroyer Vengeance
+$Arrival Cue: ( is-event-true-delay "Chasseurs" 2 )
+$Departure Location: Hyperspace
+$Departure Cue: ( false )
+$Ships: (
+	"Vengeance 1"
+	"Vengeance 2"
+	"Vengeance 3"
+	"Vengeance 4"
+)
+$AI Goals: ( goals ( ai-chase "Aurore" 89 ) ( ai-chase-any 80 ) )
++Flags: ( "no-arrival-music" )
 
 #Props
 $Name: Camp pad 0
@@ -2970,6 +3538,26 @@ $Formula: ( when ( true ) ( set-player-warp-status ( false ) ) )
 
 $Formula: ( when ( true ) ( add-remove-escort "Aurore" 100 ) )
 +Name: Escorte Aurore
++Repeat Count: 1
++Interval: 1
+
+$Formula: ( when ( spacesim-phase-reached 1 ) ( do-nothing ) )
++Name: Patrouille 1
++Repeat Count: 1
++Interval: 1
+
+$Formula: ( when ( spacesim-phase-reached 2 ) ( do-nothing ) )
++Name: Patrouille 2
++Repeat Count: 1
++Interval: 1
+
+$Formula: ( when ( spacesim-phase-reached 3 ) ( do-nothing ) )
++Name: Destroyers
++Repeat Count: 1
++Interval: 1
+
+$Formula: ( when ( spacesim-phase-reached 4 ) ( do-nothing ) )
++Name: Chasseurs
 +Repeat Count: 1
 +Interval: 1
 
