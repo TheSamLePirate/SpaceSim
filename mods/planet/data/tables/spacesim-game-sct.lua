@@ -105,9 +105,11 @@ local function envelope(sh)
     if not b then b={v=ph.VelocityMax.z,ab=ph.AfterburnerVelocityMax.z,last=-1};BASEV[sig]=b end
     local h=length(sh.Position-C)-80000
     local k=sstep(1000,16000,h)*(1-sstep(80000,91000,h))
-    if math.abs(k-b.last)<0.01 then return end
-    b.last=k
     local v=b.v+(4200-b.v)*k
+    local cc=CINE and CINE.c
+    if cc and cc.play and cc.phase=='montee' then v=math.max(v,1.25*(cc.cargoV or 0)) end
+    if math.abs(v-b.last)<2 then return end
+    b.last=v
     local m=ph.VelocityMax;ph.VelocityMax=V(m.x,m.y,v)
     local a=ph.AfterburnerVelocityMax;ph.AfterburnerVelocityMax=V(a.x,a.y,math.max(b.ab,v*b.ab/math.max(1,b.v)))
 end

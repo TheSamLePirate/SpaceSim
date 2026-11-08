@@ -216,6 +216,9 @@ local function step(sh,dt,now)
     -- speed envelope (climb to orbit), also when FSO flies
     local vt=F.vTable
     local vmax=speedEnvelope(hAlt,vt)
+    -- climb to orbit: never slower than 125 % of the Aurore (the players escort it)
+    local cc=CINE and CINE.c
+    if cc and cc.play and cc.phase=='montee' then vmax=math.max(vmax,1.25*(cc.cargoV or 0)) end
     local vab=vmax*F.abRatio
     local envelopeOn=not (SPACESIM.state.speedIndex and SPACESIM.state.speedIndex>1)   -- F9 cruise (free flight) wins
     if envelopeOn and math.abs(vmax-(F.lastVmax or 0))>0.5 then
@@ -232,7 +235,8 @@ local function step(sh,dt,now)
         local tau=(vGoal>vf) and (ab and F.abAccel or F.accel) or F.decel
         local gv=up*(-g*air*(mode=='arcade' and 0.55 or 1.0))
         local gPar=dot(gv,f)
-        local aMax=(mode=='arcade') and 60 or 35               -- thrust / drag limited acceleration
+        -- thrust / drag limited acceleration; scales with the envelope (climb to orbit behind the Aurore)
+        local aMax=math.max((mode=='arcade') and 60 or 35,0.3*vmax)
         vf=vf+(clamp((vGoal-vf)/math.max(0.3,tau),-aMax,aMax)+gPar)*dt
         if mode=='arcade' then vf=math.max(vf,55*air) end
         local lat=vel-f*dot(vel,f)

@@ -32,7 +32,10 @@ if [[ -z "$SPACESIM_KEEP_FLAGS" && -d "$DATA_USER" ]]; then
   rm -f "$DATA_USER"/spacesim-*.flag(N) "$DATA_USER"/shot_*.b64(N)
 fi
 cd "$LIBRARY_DIR"
-if [[ "$MODE" == "fred" ]]; then
+if [[ "$MODE" == "menu" ]]; then
+  # main menu of the mod: Multiplayer -> host -> "[Rebel] Aurore - Evasion (coop)"
+  exec "$PROJECT_DIR/tools/FSO-26.2.0/fs2_open_26_2_0_arm64.app/Contents/MacOS/fs2_open_26_2_0_arm64" -mod "SpaceSimPlanet,FotG_R/FotG_R-1.1.2" -window -res 1440x900 -aa -aa_preset 6 "${SHADOW_FLAGS[@]}" -parse_cmdline_only
+elif [[ "$MODE" == "fred" ]]; then
   exec "$PROJECT_DIR/tools/FSO-26.2.0/qtfred_26_2_0_arm64.app/Contents/MacOS/qtfred_26_2_0_arm64" -mod "SpaceSimPlanet,FotG_R/FotG_R-1.1.2" -start_mission "$PROJECT_DIR/mods/planet/data/missions/$MISSION.fs2" -parse_cmdline_only
 else
   exec "$PROJECT_DIR/tools/FSO-26.2.0/fs2_open_26_2_0_arm64.app/Contents/MacOS/fs2_open_26_2_0_arm64" -mod "SpaceSimPlanet,FotG_R/FotG_R-1.1.2" -start_mission "$MISSION" -window -res 1440x900 -aa -aa_preset 6 "${SHADOW_FLAGS[@]}" -parse_cmdline_only

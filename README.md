@@ -1,5 +1,29 @@
 # SpaceSim — prototypes FSO
 
+## Aurore – Évasion (mission jouable, solo et coop jusqu'à 4 joueurs)
+
+Le cargo rebelle *Aurore* fuit par un canyon sous le feu impérial, monte en orbite, puis doit sauter en hyperespace avant que l'Étoile Noire ne détruise la planète. L'escadron Rouge l'escorte en X-wing.
+
+| Lanceur | Contenu |
+|---|---|
+| **Aurore - Evasion.command** | mission jouable (solo), avec briefing et débriefing |
+| **Aurore - Evasion coop.command** | menu du jeu : Multijoueur → Héberger → « [Rebel] Aurore - Evasion (coop) » |
+| **Aurore - Evasion (cinematique).command** | la cinématique complète |
+
+**En jeu**
+- **F10** : vol Arcade (assisté) ou Simulation.
+- **Espace** : passer l'intro.
+- **Objectifs** : détruire les 10 batteries du canyon (en équipe), protéger l'*Aurore*, puis sauter quand l'ordre est donné.
+- **Objectifs secondaires** : la tour de communication (sinon des renforts arrivent) et la navette qui s'enfuit.
+
+**Documentation**
+- Plan et état de chaque phase : [docs/PLAN-AURORE-EVASION.md](docs/PLAN-AURORE-EVASION.md).
+- Vol de type avion : [docs/VOL-AVION.md](docs/VOL-AVION.md).
+- Rendu, performances, armes et crash : [docs/AURORE-03.md](docs/AURORE-03.md).
+
+**Tests automatiques** : `scripts/test_all.sh` (environ 25 min). Il couvre la carte d'altitude, les armes, la cinématique, le crash, le vol, l'IA, la réapparition et la mission complète.
+
+
 Première mission pour **Fate of the Galaxy 1.1.2**, réalisée avec ses ressources existantes.
 
 ## Aurore 03 : planète, atmosphère et nuages « AAA »

@@ -161,11 +161,13 @@ end
 local function cargoSpeed(c,s)
     if c.play then
         -- gameplay: slower in the canyon (X-wings ahead of it), the climb is capped by the players' envelope
-        local v=40+120*math.pow(clamp(s/c.Lc,0,1),1.1)
-        v=v+(4200-160)*sstep(c.Lc,c.Lc+(c.La-c.Lc)*0.18,s)
-        v=v-(4200-110)*sstep(c.La-12000,c.La-300,s)
-        local h=c.cargoAlt or 0
-        return math.min(v,0.8*(200+4000*sstep(1000,16000,h)))
+        if s<c.Lc then return 40+120*math.pow(clamp(s/c.Lc,0,1),1.1) end
+        -- climb: +200 m/s per second from the canyon exit up to 4200 m/s (about 40 s to orbit), short braking;
+        -- the players and the AI are tied to the cargo's speed meanwhile (spacesim-flight / spacesim-game)
+        c.climbT0=c.climbT0 or c.T
+        local v=math.min(4200,160+200*((c.T or 0)-c.climbT0))
+        -- constant braking (900 m/s2) into the orbit: v = sqrt(110^2 + 2 a d)
+        return math.max(110,math.min(v,math.sqrt(110*110+2*900*math.max(0,c.La-s))))
     end
     local v=40+260*math.pow(clamp(s/c.Lc,0,1),1.25)
     v=v+(4200-300)*sstep(c.Lc,c.Lc+(c.La-c.Lc)*0.18,s)
