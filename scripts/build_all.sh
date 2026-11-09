@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 # Rebuilds the whole "Aurore 03" planet mod (mods/planet) from the sources in git.
+# macOS / Linux: run from a terminal. Windows: run from Git Bash (installed with Git for Windows).
 #
 #   scripts/build_all.sh                  full rebuild (~ several minutes, ~2.6 GB written)
 #   scripts/build_all.sh --assets-only    only the generated models/maps (git-ignored); missions,
@@ -31,7 +32,7 @@ while [[ $# -gt 0 ]]; do
     --assets-only) ASSETS_ONLY=1 ;;
     --quality) QUALITY="$2"; shift ;;
     --from) FROM="$2"; shift ;;
-    -h|--help) sed -n 2,16p "$0"; exit 0 ;;
+    -h|--help) sed -n 2,18p "$0"; exit 0 ;;
     *) echo "Unknown option: $1 (see --help)"; exit 1 ;;
   esac
   shift
@@ -39,14 +40,27 @@ done
 [[ "$QUALITY" =~ ^(low|high|ultra)$ ]] || { echo "--quality must be low, high or ultra"; exit 1; }
 
 # ---- 1. Python environment ---------------------------------------------------------------
-if [[ ! -x "$VENV/bin/python" ]]; then
-  PY="${PYTHON:-python3}"
+# macOS/Linux: .venv/bin/python. Windows (Git Bash): .venv/Scripts/python.exe.
+venv_python() {
+  if [[ -x "$VENV/bin/python" ]]; then echo "$VENV/bin/python"
+  elif [[ -x "$VENV/Scripts/python.exe" ]]; then echo "$VENV/Scripts/python.exe"
+  fi
+}
+if [[ -z "$(venv_python)" ]]; then
+  PY="${PYTHON:-}"
+  if [[ -z "$PY" ]]; then
+    # python3 on macOS/Linux; python or the py launcher on Windows (skip the Microsoft Store alias)
+    for cand in python3 python py; do
+      if command -v "$cand" >/dev/null && "$cand" -c 'import sys' 2>/dev/null; then PY="$cand"; break; fi
+    done
+  fi
+  [[ -n "$PY" ]] || { echo "Python 3.10+ not found (install it, or set PYTHON=/path/to/python)"; exit 1; }
   "$PY" -c 'import sys; sys.exit(sys.version_info < (3, 10))' \
-    || { echo "Python 3.10+ required (set PYTHON=/path/to/python3)"; exit 1; }
-  echo "==> Creating $VENV"
+    || { echo "Python 3.10+ required, found: $("$PY" --version 2>&1) (set PYTHON=/path/to/python)"; exit 1; }
+  echo "==> Creating $VENV with $PY"
   "$PY" -m venv "$VENV"
 fi
-PYTHON="$VENV/bin/python"
+PYTHON="$(venv_python)"
 if ! "$PYTHON" -c 'import numpy, PIL' 2>/dev/null; then
   echo "==> Installing requirements.txt"
   "$PYTHON" -m pip install --quiet --upgrade pip

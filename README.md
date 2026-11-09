@@ -4,6 +4,8 @@
 
 **English** · [Français](#francais)
 
+> **Proof of concept, work in progress.** SpaceSim is an experiment, not a finished mod. The question it tries to answer: **what kind of *real* planets can we build in FreeSpace Open?** In FSO, planets are usually flat bitmaps painted on the background: you can never reach them. Here the planet is a real 160 km world you can fly down to, skim through canyons and climb away from to orbit without a loading screen, with a physical atmosphere, volumetric clouds, day/night, forests, an outpost and collisions. Everything is generated procedurally and runs on the stock FSO 26.2.0 engine (no engine fork), with Fate of the Galaxy assets. Expect rough edges, missing features and changing code.
+
 ## Aurore – Escape (playable mission, solo and co-op up to 4 players)
 
 The rebel freighter *Aurore* flees through a canyon under Imperial fire, climbs to orbit, then has to jump to hyperspace before the Death Star destroys the planet. Red Squadron escorts it in X-wings.
@@ -57,18 +59,53 @@ Details, performance and rebuilding: [docs/AURORE-03.md](docs/AURORE-03.md).
 
 ## Building and modding the mod
 
-Everything needed to rebuild and modify the planet mod is in git: Lua scripts and tables (`mods/planet/data/tables`), missions, shaders, and the procedural generators in `scripts/`. The ~2.6 GB of models and textures are not in git; they are generated:
+Everything needed to rebuild and modify the planet mod is in git: Lua scripts and tables (`mods/planet/data/tables`), missions, shaders, and the procedural generators in `scripts/`. The ~2.6 GB of models and textures are **not** in git: one script generates them (several minutes, ~2.6 GB of disk). Building only needs Python; the game is only needed to play.
+
+**Requirements (both systems)**
+- **Git** and **Python 3.10+**.
+- To play: **Fate of the Galaxy 1.1.2** installed with **Knossos.NET**, and the **FSO 26.2.0** engine ([release page](https://github.com/scp-fs2open/fs2open.github.com/releases/tag/release_26_2_0)).
+
+### macOS
 
 ```bash
-scripts/build_all.sh                 # full rebuild
-scripts/build_all.sh --assets-only   # only the git-ignored models/textures
+git clone https://github.com/TheSamLePirate/SpaceSim.git
+cd SpaceSim
+scripts/build_all.sh
 ```
 
-It creates `.venv/` from [`requirements.txt`](requirements.txt) (Python 3.10+, numpy, pillow), fetches the FSO 26.2.0 shader sources into `tools/source-26.2.0` when needed, and runs every generator in order. You also need **Fate of the Galaxy 1.1.2** (Knossos.NET) and the **FSO 26.2.0** engine to play. Steps and options: [docs/AURORE-03.md, « Reconstruction »](docs/AURORE-03.md#reconstruction) (in French).
+To play from the repository: extract `fs2_open_26_2_0-builds-Mac-arm64.tar.gz` (or `Mac-x86_64`) into `tools/FSO-26.2.0/`, so that `tools/FSO-26.2.0/fs2_open_26_2_0_arm64.app` exists, then double-click **Aurore - Evasion.command**. The launchers link the mod into the Knossos library by themselves.
 
-A full rebuild rewrites generated files tracked by git (missions, some tables, shaders): review them with `git diff`. To change a generated mission, edit `scripts/create_planet_mission.py`, not the `.fs2` file.
+### Windows
 
-## Playing on Windows
+1. Install [Git for Windows](https://git-scm.com/download/win) (includes **Git Bash**) and [Python 3.10+](https://www.python.org/downloads/) (tick "Add python.exe to PATH").
+2. In **Git Bash**:
+   ```bash
+   git clone https://github.com/TheSamLePirate/SpaceSim.git
+   cd SpaceSim
+   scripts/build_all.sh
+   ```
+3. To play, in the Knossos library (e.g. `C:\Games\FSO`, next to `FotG_R`):
+   - unzip `fs2_open_26_2_0-builds-x64-AVX.zip` into `engine\`;
+   - link the built mod as `SpaceSimPlanet` (Command Prompt): `mklink /J "C:\Games\FSO\SpaceSimPlanet" "C:\path\to\SpaceSim\mods\planet"`;
+   - copy the files from `windows\` (`.bat` launchers) into `C:\Games\FSO` and double-click **Aurore - Evasion.bat**.
+
+Details: [windows/LISEZMOI-WINDOWS.txt](windows/LISEZMOI-WINDOWS.txt) (in French).
+
+### Options and modding
+
+```bash
+scripts/build_all.sh --assets-only   # only the git-ignored models/textures
+scripts/build_all.sh --quality high  # lighter shader: low | high | ultra (default)
+scripts/build_all.sh --from tiles    # resume from a step
+```
+
+The script creates `.venv/` from [`requirements.txt`](requirements.txt) (numpy, pillow), fetches the FSO 26.2.0 shader sources into `tools/source-26.2.0` when needed, and runs every generator in order. Steps: [docs/AURORE-03.md, « Reconstruction »](docs/AURORE-03.md#reconstruction) (in French).
+
+- **Gameplay, flight, cinematic, weapons**: Lua scripts in `mods/planet/data/tables/spacesim-*-sct.lua`, no rebuild needed.
+- **Terrain, forests, outpost, clouds, missions, shaders**: edit the generator in `scripts/`, then rerun `build_all.sh` (or `--from <step>`).
+- A full rebuild rewrites generated files tracked by git (missions, some tables, shaders): review them with `git diff`. To change a generated mission, edit `scripts/create_planet_mission.py`, not the `.fs2` file.
+
+## Sending the mod to a Windows player (no build)
 
 The mod itself is cross-platform; only the launchers differ. Windows launchers are in [`windows/`](windows/).
 
@@ -165,6 +202,8 @@ The game's models, textures, sounds and scripts stay in the Knossos installation
 
 [English](#english) · **Français**
 
+> **Preuve de concept, travail en cours.** SpaceSim est une expérience, pas un mod fini. La question posée : **quel genre de planètes *réelles* peut-on créer dans FreeSpace Open ?** Dans FSO, les planètes sont d'habitude des images plates peintes sur le fond de l'espace : on ne peut jamais les atteindre. Ici, la planète est un vrai monde de 160 km : on y descend, on file dans les canyons et on remonte en orbite sans écran de chargement, avec une atmosphère physique, des nuages volumétriques, le cycle jour/nuit, des forêts et des collisions. Tout est généré de façon procédurale et tourne sur le moteur FSO 26.2.0 d'origine (sans modification du moteur), avec les ressources de Fate of the Galaxy. Attendez-vous à des imperfections, des fonctions manquantes et du code qui change.
+
 ## Aurore – Évasion (mission jouable, solo et coop jusqu'à 4 joueurs)
 
 Le cargo rebelle *Aurore* fuit par un canyon sous le feu impérial, monte en orbite, puis doit sauter en hyperespace avant que l'Étoile Noire ne détruise la planète. L'escadron Rouge l'escorte en X-wing.
@@ -219,18 +258,53 @@ Détails, performances et reconstruction : [docs/AURORE-03.md](docs/AURORE-03.md
 
 ## Construire et modifier le mod
 
-Tout ce qu'il faut pour reconstruire et modifier le mod planète est dans git : scripts Lua et tables (`mods/planet/data/tables`), missions, shaders et générateurs procéduraux dans `scripts/`. Les quelque 2,6 Go de modèles et textures ne sont pas dans git : ils sont générés.
+Tout ce qu'il faut pour reconstruire et modifier le mod planète est dans git : scripts Lua et tables (`mods/planet/data/tables`), missions, shaders et générateurs procéduraux dans `scripts/`. Les quelque 2,6 Go de modèles et textures ne sont **pas** dans git : un script les génère (quelques minutes, environ 2,6 Go sur le disque). La construction n'a besoin que de Python ; le jeu ne sert qu'à jouer.
+
+**Prérequis (les deux systèmes)**
+- **Git** et **Python 3.10 ou plus**.
+- Pour jouer : **Fate of the Galaxy 1.1.2** installé avec **Knossos.NET**, et le moteur **FSO 26.2.0** ([page de la version](https://github.com/scp-fs2open/fs2open.github.com/releases/tag/release_26_2_0)).
+
+### macOS
 
 ```bash
-scripts/build_all.sh                 # reconstruction complète
-scripts/build_all.sh --assets-only   # seulement les modèles et textures ignorés par git
+git clone https://github.com/TheSamLePirate/SpaceSim.git
+cd SpaceSim
+scripts/build_all.sh
 ```
 
-Le script crée `.venv/` à partir de [`requirements.txt`](requirements.txt) (Python 3.10+, numpy, pillow), récupère si besoin les shaders de FSO 26.2.0 dans `tools/source-26.2.0`, puis lance tous les générateurs dans l'ordre. Pour jouer, il faut aussi **Fate of the Galaxy 1.1.2** (Knossos.NET) et le moteur **FSO 26.2.0**. Étapes et options : [docs/AURORE-03.md, « Reconstruction »](docs/AURORE-03.md#reconstruction).
+Pour jouer depuis le dépôt : extraire `fs2_open_26_2_0-builds-Mac-arm64.tar.gz` (ou `Mac-x86_64`) dans `tools/FSO-26.2.0/`, de façon à avoir `tools/FSO-26.2.0/fs2_open_26_2_0_arm64.app`, puis double-cliquer sur **Aurore - Evasion.command**. Les lanceurs relient eux-mêmes le mod à la bibliothèque Knossos.
 
-Une reconstruction complète réécrit des fichiers générés suivis par git (missions, certaines tables, shaders) : les vérifier avec `git diff`. Pour changer une mission générée, modifier `scripts/create_planet_mission.py`, pas le fichier `.fs2`.
+### Windows
 
-## Jouer sous Windows
+1. Installer [Git for Windows](https://git-scm.com/download/win) (avec **Git Bash**) et [Python 3.10+](https://www.python.org/downloads/) (cocher « Add python.exe to PATH »).
+2. Dans **Git Bash** :
+   ```bash
+   git clone https://github.com/TheSamLePirate/SpaceSim.git
+   cd SpaceSim
+   scripts/build_all.sh
+   ```
+3. Pour jouer, dans la bibliothèque Knossos (par exemple `C:\Games\FSO`, à côté de `FotG_R`) :
+   - dézipper `fs2_open_26_2_0-builds-x64-AVX.zip` dans `engine\` ;
+   - relier le mod construit sous le nom `SpaceSimPlanet` (Invite de commandes) : `mklink /J "C:\Games\FSO\SpaceSimPlanet" "C:\chemin\vers\SpaceSim\mods\planet"` ;
+   - copier les fichiers de `windows\` (lanceurs `.bat`) dans `C:\Games\FSO` et double-cliquer sur **Aurore - Evasion.bat**.
+
+Détails : [windows/LISEZMOI-WINDOWS.txt](windows/LISEZMOI-WINDOWS.txt).
+
+### Options et modifications
+
+```bash
+scripts/build_all.sh --assets-only   # seulement les modèles et textures ignorés par git
+scripts/build_all.sh --quality high  # shader plus léger : low | high | ultra (défaut)
+scripts/build_all.sh --from tiles    # reprendre à partir d'une étape
+```
+
+Le script crée `.venv/` à partir de [`requirements.txt`](requirements.txt) (numpy, pillow), récupère si besoin les shaders de FSO 26.2.0 dans `tools/source-26.2.0`, puis lance tous les générateurs dans l'ordre. Étapes : [docs/AURORE-03.md, « Reconstruction »](docs/AURORE-03.md#reconstruction).
+
+- **Gameplay, vol, cinématique, armes** : scripts Lua `mods/planet/data/tables/spacesim-*-sct.lua`, sans reconstruction.
+- **Terrain, forêts, avant-poste, nuages, missions, shaders** : modifier le générateur dans `scripts/`, puis relancer `build_all.sh` (ou `--from <étape>`).
+- Une reconstruction complète réécrit des fichiers générés suivis par git (missions, certaines tables, shaders) : les vérifier avec `git diff`. Pour changer une mission générée, modifier `scripts/create_planet_mission.py`, pas le fichier `.fs2`.
+
+## Envoyer le mod à un joueur Windows (sans construire)
 
 Le mod est multiplateforme ; seuls les lanceurs changent. Les lanceurs Windows sont dans [`windows/`](windows/).
 
