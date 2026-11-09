@@ -4,6 +4,10 @@
 
 Le cargo rebelle *Aurore* fuit par un canyon sous le feu impérial, monte en orbite, puis doit sauter en hyperespace avant que l'Étoile Noire ne détruise la planète. L'escadron Rouge l'escorte en X-wing.
 
+![Raid complet : canyon au lever du soleil, ascension à travers les nuages, attaque en orbite face au destroyer stellaire, puis saut en hyperespace](artifacts/planet/aurore03-raid-aaa.jpg)
+
+*Le raid d'un bout à l'autre : vol dans le canyon, ascension à travers les nuages, combat en orbite contre le destroyer stellaire, saut en hyperespace.*
+
 | Lanceur | Contenu |
 |---|---|
 | **Aurore - Evasion.command** | mission jouable (solo), avec briefing et débriefing |
@@ -33,6 +37,18 @@ Planète de 160 km survolable du sol à l'orbite, sans chargement. Elle a une at
 - **Aurore - Vol libre.app** / **Aurore - Sol vers orbite.app** : jeu (F8 trajet auto, F9 vitesse, F7 heure du jour, F6 cycle jour/nuit).
 - **Aurore - Qualite max.command** : ombres ultra et MSAA.
 - **Aurore - Vitrine.command** : 17 plans cinématiques enregistrés automatiquement.
+
+**Du sol à l'orbite sans chargement** : vue cockpit de la vallée jusqu'à 60 km d'altitude, en traversant la couche nuageuse.
+
+![Montée continue en cockpit X-wing : vallée, 2 km, 5 km dans les nuages, 10 km, 25 km, 40 km, 60 km puis orbite](artifacts/planet/aurore03-vol.jpg)
+
+**Atmosphère physique et cycle jour/nuit** : midi, heure dorée, coucher de soleil, crépuscule, vue à 8 km au-dessus des nuages et planète vue depuis l'orbite.
+
+![Ciel et éclairage selon l'heure : vallée à midi, heure dorée, coucher, crépuscule, 8 km au coucher et l'après-midi, orbite de jour](artifacts/planet/aurore03-ciel-aaa.jpg)
+
+**La vitrine** : l'avant-poste impérial de jour, au coucher et de nuit, une tour turbolaser qui tire, un AT-AT, la forêt, puis la planète au terminateur et la vallée de nuit.
+
+![Vitrine : avant-poste impérial jour/coucher/nuit, tourelle, AT-AT, forêt, ciels et vues orbitales](artifacts/planet/aurore03-vitrine.jpg)
 
 Détails, performances et reconstruction : [docs/AURORE-03.md](docs/AURORE-03.md).
 
