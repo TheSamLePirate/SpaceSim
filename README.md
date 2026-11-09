@@ -1,4 +1,146 @@
-# SpaceSim — prototypes FSO
+<a id="english"></a>
+
+# SpaceSim — FSO prototypes
+
+**English** · [Français](#francais)
+
+## Aurore – Escape (playable mission, solo and co-op up to 4 players)
+
+The rebel freighter *Aurore* flees through a canyon under Imperial fire, climbs to orbit, then has to jump to hyperspace before the Death Star destroys the planet. Red Squadron escorts it in X-wings.
+
+![Full raid: canyon at sunrise, climb through the clouds, attack in orbit against the Star Destroyer, then the jump to hyperspace](artifacts/planet/aurore03-raid-aaa.jpg)
+
+*The raid from start to finish: canyon run, climb through the clouds, orbital fight against the Star Destroyer, hyperspace jump.*
+
+| Launcher | What it does |
+|---|---|
+| **Aurore - Evasion.command** | playable mission (solo), with briefing and debriefing |
+| **Aurore - Evasion coop.command** | game menu: Multiplayer → Host → "[Rebel] Aurore - Evasion (coop)" |
+| **Aurore - Evasion (cinematique).command** | the full cinematic |
+
+**In game**
+- **F10**: Arcade (assisted) or Simulation flight.
+- **Space**: skip the intro.
+- **Objectives**: destroy the 10 canyon batteries (as a team), protect the *Aurore*, then jump when ordered.
+- **Secondary objectives**: the communications tower (otherwise reinforcements arrive) and the escaping shuttle.
+
+**Documentation** (in French)
+- Plan and status of each phase: [docs/PLAN-AURORE-EVASION.md](docs/PLAN-AURORE-EVASION.md).
+- Aircraft-style flight: [docs/VOL-AVION.md](docs/VOL-AVION.md).
+- Rendering, performance, weapons and crashes: [docs/AURORE-03.md](docs/AURORE-03.md).
+
+**Automated tests**: `scripts/test_all.sh` (about 25 min). It covers the heightmap, weapons, cinematic, crashes, flight, AI, respawn and the full mission.
+
+First mission for **Fate of the Galaxy 1.1.2**, built with its existing assets.
+
+## Aurore 03: "AAA" planet, atmosphere and clouds
+
+A 160 km planet you can fly over from the ground to orbit, with no loading screen. It has a physically based atmosphere with real sunsets, volumetric clouds, and an Imperial outpost with firing turbolaser towers, AT-ATs, forests and rocks.
+
+- **Aurore - Vol libre.app** / **Aurore - Sol vers orbite.app**: game (F8 autopilot route, F9 speed, F7 time of day, F6 day/night cycle).
+- **Aurore - Qualite max.command**: ultra shadows and MSAA.
+- **Aurore - Vitrine.command**: 17 cinematic shots recorded automatically.
+
+**Ground to orbit with no loading**: cockpit view from the valley up to 60 km altitude, through the cloud layer.
+
+![Continuous climb from an X-wing cockpit: valley, 2 km, 5 km inside the clouds, 10 km, 25 km, 40 km, 60 km, then orbit](artifacts/planet/aurore03-vol.jpg)
+
+**Physical atmosphere and day/night cycle**: noon, golden hour, sunset, dusk, a view from 8 km above the clouds, and the planet seen from orbit.
+
+![Sky and lighting by time of day: valley at noon, golden hour, sunset, dusk, 8 km at sunset and in the afternoon, orbit by day](artifacts/planet/aurore03-ciel-aaa.jpg)
+
+**The showcase**: the Imperial outpost by day, at sunset and at night, a firing turbolaser tower, an AT-AT, the forest, then the planet at the terminator and the valley at night.
+
+![Showcase: Imperial outpost day/sunset/night, turret, AT-AT, forest, skies and orbital views](artifacts/planet/aurore03-vitrine.jpg)
+
+Details, performance and rebuilding: [docs/AURORE-03.md](docs/AURORE-03.md).
+
+## Terrain 01: ground and continuous climb
+
+A rocky **8 × 8 km** terrain, physical collisions and a Star Destroyer at **6 km altitude**, all in a single mission.
+
+- **Terrain - Vol libre.app** to explore.
+- **Terrain - Demonstration.app** for an automatic climb of about 25 seconds, after which you take back control.
+- **Terrain - FRED.app** to edit the mission.
+
+At the briefing: **Commit** or **Ctrl + Enter**.
+
+In-game checks passed on the M1 Max. See [the guide and results](docs/TERRAIN-01.md) and [the saved log](artifacts/terrain/validation-m1max.txt). The M1 Mac mini is still to be tested.
+
+## Escorte Aurore: open and play
+
+From this folder in the Finder:
+
+- **SpaceSim FRED.app** opens the mission in QtFRED 26.2.0.
+- **Escorte Aurore.app** starts the game on the mission briefing.
+- **Ouvrir FRED.command** and **Jouer Escorte Aurore.command** do the same through Terminal.
+
+The launchers set the working directory before starting the engine. Opening the QtFRED application in `tools/FSO-26.2.0` directly can cause the error "cannot be run from a drive root directory".
+
+The Fate of the Galaxy content must stay installed here:
+
+```
+~/Library/Application Support/io.github.KnossosNET.Knossos_NET/FreespaceOpen/FotG_R/FotG_R-1.1.2
+```
+
+The mission is also symlinked into the game's `data/missions/sp` folder. It appears as **[Rebel] Escorte Aurore** in the mission simulator. The bundled game launcher uses FSO 26.2.0; the 26.0.1 engine already installed in Knossos remains available.
+
+## Scenario
+
+- **Red 1**: your X-wing.
+- **Red 2**: your X-wing wingman, tasked with protecting Aurore.
+- **Aurore**: a GR-75 transport carrying medical supplies.
+- **Alpha 1 and Alpha 2**: two TIEs attacking the transport.
+
+Destroy both TIEs and protect Aurore. Five seconds after they are destroyed, the transport starts its jump to hyperspace. The mission ends automatically six seconds after it leaves. If Aurore is destroyed, the mission fails after seven seconds.
+
+## Editing the mission in FRED
+
+Main file: `missions/_SPT_A99_Aurore.fs2`.
+
+1. Open **SpaceSim FRED.app**.
+2. In the **Scene Browser**, select **Aurore**, **Red** or **Alpha**. Expand the squadrons to select individual fighters.
+3. Use **Select and Move (M)** to move ships and **Zoom Extents (Shift+Z)** to frame the scene.
+4. The **Mission** and **Narrative** menus give access to goals, events, briefings and messages.
+5. Run **Tools → Error Checker** after your changes, then save.
+6. Launch **Escorte Aurore.app** again to test them.
+
+First exercise: move the TIEs further away, save, and see that the player now has more time to intercept the attack.
+
+## Working files
+
+- `missions/`: editable mission.
+- `scripts/install_mission.py`: creates the link into the game installation without overwriting an existing file.
+- `scripts/create_mission.py`: initial generator; **do not run it again after editing in FRED**, as it rewrites the mission.
+- `scripts/read_lz41.py`: reads compressed assets to inspect examples and specs.
+- `scripts/launcher.c`: source of the small macOS launchers.
+- `docs/FotG-FRED-reference.txt`: official FotG documentation downloaded for this project.
+- `docs/reference/`: reference copies of tables and missions from the local installation.
+- `tools/FSO-26.2.0/`: official engine and QtFRED for Apple Silicon Macs.
+- `tools/source/`: official 26.0.1 source code, used to check formats and parameters; the engine never needed to be compiled.
+
+## Checks
+
+- Mission opened in QtFRED 26.2.0 with 5 ships and 2 squadrons.
+- **Tools → Error Checker: No errors found!**
+- Briefing and cockpit loaded in FSO 26.2.0 with the FotG assets.
+- Success, failure and balancing still need to be confirmed by a full playthrough.
+
+## Sources
+
+- [Fate of the Galaxy FRED guide](https://docs.google.com/document/d/1HRUfu9wU3tmZcbsOGLo27g_7FQWo7xmVteXNrXKk2Ns/edit)
+- [Official engine and QtFRED 26.2.0](https://github.com/scp-fs2open/fs2open.github.com/releases/tag/release_26_2_0)
+- [Engine source code](https://github.com/scp-fs2open/fs2open.github.com)
+
+The game's models, textures, sounds and scripts stay in the Knossos installation. This working folder is not a standalone distribution of the game.
+
+---
+
+<a id="francais"></a>
+
+# SpaceSim — prototypes FSO (version française)
+
+[English](#english) · **Français**
 
 ## Aurore – Évasion (mission jouable, solo et coop jusqu'à 4 joueurs)
 
