@@ -1,0 +1,5 @@
+# Python dependencies of the asset generators (scripts/build_*.py, create_*_mission.py).
+# Python 3.10 or newer. Installed automatically by scripts/build_all.sh into .venv/.
+# Last tested with numpy 2.5.4 and pillow 13.0.0.
+numpy>=2.0
+pillow>=10.0

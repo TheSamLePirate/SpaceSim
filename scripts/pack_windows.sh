@@ -4,7 +4,7 @@
 set -e
 PROJECT_DIR="${0:A:h:h}"
 OUT="$PROJECT_DIR/artifacts/SpaceSim-Windows.zip"
-[[ -d "$PROJECT_DIR/mods/planet/data/models" ]] || { echo "mods/planet/data/models missing: rebuild the planet first (docs/AURORE-03.md)"; exit 1; }
+[[ -d "$PROJECT_DIR/mods/planet/data/models" ]] || { echo "mods/planet/data/models missing: run scripts/build_all.sh first"; exit 1; }
 STAGE=$(mktemp -d)
 trap 'rm -rf "$STAGE"' EXIT
 ln -s "$PROJECT_DIR/mods/planet" "$STAGE/SpaceSimPlanet"

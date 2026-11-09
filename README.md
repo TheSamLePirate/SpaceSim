@@ -55,6 +55,19 @@ A 160 km planet you can fly over from the ground to orbit, with no loading scree
 
 Details, performance and rebuilding: [docs/AURORE-03.md](docs/AURORE-03.md).
 
+## Building and modding the mod
+
+Everything needed to rebuild and modify the planet mod is in git: Lua scripts and tables (`mods/planet/data/tables`), missions, shaders, and the procedural generators in `scripts/`. The ~2.6 GB of models and textures are not in git; they are generated:
+
+```bash
+scripts/build_all.sh                 # full rebuild
+scripts/build_all.sh --assets-only   # only the git-ignored models/textures
+```
+
+It creates `.venv/` from [`requirements.txt`](requirements.txt) (Python 3.10+, numpy, pillow), fetches the FSO 26.2.0 shader sources into `tools/source-26.2.0` when needed, and runs every generator in order. You also need **Fate of the Galaxy 1.1.2** (Knossos.NET) and the **FSO 26.2.0** engine to play. Steps and options: [docs/AURORE-03.md, « Reconstruction »](docs/AURORE-03.md#reconstruction) (in French).
+
+A full rebuild rewrites generated files tracked by git (missions, some tables, shaders): review them with `git diff`. To change a generated mission, edit `scripts/create_planet_mission.py`, not the `.fs2` file.
+
 ## Playing on Windows
 
 The mod itself is cross-platform; only the launchers differ. Windows launchers are in [`windows/`](windows/).
@@ -203,6 +216,19 @@ Planète de 160 km survolable du sol à l'orbite, sans chargement. Elle a une at
 ![Vitrine : avant-poste impérial jour/coucher/nuit, tourelle, AT-AT, forêt, ciels et vues orbitales](artifacts/planet/aurore03-vitrine.jpg)
 
 Détails, performances et reconstruction : [docs/AURORE-03.md](docs/AURORE-03.md).
+
+## Construire et modifier le mod
+
+Tout ce qu'il faut pour reconstruire et modifier le mod planète est dans git : scripts Lua et tables (`mods/planet/data/tables`), missions, shaders et générateurs procéduraux dans `scripts/`. Les quelque 2,6 Go de modèles et textures ne sont pas dans git : ils sont générés.
+
+```bash
+scripts/build_all.sh                 # reconstruction complète
+scripts/build_all.sh --assets-only   # seulement les modèles et textures ignorés par git
+```
+
+Le script crée `.venv/` à partir de [`requirements.txt`](requirements.txt) (Python 3.10+, numpy, pillow), récupère si besoin les shaders de FSO 26.2.0 dans `tools/source-26.2.0`, puis lance tous les générateurs dans l'ordre. Pour jouer, il faut aussi **Fate of the Galaxy 1.1.2** (Knossos.NET) et le moteur **FSO 26.2.0**. Étapes et options : [docs/AURORE-03.md, « Reconstruction »](docs/AURORE-03.md#reconstruction).
+
+Une reconstruction complète réécrit des fichiers générés suivis par git (missions, certaines tables, shaders) : les vérifier avec `git diff`. Pour changer une mission générée, modifier `scripts/create_planet_mission.py`, pas le fichier `.fs2`.
 
 ## Jouer sous Windows
 

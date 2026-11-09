@@ -100,15 +100,36 @@ La plus grosse dépense vient des nuages volumétriques devant le terrain vu de 
 
 ## Reconstruction
 
+Les modèles et textures de `mods/planet/data/models` et `maps` (environ 2,6 Go) ne sont pas dans git : ils sont entièrement procéduraux et se régénèrent avec une seule commande.
+
 ```
-cd scripts
-../.venv/bin/python build_cloud_noise.py              # volume de bruit (15 s)
-../.venv/bin/python build_planet_tiles.py --depth 8 --cells 192   # terrain (45 s)
-../.venv/bin/python build_planet_atmosphere.py
-../.venv/bin/python build_planet_ground.py            # avant-poste, forêts, rochers (1 min)
-../.venv/bin/python create_planet_mission.py
-../.venv/bin/python build_planet_shader.py --quality ultra
+scripts/build_all.sh                  # tout reconstruire
+scripts/build_all.sh --assets-only    # seulement les fichiers ignorés par git (modèles, textures)
+scripts/build_all.sh --quality high   # niveau du shader : low | high | ultra (défaut ultra)
+scripts/build_all.sh --from tiles     # reprendre à partir d'une étape
 ```
+
+Le script :
+1. crée `.venv/` et installe `requirements.txt` (numpy, pillow ; Python 3.10 ou plus) ;
+2. récupère si besoin les shaders officiels de FSO 26.2.0 dans `tools/source-26.2.0` (clone git partiel du tag `release_26_2_0` : seulement `code/def_files/data/effects` et les licences) ;
+3. lance les générateurs dans l'ordre des dépendances.
+
+| Étape | Script | Produit |
+|---|---|---|
+| `planet` | `build_planet.py` | textures des faces `ss_p_*`, ciel, coques d'atmosphère |
+| `clouds` | `build_planet_clouds.py` | coques de nuages `ss_c_*` (couche historique) |
+| `noise` | `build_cloud_noise.py` | atlas de bruit 3D `ss_air-trans-misc` (nuages, masques forêt/roche) |
+| `tiles` | `build_planet_tiles.py --depth 8 --cells 192` | tuiles de terrain et collisions, `artifacts/planet/tiles.json` |
+| `heightmap` | `build_planet_heightmap.py` | `spacesim-height.txt` (altitude pour le Lua), lit `tiles.json` |
+| `atmosphere` | `build_planet_atmosphere.py` | maillage d'atmosphère unique `ss_atmo_0` |
+| `ground` | `build_planet_ground.py` | avant-poste, tours turbolaser, AT-AT, rochers, `ground.json` |
+| `vegetation` | `build_planet_vegetation.py --spacing 9 --density 1.3 --boxes` | secteurs de forêt, `vegetation.json` |
+| `deathstar` | `build_death_star.py` | Étoile Noire |
+| `cine` | `build_cine_assets.py` | noyau, fragments et halos de la destruction de la planète |
+| `missions` | `create_planet_mission.py` | toutes les missions de la planète, `spacesim-prp.tbm`, `spacesim-mod.tbm` |
+| `shader` | `build_planet_shader.py --quality ultra` | `effects/*.sdr` (atmosphère, nuages, matériaux) |
+
+Les étapes `missions` et `shader` réécrivent des fichiers suivis par git ; les autres réécrivent aussi les `.json` et aperçus de `artifacts/planet`. Après une reconstruction complète, vérifier les changements avec `git diff`. Une modification faite à la main dans une mission générée est perdue à l'étape `missions` : il faut la reporter dans `create_planet_mission.py`.
 
 Vérification : `scripts/capture_planet.sh <dossier> [showcase] [showg]` lance le vol automatique (ou la vitrine), enregistre les captures et la télémétrie, et `scripts/contact_sheet.py` assemble une planche.
 
@@ -196,6 +217,6 @@ Fin de la cinématique sous Vulkan : 81,5 FPS en orbite, 53,5 pendant la destruc
 - **Crash intermittent** (une fois) dans `fireball_create`, sur une explosion Lua très lointaine (80 km, rayon de 12 km). Les explosions de la surface pendant le réchauffement de la planète sont donc devenues des particules animées avec la même texture.
 - **Le harnais signale désormais les crashs** (processus disparu) avec la pile d'appels du rapport macOS (code de sortie 4).
 
-**Ordre de reconstruction mis à jour**
-- Étape 5 : `build_planet_vegetation.py --spacing 9 --density 1.3 --boxes`.
+**Ordre de reconstruction mis à jour** (intégré à `scripts/build_all.sh`, voir [Reconstruction](#reconstruction))
+- Végétation : `build_planet_vegetation.py --spacing 9 --density 1.3 --boxes`.
 - Nouvelle étape après les tuiles : `build_planet_heightmap.py`.
