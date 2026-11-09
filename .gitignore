@@ -14,3 +14,6 @@ mods/planet/data/spacesim-height.txt
 # test outputs
 artifacts/planet/shots/
 artifacts/**/*.log
+
+# Windows package (scripts/pack_windows.sh)
+artifacts/SpaceSim-Windows.zip
