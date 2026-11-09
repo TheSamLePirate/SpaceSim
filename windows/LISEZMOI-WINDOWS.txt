@@ -1,0 +1,41 @@
+SpaceSim - Aurore sous Windows
+==============================
+
+1. Installer Knossos.NET (https://fsnebula.org/knossos/) et choisir un dossier de
+   bibliotheque, par exemple C:\Games\FSO.
+2. Dans Knossos, installer Fate of the Galaxy 1.1.2
+   (il arrive dans C:\Games\FSO\FotG_R\FotG_R-1.1.2).
+3. Telecharger le moteur FSO 26.2.0 pour Windows :
+   https://github.com/scp-fs2open/fs2open.github.com/releases/tag/release_26_2_0
+   fichier fs2_open_26_2_0-builds-x64-AVX.zip (x64-SSE2 si le processeur est tres ancien),
+   et le dezipper dans C:\Games\FSO\engine
+4. Dezipper SpaceSim-Windows.zip directement dans C:\Games\FSO. Resultat :
+
+   C:\Games\FSO\
+     FotG_R\FotG_R-1.1.2\
+     SpaceSimPlanet\data\...
+     engine\fs2_open_26_2_0_x64_AVX.exe
+     Aurore - Evasion.bat   (et les autres .bat)
+     _lancer.bat
+
+5. Double-cliquer sur un .bat :
+   - Aurore - Evasion.bat                : mission jouable (solo)
+   - Aurore - Evasion coop.bat           : menu -> Multijoueur -> Heberger ->
+                                           "[Rebel] Aurore - Evasion (coop)"
+   - Aurore - Evasion (cinematique).bat  : la cinematique
+   - Aurore - Vol libre.bat              : vol libre (F8 trajet auto, F9 vitesse,
+                                           F7 heure, F6 cycle jour/nuit)
+   - Aurore - Sol vers orbite.bat        : montee automatique
+   Au premier lancement, creer un pilote. En jeu : F10 Arcade/Simulation, Espace
+   passe l'intro.
+
+Reglages (en haut de _lancer.bat, a ouvrir avec le Bloc-notes)
+   RENDU=-vulkan   -> mettre RENDU= (vide) pour OpenGL si ecran noir ou crash.
+   RES=1920x1080   -> resolution de la fenetre.
+   OMBRES=3        -> 2 si le jeu rame, 0 pour aucune ombre.
+
+Coop
+   - Tous les joueurs ont le meme SpaceSim-Windows.zip et FotG 1.1.2.
+   - L'hote autorise fs2_open dans le pare-feu Windows.
+   - Par Internet : ouvrir le port UDP 7808 chez l'hote, ou utiliser un VPN de jeu
+     (ZeroTier, Tailscale, Radmin VPN) et rejoindre avec l'IP du VPN.

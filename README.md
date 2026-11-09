@@ -55,6 +55,16 @@ A 160 km planet you can fly over from the ground to orbit, with no loading scree
 
 Details, performance and rebuilding: [docs/AURORE-03.md](docs/AURORE-03.md).
 
+## Playing on Windows
+
+The mod itself is cross-platform; only the launchers differ. Windows launchers are in [`windows/`](windows/).
+
+1. On the Mac, run `scripts/pack_windows.sh`: it builds `artifacts/SpaceSim-Windows.zip` (about 2.6 GB, the generated planet mod plus the `.bat` launchers).
+2. On the Windows PC: install **Knossos.NET** and **Fate of the Galaxy 1.1.2**, then unzip the **FSO 26.2.0** Windows engine (`fs2_open_26_2_0-builds-x64-AVX.zip`, [release page](https://github.com/scp-fs2open/fs2open.github.com/releases/tag/release_26_2_0)) into `engine\` inside the Knossos library.
+3. Unzip `SpaceSim-Windows.zip` into the same library and double-click **Aurore - Evasion.bat** (or the coop, cinematic, free-flight launchers).
+
+Step-by-step guide, settings (Vulkan/OpenGL, resolution, shadows) and co-op networking: [windows/LISEZMOI-WINDOWS.txt](windows/LISEZMOI-WINDOWS.txt) (in French). Not yet tested on Windows.
+
 ## Terrain 01: ground and continuous climb
 
 A rocky **8 × 8 km** terrain, physical collisions and a Star Destroyer at **6 km altitude**, all in a single mission.
@@ -193,6 +203,16 @@ Planète de 160 km survolable du sol à l'orbite, sans chargement. Elle a une at
 ![Vitrine : avant-poste impérial jour/coucher/nuit, tourelle, AT-AT, forêt, ciels et vues orbitales](artifacts/planet/aurore03-vitrine.jpg)
 
 Détails, performances et reconstruction : [docs/AURORE-03.md](docs/AURORE-03.md).
+
+## Jouer sous Windows
+
+Le mod est multiplateforme ; seuls les lanceurs changent. Les lanceurs Windows sont dans [`windows/`](windows/).
+
+1. Sur le Mac, lancer `scripts/pack_windows.sh` : il crée `artifacts/SpaceSim-Windows.zip` (environ 2,6 Go : le mod planète généré et les lanceurs `.bat`).
+2. Sur le PC Windows : installer **Knossos.NET** et **Fate of the Galaxy 1.1.2**, puis dézipper le moteur **FSO 26.2.0** pour Windows (`fs2_open_26_2_0-builds-x64-AVX.zip`, [page de la version](https://github.com/scp-fs2open/fs2open.github.com/releases/tag/release_26_2_0)) dans `engine\`, dans la bibliothèque Knossos.
+3. Dézipper `SpaceSim-Windows.zip` dans cette même bibliothèque et double-cliquer sur **Aurore - Evasion.bat** (ou les lanceurs coop, cinématique, vol libre).
+
+Guide pas à pas, réglages (Vulkan/OpenGL, résolution, ombres) et réseau en coop : [windows/LISEZMOI-WINDOWS.txt](windows/LISEZMOI-WINDOWS.txt). Pas encore testé sous Windows.
 
 ## Terrain 01 : sol et montée continue
 
