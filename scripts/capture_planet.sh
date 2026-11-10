@@ -22,11 +22,17 @@ CLIP0="$(pbpaste 2>/dev/null | shasum)"
 ERRFILE="$PROJECT_DIR/artifacts/planet/last-error.txt"; rm -f "$ERRFILE" "$U/spacesim-heartbeat.txt" "$U/spacesim-stop.txt"; DEADLINE=""
 # never read a previous run: the telemetry of this run only
 rm -f "$U/spacesim-planet-telemetry.txt"
+RUNSTAMP=$(mktemp); touch "$RUNSTAMP"
 for i in $(seq 1 $TIMEOUT); do
   sleep 1; [[ -f "$U/shot_$LAST.b64" ]] && break
   # the game process died (crash): report it with the macOS crash report
   if (( i > 5 )) && ! pgrep -f fs2_open_26_2_0_arm64 >/dev/null; then
-    REP=$(ls -t ~/Library/Logs/DiagnosticReports/fs2_open*.ips 2>/dev/null | head -1)
+    REP=$(find ~/Library/Logs/DiagnosticReports -name 'fs2_open*.ips' -newer "$RUNSTAMP" 2>/dev/null | head -1)
+    if [[ -z "$REP" ]]; then
+      print -r -- "FSO_EXIT (le jeu s'est ferme sans rapport de crash). Derniere telemetrie :"
+      tail -4 "$U/spacesim-planet-telemetry.txt" 2>/dev/null | cut -c1-160
+      rm -f "$U"/spacesim-*.flag; exit 4
+    fi
     print -r -- "FSO_CRASH (le jeu s'est arrete) : $REP"
     [[ -n "$REP" ]] && "$PROJECT_DIR/.venv/bin/python" - "$REP" <<'PYC' | tee "$ERRFILE"
 import json,sys
