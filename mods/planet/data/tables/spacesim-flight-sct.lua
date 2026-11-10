@@ -236,7 +236,8 @@ local function step(sh,dt,now)
         local gv=up*(-g*air*(mode=='arcade' and 0.55 or 1.0))
         local gPar=dot(gv,f)
         -- thrust / drag limited acceleration; scales with the envelope (climb to orbit behind the Aurore)
-        local aMax=math.max((mode=='arcade') and 60 or 35,0.3*vmax)
+        local aMax=(mode=='arcade') and 60 or 35
+        if cc and cc.play and cc.phase=='montee' then aMax=math.max(aMax,0.3*vmax) end
         vf=vf+(clamp((vGoal-vf)/math.max(0.3,tau),-aMax,aMax)+gPar)*dt
         if mode=='arcade' then vf=math.max(vf,55*air) end
         local lat=vel-f*dot(vel,f)

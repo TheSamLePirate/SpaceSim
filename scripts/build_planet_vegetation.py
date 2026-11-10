@@ -139,14 +139,14 @@ def tree_lods(base, up, hgt, seed, broad, shade):
     ax, bx = ring_frame(up, seed)
     band = int(shade * 3.99); u0, u1 = band * 0.25 + 0.02, band * 0.25 + 0.23    # colour variety per tree
     lod0, lod1, lod2 = [], [], []
-    trunk = frustum(base, up, hgt * 0.035, hgt * 0.022, -2.0, hgt * (0.45 if broad else 0.3), 5, 0, 1, ax, bx)
+    trunk = frustum(base, up, hgt * 0.035, hgt * 0.022, -2.0, hgt * (0.45 if broad else 0.3), 4, 0, 1, ax, bx)
     lod0.append((trunk, 1))
     if broad:
         lod0.append((crown(base, up, hgt * 0.36, hgt * 0.66, ax, bx, u0, u1, seed), 0))
         lod1.append((crown(base, up, hgt * 0.38, hgt * 0.64, ax, bx, u0, u1, seed + 1), 0))
     else:
-        for y0, w in ((0.22, 0.30), (0.45, 0.24), (0.66, 0.17)):
-            lod0.append((frustum(base, up, hgt * w, 0.03, hgt * y0, hgt * (y0 + 0.36), 8, u0, u1, ax, bx), 0))
+        for y0, w in ((0.22, 0.29), (0.52, 0.20)):          # 2 tiers (memory: ~1 KB of GPU buffer per triangle in FSO)
+            lod0.append((frustum(base, up, hgt * w, 0.03, hgt * y0, hgt * (y0 + 0.46), 6, u0, u1, ax, bx), 0))
         lod1.append((frustum(base, up, hgt * 0.27, 0.02, hgt * 0.10, hgt, 5, u0, u1, ax, bx), 0))
     # LOD2: three-triangle pyramid
     tip = base + up * hgt; w = hgt * 0.26
@@ -182,6 +182,8 @@ def boulder_lods(base, up, size, seed):
         return cache[k]
     for a, b, d in F:
         ab, bd, da = mid(a, b), mid(b, d), mid(d, a); F2 += [(a, ab, da), (b, bd, ab), (d, da, bd), (ab, bd, da)]
+    # memory (FSO keeps buffers + a collision tree per submodel): small stones keep the 20-face shape
+    if size < 3.5: return [(build(V, F), 0)], [(build(V, F), 0)], []
     return [(build(np.array(V2), F2), 0)], [(build(V, F), 0)], []
 
 # ---------------------------------------------------------------- POF with many sub-objects per LOD

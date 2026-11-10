@@ -1185,13 +1185,6 @@ $Detail distance: ( 0 1100 4500 13000 )
 $Category: SpaceSim World
 $Flags: ( "no_collide" )
 
-$Name: SpaceSim Veg 1717
-$POF file: ss_v_1717.pof
-$Closeup_pos: 0, 0, -300
-$Detail distance: ( 0 1100 4500 13000 )
-$Category: SpaceSim World
-$Flags: ( "no_collide" )
-
 $Name: SpaceSim Veg 2217
 $POF file: ss_v_2217.pof
 $Closeup_pos: 0, 0, -300
@@ -1208,20 +1201,6 @@ $Flags: ( "no_collide" )
 
 $Name: SpaceSim Veg 1718
 $POF file: ss_v_1718.pof
-$Closeup_pos: 0, 0, -300
-$Detail distance: ( 0 1100 4500 13000 )
-$Category: SpaceSim World
-$Flags: ( "no_collide" )
-
-$Name: SpaceSim Veg 1620
-$POF file: ss_v_1620.pof
-$Closeup_pos: 0, 0, -300
-$Detail distance: ( 0 1100 4500 13000 )
-$Category: SpaceSim World
-$Flags: ( "no_collide" )
-
-$Name: SpaceSim Veg 1720
-$POF file: ss_v_1720.pof
 $Closeup_pos: 0, 0, -300
 $Detail distance: ( 0 1100 4500 13000 )
 $Category: SpaceSim World
@@ -1264,13 +1243,6 @@ $Flags: ( "no_collide" )
 
 $Name: SpaceSim Veg 2324
 $POF file: ss_v_2324.pof
-$Closeup_pos: 0, 0, -300
-$Detail distance: ( 0 1100 4500 13000 )
-$Category: SpaceSim World
-$Flags: ( "no_collide" )
-
-$Name: SpaceSim Veg 1724
-$POF file: ss_v_1724.pof
 $Closeup_pos: 0, 0, -300
 $Detail distance: ( 0 1100 4500 13000 )
 $Category: SpaceSim World

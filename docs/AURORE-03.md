@@ -220,3 +220,24 @@ Fin de la cinématique sous Vulkan : 81,5 FPS en orbite, 53,5 pendant la destruc
 **Ordre de reconstruction mis à jour** (intégré à `scripts/build_all.sh`, voir [Reconstruction](#reconstruction))
 - Végétation : `build_planet_vegetation.py --spacing 9 --density 1.3 --boxes`.
 - Nouvelle étape après les tuiles : `build_planet_heightmap.py`.
+
+## Mémoire (10/11)
+
+**Symptôme** : le jeu dépassait 20 Go et plantait.
+
+**Causes**
+1. **Disque plein** : 118 Mo libres. macOS ne pouvait plus swapper pendant le pic de chargement.
+2. **Coût des triangles** : FSO alloue environ 1 Ko de tampons GPU (`IOAccelerator`, mesuré avec `vmmap`) par triangle de végétation chargé. Il crée aussi un arbre de collision pour chaque sous-modèle, même `no_collide`. Les forêts (10 M de triangles) dominaient donc la mémoire.
+
+| | Pic de chargement | En jeu |
+|---|---|---|
+| Sans végétation | 4 Go | 3,6 Go |
+| Avant (densité 1,3, 3 étages, rochers subdivisés) | > 22 Go | – |
+| **Après** (densité 1,0, 2 étages, petits rochers à 20 faces) | **17,5 Go**, transitoire | **5,3 Go** |
+
+Les forêts restent denses (112 000 arbres, 26 000 rochers). Sur le plan de forêt rasante (profil max) : 50 FPS.
+
+- **Reconstruction** : `build_planet_vegetation.py --spacing 9 --density 1.0`, puis `create_planet_mission.py`, car le nombre de secteurs change.
+- **Outils** :
+  - `scripts/mem_probe.sh <mode> [profil] [s]` : mémoire totale de toutes les instances FSO toutes les 2 s, avec arrêt de sécurité à 22 Go.
+  - `scripts/fso_stop.sh` : ferme toutes les instances et **attend** qu'il n'en reste aucune. Utilisé par le harnais avant chaque lancement.

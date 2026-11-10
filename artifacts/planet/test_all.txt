@@ -1,3 +1,1 @@
-vol            ECHEC (rc=0)  (96 s)
-ia             OK  (114 s)
-jeu            OK  (307 s)
+vol            OK  (67 s)

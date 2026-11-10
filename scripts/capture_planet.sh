@@ -13,7 +13,7 @@ mkdir -p "$U"; rm -f "$U"/shot_*.b64 "$U"/spacesim-*.flag
 for f in "${@:2}"; do touch "$U/spacesim-$f.flag"; done
 MODE="${MODE:-auto}"
 [[ -n "$ONLY" ]] && print -r -- "$ONLY" > "$U/spacesim-only.flag"
-pkill -f fs2_open_26_2_0_arm64 || true; sleep 1
+"$PROJECT_DIR/scripts/fso_stop.sh" || exit 5
 SPACESIM_KEEP_FLAGS=1 "$PROJECT_DIR/scripts/run_planet.sh" "$MODE" "${PROFILE:-qualite}" > "$PROJECT_DIR/artifacts/planet/fso-auto.log" 2>&1 &
 LAST="${STOP_AT:-12_orbite}"
 # FSO copies the text of every Lua error / Error / Warning dialog to the clipboard before showing it
@@ -58,12 +58,12 @@ PYC
     if print -r -- "$CLIP" | grep -q -E "LUA ERROR|stack traceback|Argument [0-9]|Error:|Warning:|Assert" && (( AGE >= 3 )); then
       print -r -- "$CLIP" > "$ERRFILE"
       print -r -- "FSO_ERROR (dialogue bloquant, jeu arrete) :"; print -r -- "$CLIP" | head -30
-      pkill -f fs2_open_26_2_0_arm64 || true; rm -f "$U"/spacesim-*.flag
+      "$PROJECT_DIR/scripts/fso_stop.sh"; rm -f "$U"/spacesim-*.flag
       exit 3
     fi
   fi
 done
-sleep 2; pkill -f fs2_open_26_2_0_arm64 || true
+sleep 2; "$PROJECT_DIR/scripts/fso_stop.sh"
 rm -f "$U"/spacesim-*.flag
 OUT="$PROJECT_DIR/artifacts/planet/shots/$1"; mkdir -p "$OUT"
 "$PROJECT_DIR/.venv/bin/python" - "$U" "$OUT" <<'PY'
